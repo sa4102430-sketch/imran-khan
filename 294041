@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imran Khan - Early Life</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="bg-teal-900 text-white shadow-md">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold tracking-wider">IMRAN KHAN</a>
+            <div class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="index.html" class="hover:text-yellow-400 transition">Home</a>
+                <a href="early-life.html" class="text-yellow-400">Early Life</a>
+                <a href="cricket.html" class="hover:text-yellow-400 transition">Cricket Era</a>
+                <a href="politics.html" class="hover:text-yellow-400 transition">Political Journey</a>
+            </div>
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-teal-950 px-4 py-3 space-y-2">
+            <a href="index.html" class="block hover:text-yellow-400 py-1">Home</a>
+            <a href="early-life.html" class="block text-yellow-400 py-1">Early Life</a>
+            <a href="cricket.html" class="block hover:text-yellow-400 py-1">Cricket Era</a>
+            <a href="politics.html" class="block hover:text-yellow-400 py-1">Political Journey</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-6 py-16 flex-grow">
+        <h1 class="text-4xl font-extrabold text-teal-900 border-b-2 border-yellow-500 pb-3 mb-8">EARLY LIFE & EDUCATION</h1>
+        
+        <div class="grid md:grid-cols-2 gap-8 items-start">
+            <!-- Left Side Image Placeholder -->
+            <div class="bg-gray-300 h-80 rounded-xl flex items-center justify-center text-gray-500 shadow-md">
+                [Childhood & Oxford Image Placeholder]
+            </div>
+
+            <!-- Right Side Urdu Details -->
+            <div class="space-y-6 text-right" dir="rtl">
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    عمران خان 5 اکتوبر 1952 کو لاہور کے ایک متمول اور پڑھے لکھے نیازی خاندان میں پیدا ہوئے۔ ان کے والد اکرام اللہ خان نیازی سول انجینئر تھے اور ان کی والدہ شوکت خانم ایک باوقار خاتون تھیں۔
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    انہوں نے اپنی ابتدائی تعلیم لاہور کے مشہور **ایچی سن کالج** سے حاصل کی جہاں انہوں نے نہ صرف پڑھائی میں بلکہ کھیلوں، خاص طور پر کرکٹ میں اپنی صلاحیتوں کا لوہا منوایا۔
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    بعد ازاں، وہ اعلیٰ تعلیم کے لیے انگلستان چلے گئے اور وہاں دنیا کی مایہ ناز **آکسفورڈ یونیورسٹی** سے فلسفہ، سیاست اور معاشیات (PPE) میں ڈگری حاصل کی۔ بچپن ہی سے ان کی زندگی نظم و ضبط اور محنت کا عکاس تھی۔
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-gray-400 py-6 text-center text-sm border-t border-slate-800">
+        <p>&copy; 2026 Imran Khan Biography. Created by Saad Ali.</p>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

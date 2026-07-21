@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imran Khan - Cricket Career</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="bg-teal-900 text-white shadow-md">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold tracking-wider">IMRAN KHAN</a>
+            <div class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="index.html" class="hover:text-yellow-400 transition">Home</a>
+                <a href="early-life.html" class="hover:text-yellow-400 transition">Early Life</a>
+                <a href="cricket.html" class="text-yellow-400">Cricket Era</a>
+                <a href="politics.html" class="hover:text-yellow-400 transition">Political Journey</a>
+            </div>
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-teal-950 px-4 py-3 space-y-2">
+            <a href="index.html" class="block hover:text-yellow-400 py-1">Home</a>
+            <a href="early-life.html" class="block hover:text-yellow-400 py-1">Early Life</a>
+            <a href="cricket.html" class="block text-yellow-400 py-1">Cricket Era</a>
+            <a href="politics.html" class="block hover:text-yellow-400 py-1">Political Journey</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-6 py-16 flex-grow">
+        <h1 class="text-4xl font-extrabold text-teal-900 border-b-2 border-yellow-500 pb-3 mb-8">CRICKET ERA & CHALLENGES</h1>
+        
+        <div class="space-y-8 text-right" dir="rtl">
+            <p class="text-lg text-gray-700 leading-relaxed">
+                عمران خان نے 1971 میں پاکستان کے لیے اپنا پہلا ٹیسٹ میچ کھیلا۔ ان کا کرکٹ کا سفر اسان نہیں تھا، شروع میں انہیں ٹیم سے ڈراپ بھی کیا گیا، لیکن انہوں نے اپنی بولنگ سپیڈ اور فٹنس پر بے پناہ محنت کی اور دنیا کے بہترین آل راؤنڈر بن کر ابھرے۔
+            </p>
+
+            <!-- Highlighting Struggles with HTML styling -->
+            <div class="bg-teal-50 border-r-4 border-teal-700 p-6 rounded-lg my-6">
+                <h3 class="text-xl font-bold text-teal-900 mb-2 text-left" dir="ltr">The Toughest Phase (Injury & Pain)</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    ان کے کیریئر کی سب سے بڑی مشکل 1982 میں آئی جب ان کے گھٹنے اور پنڈلی میں شدید چوٹ (Stress Fracture) آئی۔ ڈاکٹروں نے یہاں تک کہہ دیا تھا کہ وہ شاید اب کبھی بولنگ نہ کر سکیں، لیکن انہوں نے سالہا سال کے علاج اور مضبوط قوت ارادی کی بدولت دوبارہ میدان میں واپسی کی اور کپتان بنے۔
+                </p>
+            </div>
+
+            <!-- Interactive JS Fact Checker -->
+            <div class="bg-slate-100 p-6 rounded-lg text-center" dir="ltr">
+                <h3 class="text-lg font-semibold text-slate-800 mb-3">Do you know what happened in 1992?</h3>
+                <button id="fact-btn" class="bg-teal-700 hover:bg-teal-800 text-white font-medium py-2 px-6 rounded transition">
+                    Show 1992 Victory Secret
+                </button>
+                <p id="fact-details" class="mt-4 text-gray-700 font-medium hidden text-right" dir="rtl">
+                    شدید انجری اور بیمار کھلاڑیوں کے باوجود، عمران خان نے پاکستان کرکٹ ٹیم کو "کارنرڈ ٹائیگرز" کا لقب دیا اور 1992 میں پاکستان کو پہلا اور واحد ورلڈ کپ جتوایا۔
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-gray-400 py-6 text-center text-sm border-t border-slate-800">
+        <p>&copy; 2026 Imran Khan Biography. Created by Saad Ali.</p>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Toggle Fact
+        const factBtn = document.getElementById('fact-btn');
+        const factDetails = document.getElementById('fact-details');
+        factBtn.addEventListener('click', () => {
+            factDetails.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

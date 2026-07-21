@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imran Khan - Political Journey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="bg-teal-900 text-white shadow-md">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold tracking-wider">IMRAN KHAN</a>
+            <div class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="index.html" class="hover:text-yellow-400 transition">Home</a>
+                <a href="early-life.html" class="hover:text-yellow-400 transition">Early Life</a>
+                <a href="cricket.html" class="hover:text-yellow-400 transition">Cricket Era</a>
+                <a href="politics.html" class="text-yellow-400">Political Journey</a>
+            </div>
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-teal-950 px-4 py-3 space-y-2">
+            <a href="index.html" class="block hover:text-yellow-400 py-1">Home</a>
+            <a href="early-life.html" class="block hover:text-yellow-400 py-1">Early Life</a>
+            <a href="cricket.html" class="block hover:text-yellow-400 py-1">Cricket Era</a>
+            <a href="politics.html" class="block text-yellow-400 py-1">Political Journey</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-6 py-16 flex-grow">
+        <h1 class="text-4xl font-extrabold text-teal-900 border-b-2 border-yellow-500 pb-3 mb-8">POLITICAL STRUGGLE</h1>
+        
+        <div class="space-y-8 text-right" dir="rtl">
+            <p class="text-lg text-gray-700 leading-relaxed">
+                کرکٹ کے بعد عمران خان کا سب سے بڑا کام اپنی والدہ کی یاد میں **شوکت خانم میموریل کینسر ہسپتال** کی تعمیر تھا، جس کے فنڈز اکٹھے کرنے کے لیے انہوں نے ملک گیر مہم چلائی۔
+            </p>
+            <p class="text-lg text-gray-700 leading-relaxed">
+                ہسپتال کے بعد 1996 میں انہوں نے اپنی سیاسی جماعت **پاکستان تحریک انصاف (PTI)** کی بنیاد رکھی۔ ان کی سیاست کا آغاز انتہائی کٹھن تھا۔ تقریباً 15 سال تک وہ پارلیمنٹ میں کوئی بڑی جگہ نہ بنا سکے۔ میڈیا اور دیگر جماعتوں کی طرف سے انہیں مسلسل تنقید کا نشانہ بنایا گیا۔
+            </p>
+            <p class="text-lg text-gray-700 leading-relaxed">
+                انہوں نے نظام کی تبدیلی اور کرپشن کے خلاف بے شمار دھرنے دیے، جن میں 2014 کا تاریخی 126 دن کا دھرنا بھی شامل ہے۔ بالاخر، 22 سال کی طویل ترین انفرادی سیاسی جدوجہد کے بعد، ان کی جماعت 2018 کے عام انتخابات میں اکثریتی جماعت بن کر ابھری اور وہ پاکستان کے 22ویں وزیر اعظم منتخب ہوئے۔
+            </p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-gray-400 py-6 text-center text-sm border-t border-slate-800">
+        <p>&copy; 2026 Imran Khan Biography. Created by Saad Ali.</p>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
