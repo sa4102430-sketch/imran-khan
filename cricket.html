@@ -45,29 +45,16 @@
             letter-spacing: 1px;
         }
         
-        /* Highly Professional Google Translate Override Styling */
-        .goog-te-gadget {
-            font-family: 'Segoe UI', sans-serif !important;
-            color: transparent !important;
-            font-size: 0px !important;
-        }
-        .goog-te-combo {
-            background-color: #0f172a !important;
-            color: #facc15 !important;
-            border: 1px solid rgba(255, 255, 255, 0.25) !important;
-            padding: 6px 12px !important;
-            border-radius: 6px !important;
-            font-size: 0.85rem !important;
-            font-weight: bold !important;
-            outline: none !important;
-            cursor: pointer !important;
-        }
-        .goog-te-banner-frame, .goog-te-banner-frame.skiptranslate, #goog-gt-tt, .goog-te-balloon-frame, .skiptranslate > iframe {
-            display: none !important;
-            visibility: hidden !important;
-        }
-        body {
-            top: 0px !important;
+        .custom-translate select {
+            background-color: #0f172a;
+            color: #facc15;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            outline: none;
+            font-weight: bold;
         }
 
         /* Seamless Continuous Glowing Heartbeat Ticker Bar Styling */
@@ -176,7 +163,7 @@
             left: 0;
             right: 0;
             background-color: #061a0c;
-            border-top: 2px solid #dc2626; /* PTI Red Border */
+            border-top: 2px solid #dc2626;
             box-shadow: 0 -4px 10px rgba(0,0,0,0.4);
             display: flex;
             justify-content: space-around;
@@ -201,8 +188,16 @@
             margin-bottom: 4px;
         }
         .nav-item:hover, .nav-item.active {
-            color: #facc15; /* PTI Gold */
+            color: #facc15;
         }
+
+        /* Pure CSS Dual-Language Toggle Classes */
+        .lang-en { display: none !important; }
+        .lang-ur { display: inline-block; }
+
+        body.lang-en-active .lang-en { display: inline-block !important; }
+        body.lang-en-active .lang-ur { display: none !important; }
+        body.lang-en-active { direction: ltr !important; text-align: left !important; }
 
         .footer {
             background-color: #0f0203;
@@ -223,8 +218,17 @@
                 gap: 10px;
                 text-align: center;
             }
-            #google_translate_element {
+            .custom-translate {
                 margin-top: 5px;
+            }
+            .bottom-nav {
+                flex-wrap: wrap;
+                gap: 8px;
+                padding: 10px;
+            }
+            .bottom-nav a {
+                font-size: 0.85rem;
+                padding: 6px 12px;
             }
         }
     </style>
@@ -234,39 +238,68 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">IMRAN KHAN</a>
-            <div id="google_translate_element"></div>
+            <div class="custom-translate">
+                <select id="lang-select" onchange="toggleLanguage(this.value)">
+                    <option value="ur">اردو (Urdu)</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
         </div>
     </nav>
 
     <!-- Seamless Heartbeat Ticker Bar -->
     <div class="ticker-wrap">
         <div class="ticker">
-            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
-            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
+            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
+            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
         </div>
     </div>
 
     <div class="container">
-        <h1 class="section-title">Cricket Era & Challenges</h1>
+        <h1 class="section-title">
+            <span class="lang-ur">کرکٹ کا سنہری دور</span>
+            <span class="lang-en">The Cricketing Era</span>
+        </h1>
         
         <div class="urdu-text">
-            <p>
-                عمران خان نے 1971 میں پاکستان کے لیے اپنا پہلا ٹیسٹ میچ کھیلا۔ ان کا کرکٹ کا سفر اسان نہیں تھا، شروع میں انہوں نے ٹیم سے ڈراپ بھی کیا گیا، لیکن انہوں نے اپنی بولنگ سپیڈ اور فٹنس پر بے پناہ محنت کی اور دنیا کے بہترین آل راؤنڈر بن کر ابھرے۔
-            </p>
-
-            <div class="highlight-box">
-                <h3>The Toughest Phase (Injury & Pain)</h3>
+            <!-- Urdu Block -->
+            <div class="lang-ur" style="direction: rtl;">
                 <p>
-                    ان کے کیریئر کی سب سے بڑی مشکل 1982 میں آئی جب ان کے گھٹنے اور پنڈلی میں شدید چوٹ (Stress Fracture) آئی۔ ڈاکٹروں نے یہاں تک کہہ دیا تھا کہ وہ شاید اب کبھی بولنگ نہ کر سکیں، لیکن انہوں نے سالہا سال کے علاج اور مضبوط قوت ارادی کی بدولت دوبارہ میدان میں واپسی کی اور کپتان بنے۔
+                    عمران خان نے 1971 میں پاکستان کے لیے اپنا پہلا ٹیسٹ میچ کھیلا۔ ان کا کرکٹ کا سفر اسان نہیں تھا، شروع میں انہیں ٹیم سے ڈراپ بھی کیا گیا، لیکن انہوں نے اپنی بولنگ سپیڈ اور فٹنس پر بے پناہ محنت کی اور دنیا کے بہترین آل راؤنڈر بن کر ابھرے۔
                 </p>
+
+                <div class="highlight-box">
+                    <h3>سب سے مشکل دور (انجری اور تکلیف)</h3>
+                    <p>
+                        ان کے کیریئر کی سب سے بڑی مشکل 1982 میں آئی جب ان کے گھٹنے اور پنڈلی میں شدید چوٹ (Stress Fracture) آئی۔ ڈاکٹروں نے یہاں تک کہہ دیا تھا کہ وہ شاید اب کبھی بولنگ نہ کر سکیں، لیکن انہوں نے سالہا سال کے علاج اور مضبوط قوت ارادی کی بدولت دوبارہ میدان میں واپسی کی اور کپتان بنے۔
+                    </p>
+                </div>
+            </div>
+            <!-- English Block -->
+            <div class="lang-en" style="direction: ltr; text-align: left;">
+                <p>
+                    Imran Khan made his debut for the Pakistan cricket team in 1971. His cricketing journey was far from easy; he was initially dropped from the team, but he worked tirelessly on his bowling speed and fitness to emerge as the world's best all-rounder.
+                </p>
+
+                <div class="highlight-box" style="border-left: 5px solid #eab308; border-right: none;">
+                    <h3>The Toughest Phase (Injury & Pain)</h3>
+                    <p>
+                        The toughest phase of his career came in 1982 when he suffered a severe stress fracture in his shin. Doctors doubted he would ever bowl again, but through years of rigorous treatment and sheer willpower, he made a triumphant return and took over the captaincy.
+                    </p>
+                </div>
             </div>
         </div>
 
         <div class="interactive-section">
-            <h3>Do you know what happened in 1992?</h3>
-            <button class="btn-small" id="fact-btn">Show 1992 Victory Secret</button>
+            <h3 class="lang-ur">کیا آپ جانتے ہیں کہ 1992 میں کیا ہوا تھا؟</h3>
+            <h3 class="lang-en">Do you know what happened in 1992?</h3>
+            <button class="btn-small" id="fact-btn">
+                <span class="lang-ur">1992 کی جیت کا راز دیکھیں</span>
+                <span class="lang-en">Show 1992 Victory Secret</span>
+            </button>
             <p id="fact-details" class="urdu-text" style="display: none; margin-top: 15px; text-align: center;">
-                شدید انجری اور بیمار کھلاڑیوں کے باوجود، عمران خان نے پاکستان کرکٹ ٹیم کو "کارنرڈ ٹائیگرز" کا لقب دیا اور 1992 میں پاکستان کو پہلا اور واحد ورلڈ کپ جتوایا۔
+                <span class="lang-ur">شدید انجری اور بیمار کھلاڑیوں کے باوجود، عمران خان نے پاکستان کرکٹ ٹیم کو "کارنرڈ ٹائیگرز" کا لقب دیا اور 1992 میں پاکستان کو پہلا اور واحد ورلڈ کپ جتوایا۔</span>
+                <span class="lang-en">Despite severe injuries and a struggling squad, Imran Khan rallied his team as 'Cornered Tigers' to win Pakistan's first and only Cricket World Cup in 1992.</span>
             </p>
         </div>
     </div>
@@ -275,19 +308,19 @@
     <div class="sticky-bottom-nav">
         <a href="index.html" class="nav-item">
             <svg class="nav-icon" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-            <span>Home</span>
+            <span class="lang-ur">ہوم</span><span class="lang-en">Home</span>
         </a>
         <a href="early-life.html" class="nav-item">
             <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z M5.89 12.55L12 15.88l6.11-3.33c.03-.02.06-.03.09-.05v3c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-3c.03.02.06.03.09.05z"/></svg>
-            <span>Early Life</span>
+            <span class="lang-ur">ابتدائی زندگی</span><span class="lang-en">Early Life</span>
         </a>
         <a href="cricket.html" class="nav-item active">
             <svg class="nav-icon" viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v3c0 2.44 1.72 4.44 4 4.9V19H5v2h14v-2h-2v-4.1c2.28-.46 4-2.46 4-4.9V7c0-1.1-.9-2-2-2zM5 10V7h2v3H5zm14 0h-2V7h2v3z"/></svg>
-            <span>Cricket Era</span>
+            <span class="lang-ur">کرکٹ دور</span><span class="lang-en">Cricket Era</span>
         </a>
         <a href="politics.html" class="nav-item">
             <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
-            <span>Politics</span>
+            <span class="lang-ur">سیاسی سفر</span><span class="lang-en">Politics</span>
         </a>
     </div>
 
@@ -311,17 +344,29 @@
                 isFactOpen = false;
             }
         });
-    </script>
 
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'ur',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
+        function toggleLanguage(lang) {
+            if (lang === 'en') {
+                document.body.classList.add('lang-en-active');
+                localStorage.setItem('selected_language', 'en');
+            } else {
+                document.body.classList.remove('lang-en-active');
+                localStorage.setItem('selected_language', 'ur');
+            }
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('selected_language');
+            const langSelect = document.getElementById('lang-select');
+            if (savedLang === 'en') {
+                document.body.classList.add('lang-en-active');
+                if (langSelect) langSelect.value = 'en';
+            } else {
+                document.body.classList.remove('lang-en-active');
+                if (langSelect) langSelect.value = 'ur';
+            }
+        });
     </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
