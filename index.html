@@ -84,7 +84,7 @@
         .ticker {
             display: flex;
             white-space: nowrap;
-            animation: marquee 22s linear infinite; /* Perfect moderate speed */
+            animation: marquee 35s linear infinite; /* Slower and smooth */
         }
         .ticker span {
             font-weight: 900;
@@ -158,4 +158,190 @@
             font-weight: bold;
             border: none;
             cursor: pointer;
-            font-
+            font-size: 1rem;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+        .btn:hover {
+            background-color: #ca8a04;
+        }
+        .quote-box {
+            margin-top: 25px;
+            color: #facc15;
+            font-size: 1.15rem;
+            font-style: italic;
+        }
+
+        /* Beautiful Bottom Navigation */
+        .bottom-nav {
+            max-width: 1000px;
+            width: 100%;
+            margin: 40px auto 20px auto;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 15px;
+            background-color: rgba(6, 26, 12, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .bottom-nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        .bottom-nav a:hover, .bottom-nav a.active {
+            background-color: #facc15;
+            color: #0f172a;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #0f0203;
+            color: #94a3b8;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            margin-top: auto;
+            border-top: 2px solid #16a34a;
+        }
+        .footer .highlight {
+            color: #facc15;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            .custom-translate {
+                margin-top: 5px;
+            }
+            .bottom-nav {
+                flex-wrap: wrap;
+                gap: 8px;
+                padding: 10px;
+            }
+            .bottom-nav a {
+                font-size: 0.85rem;
+                padding: 6px 12px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p.description {
+                font-size: 1.1rem;
+            }
+            .motto-arabic {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nav Bar (Simple with only Logo & Translator) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">IMRAN KHAN</a>
+            
+            <div class="custom-translate">
+                <select onchange="translatePage(this.value)">
+                    <option value="">🌐 Language</option>
+                    <option value="ur">Urdu (Original)</option>
+                    <option value="en">English</option>
+                    <option value="ps">Pashto (پښتو)</option>
+                    <option value="ar">Arabic (العربية)</option>
+                    <option value="tr">Turkish (Türkçe)</option>
+                    <option value="zh-CN">Chinese (中文)</option>
+                    <option value="fa">Persian (فارسی)</option>
+                    <option value="fr">Français (French)</option>
+                    <option value="de">Deutsch (German)</option>
+                    <option value="es">Español (Spanish)</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Seamless Heartbeat Ticker Bar -->
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <span>IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
+            <span>IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
+        </div>
+    </div>
+
+    <!-- Hero Content -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>THE LEGEND'S JOURNEY</h1>
+            
+            <div class="motto-box">
+                <p class="motto-arabic">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ</p>
+                <p class="motto-translation">"Thee alone do we worship, and Thee alone do we ask for help."</p>
+            </div>
+
+            <p class="description">
+                عمران خان پاکستان کے سابق وزیر اعظم اور کرکٹ ٹیم کے سابق کپتان ہیں۔ ان کی زندگی کا ہر دور—چاہے وہ ان کا بچپن ہو، کرکٹ کا میدان ہو یا سیاست کا کٹھن راستہ—بے پناہ جدوجہد اور مشکلات سے بھرا رہا ہے۔ اس ویب سائٹ پر ہم ان کے زندگی کے مختلف ادوار کا احاطہ کریں گے۔
+            </p>
+            <button class="btn" id="quote-btn">Read Life Quote</button>
+            <p class="quote-box" id="quote-text" style="display: none;"></p>
+        </div>
+    </header>
+
+    <!-- Beautiful Bottom Navigation -->
+    <div class="bottom-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="early-life.html">Early Life</a>
+        <a href="cricket.html">Cricket Era</a>
+        <a href="politics.html">Political Journey</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Imran Khan Biography. All Rights Reserved. Created by <span class="highlight">Saad Ali</span></p>
+    </footer>
+
+    <!-- Bulletproof Toggle Script -->
+    <script>
+        const quoteBtn = document.getElementById('quote-btn');
+        const quoteText = document.getElementById('quote-text');
+        
+        let isOpen = false;
+
+        quoteBtn.addEventListener('click', () => {
+            if (!isOpen) {
+                quoteText.innerText = '"جب تک آپ ہار نہیں مانتے، تب تک آپ کو کوئی ہرا نہیں سکتا۔"';
+                quoteText.style.display = 'block';
+                isOpen = true;
+            } else {
+                quoteText.style.display = 'none';
+                isOpen = false;
+            }
+        });
+
+        function translatePage(langCode) {
+            if (!langCode) return;
+            const currentUrl = window.location.href;
+            let cleanUrl = currentUrl;
+            if (currentUrl.includes('translate.google.com')) {
+                cleanUrl = 'https://sa4102430-sketch.github.io/imran-khan/index.html';
+            }
+            if (langCode === 'ur') {
+                window.top.location.href = cleanUrl;
+                return;
+            }
+            const translateUrl = `https://translate.google.com/translate?sl=ur&tl=${langCode}&u=${encodeURIComponent(cleanUrl)}`;
+            window.top.location.href = translateUrl;
+        }
+    </script>
+
+</body>
+</html>
