@@ -75,19 +75,30 @@
             gap: 40px;
             align-items: start;
         }
-        .image-placeholder {
-            background-color: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            height: 320px;
+        
+        /* Modern Auto-Play Slideshow Container */
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 350px;
             border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #cbd5e1;
-            font-weight: bold;
-            font-size: 1.1rem;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            background-color: rgba(255, 255, 255, 0.05);
         }
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* scale images proportionally without distortion */
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out; /* Smooth fading transition */
+        }
+        .slide.active {
+            opacity: 1; /* fade in active slide */
+        }
+
         .urdu-text {
             direction: rtl;
             text-align: right;
@@ -127,6 +138,9 @@
             .grid {
                 grid-template-columns: 1fr;
             }
+            .slideshow-container {
+                height: 280px;
+            }
         }
     </style>
 </head>
@@ -148,8 +162,11 @@
         <h1 class="section-title">Early Life & Education</h1>
         
         <div class="grid">
-            <div class="image-placeholder">
-                [Childhood & Oxford Image Placeholder]
+            <!-- Automatic Photo Slideshow -->
+            <div class="slideshow-container">
+                <img class="slide" src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Imran_Khan_at_Oxford_Union.jpg" alt="Imran Khan Oxford">
+                <img class="slide" src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Imran_Khan.jpg" alt="Imran Khan Young">
+                <img class="slide" src="https://upload.wikimedia.org/wikipedia/commons/2/23/Imran_Ahmed_Khan_Niazi_-_UNGA_%2848784380531%29_%28cropped%29.jpg" alt="Imran Khan Portrait">
             </div>
             
             <div class="urdu-text">
@@ -172,6 +189,29 @@
     <footer class="footer">
         <p>&copy; 2026 Imran Khan Biography. All Rights Reserved. Created by <span class="highlight">Saad Ali</span></p>
     </footer>
+
+    <!-- Slideshow Auto-play Script -->
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        // Shuruati image par active class lagayi taake wo show ho
+        slides[currentSlide].classList.add('active');
+
+        function nextSlide() {
+            // Purani slide se active class hatai
+            slides[currentSlide].classList.remove('active');
+            
+            // Agli slide par shift kiya
+            currentSlide = (currentSlide + 1) % slides.length;
+            
+            // Nayi slide par active class lagayi taake wo display ho jaye
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Har 3.5 seconds (3500ms) baad slide automatic tabdeel hogi
+        setInterval(nextSlide, 3500);
+    </script>
 
 </body>
 </html>
