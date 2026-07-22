@@ -12,7 +12,6 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
-            /* PTI Flag Premium Dark Gradient (Green to Red) */
             background: linear-gradient(135deg, #092c15 0%, #1a0305 100%);
             color: #f8fafc;
             line-height: 1.6;
@@ -28,7 +27,7 @@
             top: 0;
             z-index: 100;
             box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-            border-bottom: 2px solid #dc2626; /* Red Bottom Border */
+            border-bottom: 2px solid #dc2626;
         }
         .nav-container {
             max-width: 1000px;
@@ -53,8 +52,26 @@
             transition: color 0.3s;
         }
         .nav-links a:hover, .nav-links a.active {
-            color: #facc15; /* Yellow Accent */
+            color: #facc15;
         }
+
+        /* Custom Professional Language Selector Styling */
+        .custom-translate select {
+            background-color: #0f172a;
+            color: #facc15; /* Gold text */
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            outline: none;
+            font-weight: bold;
+            transition: border-color 0.3s;
+        }
+        .custom-translate select:focus {
+            border-color: #facc15;
+        }
+
         .hero {
             padding: 100px 20px;
             text-align: center;
@@ -68,7 +85,7 @@
             margin: 0 auto;
         }
         .hero h1 {
-            font-size b8: 3rem;
+            font-size: 3rem;
             font-weight: 800;
             margin-bottom: 10px;
             letter-spacing: 1px;
@@ -78,8 +95,8 @@
         /* Flag Styled Motto Box */
         .motto-box {
             background-color: rgba(15, 23, 42, 0.75);
-            border-left: 4px solid #16a34a;  /* Green Border */
-            border-right: 4px solid #dc2626; /* Red Border */
+            border-left: 4px solid #16a34a;
+            border-right: 4px solid #dc2626;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding: 20px;
@@ -142,7 +159,7 @@
             padding: 20px;
             font-size: 0.9rem;
             margin-top: auto;
-            border-top: 2px solid #16a34a; /* Green Top Border */
+            border-top: 2px solid #16a34a;
         }
         .footer .highlight {
             color: #facc15;
@@ -153,6 +170,7 @@
             .nav-container {
                 flex-direction: column;
                 gap: 10px;
+                text-align: center;
             }
             .nav-links {
                 flex-wrap: wrap;
@@ -161,6 +179,9 @@
             }
             .nav-links a {
                 margin: 0 10px;
+            }
+            .custom-translate {
+                margin-top: 5px;
             }
             .hero h1 {
                 font-size: 2rem;
@@ -186,7 +207,19 @@
                 <a href="cricket.html">Cricket Era</a>
                 <a href="politics.html">Political Journey</a>
             </div>
-            <div id="google_translate_element"></div>
+            
+            <!-- Beautiful Custom Translate Dropdown -->
+            <div class="custom-translate">
+                <select onchange="translatePage(this.value)">
+                    <option value="">🌐 Language</option>
+                    <option value="en">English</option>
+                    <option value="ps">Pashto (پښتو)</option>
+                    <option value="ar">Arabic (العربية)</option>
+                    <option value="tr">Turkish (Türkçe)</option>
+                    <option value="zh-CN">Chinese (中文)</option>
+                    <option value="ur">Urdu (اردو)</option>
+                </select>
+            </div>
         </div>
     </nav>
 
@@ -218,7 +251,7 @@
         const quoteBtn = document.getElementById('quote-btn');
         const quoteText = document.getElementById('quote-text');
         
-        let isOpen = false; // Simple state variable
+        let isOpen = false;
 
         quoteBtn.addEventListener('click', () => {
             if (!isOpen) {
@@ -230,16 +263,27 @@
                 isOpen = false;
             }
         });
-    </script>
-    <!-- Google Translate Script (Ab is mein dunya ki TAMAM languages show hongi) -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'ur',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
+
+        // Professional Redirection-based Translation Function
+        function translatePage(langCode) {
+            if (!langCode) return;
+            const currentUrl = window.location.href;
+            
+            // Clean URL if already translated to avoid infinite nesting loop
+            let cleanUrl = currentUrl;
+            if (currentUrl.includes('translate.google.com')) {
+                cleanUrl = 'https://sa4102430-sketch.github.io/imran-khan/index.html';
+            }
+            
+            if (langCode === 'ur') {
+                window.top.location.href = cleanUrl;
+                return;
+            }
+            
+            const translateUrl = `https://translate.google.com/translate?sl=ur&tl=${langCode}&u=${encodeURIComponent(cleanUrl)}`;
+            window.top.location.href = translateUrl;
         }
     </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
 </html>
