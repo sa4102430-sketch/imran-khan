@@ -18,6 +18,7 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            padding-bottom: 80px !important;
         }
         .navbar {
             background-color: #061a0c;
@@ -44,20 +45,29 @@
             letter-spacing: 1px;
         }
         
-        .custom-translate select {
-            background-color: #0f172a;
-            color: #facc15;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            outline: none;
-            font-weight: bold;
-            transition: border-color 0.3s;
+        /* Highly Professional Google Translate Override Styling */
+        .goog-te-gadget {
+            font-family: 'Segoe UI', sans-serif !important;
+            color: transparent !important;
+            font-size: 0px !important;
         }
-        .custom-translate select:focus {
-            border-color: #facc15;
+        .goog-te-combo {
+            background-color: #0f172a !important;
+            color: #facc15 !important;
+            border: 1px solid rgba(255, 255, 255, 0.25) !important;
+            padding: 6px 12px !important;
+            border-radius: 6px !important;
+            font-size: 0.85rem !important;
+            font-weight: bold !important;
+            outline: none !important;
+            cursor: pointer !important;
+        }
+        .goog-te-banner-frame, .goog-te-banner-frame.skiptranslate, #goog-gt-tt, .goog-te-balloon-frame, .skiptranslate > iframe {
+            display: none !important;
+            visibility: hidden !important;
+        }
+        body {
+            top: 0px !important;
         }
 
         /* Seamless Continuous Glowing Heartbeat Ticker Bar Styling */
@@ -83,7 +93,7 @@
         .ticker {
             display: flex;
             white-space: nowrap;
-            animation: marquee 35s linear infinite;
+            animation: marquee 32s linear infinite;
         }
         .ticker span {
             font-weight: 900;
@@ -182,7 +192,7 @@
             line-height: 1.7;
         }
 
-        /* Public Review Section - RTL aligned */
+        /* Public Review Section - Universally Styled for Automatic RTL/LTR Alignment */
         .review-section {
             margin-top: 50px;
             border-top: 2px dashed rgba(255, 255, 255, 0.2);
@@ -203,11 +213,11 @@
             max-width: 600px;
             margin: 0 auto;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            text-align: right; /* Right align for easy Urdu typing */
-            direction: rtl;    /* Right-to-Left form */
+            transition: all 0.3s ease;
         }
         .form-group {
             margin-bottom: 20px;
+            transition: all 0.3s ease;
         }
         .form-group label {
             display: block;
@@ -215,7 +225,7 @@
             font-weight: 600;
             margin-bottom: 8px;
             font-size: 1.1rem;
-            text-align: right; /* Explicitly right align labels */
+            transition: all 0.3s ease;
         }
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
@@ -225,8 +235,7 @@
             background-color: rgba(15, 23, 42, 0.6);
             color: white;
             font-size: 1rem;
-            text-align: right; /* Right aligned input text for typing */
-            direction: rtl;
+            transition: all 0.3s ease;
         }
         .form-group input:focus, .form-group textarea:focus {
             outline: none;
@@ -250,8 +259,7 @@
         .reviews-list-container {
             max-width: 600px;
             margin: 40px auto 0 auto;
-            text-align: right;
-            direction: rtl;
+            transition: all 0.3s ease;
         }
         .reviews-list-container h3 {
             color: #facc15;
@@ -262,10 +270,10 @@
         .review-card {
             background-color: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-right: 4px solid #16a34a;
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 15px;
+            transition: all 0.3s ease;
         }
         .review-header {
             display: flex;
@@ -278,35 +286,42 @@
             color: #cbd5e1;
             font-size: 1.05rem;
             line-height: 1.6;
-            text-align: right;
+            transition: all 0.3s ease;
         }
 
-        /* Beautiful Bottom Navigation */
-        .bottom-nav {
-            max-width: 1000px;
-            width: 100%;
-            margin: 40px auto 20px auto;
+        /* Floating Instagram Style Sticky Bottom Navigation */
+        .sticky-bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #061a0c;
+            border-top: 2px solid #dc2626; /* PTI Red Border */
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.4);
             display: flex;
-            justify-content: center;
-            gap: 15px;
-            padding: 15px;
-            background-color: rgba(6, 26, 12, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+            z-index: 1000;
         }
-        .bottom-nav a {
-            color: #cbd5e1;
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-decoration: none;
-            font-size: 0.95rem;
+            color: #cbd5e1;
+            font-size: 0.75rem;
             font-weight: bold;
-            padding: 8px 16px;
-            border-radius: 8px;
-            transition: all 0.3s;
+            transition: color 0.3s;
         }
-        .bottom-nav a:hover, .bottom-nav a.active {
-            background-color: #facc15;
-            color: #0f172a;
+        .nav-item .nav-icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+            margin-bottom: 4px;
+        }
+        .nav-item:hover, .nav-item.active {
+            color: #facc15; /* PTI Gold */
         }
 
         .footer {
@@ -328,17 +343,8 @@
                 gap: 10px;
                 text-align: center;
             }
-            .custom-translate {
+            #google_translate_element {
                 margin-top: 5px;
-            }
-            .bottom-nav {
-                flex-wrap: wrap;
-                gap: 8px;
-                padding: 10px;
-            }
-            .bottom-nav a {
-                font-size: 0.85rem;
-                padding: 6px 12px;
             }
         }
     </style>
@@ -348,30 +354,15 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">IMRAN KHAN</a>
-            
-            <div class="custom-translate">
-                <select onchange="translatePage(this.value)">
-                    <option value="">🌐 Language</option>
-                    <option value="ur">Urdu (Original)</option>
-                    <option value="en">English</option>
-                    <option value="ps">Pashto (پښتو)</option>
-                    <option value="ar">Arabic (العربية)</option>
-                    <option value="tr">Turkish (Türkçe)</option>
-                    <option value="zh-CN">Chinese (中文)</option>
-                    <option value="fa">Persian (فارسی)</option>
-                    <option value="fr">Français (French)</option>
-                    <option value="de">Deutsch (German)</option>
-                    <option value="es">Español (Spanish)</option>
-                </select>
-            </div>
+            <div id="google_translate_element"></div>
         </div>
     </nav>
 
     <!-- Seamless Heartbeat Ticker Bar -->
     <div class="ticker-wrap">
         <div class="ticker">
-            <span>IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
-            <span>IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
+            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
+            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
         </div>
     </div>
 
@@ -424,22 +415,22 @@
                 </div>
                 <div class="lesson-card">
                     <h3>3. بڑے خواب اور فلاحی سوچ</h3>
-                    <p>ایک حقیقی رہنما صرف اپنے لیے نہیں بلکہ قوم کے لیے جیتا ہے۔ کینسر ہسپتال (شوکت خانم) اور غریب طلبہ کے لیے نمل یونیورسٹی کا قیام یہ سکھاتا ہے کہ انسان کو ہمیشہ معاشرے کی فلاح و بہبود کے لیے بڑے خواب دیکھنے چاہئیں اور ان کے لیے عملی قدم اٹھانا چاہیے۔</p>
+                    <p>ایک حقیقی رہنما صرف اپنے لیے نہیں بلکہ قوم کے لیے جیتا ہے۔ کینسر ہسپتال (شوکت خانم) اور غریب طلبہ کے لیے نمل یونیورسٹی کا قیام یہ سکھاتا ہے کہ انسان کو ہمیشہ معاشرے کی فلاح و بہبود کے لیے بڑے خواب دیکھنے باشئیں اور ان کے لیے عملی قدم اٹھانا چاہیے۔</p>
                 </div>
             </div>
         </section>
 
-        <!-- Public Opinion & Reviews Form Section (Form Tag Removed to Fix Security Pop-up) -->
+        <!-- Public Opinion & Reviews Section (Styled Safely Without <form> Tag) -->
         <section class="review-section">
             <h2 class="review-title">Public Opinion & Reviews (عوامی رائے اور تجزیے)</h2>
             
             <div class="review-form">
                 <div class="form-group">
-                    <label for="reviewer-name">What should we call you, Patriot?</label>
-                    <input type="text" id="reviewer-name" required placeholder="...Saad Ali">
+                    <label id="lbl-name" for="reviewer-name">What should we call you, Patriot?</label>
+                    <input type="text" id="reviewer-name" required placeholder="Saad Ali...">
                 </div>
                 <div class="form-group">
-                    <label for="review-rating">How much love do you have for the Captain?</label>
+                    <label id="lbl-rating" for="review-rating">How much love do you have for the Captain?</label>
                     <select id="review-rating">
                         <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
                         <option value="4">⭐⭐⭐⭐ (4/5)</option>
@@ -449,25 +440,37 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="reviewer-text">Express your thoughts about Khan Sahab:</label>
-                    <textarea id="reviewer-text" rows="4" required placeholder="...Apni raye likhein"></textarea>
+                    <label id="lbl-text" for="reviewer-text">Express your thoughts about Khan Sahab:</label>
+                    <textarea id="reviewer-text" rows="4" required placeholder="Apni raye likhein..."></textarea>
                 </div>
                 <button type="button" id="submit-review-btn" class="btn-submit">Send Your Message of Hope</button>
             </div>
 
             <div class="reviews-list-container">
-                <h3>Recent Reviews (حالیہ آراء)</h3>
+                <h3 id="lbl-recent-title">Recent Reviews (حالیہ آراء)</h3>
                 <div id="reviews-display"></div>
             </div>
         </section>
     </div>
 
-    <!-- Beautiful Bottom Navigation -->
-    <div class="bottom-nav">
-        <a href="index.html">Home</a>
-        <a href="early-life.html">Early Life</a>
-        <a href="cricket.html">Cricket Era</a>
-        <a href="politics.html" class="active">Political Journey</a>
+    <!-- Floating Sticky Bottom Nav Bar -->
+    <div class="sticky-bottom-nav">
+        <a href="index.html" class="nav-item">
+            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            <span>Home</span>
+        </a>
+        <a href="early-life.html" class="nav-item">
+            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z M5.89 12.55L12 15.88l6.11-3.33c.03-.02.06-.03.09-.05v3c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-3c.03.02.06.03.09.05z"/></svg>
+            <span>Early Life</span>
+        </a>
+        <a href="cricket.html" class="nav-item">
+            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v3c0 2.44 1.72 4.44 4 4.9V19H5v2h14v-2h-2v-4.1c2.28-.46 4-2.46 4-4.9V7c0-1.1-.9-2-2-2zM5 10V7h2v3H5zm14 0h-2V7h2v3z"/></svg>
+            <span>Cricket Era</span>
+        </a>
+        <a href="politics.html" class="nav-item active">
+            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+            <span>Politics</span>
+        </a>
     </div>
 
     <footer class="footer">
@@ -532,21 +535,69 @@
 
         loadReviews();
 
-        function translatePage(langCode) {
-            if (!langCode) return;
-            const currentUrl = window.location.href;
-            let cleanUrl = currentUrl;
-            if (currentUrl.includes('translate.google.com')) {
-                cleanUrl = 'https://sa4102430-sketch.github.io/imran-khan/politics.html';
+        // Advanced RTL/LTR Layout Direction Auto-Flipper Script based on Selected Language
+        function updateLayoutDirection() {
+            const htmlEl = document.documentElement;
+            
+            // Languages that require RTL direction
+            const isRtl = htmlEl.classList.contains('translated-rtl') || 
+                          htmlEl.getAttribute('lang') === 'ur' || 
+                          htmlEl.getAttribute('lang') === 'ar' || 
+                          htmlEl.getAttribute('lang') === 'fa' || 
+                          htmlEl.getAttribute('lang') === 'ps';
+
+            const urduTexts = document.querySelectorAll('.urdu-text');
+            const formGroups = document.querySelectorAll('.form-group');
+            const reviewForm = document.querySelector('.review-form');
+            const reviewCards = document.querySelectorAll('.review-card');
+            const reviewBodies = document.querySelectorAll('.review-body');
+            const textInputs = document.querySelectorAll('.form-group input, .form-group textarea');
+
+            if (isRtl) {
+                // Apply Right-to-Left styling for Urdu, Arabic, Persian, Pashto
+                document.body.style.direction = "rtl";
+                document.body.style.textAlign = "right";
+                if (reviewForm) {
+                    reviewForm.style.direction = "rtl";
+                    reviewForm.style.textAlign = "right";
+                }
+                urduTexts.forEach(el => { el.style.direction = "rtl"; el.style.textAlign = "right"; });
+                formGroups.forEach(el => { el.style.direction = "rtl"; el.style.textAlign = "right"; });
+                textInputs.forEach(el => { el.style.direction = "rtl"; el.style.textAlign = "right"; });
+                reviewCards.forEach(el => { el.style.direction = "rtl"; el.style.textAlign = "right"; el.style.borderRight = "4px solid #16a34a"; el.style.borderLeft = "none"; });
+                reviewBodies.forEach(el => { el.style.textAlign = "right"; });
+            } else {
+                // Apply Left-to-Right styling for English, Chinese, Turkish, French, etc.
+                document.body.style.direction = "ltr";
+                document.body.style.textAlign = "left";
+                if (reviewForm) {
+                    reviewForm.style.direction = "ltr";
+                    reviewForm.style.textAlign = "left";
+                }
+                urduTexts.forEach(el => { el.style.direction = "ltr"; el.style.textAlign = "left"; });
+                formGroups.forEach(el => { el.style.direction = "ltr"; el.style.textAlign = "left"; });
+                textInputs.forEach(el => { el.style.direction = "ltr"; el.style.textAlign = "left"; });
+                reviewCards.forEach(el => { el.style.direction = "ltr"; el.style.textAlign = "left"; el.style.borderLeft = "4px solid #16a34a"; el.style.borderRight = "none"; });
+                reviewBodies.forEach(el => { el.style.textAlign = "left"; });
             }
-            if (langCode === 'ur') {
-                window.top.location.href = cleanUrl;
-                return;
-            }
-            const translateUrl = `https://translate.google.com/translate?sl=ur&tl=${langCode}&u=${encodeURIComponent(cleanUrl)}`;
-            window.top.location.href = translateUrl;
+        }
+
+        // Observe Google Translate Class changes dynamically
+        const observer = new MutationObserver(updateLayoutDirection);
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class', 'lang'] });
+        setInterval(updateLayoutDirection, 1000); // Fail-safe 1 second auto-flipper interval
+    </script>
+
+    <!-- On-Page Google Translate Initializer -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'ur',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
         }
     </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
