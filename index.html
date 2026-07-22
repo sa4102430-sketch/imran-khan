@@ -5,12 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Imran Khan - Home</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, sans-serif; }
         body {
             background: linear-gradient(135deg, #092c15 0%, #1a0305 100%);
             color: #f8fafc;
@@ -18,7 +13,7 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            padding-bottom: 80px !important; /* Prevents overlap with sticky nav */
+            padding-bottom: 80px !important; 
         }
         .navbar {
             background-color: #061a0c;
@@ -37,15 +32,7 @@
             justify-content: space-between;
             align-items: center;
         }
-        .logo {
-            font-size: 1.3rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: white;
-            letter-spacing: 1px;
-        }
-
-        /* Beautiful Native Gold Language Selector */
+        .logo { font-size: 1.3rem; font-weight: bold; text-decoration: none; color: white; }
         .custom-translate select {
             background-color: #0f172a;
             color: #facc15;
@@ -57,12 +44,7 @@
             outline: none;
             font-weight: bold;
         }
-
-        /* Continuous Seamless Glowing Heartbeat Ticker Bar Styling */
-        @keyframes marquee {
-            0% { transform: translateX(0%); }
-            100% { transform: translateX(-50%); }
-        }
+        @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
         @keyframes heartbeat {
             0%, 100% { box-shadow: 0 0 5px rgba(22, 163, 74, 0.3), 0 0 5px rgba(220, 38, 38, 0.3); }
             50% { box-shadow: 0 0 15px rgba(22, 163, 74, 0.6), 0 0 15px rgba(220, 38, 38, 0.6); }
@@ -78,39 +60,11 @@
             animation: heartbeat 2.5s infinite ease-in-out;
             z-index: 90;
         }
-        .ticker {
-            display: flex;
-            white-space: nowrap;
-            animation: marquee 35s linear infinite;
-        }
-        .ticker span {
-            font-weight: 900;
-            font-size: 1rem;
-            letter-spacing: 3px;
-            color: #facc15;
-            padding-right: 40px;
-        }
-
-        .hero {
-            padding: 80px 20px;
-            text-align: center;
-            flex-grow: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-            color: #f8fafc;
-        }
-        
+        .ticker { display: flex; white-space: nowrap; animation: marquee 35s linear infinite; }
+        .ticker span { font-weight: 900; font-size: 1rem; color: #facc15; padding-right: 40px; }
+        .hero { padding: 80px 20px; text-align: center; flex-grow: 1; display: flex; align-items: center; justify-content: center; }
+        .hero-content { max-width: 800px; margin: 0 auto; }
+        .hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 10px; color: #f8fafc; }
         .motto-box {
             background-color: rgba(15, 23, 42, 0.75);
             border-left: 4px solid #16a34a;
@@ -121,138 +75,37 @@
             border-radius: 12px;
             margin: 25px auto;
             max-width: 550px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
-        .motto-arabic {
-            font-size: 2.1rem;
-            font-weight: bold;
-            font-family: 'Amiri', 'Georgia', serif;
-            background: linear-gradient(to right, #22c55e, #facc15, #ef4444);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 5px;
-        }
-        .motto-translation {
-            color: #cbd5e1;
-            font-size: 0.95rem;
-            font-style: italic;
-        }
-
-        .hero p.description {
-            font-size: 1.25rem;
-            color: #cbd5e1;
-            margin-bottom: 30px;
-            line-height: 1.8;
-        }
-        .btn {
-            background-color: #eab308;
-            color: #0f172a;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background 0.3s;
-            display: inline-block;
-        }
-        .btn:hover {
-            background-color: #ca8a04;
-        }
-        .quote-box {
-            margin-top: 25px;
-            color: #facc15;
-            font-size: 1.15rem;
-            font-style: italic;
-        }
-
-        /* Floating Instagram Style Sticky Bottom Navigation */
+        .motto-arabic { font-size: 2.3rem; font-weight: bold; background: linear-gradient(to right, #22c55e, #facc15, #ef4444); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .motto-translation { color: #cbd5e1; font-size: 0.95rem; font-style: italic; }
+        .hero p.description { font-size: 1.25rem; color: #cbd5e1; margin-bottom: 30px; line-height: 1.8; }
+        .btn { background-color: #eab308; color: #0f172a; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; border: none; cursor: pointer; }
+        .quote-box { margin-top: 25px; color: #facc15; font-size: 1.15rem; font-style: italic; }
         .sticky-bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: #061a0c;
-            border-top: 2px solid #dc2626;
-            box-shadow: 0 -4px 10px rgba(0,0,0,0.4);
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 10px 0;
-            z-index: 1000;
+            position: fixed; bottom: 0; left: 0; right: 0; background-color: #061a0c; border-top: 2px solid #dc2626; 
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.4); display: flex; justify-content: space-around; align-items: center; padding: 10px 0; z-index: 1000;
         }
-        .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: #cbd5e1;
-            font-size: 0.75rem;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-        .nav-item .nav-icon {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
-            margin-bottom: 4px;
-        }
-        .nav-item:hover, .nav-item.active {
-            color: #facc15;
-        }
-
-        /* Pure CSS Dual-Language Toggle Classes */
+        .nav-item { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: #cbd5e1; font-size: 0.75rem; font-weight: bold; }
+        .nav-item .nav-icon { width: 24px; height: 24px; fill: currentColor; margin-bottom: 4px; }
+        .nav-item:hover, .nav-item.active { color: #facc15; }
         .lang-en { display: none !important; }
         .lang-ur { display: inline-block; }
-
         body.lang-en-active .lang-en { display: inline-block !important; }
         body.lang-en-active .lang-ur { display: none !important; }
         body.lang-en-active { direction: ltr !important; text-align: left !important; }
-
-        /* Footer */
-        .footer {
-            background-color: #0f0203;
-            color: #94a3b8;
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
-            border-top: 2px solid #16a34a;
-        }
-        .footer .highlight {
-            color: #facc15;
-            font-weight: bold;
-        }
-
+        .footer { background-color: #0f0203; color: #94a3b8; text-align: center; padding: 20px; font-size: 0.9rem; border-top: 2px solid #16a34a; }
+        .footer .highlight { color: #facc15; font-weight: bold; }
         @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
-            }
-            .custom-translate {
-                margin-top: 5px;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .hero p.description {
-                font-size: 1.1rem;
-            }
-            .motto-arabic {
-                font-size: 1.6rem;
-            }
+            .nav-container { flex-direction: column; gap: 10px; }
+            .hero h1 { font-size: 2rem; } .motto-arabic { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Nav Bar -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">IMRAN KHAN</a>
-            
-            <!-- Beautiful Custom Native Language Selector -->
             <div class="custom-translate">
                 <select id="lang-select" onchange="toggleLanguage(this.value)">
                     <option value="ur">اردو (Urdu)</option>
@@ -262,7 +115,6 @@
         </div>
     </nav>
 
-    <!-- Seamless Heartbeat Ticker Bar with Quranic Motto & Urdu Translation -->
     <div class="ticker-wrap">
         <div class="ticker">
             <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
@@ -270,107 +122,75 @@
         </div>
     </div>
 
-    <!-- Hero Content -->
     <header class="hero">
         <div class="hero-content">
             <h1>THE LEGEND'S JOURNEY</h1>
-            
             <div class="motto-box">
                 <p class="motto-arabic">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ</p>
                 <p class="motto-translation">"Thee alone do we worship, and Thee alone do we ask for help."</p>
             </div>
-
-            <!-- Urdu Description -->
             <p class="description lang-ur" style="direction: rtl;">
                 عمران خان پاکستان کے سابق وزیر اعظم اور کرکٹ ٹیم کے سابق کپتان ہیں۔ ان کی زندگی کا ہر دور—چاہے وہ ان کا بچپن ہو، کرکٹ کا میدان ہو یا سیاست کا کٹھن راستہ—بے پناہ جدوجہد اور مشکلات سے بھرا رہا ہے۔ اس ویب سائٹ پر ہم ان کے زندگی کے مختلف ادوار کا احاطہ کریں گے۔
             </p>
-            <!-- English Description -->
             <p class="description lang-en" style="direction: ltr; text-align: center;">
                 Imran Khan is the former Prime Minister of Pakistan and the former captain of the national cricket team. Every phase of his life—be it his childhood, the cricket field, or the arduous path of politics—has been filled with immense struggle and hardship. On this website, we will cover the different eras of his life.
             </p>
-
             <button class="btn" id="quote-btn">
-                <span class="lang-ur">زندگی کا قول پڑھیں</span>
-                <span class="lang-en">Read Life Quote</span>
+                <span class="lang-ur">زندگی کا قول پڑھیں</span><span class="lang-en">Read Life Quote</span>
             </button>
             <p class="quote-box" id="quote-text" style="display: none;"></p>
         </div>
     </header>
 
-    <!-- Floating Sticky Bottom Nav Bar -->
     <div class="sticky-bottom-nav">
         <a href="index.html" class="nav-item active">
             <svg class="nav-icon" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-            <span class="lang-ur">ہوم</span><span class="lang-en">Home</span>
+            <span>Home</span>
         </a>
         <a href="early-life.html" class="nav-item">
             <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z M5.89 12.55L12 15.88l6.11-3.33c.03-.02.06-.03.09-.05v3c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-3c.03.02.06.03.09.05z"/></svg>
-            <span class="lang-ur">ابتدائی زندگی</span><span class="lang-en">Early Life</span>
+            <span>Early Life</span>
         </a>
         <a href="cricket.html" class="nav-item">
             <svg class="nav-icon" viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v3c0 2.44 1.72 4.44 4 4.9V19H5v2h14v-2h-2v-4.1c2.28-.46 4-2.46 4-4.9V7c0-1.1-.9-2-2-2zM5 10V7h2v3H5zm14 0h-2V7h2v3z"/></svg>
-            <span class="lang-ur">کرکٹ دور</span><span class="lang-en">Cricket Era</span>
+            <span>Cricket Era</span>
         </a>
         <a href="politics.html" class="nav-item">
             <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
-            <span class="lang-ur">سیاسی سفر</span><span class="lang-en">Politics</span>
+            <span>Politics</span>
+        </a>
+        <a href="gallery.html" class="nav-item">
+            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 12.5v-9l6 4.5-6 4.5z"/></svg>
+            <span>Media</span>
         </a>
     </div>
 
-    <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2026 Imran Khan Biography. All Rights Reserved. Created by <span class="highlight">Saad Ali</span></p>
     </footer>
 
-    <!-- Native Toggle Script (Saves choice in localStorage) -->
     <script>
         const quoteBtn = document.getElementById('quote-btn');
         const quoteText = document.getElementById('quote-text');
-        
         let isOpen = false;
-
         quoteBtn.addEventListener('click', () => {
             const isEnglish = document.body.classList.contains('lang-en-active');
             if (!isOpen) {
-                if (isEnglish) {
-                    quoteText.innerText = '"You only lose when you give up."';
-                } else {
-                    quoteText.innerText = '"جب تک آپ ہار نہیں مانتے، تب تک آپ کو کوئی ہرا نہیں سکتا۔"';
-                }
-                quoteText.style.display = 'block';
-                isOpen = true;
-            } else {
-                quoteText.style.display = 'none';
-                isOpen = false;
-            }
+                quoteText.innerText = isEnglish ? '"You only lose when you give up."' : '"جب تک آپ ہار نہیں مانتے، تب تک آپ کو کوئی ہرا نہیں سکتا۔"';
+                quoteText.style.display = 'block'; isOpen = true;
+            } else { quoteText.style.display = 'none'; isOpen = false; }
         });
-
         function toggleLanguage(lang) {
-            if (lang === 'en') {
-                document.body.classList.add('lang-en-active');
-                localStorage.setItem('selected_language', 'en');
-            } else {
-                document.body.classList.remove('lang-en-active');
-                localStorage.setItem('selected_language', 'ur');
-            }
-            if (isOpen) {
-                quoteText.style.display = 'none';
-                isOpen = false;
-            }
+            if (lang === 'en') { document.body.classList.add('lang-en-active'); localStorage.setItem('selected_language', 'en'); }
+            else { document.body.classList.remove('lang-en-active'); localStorage.setItem('selected_language', 'ur'); }
+            if (isOpen) { quoteText.style.display = 'none'; isOpen = false; }
         }
-
         document.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('selected_language');
             const langSelect = document.getElementById('lang-select');
-            if (savedLang === 'en') {
-                document.body.classList.add('lang-en-active');
-                if (langSelect) langSelect.value = 'en';
-            } else {
-                document.body.classList.remove('lang-en-active');
-                if (langSelect) langSelect.value = 'ur';
-            }
+            if (savedLang === 'en') { document.body.classList.add('lang-en-active'); if (langSelect) langSelect.value = 'en'; }
+            else { document.body.classList.remove('lang-en-active'); if (langSelect) langSelect.value = 'ur'; }
         });
     </script>
-
 </body>
 </html>
