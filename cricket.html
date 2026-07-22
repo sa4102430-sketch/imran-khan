@@ -167,7 +167,7 @@
         
         <div class="urdu-text">
             <p>
-                عمران خان نے 1971 میں پاکستان کے لیے اپنا پہلا ٹیسٹ میچ کھیلا۔ ان کا کرکٹ کا سفر اسان نہیں تھا، شروع میں انہیں ٹیم سے ڈراپ بھی کیا گیا، لیکن انہوں نے اپنی بولنگ سپیڈ اور فٹنس پر بے پناہ محنت کی اور دنیا کے بہترین آل راؤنڈر بن کر ابھرے۔
+                عمران خان نے 1971 میں پاکستان کے لیے اپنا پہلا ٹیسٹ میچ کھیلا۔ ان کا کرکٹ کا سفر اسان نہیں تھا، شروع میں انہوں نے ٹیم سے ڈراپ بھی کیا گیا، لیکن انہوں نے اپنی بولنگ سپیڈ اور فٹنس پر بے پناہ محنت کی اور دنیا کے بہترین آل راؤنڈر بن کر ابھرے۔
             </p>
 
             <div class="highlight-box">
@@ -190,21 +190,23 @@
     <footer class="footer">
         <p>&copy; 2026 Imran Khan Biography. All Rights Reserved. Created by <span class="highlight">Saad Ali</span></p>
     </footer>
-<script>
-    const factBtn = document.getElementById('fact-btn');
-    const factDetails = document.getElementById('fact-details');
-    
-    let isFactOpen = false; // Simple state variable
 
-    factBtn.addEventListener('click', () => {
-        if (!isFactOpen) {
-            factDetails.style.display = "block";
-            isFactOpen = true;
-        } else {
-            factDetails.style.display = "none";
-            isFactOpen = false;
-        }
-    });
-</script>
+    <!-- Bulletproof Toggle Script -->
+    <script>
+        const factBtn = document.getElementById('fact-btn');
+        const factDetails = document.getElementById('fact-details');
+        
+        let isFactOpen = false; // Simple state variable
+
+        factBtn.addEventListener('click', () => {
+            if (!isFactOpen) {
+                factDetails.style.display = "block";
+                isFactOpen = true;
+            } else {
+                factDetails.style.display = "none";
+                isFactOpen = false;
+            }
+        });
+    </script>
 </body>
 </html>
