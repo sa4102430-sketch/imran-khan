@@ -54,6 +54,23 @@
         .nav-links a:hover, .nav-links a.active {
             color: #facc15;
         }
+        
+        .custom-translate select {
+            background-color: #0f172a;
+            color: #facc15;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            outline: none;
+            font-weight: bold;
+            transition: border-color 0.3s;
+        }
+        .custom-translate select:focus {
+            border-color: #facc15;
+        }
+
         .container {
             max-width: 1000px;
             margin: 40px auto;
@@ -136,6 +153,7 @@
             .nav-container {
                 flex-direction: column;
                 gap: 10px;
+                text-align: center;
             }
             .nav-links {
                 flex-wrap: wrap;
@@ -144,6 +162,9 @@
             }
             .nav-links a {
                 margin: 0 10px;
+            }
+            .custom-translate {
+                margin-top: 5px;
             }
         }
     </style>
@@ -159,7 +180,18 @@
                 <a href="cricket.html" class="active">Cricket Era</a>
                 <a href="politics.html">Political Journey</a>
             </div>
-            <div id="google_translate_element"></div>
+            
+            <div class="custom-translate">
+                <select onchange="translatePage(this.value)">
+                    <option value="">🌐 Language</option>
+                    <option value="en">English</option>
+                    <option value="ps">Pashto (پښتو)</option>
+                    <option value="ar">Arabic (العربية)</option>
+                    <option value="tr">Turkish (Türkçe)</option>
+                    <option value="zh-CN">Chinese (中文)</option>
+                    <option value="ur">Urdu (اردو)</option>
+                </select>
+            </div>
         </div>
     </nav>
 
@@ -168,7 +200,7 @@
         
         <div class="urdu-text">
             <p>
-                عمران خان نے 1971 میں پاکستان کے لیے اپنا پہلا ٹیسٹ میچ کھیلا۔ ان کا کرکٹ کا سفر اسان نہیں تھا، شروع میں انہوں نے ٹیم سے ڈراپ بھی کیا گیا، لیکن انہوں نے اپنی بولنگ سپیڈ اور فٹنس پر بے پناہ محنت کی اور دنیا کے بہترین آل راؤنڈر بن کر ابھرے۔
+                عمران خان نے 1971 میں پاکستان کے لیے اپنا پہلا ٹیسٹ میچ کھیلا۔ ان کا کرکٹ کا سفر اسان نہیں تھا، شروع میں انہیں ٹیم سے ڈراپ بھی کیا گیا، لیکن انہوں نے اپنی بولنگ سپیڈ اور فٹنس پر بے پناہ محنت کی اور دنیا کے بہترین آل راؤنڈر بن کر ابھرے۔
             </p>
 
             <div class="highlight-box">
@@ -197,7 +229,7 @@
         const factBtn = document.getElementById('fact-btn');
         const factDetails = document.getElementById('fact-details');
         
-        let isFactOpen = false; // Simple state variable
+        let isFactOpen = false;
 
         factBtn.addEventListener('click', () => {
             if (!isFactOpen) {
@@ -208,16 +240,22 @@
                 isFactOpen = false;
             }
         });
-    </script>
-    <!-- Google Translate Script (Dunya ki TAMAM languages ke liye) -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'ur',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
+
+        function translatePage(langCode) {
+            if (!langCode) return;
+            const currentUrl = window.location.href;
+            let cleanUrl = currentUrl;
+            if (currentUrl.includes('translate.google.com')) {
+                cleanUrl = 'https://sa4102430-sketch.github.io/imran-khan/cricket.html';
+            }
+            if (langCode === 'ur') {
+                window.top.location.href = cleanUrl;
+                return;
+            }
+            const translateUrl = `https://translate.google.com/translate?sl=ur&tl=${langCode}&u=${encodeURIComponent(cleanUrl)}`;
+            window.top.location.href = translateUrl;
         }
     </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
 </html>
