@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imran Khan - Early Life</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #092c15 0%, #1a0305 100%);
+            color: #f8fafc;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .navbar {
+            background-color: #061a0c;
+            color: white;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            border-bottom: 2px solid #dc2626;
+        }
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            letter-spacing: 1px;
+        }
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #facc15;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            flex-grow: 1;
+        }
+        .section-title {
+            font-size: 2.25rem;
+            color: #facc15;
+            border-bottom: 3px solid #eab308;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        
+        /* Modern Auto-Play Slideshow Container */
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* scale images proportionally without distortion */
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out; /* Smooth fading transition */
+        }
+        .slide.active {
+            opacity: 1; /* fade in active slide */
+        }
+
+        .urdu-text {
+            direction: rtl;
+            text-align: right;
+            font-size: 1.25rem;
+            color: #f1f5f9;
+        }
+        .urdu-text p {
+            margin-bottom: 20px;
+            line-height: 1.9;
+        }
+        .footer {
+            background-color: #0f0203;
+            color: #94a3b8;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            margin-top: auto;
+            border-top: 2px solid #16a34a;
+        }
+        .footer .highlight {
+            color: #facc15;
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .nav-links a {
+                margin: 0 10px;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .slideshow-container {
+                height: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">IMRAN KHAN</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="early-life.html" class="active">Early Life</a>
+                <a href="cricket.html">Cricket Era</a>
+                <a href="politics.html">Political Journey</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="section-title">Early Life & Education</h1>
+        
+        <div class="grid">
+            <!-- Automatic Photo Slideshow with Local Uploaded Images -->
+            <div class="slideshow-container">
+                <img class="slide" src="ik1.jpg" alt="Imran Khan 1">
+                <img class="slide" src="ik2.jpg" alt="Imran Khan 2">
+                <img class="slide" src="ik3.jpg" alt="Imran Khan 3">
+            </div>
+            
+            <div class="urdu-text">
+                <p>
+                    عمران خان 5 اکتوبر 1952 کو لاہور کے ایک متمول، پڑھے لکھے اور بااثر نیازی خاندان میں پیدا ہوئے۔ ان کے والد اکرام اللہ خان نیازی ایک نامور سول انجینئر تھے اور ان کی والدہ شوکت خانم ایک انتہائی باوقار اور مضبوط ارادوں کی مالک خاتون تھیں۔ عمران خان اپنے والدین کے اکلوتے بیٹے ہیں اور ان کی چار بہنیں ہیں، جن کے ساتھ ان کا بچپن لاہور کے ایک پرسکون اور محبت بھرے ماحول میں گزرا۔
+                </p>
+                <p>
+                    بچپن اور لڑکپن کے دور میں عمران خان انتہائی شرمیلے (shy)، کم گو اور خاموش مزاج کے مالک تھے۔ وہ عام طور پر اجنبیوں کے سامنے آنے اور کھل کر گفتگو کرنے سے شدید کتراتے تھے۔ ان کی اس شرمیلی اور سنجیدہ طبیعت کو دیکھ کر ان کے قریبی رشتہ داروں میں سے بھی کوئی یہ اندازہ نہیں لگا سکتا تھا کہ یہ شرمیلا بچہ مستقبل میں نہ صرف دنیا کا ایک عظیم کھلاڑی بنے گا بلکہ کروڑوں انسانوں کا ایک نڈر اور بااثر لیڈر بن کر ابھرے گا۔
+                </p>
+                <p>
+                    انہوں نے اپنی ابتدائی تعلیم لاہور کے تاریخی اور مایہ ناز تعلیمی ادارے <strong>ایچی سن کالج</strong> سے حاصل کی۔ ایچی سن کالج کے دور نے ان کی شخصیت کو نکھارنے میں اہم کردار ادا کیا۔ یہاں انہوں نے نہ صرف اپنی پڑھائی پر توجہ دی بلکہ کھیلوں، خاص طور پر کرکٹ، ہاکی اور گھڑ سواری میں بھی غیر معمولی کارکردگی کا مظاہرہ کیا۔ کرکٹ کے میدان نے ان کے اندر کے شرمیلے پن کو ختم کرنے اور ان میں قائدانہ صلاحیتیں (leadership skills) پیدا کرنے میں بنیادی کردار ادا کیا۔
+                </p>
+                <p>
+                    ایچی سن کالج سے تعلیم مکمل کرنے کے بعد، وہ اعلیٰ تعلیم کے حصول کے لیے انگلستان چلے گئے، جہاں انہوں نے رائل گرامر سکول، ورسیسٹر میں داخلہ لیا۔ وہاں سے اے-لیول مکمل کرنے کے بعد، انہوں نے دنیا کی عظیم ترین درسگاہ <strong>آکسفورڈ یونیورسٹی</strong> کے کیبل کالج (Keble College) میں داخلہ حاصل کیا، جہاں انہوں نے 1972 سے 1975 تک فلسفہ، سیاست اور معاشیات (PPE) جیسے اہم مضامین کا مطالعہ کیا اور وہاں سے اپنی گریجویشن کی ڈگری حاصل کی۔
+                </p>
+                <p>
+                    آکسفورڈ یونیورسٹی کے دوران ہی عمران خان کو یونیورسٹی کی کرکٹ ٹیم کا کپتان بھی منتخب کیا گیا۔ انگلینڈ کی زندگی، آکسفورڈ کے علمی ماحول اور بین الاقوامی کرکٹ کے تجربے نے ان کے اندر کی خود اعتمادی کو عروج پر پہنچا دیا۔ بچپن کا وہ شرمیلا اور خاموش بچہ اب دنیا کے سامنے ایک خوددار، پڑھے لکھے اور نڈر انسان کی شکل میں آ چکا تھا، جس نے آگے چل کر پاکستان کا نام روشن کرنا تھا۔
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 Imran Khan Biography. All Rights Reserved. Created by <span class="highlight">Saad Ali</span></p>
+    </footer>
+
+    <!-- Slideshow Auto-play Script -->
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        // Shuruati image par active class lagayi taake wo show ho
+        slides[currentSlide].classList.add('active');
+
+        function nextSlide() {
+            // Purani slide se active class hatai
+            slides[currentSlide].classList.remove('active');
+            
+            // Agli slide par shift kiya
+            currentSlide = (currentSlide + 1) % slides.length;
+            
+            // Nayi slide par active class lagayi taake wo display ho jaye
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Har 3.5 seconds (3500ms) baad slide automatic tabdeel hogi
+        setInterval(nextSlide, 3500);
+    </script>
+
+</body>
+</html>
