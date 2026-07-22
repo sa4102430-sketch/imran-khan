@@ -55,25 +55,66 @@
             color: #facc15;
         }
 
-        /* Custom Professional Language Selector Styling */
-        .custom-translate select {
-            background-color: #0f172a;
-            color: #facc15; /* Gold text */
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            outline: none;
-            font-weight: bold;
-            transition: border-color 0.3s;
+        /* Highly Professional Google Translate Override Styling */
+        .goog-te-gadget {
+            font-family: 'Segoe UI', sans-serif !important;
+            color: transparent !important;
+            font-size: 0px !important;
         }
-        .custom-translate select:focus {
-            border-color: #facc15;
+        .goog-te-combo {
+            background-color: #0f172a !important;
+            color: #facc15 !important;
+            border: 1px solid rgba(255, 255, 255, 0.25) !important;
+            padding: 6px 12px !important;
+            border-radius: 6px !important;
+            font-size: 0.85rem !important;
+            font-weight: bold !important;
+            outline: none !important;
+            cursor: pointer !important;
+        }
+        /* Hide Ugly Google Banners & Frames */
+        .goog-te-banner-frame.skiptranslate, .goog-logo-link, .goog-te-gadget span {
+            display: none !important;
+        }
+        body {
+            top: 0px !important;
+        }
+        .skiptranslate > iframe {
+            display: none !important;
+        }
+
+        /* Glowing PTI Heartbeat Marquee Ticker Styling */
+        @keyframes ticker {
+            0% { transform: translate3d(100%, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+        @keyframes heartbeat {
+            0%, 100% { box-shadow: 0 0 5px rgba(22, 163, 74, 0.3), 0 0 5px rgba(220, 38, 38, 0.3); }
+            50% { box-shadow: 0 0 15px rgba(22, 163, 74, 0.6), 0 0 15px rgba(220, 38, 38, 0.6); }
+        }
+        .ticker-wrap {
+            width: 100%;
+            overflow: hidden;
+            background-color: #020617;
+            border-bottom: 2px solid #dc2626; /* PTI Red */
+            border-top: 2px solid #16a34a; /* PTI Green */
+            padding: 6px 0;
+            animation: heartbeat 2s infinite ease-in-out;
+            z-index: 90;
+        }
+        .ticker-item {
+            display: inline-block;
+            padding-left: 100%;
+            animation: ticker 25s linear infinite;
+            white-space: nowrap;
+            font-weight: 900;
+            font-size: 0.95rem;
+            letter-spacing: 3px;
+            color: #facc15;
         }
 
         .hero {
-            padding: 100px 20px;
+            padding: 60px 20px;
             text-align: center;
             flex-grow: 1;
             display: flex;
@@ -92,7 +133,6 @@
             color: #f8fafc;
         }
         
-        /* Flag Styled Motto Box */
         .motto-box {
             background-color: rgba(15, 23, 42, 0.75);
             border-left: 4px solid #16a34a;
@@ -151,7 +191,6 @@
             font-style: italic;
         }
 
-        /* Footer */
         .footer {
             background-color: #0f0203;
             color: #94a3b8;
@@ -180,7 +219,7 @@
             .nav-links a {
                 margin: 0 10px;
             }
-            .custom-translate {
+            #google_translate_element {
                 margin-top: 5px;
             }
             .hero h1 {
@@ -208,20 +247,17 @@
                 <a href="politics.html">Political Journey</a>
             </div>
             
-            <!-- Beautiful Custom Translate Dropdown -->
-            <div class="custom-translate">
-                <select onchange="translatePage(this.value)">
-                    <option value="">🌐 Language</option>
-                    <option value="en">English</option>
-                    <option value="ps">Pashto (پښتو)</option>
-                    <option value="ar">Arabic (العربية)</option>
-                    <option value="tr">Turkish (Türkçe)</option>
-                    <option value="zh-CN">Chinese (中文)</option>
-                    <option value="ur">Urdu (اردو)</option>
-                </select>
-            </div>
+            <!-- Google Translate Custom Container -->
+            <div id="google_translate_element"></div>
         </div>
     </nav>
+
+    <!-- Pulsing News Ticker Bar -->
+    <div class="ticker-wrap">
+        <div class="ticker-item">
+            IK804 💚 IK804 ❤️ IK804 💚 IK804 ❤️ IK804 💚 IK804 ❤️ IK804 💚 IK804 ❤️ IK804 💚 IK804 ❤️ IK804 💚 IK804 ❤️ IK804 💚 IK804 ❤️ IK804 💚 IK804 ❤️ IK804 💚 IK804 ❤️
+        </div>
+    </div>
 
     <!-- Hero Content -->
     <header class="hero">
@@ -263,27 +299,18 @@
                 isOpen = false;
             }
         });
+    </script>
 
-        // Professional Redirection-based Translation Function
-        function translatePage(langCode) {
-            if (!langCode) return;
-            const currentUrl = window.location.href;
-            
-            // Clean URL if already translated to avoid infinite nesting loop
-            let cleanUrl = currentUrl;
-            if (currentUrl.includes('translate.google.com')) {
-                cleanUrl = 'https://sa4102430-sketch.github.io/imran-khan/index.html';
-            }
-            
-            if (langCode === 'ur') {
-                window.top.location.href = cleanUrl;
-                return;
-            }
-            
-            const translateUrl = `https://translate.google.com/translate?sl=ur&tl=${langCode}&u=${encodeURIComponent(cleanUrl)}`;
-            window.top.location.href = translateUrl;
+    <!-- On-Page Google Translate Initializer (Dunya ki TAMAM languages) -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'ur',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
         }
     </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
