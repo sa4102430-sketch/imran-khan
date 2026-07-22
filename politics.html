@@ -43,73 +43,54 @@
             color: white;
             letter-spacing: 1px;
         }
-        .nav-links a {
-            color: #cbd5e1;
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover, .nav-links a.active {
-            color: #facc15;
-        }
         
-        /* Highly Professional Google Translate Override Styling */
-        .goog-te-gadget {
-            font-family: 'Segoe UI', sans-serif !important;
-            color: transparent !important;
-            font-size: 0px !important;
+        .custom-translate select {
+            background-color: #0f172a;
+            color: #facc15;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            outline: none;
+            font-weight: bold;
+            transition: border-color 0.3s;
         }
-        .goog-te-combo {
-            background-color: #0f172a !important;
-            color: #facc15 !important;
-            border: 1px solid rgba(255, 255, 255, 0.25) !important;
-            padding: 6px 12px !important;
-            border-radius: 6px !important;
-            font-size: 0.85rem !important;
-            font-weight: bold !important;
-            outline: none !important;
-            cursor: pointer !important;
-        }
-        .goog-te-banner-frame.skiptranslate, .goog-logo-link, .goog-te-gadget span {
-            display: none !important;
-        }
-        body {
-            top: 0px !important;
-        }
-        .skiptranslate > iframe {
-            display: none !important;
+        .custom-translate select:focus {
+            border-color: #facc15;
         }
 
-        /* Glowing PTI Heartbeat Marquee Ticker Styling */
-        @keyframes ticker {
-            0% { transform: translate3d(100%, 0, 0); }
-            100% { transform: translate3d(-100%, 0, 0); }
+        /* Seamless Continuous Glowing Heartbeat Ticker Bar Styling */
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
         }
         @keyframes heartbeat {
             0%, 100% { box-shadow: 0 0 5px rgba(22, 163, 74, 0.3), 0 0 5px rgba(220, 38, 38, 0.3); }
             50% { box-shadow: 0 0 15px rgba(22, 163, 74, 0.6), 0 0 15px rgba(220, 38, 38, 0.6); }
         }
         .ticker-wrap {
-            width: 100%;
             overflow: hidden;
+            width: 100%;
             background-color: #020617;
-            border-bottom: 2px solid #dc2626; /* PTI Red */
-            border-top: 2px solid #16a34a; /* PTI Green */
-            padding: 6px 0;
-            animation: heartbeat 2s infinite ease-in-out;
+            border-bottom: 2px solid #dc2626;
+            border-top: 2px solid #16a34a;
+            padding: 8px 0;
+            display: flex;
+            animation: heartbeat 2.5s infinite ease-in-out;
             z-index: 90;
         }
-        .ticker-item {
-            display: inline-block;
-            padding-left: 100%;
-            animation: ticker 25s linear infinite;
+        .ticker {
+            display: flex;
             white-space: nowrap;
+            animation: marquee 35s linear infinite;
+        }
+        .ticker span {
             font-weight: 900;
-            font-size: 0.95rem;
+            font-size: 1rem;
             letter-spacing: 3px;
             color: #facc15;
+            padding-right: 40px;
         }
 
         .container {
@@ -201,7 +182,7 @@
             line-height: 1.7;
         }
 
-        /* Public Review Section */
+        /* Public Review Section - RTL aligned */
         .review-section {
             margin-top: 50px;
             border-top: 2px dashed rgba(255, 255, 255, 0.2);
@@ -222,11 +203,11 @@
             max-width: 600px;
             margin: 0 auto;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-align: right; /* Right align for easy Urdu typing */
+            direction: rtl;    /* Right-to-Left form */
         }
         .form-group {
             margin-bottom: 20px;
-            text-align: right;
-            direction: rtl;
         }
         .form-group label {
             display: block;
@@ -234,6 +215,7 @@
             font-weight: 600;
             margin-bottom: 8px;
             font-size: 1.1rem;
+            text-align: right; /* Explicitly right align labels */
         }
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
@@ -243,6 +225,8 @@
             background-color: rgba(15, 23, 42, 0.6);
             color: white;
             font-size: 1rem;
+            text-align: right; /* Right aligned input text for typing */
+            direction: rtl;
         }
         .form-group input:focus, .form-group textarea:focus {
             outline: none;
@@ -294,6 +278,35 @@
             color: #cbd5e1;
             font-size: 1.05rem;
             line-height: 1.6;
+            text-align: right;
+        }
+
+        /* Beautiful Bottom Navigation */
+        .bottom-nav {
+            max-width: 1000px;
+            width: 100%;
+            margin: 40px auto 20px auto;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 15px;
+            background-color: rgba(6, 26, 12, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .bottom-nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        .bottom-nav a:hover, .bottom-nav a.active {
+            background-color: #facc15;
+            color: #0f172a;
         }
 
         .footer {
@@ -315,16 +328,17 @@
                 gap: 10px;
                 text-align: center;
             }
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 10px;
-            }
-            .nav-links a {
-                margin: 0 10px;
-            }
-            #google_translate_element {
+            .custom-translate {
                 margin-top: 5px;
+            }
+            .bottom-nav {
+                flex-wrap: wrap;
+                gap: 8px;
+                padding: 10px;
+            }
+            .bottom-nav a {
+                font-size: 0.85rem;
+                padding: 6px 12px;
             }
         }
     </style>
@@ -334,21 +348,30 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">IMRAN KHAN</a>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="early-life.html">Early Life</a>
-                <a href="cricket.html">Cricket Era</a>
-                <a href="politics.html" class="active">Political Journey</a>
-            </div>
             
-            <div id="google_translate_element"></div>
+            <div class="custom-translate">
+                <select onchange="translatePage(this.value)">
+                    <option value="">🌐 Language</option>
+                    <option value="ur">Urdu (Original)</option>
+                    <option value="en">English</option>
+                    <option value="ps">Pashto (پښتو)</option>
+                    <option value="ar">Arabic (العربية)</option>
+                    <option value="tr">Turkish (Türkçe)</option>
+                    <option value="zh-CN">Chinese (中文)</option>
+                    <option value="fa">Persian (فارسی)</option>
+                    <option value="fr">Français (French)</option>
+                    <option value="de">Deutsch (German)</option>
+                    <option value="es">Español (Spanish)</option>
+                </select>
+            </div>
         </div>
     </nav>
 
-    <!-- Pulsing News Ticker Bar -->
+    <!-- Seamless Heartbeat Ticker Bar -->
     <div class="ticker-wrap">
-        <div class="ticker-item">
-            IK804 💚 IK804 ❤️ IK804 💚 IK804 ❤️ IK804 💚 IK804 ❤️ IK804 💚 IK804 ❤️ IK804 💚 IK804 ❤️ IK804 💚 IK804 ❤️ IK804 💚 IK804 ❤️ IK804 💚 IK804 ❤️ IK804 💚 IK804 ❤️
+        <div class="ticker">
+            <span>IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
+            <span>IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
         </div>
     </div>
 
@@ -406,17 +429,17 @@
             </div>
         </section>
 
-        <!-- Public Opinion & Reviews Form Section -->
+        <!-- Public Opinion & Reviews Form Section (Form Tag Removed to Fix Security Pop-up) -->
         <section class="review-section">
             <h2 class="review-title">Public Opinion & Reviews (عوامی رائے اور تجزیے)</h2>
             
-            <form id="review-form" class="review-form">
+            <div class="review-form">
                 <div class="form-group">
-                    <label for="reviewer-name">Aap ka Naam (Your Name):</label>
-                    <input type="text" id="reviewer-name" required placeholder="Saad Ali...">
+                    <label for="reviewer-name">What should we call you, Patriot?</label>
+                    <input type="text" id="reviewer-name" required placeholder="...Saad Ali">
                 </div>
                 <div class="form-group">
-                    <label for="review-rating">Rating (Stars):</label>
+                    <label for="review-rating">How much love do you have for the Captain?</label>
                     <select id="review-rating">
                         <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
                         <option value="4">⭐⭐⭐⭐ (4/5)</option>
@@ -426,11 +449,11 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="reviewer-text">Imran Khan ke baray mein aap ki raye (Your Opinion):</label>
-                    <textarea id="reviewer-text" rows="4" required placeholder="Apni raye likhein..."></textarea>
+                    <label for="reviewer-text">Express your thoughts about Khan Sahab:</label>
+                    <textarea id="reviewer-text" rows="4" required placeholder="...Apni raye likhein"></textarea>
                 </div>
-                <button type="submit" class="btn-submit">Submit Review</button>
-            </form>
+                <button type="button" id="submit-review-btn" class="btn-submit">Send Your Message of Hope</button>
+            </div>
 
             <div class="reviews-list-container">
                 <h3>Recent Reviews (حالیہ آراء)</h3>
@@ -439,12 +462,20 @@
         </section>
     </div>
 
+    <!-- Beautiful Bottom Navigation -->
+    <div class="bottom-nav">
+        <a href="index.html">Home</a>
+        <a href="early-life.html">Early Life</a>
+        <a href="cricket.html">Cricket Era</a>
+        <a href="politics.html" class="active">Political Journey</a>
+    </div>
+
     <footer class="footer">
         <p>&copy; 2026 Imran Khan Biography. All Rights Reserved. Created by <span class="highlight">Saad Ali</span></p>
     </footer>
 
     <script>
-        const reviewForm = document.getElementById('review-form');
+        const submitBtn = document.getElementById('submit-review-btn');
         const reviewsDisplay = document.getElementById('reviews-display');
 
         function loadReviews() {
@@ -468,12 +499,21 @@
             });
         }
 
-        reviewForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('reviewer-name').value;
-            const ratingValue = document.getElementById('review-rating').value;
+        submitBtn.addEventListener('click', () => {
+            const nameField = document.getElementById('reviewer-name');
+            const ratingField = document.getElementById('review-rating');
+            const textField = document.getElementById('reviewer-text');
+
+            const name = nameField.value.trim();
+            const ratingValue = ratingField.value;
+            const text = textField.value.trim();
+
+            if (!name || !text) {
+                alert('Please fill out all fields!');
+                return;
+            }
+
             const rating = '⭐'.repeat(parseInt(ratingValue));
-            const text = document.getElementById('reviewer-text').value;
 
             const reviews = JSON.parse(localStorage.getItem('ik_reviews')) || [
                 { name: 'احمد خان', rating: '⭐⭐⭐⭐⭐', text: 'عمران خان ہمارے سچے لیڈر ہیں۔ ان کے غیرت اور خودداری کے اصولوں پر پوری قوم کو فخر ہے۔' },
@@ -484,21 +524,29 @@
             localStorage.setItem('ik_reviews', JSON.stringify(reviews));
 
             loadReviews();
-            reviewForm.reset();
+            
+            // Clear inputs
+            nameField.value = '';
+            textField.value = '';
         });
 
         loadReviews();
-    </script>
 
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'ur',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
+        function translatePage(langCode) {
+            if (!langCode) return;
+            const currentUrl = window.location.href;
+            let cleanUrl = currentUrl;
+            if (currentUrl.includes('translate.google.com')) {
+                cleanUrl = 'https://sa4102430-sketch.github.io/imran-khan/politics.html';
+            }
+            if (langCode === 'ur') {
+                window.top.location.href = cleanUrl;
+                return;
+            }
+            const translateUrl = `https://translate.google.com/translate?sl=ur&tl=${langCode}&u=${encodeURIComponent(cleanUrl)}`;
+            window.top.location.href = translateUrl;
         }
     </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
