@@ -56,8 +56,12 @@
             color: #facc15; /* Yellow Accent */
         }
         .hero {
-            padding: 60px 20px;
+            padding: 100px 20px;
             text-align: center;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .hero-content {
             max-width: 800px;
@@ -128,47 +132,6 @@
             color: #facc15;
             font-size: 1.15rem;
             font-style: italic;
-        }
-
-        /* Lessons Section */
-        .lessons-section {
-            max-width: 1000px;
-            margin: 50px auto;
-            padding: 0 20px 40px 20px;
-        }
-        .lessons-title {
-            font-size: 2.25rem;
-            color: #facc15;
-            text-align: center;
-            margin-bottom: 35px;
-            border-bottom: 2px solid #dc2626;
-            padding-bottom: 10px;
-            font-weight: bold;
-        }
-        .lessons-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        .lesson-card {
-            background-color: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-left: 4px solid #16a34a; /* Green Left Border */
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
-            text-align: right;
-            direction: rtl;
-        }
-        .lesson-card h3 {
-            color: #facc15;
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-        }
-        .lesson-card p {
-            font-size: 1rem;
-            color: #cbd5e1;
-            line-height: 1.7;
         }
 
         /* Footer */
@@ -243,25 +206,6 @@
             <p class="quote-box" id="quote-text" style="display: none;"></p>
         </div>
     </header>
-
-    <!-- Lessons for Youth Section -->
-    <section class="lessons-section">
-        <h2 class="lessons-title">Lessons for Youth (نوجوان نسل کے لیے سبق)</h2>
-        <div class="lessons-grid">
-            <div class="lesson-card">
-                <h3>1. مستقل مزاجی اور پختہ عزم</h3>
-                <p>عمران خان کی زندگی کا سب سے بڑا سبق یہ ہے کہ خواب کتنا ہی ناممکن کیوں نہ لگے، اگر نیت سچی ہو اور انسان مسلسل محنت کرے تو وہ پورا ہو کر رہتا ہے۔ کرکٹ میں شدید انجری کا مقابلہ ہو یا 22 سال کی سیاسی جدوجہد، انہوں نے کبھی ہار نہیں مانی۔</p>
-            </div>
-            <div class="lesson-card">
-                <h3>2. غیرت اور خودداری</h3>
-                <p>نوجوان نسل کے لیے ان کی زندگی کا ایک اہم سبق یہ ہے کہ اپنے ضمیر اور ملک کی خودمختاری پر کبھی سمجھوتہ نہیں کرنا چاہیے۔ انہوں نے ہمیشہ سکھایا کہ ایک غیور قوم بننے کے لیے غیر ملکی دباؤ کے سامنے سر جھکانے سے انکار کرنا ہی اصل آزادی ہے۔</p>
-            </div>
-            <div class="lesson-card">
-                <h3>3. بڑے خواب اور فلاحی سوچ</h3>
-                <p>ایک حقیقی رہنما صرف اپنے لیے نہیں بلکہ قوم کے لیے جیتا ہے۔ کینسر ہسپتال (شوکت خانم) اور غریب طلبہ کے لیے نمل یونیورسٹی کا قیام یہ سکھاتا ہے کہ انسان کو ہمیشہ معاشرے کی فلاح و بہبود کے لیے بڑے خواب دیکھنے چاہئیں اور ان کے لیے عملی قدم اٹھانا چاہیے۔</p>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer class="footer">
