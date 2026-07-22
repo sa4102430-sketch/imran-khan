@@ -18,6 +18,7 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            padding-bottom: 80px !important;
         }
         .navbar {
             background-color: #061a0c;
@@ -44,20 +45,29 @@
             letter-spacing: 1px;
         }
         
-        .custom-translate select {
-            background-color: #0f172a;
-            color: #facc15;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            outline: none;
-            font-weight: bold;
-            transition: border-color 0.3s;
+        /* Highly Professional Google Translate Override Styling */
+        .goog-te-gadget {
+            font-family: 'Segoe UI', sans-serif !important;
+            color: transparent !important;
+            font-size: 0px !important;
         }
-        .custom-translate select:focus {
-            border-color: #facc15;
+        .goog-te-combo {
+            background-color: #0f172a !important;
+            color: #facc15 !important;
+            border: 1px solid rgba(255, 255, 255, 0.25) !important;
+            padding: 6px 12px !important;
+            border-radius: 6px !important;
+            font-size: 0.85rem !important;
+            font-weight: bold !important;
+            outline: none !important;
+            cursor: pointer !important;
+        }
+        .goog-te-banner-frame, .goog-te-banner-frame.skiptranslate, #goog-gt-tt, .goog-te-balloon-frame, .skiptranslate > iframe {
+            display: none !important;
+            visibility: hidden !important;
+        }
+        body {
+            top: 0px !important;
         }
 
         /* Seamless Continuous Glowing Heartbeat Ticker Bar Styling */
@@ -83,7 +93,7 @@
         .ticker {
             display: flex;
             white-space: nowrap;
-            animation: marquee 35s linear infinite;
+            animation: marquee 32s linear infinite;
         }
         .ticker span {
             font-weight: 900;
@@ -159,32 +169,39 @@
             background-color: #ca8a04;
         }
 
-        /* Beautiful Bottom Navigation */
-        .bottom-nav {
-            max-width: 1000px;
-            width: 100%;
-            margin: 40px auto 20px auto;
+        /* Floating Instagram Style Sticky Bottom Navigation */
+        .sticky-bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #061a0c;
+            border-top: 2px solid #dc2626; /* PTI Red Border */
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.4);
             display: flex;
-            justify-content: center;
-            gap: 15px;
-            padding: 15px;
-            background-color: rgba(6, 26, 12, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+            z-index: 1000;
         }
-        .bottom-nav a {
-            color: #cbd5e1;
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-decoration: none;
-            font-size: 0.95rem;
+            color: #cbd5e1;
+            font-size: 0.75rem;
             font-weight: bold;
-            padding: 8px 16px;
-            border-radius: 8px;
-            transition: all 0.3s;
+            transition: color 0.3s;
         }
-        .bottom-nav a:hover, .bottom-nav a.active {
-            background-color: #facc15;
-            color: #0f172a;
+        .nav-item .nav-icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+            margin-bottom: 4px;
+        }
+        .nav-item:hover, .nav-item.active {
+            color: #facc15; /* PTI Gold */
         }
 
         .footer {
@@ -206,17 +223,8 @@
                 gap: 10px;
                 text-align: center;
             }
-            .custom-translate {
+            #google_translate_element {
                 margin-top: 5px;
-            }
-            .bottom-nav {
-                flex-wrap: wrap;
-                gap: 8px;
-                padding: 10px;
-            }
-            .bottom-nav a {
-                font-size: 0.85rem;
-                padding: 6px 12px;
             }
         }
     </style>
@@ -226,30 +234,15 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">IMRAN KHAN</a>
-            
-            <div class="custom-translate">
-                <select onchange="translatePage(this.value)">
-                    <option value="">🌐 Language</option>
-                    <option value="ur">Urdu (Original)</option>
-                    <option value="en">English</option>
-                    <option value="ps">Pashto (پښتو)</option>
-                    <option value="ar">Arabic (العربية)</option>
-                    <option value="tr">Turkish (Türkçe)</option>
-                    <option value="zh-CN">Chinese (中文)</option>
-                    <option value="fa">Persian (فارسی)</option>
-                    <option value="fr">Français (French)</option>
-                    <option value="de">Deutsch (German)</option>
-                    <option value="es">Español (Spanish)</option>
-                </select>
-            </div>
+            <div id="google_translate_element"></div>
         </div>
     </nav>
 
     <!-- Seamless Heartbeat Ticker Bar -->
     <div class="ticker-wrap">
         <div class="ticker">
-            <span>IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
-            <span>IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
+            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
+            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
         </div>
     </div>
 
@@ -278,12 +271,24 @@
         </div>
     </div>
 
-    <!-- Beautiful Bottom Navigation -->
-    <div class="bottom-nav">
-        <a href="index.html">Home</a>
-        <a href="early-life.html">Early Life</a>
-        <a href="cricket.html" class="active">Cricket Era</a>
-        <a href="politics.html">Political Journey</a>
+    <!-- Floating Sticky Bottom Nav Bar -->
+    <div class="sticky-bottom-nav">
+        <a href="index.html" class="nav-item">
+            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            <span>Home</span>
+        </a>
+        <a href="early-life.html" class="nav-item">
+            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z M5.89 12.55L12 15.88l6.11-3.33c.03-.02.06-.03.09-.05v3c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-3c.03.02.06.03.09.05z"/></svg>
+            <span>Early Life</span>
+        </a>
+        <a href="cricket.html" class="nav-item active">
+            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v3c0 2.44 1.72 4.44 4 4.9V19H5v2h14v-2h-2v-4.1c2.28-.46 4-2.46 4-4.9V7c0-1.1-.9-2-2-2zM5 10V7h2v3H5zm14 0h-2V7h2v3z"/></svg>
+            <span>Cricket Era</span>
+        </a>
+        <a href="politics.html" class="nav-item">
+            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+            <span>Politics</span>
+        </a>
     </div>
 
     <footer class="footer">
@@ -306,22 +311,17 @@
                 isFactOpen = false;
             }
         });
+    </script>
 
-        function translatePage(langCode) {
-            if (!langCode) return;
-            const currentUrl = window.location.href;
-            let cleanUrl = currentUrl;
-            if (currentUrl.includes('translate.google.com')) {
-                cleanUrl = 'https://sa4102430-sketch.github.io/imran-khan/cricket.html';
-            }
-            if (langCode === 'ur') {
-                window.top.location.href = cleanUrl;
-                return;
-            }
-            const translateUrl = `https://translate.google.com/translate?sl=ur&tl=${langCode}&u=${encodeURIComponent(cleanUrl)}`;
-            window.top.location.href = translateUrl;
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'ur',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
         }
     </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
