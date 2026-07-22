@@ -45,29 +45,16 @@
             letter-spacing: 1px;
         }
         
-        /* Highly Professional Google Translate Override Styling */
-        .goog-te-gadget {
-            font-family: 'Segoe UI', sans-serif !important;
-            color: transparent !important;
-            font-size: 0px !important;
-        }
-        .goog-te-combo {
-            background-color: #0f172a !important;
-            color: #facc15 !important;
-            border: 1px solid rgba(255, 255, 255, 0.25) !important;
-            padding: 6px 12px !important;
-            border-radius: 6px !important;
-            font-size: 0.85rem !important;
-            font-weight: bold !important;
-            outline: none !important;
-            cursor: pointer !important;
-        }
-        .goog-te-banner-frame, .goog-te-banner-frame.skiptranslate, #goog-gt-tt, .goog-te-balloon-frame, .skiptranslate > iframe {
-            display: none !important;
-            visibility: hidden !important;
-        }
-        body {
-            top: 0px !important;
+        .custom-translate select {
+            background-color: #0f172a;
+            color: #facc15;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            outline: none;
+            font-weight: bold;
         }
 
         /* Seamless Continuous Glowing Heartbeat Ticker Bar Styling */
@@ -192,7 +179,7 @@
             line-height: 1.7;
         }
 
-        /* Public Review Section - Universally Styled for Automatic RTL/LTR Alignment */
+        /* Public Review Section - FORCED LEFT ALIGNED IN BOTH LANGUAGES */
         .review-section {
             margin-top: 50px;
             border-top: 2px dashed rgba(255, 255, 255, 0.2);
@@ -213,11 +200,13 @@
             max-width: 600px;
             margin: 0 auto;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
+            text-align: left !important; /* Forced Left Align */
+            direction: ltr !important;    /* Forced LTR */
         }
         .form-group {
             margin-bottom: 20px;
-            transition: all 0.3s ease;
+            text-align: left !important;
+            direction: ltr !important;
         }
         .form-group label {
             display: block;
@@ -225,7 +214,7 @@
             font-weight: 600;
             margin-bottom: 8px;
             font-size: 1.1rem;
-            transition: all 0.3s ease;
+            text-align: left !important;
         }
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
@@ -235,7 +224,8 @@
             background-color: rgba(15, 23, 42, 0.6);
             color: white;
             font-size: 1rem;
-            transition: all 0.3s ease;
+            text-align: left !important; /* Always type left to right */
+            direction: ltr !important;
         }
         .form-group input:focus, .form-group textarea:focus {
             outline: none;
@@ -259,21 +249,26 @@
         .reviews-list-container {
             max-width: 600px;
             margin: 40px auto 0 auto;
-            transition: all 0.3s ease;
+            text-align: left !important;
+            direction: ltr !important;
         }
         .reviews-list-container h3 {
             color: #facc15;
             border-bottom: 1px solid rgba(255, 255, 255, 0.15);
             padding-bottom: 10px;
             margin-bottom: 20px;
+            text-align: left !important;
         }
         .review-card {
             background-color: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.08);
+            border-left: 4px solid #16a34a; /* Forced Green Left Border */
+            border-right: none !important;
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 15px;
-            transition: all 0.3s ease;
+            text-align: left !important;
+            direction: ltr !important;
         }
         .review-header {
             display: flex;
@@ -286,8 +281,16 @@
             color: #cbd5e1;
             font-size: 1.05rem;
             line-height: 1.6;
-            transition: all 0.3s ease;
+            text-align: left !important;
         }
+
+        /* Pure CSS Dual-Language Toggle Classes */
+        .lang-en { display: none !important; }
+        .lang-ur { display: inline-block; }
+
+        body.lang-en-active .lang-en { display: inline-block !important; }
+        body.lang-en-active .lang-ur { display: none !important; }
+        body.lang-en-active { direction: ltr !important; text-align: left !important; }
 
         /* Floating Instagram Style Sticky Bottom Navigation */
         .sticky-bottom-nav {
@@ -343,8 +346,17 @@
                 gap: 10px;
                 text-align: center;
             }
-            #google_translate_element {
+            .custom-translate {
                 margin-top: 5px;
+            }
+            .bottom-nav {
+                flex-wrap: wrap;
+                gap: 8px;
+                padding: 10px;
+            }
+            .bottom-nav a {
+                font-size: 0.85rem;
+                padding: 6px 12px;
             }
         }
     </style>
@@ -354,80 +366,133 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">IMRAN KHAN</a>
-            <div id="google_translate_element"></div>
+            <div class="custom-translate">
+                <select id="lang-select" onchange="toggleLanguage(this.value)">
+                    <option value="ur">اردو (Urdu)</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
         </div>
     </nav>
 
-    <!-- Seamless Heartbeat Ticker Bar -->
+    <!-- Seamless Heartbeat Ticker Bar with Quranic Motto & Urdu Translation -->
     <div class="ticker-wrap">
         <div class="ticker">
-            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
-            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
+            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
+            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
         </div>
     </div>
 
     <div class="container">
-        <h1 class="section-title">Political Struggle</h1>
+        <h1 class="section-title">
+            <span class="lang-ur">سیاسی جدوجہد اور سفر</span>
+            <span class="lang-en">Political Struggle & Journey</span>
+        </h1>
         
         <div class="urdu-text">
-            <p>
-                کرکٹ کے بعد عمران خان کا سب سے بڑا کام اپنی والدہ کی یاد میں <strong>شوکت خانم میموریل کینسر ہسپتال</strong> کی تعمیر تھا، جس کے فنڈز اکٹھے کرنے کے لیے انہوں نے ملک گیر مہم چلائی۔
-            </p>
-            
-            <div class="cards-grid">
-                <div class="card">
-                    <h4>1996 - PTI Founded</h4>
-                    <p>عمران خان نے 1996 میں پاکستان تحریک انصاف (PTI) کی بنیاد رکھی۔ ابتدائی دور انتہائی کٹھن تھا اور لوگ مذاق اڑاتے تھے۔</p>
+            <!-- Urdu Block -->
+            <div class="lang-ur" style="direction: rtl;">
+                <p>
+                    کرکٹ کے بعد عمران خان کا سب سے بڑا کام اپنی والدہ کی یاد میں <strong>شوکت خانم میموریل کینسر ہسپتال</strong> کی تعمیر تھا، جس کے فنڈز اکٹھے کرنے کے لیے انہوں نے ملک گیر مہم چلائی۔
+                </p>
+                
+                <div class="cards-grid">
+                    <div class="card">
+                        <h4>1996 - تحریک انصاف کا قیام</h4>
+                        <p>عمران خان نے 1996 میں پاکستان تحریک انصاف (PTI) کی بنیاد رکھی۔ ابتدائی دور انتہائی کٹھن تھا اور لوگ مذاق اڑاتے تھے۔</p>
+                    </div>
+                    <div class="card">
+                        <h4>2014 - تاریخی دھرنا</h4>
+                        <p>نظام میں تبدیلی اور انصاف کے لیے اسلام آباد میں 126 دن کا تاریخی دھرنا دیا، جس نے ملکی سیاست کا رخ موڑ دیا۔</p>
+                    </div>
+                    <div class="card">
+                        <h4>2018 - وزیر اعظم پاکستان</h4>
+                        <p>22 سال کی طویل ترین اور کٹھن جدوجہد کے بعد، عمران خان پاکستان کے 22ویں وزیر اعظم منتخب ہوئے۔</p>
+                    </div>
                 </div>
-                <div class="card">
-                    <h4>2014 - Dharna & Protest</h4>
-                    <p>نظام میں تبدیلی اور انصاف کے لیے اسلام آباد میں 126 دن کا تاریخی دھرنا دیا، جس نے ملکی سیاست کا رخ موڑ دیا۔</p>
-                </div>
-                <div class="card">
-                    <h4>2018 - Prime Minister</h4>
-                    <p>22 سال کی طویل ترین اور کٹھن جدوجہد کے بعد، عمران خان پاکستان کے 22ویں وزیر اعظم منتخب ہوئے۔</p>
-                </div>
-            </div>
 
-            <p>
-                سیاست کے اس طویل سفر میں انہیں شدید ترین تنقید، دباؤ، اور مختلف سیاسی چیلنجز کا سامنا رہا، لیکن ان کا عزم اور نظریہ ہمیشہ اٹل رہا۔
-            </p>
-            
-            <p>
-                <strong>ان کے سیاسی اور نظریاتی بیانیے کا سب سے بڑا اور مضبوط اصول یہ تھا کہ وہ نہ کبھی امریکہ یا کسی بیرونی عالمی طاقت کے سامنے جھکے، اور نہ کبھی انہوں نے پاکستان کو جھکنے دیا</strong>۔ انہوں نے ہمیشہ خوددار اور آزاد خارجہ پالیسی کی وکالت کی اور ملکی خود مختاری کے خلاف ہر قسم کے سمجھوتے سے صاف انکار کیا۔ ان کا یہ جرات مندانہ موقف دنیا بھر میں ان کے حامیوں کے لیے خود اعتمادی کا باعث بنا۔
-            </p>
-            
-            <p>
-                <strong>اپنے عہدے سے ہٹائے جانے کے بعد، عمران خان کو متعدد ایسے مقدمات کا سامنا کرنا پڑا جنہیں ان کے حامی اور قانونی ماہرین سیاسی نوعیت کے یکطرفہ اور من گھڑت الزامات قرار دیتے ہیں</strong>۔ ان تمام تر مشکلات اور قید کے باوجود وہ مضبوطی سے ڈٹے ہوئے ہیں۔ دورانِ حراست ان کی صحت، بالخصوص ان کی آنکھ کی تکلیف کے حوالے سے بھی شدید خدشات سامنے آئے، لیکن اس جسمانی تکلیف اور قید کے باوجود انہوں نے روایتی سیاستدانوں (جیسے شریف خاندان) کی طرح بیرونِ ملک علاج یا ریلیف حاصل کرنے کے لیے کوئی ڈیل کرنے یا ملک چھوڑنے سے صاف انکار کر دیا۔ ان کا یہ عزم کہ وہ آخری سانس تک اسی مٹی میں رہیں گے، ان کے سیاسی سفر کو منفرد بناتا ہے۔
-            </p>
+                <p>
+                    سیاست کے اس طویل سفر میں انہیں شدید ترین تنقید، دباؤ، اور مختلف سیاسی چیلنجز کا سامنا رہا، لیکن ان کا عزم اور نظریہ ہمیشہ اٹل رہا۔
+                </p>
+                
+                <p>
+                    <strong>ان کے سیاسی اور نظریاتی بیانیے کا سب سے بڑا اور مضبوط اصول یہ تھا کہ وہ نہ کبھی امریکہ یا کسی بیرونی عالمی طاقت کے سامنے جھکے، اور نہ کبھی انہوں نے پاکستان کو جھکنے دیا</strong>۔ انہوں نے ہمیشہ خوددار اور آزاد خارجہ پالیسی کی وکالت کی اور ملکی خود مختاری کے خلاف ہر قسم کے سمجھوتے سے صاف انکار کیا۔ ان کا یہ جرات مندانہ موقف دنیا بھر میں ان کے حامیوں کے لیے خود اعتمادی کا باعث بنا۔
+                </p>
+                
+                <p>
+                    <strong>اپنے عہدے سے ہٹائے جانے کے بعد، عمران خان کو متعدد ایسے مقدمات کا سامنا کرنا پڑا جنہیں ان کے حامی اور قانونی ماہرین سیاسی نوعیت کے یکطرفہ اور من گھڑت الزامات قرار دیتے ہیں</strong>۔ ان تمام تر مشکلات اور قید کے باوجود وہ مضبوطی سے ڈٹے ہوئے ہیں۔ دورانِ حراست ان کی صحت، بالخصوص ان کی آنکھ کی تکلیف کے حوالے سے بھی شدید خدشات سامنے آئے، لیکن اس جسمانی تکلیف اور قید کے باوجود انہوں نے روایتی سیاستدانوں (جیسے شریف خاندان) کی طرح بیرونِ ملک علاج یا ریلیف حاصل کرنے کے لیے کوئی ڈیل کرنے یا ملک چھوڑنے سے صاف انکار کر دیا۔ ان کا یہ عزم کہ وہ آخری سانس تک اسی مٹی میں رہیں گے، ان کے سیاسی سفر کو منفرد بناتا ہے۔
+                </p>
+            </div>
+            <!-- English Block -->
+            <div class="lang-en" style="direction: ltr; text-align: left;">
+                <p>
+                    After cricket, Imran Khan's greatest achievement was building the Shaukat Khanum Memorial Cancer Hospital in memory of his mother, running a nationwide campaign to raise funds for this monumental project.
+                </p>
+                
+                <div class="cards-grid">
+                    <div class="card">
+                        <h4>1996 - PTI Founded</h4>
+                        <p>Imran Khan founded Pakistan Tehreek-e-Insaf (PTI) in 1996. The initial years were extremely difficult, and his party was widely dismissed by critics.</p>
+                    </div>
+                    <div class="card">
+                        <h4>2014 - Dharna & Protest</h4>
+                        <p>He led historical protests, including the 126-day sit-in in Islamabad for justice and system change, which reshaped the country's political landscape.</p>
+                    </div>
+                    <div class="card">
+                        <h4>2018 - Prime Minister</h4>
+                        <p>Following a grueling 22-year political struggle, Imran Khan was elected as the 22nd Prime Minister of Pakistan in 2018.</p>
+                    </div>
+                </div>
+
+                <p>
+                    His political journey was defined by severe criticism, immense pressure, and monumental political challenges, but his resolve and ideology remained unshakeable.
+                </p>
+                
+                <p>
+                    <strong>The core of his political and ideological narrative was that he never bowed to American or any foreign global power, nor did he ever let Pakistan bow.</strong> He consistently advocated for a sovereign and independent foreign policy, flatly refusing any compromise on national sovereignty. His courageous stance became a global symbol of self-respect for his supporters.
+                </p>
+                
+                <p>
+                    <strong>Following his removal from office, Imran Khan faced numerous cases which his supporters and legal experts dismiss as politically motivated and fabricated charges.</strong> Despite all hardships and ongoing imprisonment, he remains steadfast. During his detention, serious concerns emerged regarding his health, particularly a severe eye ailment. Yet, despite this physical suffering, he flatly refused to make deals or leave the country for medical treatment like dynastic politicians (such as the Sharif family). His resolve to live and die in his homeland makes his journey truly historic.
+                </p>
+            </div>
         </div>
 
         <section class="lessons-section">
-            <h2 class="lessons-title">Lessons for Youth (نوجوان نسل کے لیے سبق)</h2>
+            <h2 class="lessons-title">
+                <span class="lang-ur">نوجوان نسل کے لیے سبق</span>
+                <span class="lang-en">Lessons for Youth</span>
+            </h2>
             <div class="lessons-grid">
                 <div class="lesson-card">
-                    <h3>1. مستقل مزاجی اور پختہ عزم</h3>
-                    <p>عمران خان کی زندگی کا سب سے بڑا سبق یہ ہے کہ خواب کتنا ہی ناممکن کیوں نہ لگے، اگر نیت سچی ہو اور انسان مسلسل محنت کرے تو وہ پورا ہو کر رہتا ہے۔ کرکٹ میں شدید انجری کا مقابلہ ہو یا 22 سال کی سیاسی جدوجہد، انہوں نے کبھی ہار نہیں مانی۔</p>
+                    <h3 class="lang-ur">1. مستقل مزاجی اور پختہ عزم</h3>
+                    <h3 class="lang-en">1. Perseverance & Resolve</h3>
+                    <p class="lang-ur">عمران خان کی زندگی کا سب سے بڑا سبق یہ ہے کہ خواب کتنا ہی ناممکن کیوں نہ لگے، اگر نیت سچی ہو اور انسان مسلسل محنت کرے تو وہ پورا ہو کر رہتا ہے۔ کرکٹ میں شدید انجری کا مقابلہ ہو یا 22 سال کی سیاسی جدوجہد، انہوں نے کبھی ہار نہیں مانی۔</p>
+                    <p class="lang-en">Imran Khan's life teaches us that no dream is too big if your intentions are pure and you work tirelessly. Whether overcoming shin injuries in cricket or fighting a 22-year political battle, he never gave up.</p>
                 </div>
                 <div class="lesson-card">
-                    <h3>2. غیرت اور خودداری</h3>
-                    <p>نوجوان نسل کے لیے ان کی زندگی کا ایک اہم سبق یہ ہے کہ اپنے ضمیر اور ملک کی خودمختاری پر کبھی سمجھوتہ نہیں کرنا چاہیے۔ انہوں نے ہمیشہ سکھایا کہ ایک غیور قوم بننے کے لیے غیر ملکی دباؤ کے سامنے سر جھکانے سے انکار کرنا ہی اصل آزادی ہے۔</p>
+                    <h3 class="lang-ur">2. غیرت اور خودداری</h3>
+                    <h3 class="lang-en">2. Self-Respect & Sovereignty</h3>
+                    <p class="lang-ur">نوجوان نسل کے لیے ان کی زندگی کا ایک اہم سبق یہ ہے کہ اپنے ضمیر اور ملک کی خودمختاری پر کبھی سمجھوتہ نہیں کرنا چاہیے۔ انہوں نے ہمیشہ سکھایا کہ ایک غیور قوم بننے کے لیے غیر ملکی دباؤ کے سامنے سر جھکانے سے انکار کرنا ہی اصل آزادی ہے۔</p>
+                    <p class="lang-en">A vital lesson for the youth is to never compromise on personal conscience and national sovereignty. True independence lies in standing firm against foreign pressure.</p>
                 </div>
                 <div class="lesson-card">
-                    <h3>3. بڑے خواب اور فلاحی سوچ</h3>
-                    <p>ایک حقیقی رہنما صرف اپنے لیے نہیں بلکہ قوم کے لیے جیتا ہے۔ کینسر ہسپتال (شوکت خانم) اور غریب طلبہ کے لیے نمل یونیورسٹی کا قیام یہ سکھاتا ہے کہ انسان کو ہمیشہ معاشرے کی فلاح و بہبود کے لیے بڑے خواب دیکھنے باشئیں اور ان کے لیے عملی قدم اٹھانا چاہیے۔</p>
+                    <h3 class="lang-ur">3. بڑے خواب اور فلاحی سوچ</h3>
+                    <h3 class="lang-en">3. Big Dreams & Philanthropy</h3>
+                    <p class="lang-ur">ایک حقیقی رہنما صرف اپنے لیے نہیں بلکہ قوم کے لیے جیتا ہے۔ کینسر ہسپتال (شوکت خانم) اور غریب طلبہ کے لیے نمل یونیورسٹی کا قیام یہ سکھاتا ہے کہ انسان کو ہمیشہ معاشرے کی فلاح و بہبود کے لیے بڑے خواب دیکھنے چاہئیں اور ان کے لیے عملی قدم اٹھانا چاہیے۔</p>
+                    <p class="lang-en">A true leader lives for his nation. Building cancer hospitals and universities teaches us that one should always dream big for the welfare of society.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Public Opinion & Reviews Section (Styled Safely Without <form> Tag) -->
+        <!-- Public Opinion & Reviews Form Section (RTL Form, Always Left-Aligned) -->
         <section class="review-section">
             <h2 class="review-title">Public Opinion & Reviews (عوامی رائے اور تجزیے)</h2>
             
             <div class="review-form">
                 <div class="form-group">
                     <label id="lbl-name" for="reviewer-name">What should we call you, Patriot?</label>
-                    <input type="text" id="reviewer-name" required placeholder="Saad Ali...">
+                    <input type="text" id="reviewer-name" required placeholder="...Saad Ali">
                 </div>
                 <div class="form-group">
                     <label id="lbl-rating" for="review-rating">How much love do you have for the Captain?</label>
@@ -441,7 +506,7 @@
                 </div>
                 <div class="form-group">
                     <label id="lbl-text" for="reviewer-text">Express your thoughts about Khan Sahab:</label>
-                    <textarea id="reviewer-text" rows="4" required placeholder="Apni raye likhein..."></textarea>
+                    <textarea id="reviewer-text" rows="4" required placeholder="...Apni raye likhein"></textarea>
                 </div>
                 <button type="button" id="submit-review-btn" class="btn-submit">Send Your Message of Hope</button>
             </div>
@@ -457,19 +522,19 @@
     <div class="sticky-bottom-nav">
         <a href="index.html" class="nav-item">
             <svg class="nav-icon" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-            <span>Home</span>
+            <span class="lang-ur">ہوم</span><span class="lang-en">Home</span>
         </a>
         <a href="early-life.html" class="nav-item">
             <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z M5.89 12.55L12 15.88l6.11-3.33c.03-.02.06-.03.09-.05v3c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-3c.03.02.06.03.09.05z"/></svg>
-            <span>Early Life</span>
+            <span class="lang-ur">ابتدائی زندگی</span><span class="lang-en">Early Life</span>
         </a>
         <a href="cricket.html" class="nav-item">
             <svg class="nav-icon" viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v3c0 2.44 1.72 4.44 4 4.9V19H5v2h14v-2h-2v-4.1c2.28-.46 4-2.46 4-4.9V7c0-1.1-.9-2-2-2zM5 10V7h2v3H5zm14 0h-2V7h2v3z"/></svg>
-            <span>Cricket Era</span>
+            <span class="lang-ur">کرکٹ دور</span><span class="lang-en">Cricket Era</span>
         </a>
         <a href="politics.html" class="nav-item active">
             <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
-            <span>Politics</span>
+            <span class="lang-ur">سیاسی سفر</span><span class="lang-en">Politics</span>
         </a>
     </div>
 
@@ -496,108 +561,4 @@
                         <span>${review.name}</span>
                         <span>${review.rating}</span>
                     </div>
-                    <p class="review-body">${review.text}</p>
-                `;
-                reviewsDisplay.appendChild(card);
-            });
-        }
-
-        submitBtn.addEventListener('click', () => {
-            const nameField = document.getElementById('reviewer-name');
-            const ratingField = document.getElementById('review-rating');
-            const textField = document.getElementById('reviewer-text');
-
-            const name = nameField.value.trim();
-            const ratingValue = ratingField.value;
-            const text = textField.value.trim();
-
-            if (!name || !text) {
-                alert('Please fill out all fields!');
-                return;
-            }
-
-            const rating = '⭐'.repeat(parseInt(ratingValue));
-
-            const reviews = JSON.parse(localStorage.getItem('ik_reviews')) || [
-                { name: 'احمد خان', rating: '⭐⭐⭐⭐⭐', text: 'عمران خان ہمارے سچے لیڈر ہیں۔ ان کے غیرت اور خودداری کے اصولوں پر پوری قوم کو فخر ہے۔' },
-                { name: 'سارہ علی', rating: '⭐⭐⭐⭐⭐', text: 'نوجوانوں کے لیے ان کا عزم اور شوکت خانم کا خواب سب سے بڑا سبق ہے۔' }
-            ];
-
-            reviews.unshift({ name, rating, text });
-            localStorage.setItem('ik_reviews', JSON.stringify(reviews));
-
-            loadReviews();
-            
-            // Clear inputs
-            nameField.value = '';
-            textField.value = '';
-        });
-
-        loadReviews();
-
-        // Advanced RTL/LTR Layout Direction Auto-Flipper Script based on Selected Language
-        function updateLayoutDirection() {
-            const htmlEl = document.documentElement;
-            
-            // Languages that require RTL direction
-            const isRtl = htmlEl.classList.contains('translated-rtl') || 
-                          htmlEl.getAttribute('lang') === 'ur' || 
-                          htmlEl.getAttribute('lang') === 'ar' || 
-                          htmlEl.getAttribute('lang') === 'fa' || 
-                          htmlEl.getAttribute('lang') === 'ps';
-
-            const urduTexts = document.querySelectorAll('.urdu-text');
-            const formGroups = document.querySelectorAll('.form-group');
-            const reviewForm = document.querySelector('.review-form');
-            const reviewCards = document.querySelectorAll('.review-card');
-            const reviewBodies = document.querySelectorAll('.review-body');
-            const textInputs = document.querySelectorAll('.form-group input, .form-group textarea');
-
-            if (isRtl) {
-                // Apply Right-to-Left styling for Urdu, Arabic, Persian, Pashto
-                document.body.style.direction = "rtl";
-                document.body.style.textAlign = "right";
-                if (reviewForm) {
-                    reviewForm.style.direction = "rtl";
-                    reviewForm.style.textAlign = "right";
-                }
-                urduTexts.forEach(el => { el.style.direction = "rtl"; el.style.textAlign = "right"; });
-                formGroups.forEach(el => { el.style.direction = "rtl"; el.style.textAlign = "right"; });
-                textInputs.forEach(el => { el.style.direction = "rtl"; el.style.textAlign = "right"; });
-                reviewCards.forEach(el => { el.style.direction = "rtl"; el.style.textAlign = "right"; el.style.borderRight = "4px solid #16a34a"; el.style.borderLeft = "none"; });
-                reviewBodies.forEach(el => { el.style.textAlign = "right"; });
-            } else {
-                // Apply Left-to-Right styling for English, Chinese, Turkish, French, etc.
-                document.body.style.direction = "ltr";
-                document.body.style.textAlign = "left";
-                if (reviewForm) {
-                    reviewForm.style.direction = "ltr";
-                    reviewForm.style.textAlign = "left";
-                }
-                urduTexts.forEach(el => { el.style.direction = "ltr"; el.style.textAlign = "left"; });
-                formGroups.forEach(el => { el.style.direction = "ltr"; el.style.textAlign = "left"; });
-                textInputs.forEach(el => { el.style.direction = "ltr"; el.style.textAlign = "left"; });
-                reviewCards.forEach(el => { el.style.direction = "ltr"; el.style.textAlign = "left"; el.style.borderLeft = "4px solid #16a34a"; el.style.borderRight = "none"; });
-                reviewBodies.forEach(el => { el.style.textAlign = "left"; });
-            }
-        }
-
-        // Observe Google Translate Class changes dynamically
-        const observer = new MutationObserver(updateLayoutDirection);
-        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class', 'lang'] });
-        setInterval(updateLayoutDirection, 1000); // Fail-safe 1 second auto-flipper interval
-    </script>
-
-    <!-- On-Page Google Translate Initializer -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'ur',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-</body>
-</html>
+                    <p class="
