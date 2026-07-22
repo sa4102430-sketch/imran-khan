@@ -104,6 +104,46 @@
             font-size: 0.95rem;
             color: #cbd5e1;
         }
+
+        /* Lessons Section (Moved to Last Page) */
+        .lessons-section {
+            margin-top: 50px;
+            border-top: 2px dashed rgba(255, 255, 255, 0.2);
+            padding-top: 40px;
+        }
+        .lessons-title {
+            font-size: 2rem;
+            color: #facc15;
+            text-align: center;
+            margin-bottom: 35px;
+            font-weight: bold;
+        }
+        .lessons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .lesson-card {
+            background-color: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 4px solid #16a34a; /* Green Left Border */
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+            text-align: right;
+            direction: rtl;
+        }
+        .lesson-card h3 {
+            color: #facc15;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+        .lesson-card p {
+            font-size: 1rem;
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
+
         .footer {
             background-color: #0f0203;
             color: #94a3b8;
@@ -182,6 +222,25 @@
                 <strong>اپنے عہدے سے ہٹائے جانے کے بعد، عمران خان کو متعدد ایسے مقدمات کا سامنا کرنا پڑا جنہیں ان کے حامی اور قانونی ماہرین سیاسی نوعیت کے یکطرفہ اور من گھڑت الزامات قرار دیتے ہیں</strong>۔ ان تمام تر مشکلات اور قید کے باوجود وہ مضبوطی سے ڈٹے ہوئے ہیں۔ دورانِ حراست ان کی صحت، بالخصوص ان کی آنکھ کی تکلیف کے حوالے سے بھی شدید خدشات سامنے آئے، لیکن اس جسمانی تکلیف اور قید کے باوجود انہوں نے روایتی سیاستدانوں (جیسے شریف خاندان) کی طرح بیرونِ ملک علاج یا ریلیف حاصل کرنے کے لیے کوئی ڈیل کرنے یا ملک چھوڑنے سے صاف انکار کر دیا۔ ان کا یہ عزم کہ وہ آخری سانس تک اسی مٹی میں رہیں گے، ان کے سیاسی سفر کو منفرد بناتا ہے۔
             </p>
         </div>
+
+        <!-- Lessons for Youth Section (Moved beautifully to the bottom of the last page) -->
+        <section class="lessons-section">
+            <h2 class="lessons-title">Lessons for Youth (نوجوان نسل کے لیے سبق)</h2>
+            <div class="lessons-grid">
+                <div class="lesson-card">
+                    <h3>1. مستقل مزاجی اور پختہ عزم</h3>
+                    <p>عمران خان کی زندگی کا سب سے بڑا سبق یہ ہے کہ خواب کتنا ہی ناممکن کیوں نہ لگے، اگر نیت سچی ہو اور انسان مسلسل محنت کرے تو وہ پورا ہو کر رہتا ہے۔ کرکٹ میں شدید انجری کا مقابلہ ہو یا 22 سال کی سیاسی جدوجہد، انہوں نے کبھی ہار نہیں مانی۔</p>
+                </div>
+                <div class="lesson-card">
+                    <h3>2. غیرت اور خودداری</h3>
+                    <p>نوجوان نسل کے لیے ان کی زندگی کا ایک اہم سبق یہ ہے کہ اپنے ضمیر اور ملک کی خودمختاری پر کبھی سمجھوتہ نہیں کرنا چاہیے۔ انہوں نے ہمیشہ سکھایا کہ ایک غیور قوم بننے کے لیے غیر ملکی دباؤ کے سامنے سر جھکانے سے انکار کرنا ہی اصل آزادی ہے۔</p>
+                </div>
+                <div class="lesson-card">
+                    <h3>3. بڑے خواب اور فلاحی سوچ</h3>
+                    <p>ایک حقیقی رہنما صرف اپنے لیے نہیں بلکہ قوم کے لیے جیتا ہے۔ کینسر ہسپتال (شوکت خانم) اور غریب طلبہ کے لیے نمل یونیورسٹی کا قیام یہ سکھاتا ہے کہ انسان کو ہمیشہ معاشرے کی فلاح و بہبود کے لیے بڑے خواب دیکھنے چاہئیں اور ان کے لیے عملی قدم اٹھانا چاہیے۔</p>
+                </div>
+            </div>
+        </section>
     </div>
 
     <footer class="footer">
