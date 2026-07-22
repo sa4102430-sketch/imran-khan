@@ -43,73 +43,54 @@
             color: white;
             letter-spacing: 1px;
         }
-        .nav-links a {
-            color: #cbd5e1;
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover, .nav-links a.active {
-            color: #facc15;
-        }
         
-        /* Highly Professional Google Translate Override Styling */
-        .goog-te-gadget {
-            font-family: 'Segoe UI', sans-serif !important;
-            color: transparent !important;
-            font-size: 0px !important;
+        .custom-translate select {
+            background-color: #0f172a;
+            color: #facc15;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            outline: none;
+            font-weight: bold;
+            transition: border-color 0.3s;
         }
-        .goog-te-combo {
-            background-color: #0f172a !important;
-            color: #facc15 !important;
-            border: 1px solid rgba(255, 255, 255, 0.25) !important;
-            padding: 6px 12px !important;
-            border-radius: 6px !important;
-            font-size: 0.85rem !important;
-            font-weight: bold !important;
-            outline: none !important;
-            cursor: pointer !important;
-        }
-        .goog-te-banner-frame.skiptranslate, .goog-logo-link, .goog-te-gadget span {
-            display: none !important;
-        }
-        body {
-            top: 0px !important;
-        }
-        .skiptranslate > iframe {
-            display: none !important;
+        .custom-translate select:focus {
+            border-color: #facc15;
         }
 
-        /* Glowing PTI Heartbeat Marquee Ticker Styling */
-        @keyframes ticker {
-            0% { transform: translate3d(100%, 0, 0); }
-            100% { transform: translate3d(-100%, 0, 0); }
+        /* Seamless Continuous Glowing Heartbeat Ticker Bar Styling */
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
         }
         @keyframes heartbeat {
             0%, 100% { box-shadow: 0 0 5px rgba(22, 163, 74, 0.3), 0 0 5px rgba(220, 38, 38, 0.3); }
             50% { box-shadow: 0 0 15px rgba(22, 163, 74, 0.6), 0 0 15px rgba(220, 38, 38, 0.6); }
         }
         .ticker-wrap {
-            width: 100%;
             overflow: hidden;
+            width: 100%;
             background-color: #020617;
-            border-bottom: 2px solid #dc2626; /* PTI Red */
-            border-top: 2px solid #16a34a; /* PTI Green */
-            padding: 6px 0;
-            animation: heartbeat 2s infinite ease-in-out;
+            border-bottom: 2px solid #dc2626;
+            border-top: 2px solid #16a34a;
+            padding: 8px 0;
+            display: flex;
+            animation: heartbeat 2.5s infinite ease-in-out;
             z-index: 90;
         }
-        .ticker-item {
-            display: inline-block;
-            padding-left: 100%;
-            animation: ticker 25s linear infinite;
+        .ticker {
+            display: flex;
             white-space: nowrap;
+            animation: marquee 35s linear infinite;
+        }
+        .ticker span {
             font-weight: 900;
-            font-size: 0.95rem;
+            font-size: 1rem;
             letter-spacing: 3px;
             color: #facc15;
+            padding-right: 40px;
         }
 
         .container {
@@ -177,6 +158,35 @@
         .btn-small:hover {
             background-color: #ca8a04;
         }
+
+        /* Beautiful Bottom Navigation */
+        .bottom-nav {
+            max-width: 1000px;
+            width: 100%;
+            margin: 40px auto 20px auto;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 15px;
+            background-color: rgba(6, 26, 12, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .bottom-nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        .bottom-nav a:hover, .bottom-nav a.active {
+            background-color: #facc15;
+            color: #0f172a;
+        }
+
         .footer {
             background-color: #0f0203;
             color: #94a3b8;
@@ -196,16 +206,17 @@
                 gap: 10px;
                 text-align: center;
             }
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 10px;
-            }
-            .nav-links a {
-                margin: 0 10px;
-            }
-            #google_translate_element {
+            .custom-translate {
                 margin-top: 5px;
+            }
+            .bottom-nav {
+                flex-wrap: wrap;
+                gap: 8px;
+                padding: 10px;
+            }
+            .bottom-nav a {
+                font-size: 0.85rem;
+                padding: 6px 12px;
             }
         }
     </style>
@@ -215,21 +226,30 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">IMRAN KHAN</a>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="early-life.html">Early Life</a>
-                <a href="cricket.html" class="active">Cricket Era</a>
-                <a href="politics.html">Political Journey</a>
-            </div>
             
-            <div id="google_translate_element"></div>
+            <div class="custom-translate">
+                <select onchange="translatePage(this.value)">
+                    <option value="">🌐 Language</option>
+                    <option value="ur">Urdu (Original)</option>
+                    <option value="en">English</option>
+                    <option value="ps">Pashto (پښتو)</option>
+                    <option value="ar">Arabic (العربية)</option>
+                    <option value="tr">Turkish (Türkçe)</option>
+                    <option value="zh-CN">Chinese (中文)</option>
+                    <option value="fa">Persian (فارسی)</option>
+                    <option value="fr">Français (French)</option>
+                    <option value="de">Deutsch (German)</option>
+                    <option value="es">Español (Spanish)</option>
+                </select>
+            </div>
         </div>
     </nav>
 
-    <!-- Pulsing News Ticker Bar -->
+    <!-- Seamless Heartbeat Ticker Bar -->
     <div class="ticker-wrap">
-        <div class="ticker-item">
-            IK804 💚 IK804 ❤️ IK804 💚 IK804 ❤️ IK804 💚 IK804 ❤️ IK804 💚 IK804 ❤️ IK804 💚 IK804 ❤️ IK804 💚 IK804 ❤️ IK804 💚 IK804 ❤️ IK804 💚 IK804 ❤️ IK804 💚 IK804 ❤️
+        <div class="ticker">
+            <span>IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
+            <span>IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ IK804 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
         </div>
     </div>
 
@@ -238,7 +258,7 @@
         
         <div class="urdu-text">
             <p>
-                عمران خان نے 1971 میں پاکستان کے لیے اپنا پہلا ٹیسٹ میچ کھیلا۔ ان کا کرکٹ کا سفر اسان نہیں تھا، شروع میں انہیں ٹیم سے ڈراپ بھی کیا گیا، لیکن انہوں نے اپنی بولنگ سپیڈ اور فٹنس پر بے پناہ محنت کی اور دنیا کے بہترین آل راؤنڈر بن کر ابھرے۔
+                عمران خان نے 1971 میں پاکستان کے لیے اپنا پہلا ٹیسٹ میچ کھیلا۔ ان کا کرکٹ کا سفر اسان نہیں تھا، شروع میں انہوں نے ٹیم سے ڈراپ بھی کیا گیا، لیکن انہوں نے اپنی بولنگ سپیڈ اور فٹنس پر بے پناہ محنت کی اور دنیا کے بہترین آل راؤنڈر بن کر ابھرے۔
             </p>
 
             <div class="highlight-box">
@@ -256,6 +276,14 @@
                 شدید انجری اور بیمار کھلاڑیوں کے باوجود، عمران خان نے پاکستان کرکٹ ٹیم کو "کارنرڈ ٹائیگرز" کا لقب دیا اور 1992 میں پاکستان کو پہلا اور واحد ورلڈ کپ جتوایا۔
             </p>
         </div>
+    </div>
+
+    <!-- Beautiful Bottom Navigation -->
+    <div class="bottom-nav">
+        <a href="index.html">Home</a>
+        <a href="early-life.html">Early Life</a>
+        <a href="cricket.html" class="active">Cricket Era</a>
+        <a href="politics.html">Political Journey</a>
     </div>
 
     <footer class="footer">
@@ -278,17 +306,22 @@
                 isFactOpen = false;
             }
         });
-    </script>
 
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'ur',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
+        function translatePage(langCode) {
+            if (!langCode) return;
+            const currentUrl = window.location.href;
+            let cleanUrl = currentUrl;
+            if (currentUrl.includes('translate.google.com')) {
+                cleanUrl = 'https://sa4102430-sketch.github.io/imran-khan/cricket.html';
+            }
+            if (langCode === 'ur') {
+                window.top.location.href = cleanUrl;
+                return;
+            }
+            const translateUrl = `https://translate.google.com/translate?sl=ur&tl=${langCode}&u=${encodeURIComponent(cleanUrl)}`;
+            window.top.location.href = translateUrl;
         }
     </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
