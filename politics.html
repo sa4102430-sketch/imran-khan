@@ -54,6 +54,23 @@
         .nav-links a:hover, .nav-links a.active {
             color: #facc15;
         }
+        
+        .custom-translate select {
+            background-color: #0f172a;
+            color: #facc15;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            outline: none;
+            font-weight: bold;
+            transition: border-color 0.3s;
+        }
+        .custom-translate select:focus {
+            border-color: #facc15;
+        }
+
         .container {
             max-width: 1000px;
             margin: 40px auto;
@@ -79,7 +96,6 @@
             margin-bottom: 20px;
             line-height: 1.9;
         }
-        /* Cards Layout */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -105,7 +121,7 @@
             color: #cbd5e1;
         }
 
-        /* Lessons Section (Moved to Last Page) */
+        /* Lessons Section */
         .lessons-section {
             margin-top: 50px;
             border-top: 2px dashed rgba(255, 255, 255, 0.2);
@@ -126,7 +142,7 @@
         .lesson-card {
             background-color: rgba(255, 255, 255, 0.06);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-left: 4px solid #16a34a; /* Green Left Border */
+            border-left: 4px solid #16a34a;
             padding: 25px;
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.15);
@@ -142,6 +158,101 @@
             font-size: 1rem;
             color: #cbd5e1;
             line-height: 1.7;
+        }
+
+        /* Public Review Section */
+        .review-section {
+            margin-top: 50px;
+            border-top: 2px dashed rgba(255, 255, 255, 0.2);
+            padding-top: 40px;
+        }
+        .review-title {
+            font-size: 2rem;
+            color: #facc15;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        .review-form {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: right;
+            direction: rtl;
+        }
+        .form-group label {
+            display: block;
+            color: #facc15;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background-color: rgba(15, 23, 42, 0.6);
+            color: white;
+            font-size: 1rem;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #facc15;
+        }
+        .btn-submit {
+            background-color: #eab308;
+            color: #0f172a;
+            padding: 12px 30px;
+            border-radius: 8px;
+            border: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        .btn-submit:hover {
+            background-color: #ca8a04;
+        }
+        .reviews-list-container {
+            max-width: 600px;
+            margin: 40px auto 0 auto;
+            text-align: right;
+            direction: rtl;
+        }
+        .reviews-list-container h3 {
+            color: #facc15;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .review-card {
+            background-color: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-right: 4px solid #16a34a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            color: #facc15;
+            font-weight: bold;
+        }
+        .review-body {
+            color: #cbd5e1;
+            font-size: 1.05rem;
+            line-height: 1.6;
         }
 
         .footer {
@@ -161,6 +272,7 @@
             .nav-container {
                 flex-direction: column;
                 gap: 10px;
+                text-align: center;
             }
             .nav-links {
                 flex-wrap: wrap;
@@ -169,6 +281,9 @@
             }
             .nav-links a {
                 margin: 0 10px;
+            }
+            .custom-translate {
+                margin-top: 5px;
             }
         }
     </style>
@@ -184,7 +299,18 @@
                 <a href="cricket.html">Cricket Era</a>
                 <a href="politics.html" class="active">Political Journey</a>
             </div>
-            <div id="google_translate_element"></div>
+            
+            <div class="custom-translate">
+                <select onchange="translatePage(this.value)">
+                    <option value="">🌐 Language</option>
+                    <option value="en">English</option>
+                    <option value="ps">Pashto (پښتو)</option>
+                    <option value="ar">Arabic (العربية)</option>
+                    <option value="tr">Turkish (Türkçe)</option>
+                    <option value="zh-CN">Chinese (中文)</option>
+                    <option value="ur">Urdu (اردو)</option>
+                </select>
+            </div>
         </div>
     </nav>
 
@@ -224,7 +350,6 @@
             </p>
         </div>
 
-        <!-- Lessons for Youth Section (Moved beautifully to the bottom of the last page) -->
         <section class="lessons-section">
             <h2 class="lessons-title">Lessons for Youth (نوجوان نسل کے لیے سبق)</h2>
             <div class="lessons-grid">
@@ -242,20 +367,104 @@
                 </div>
             </div>
         </section>
+
+        <!-- Public Opinion & Reviews Form -->
+        <section class="review-section">
+            <h2 class="review-title">Public Opinion & Reviews (عوامی رائے اور تجزیے)</h2>
+            <form id="review-form" class="review-form">
+                <div class="form-group">
+                    <label for="reviewer-name">Aap ka Naam (Your Name):</label>
+                    <input type="text" id="reviewer-name" required placeholder="Saad Ali...">
+                </div>
+                <div class="form-group">
+                    <label for="review-rating">Rating (Stars):</label>
+                    <select id="review-rating">
+                        <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
+                        <option value="4">⭐⭐⭐⭐ (4/5)</option>
+                        <option value="3">⭐⭐⭐ (3/5)</option>
+                        <option value="2">⭐⭐ (2/5)</option>
+                        <option value="1">⭐ (1/5)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="reviewer-text">Imran Khan ke baray mein aap ki raye (Your Opinion):</label>
+                    <textarea id="reviewer-text" rows="4" required placeholder="Apni raye likhein..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Submit Review</button>
+            </form>
+
+            <div class="reviews-list-container">
+                <h3>Recent Reviews (حالیہ آراء)</h3>
+                <div id="reviews-display"></div>
+            </div>
+        </section>
     </div>
 
     <footer class="footer">
         <p>&copy; 2026 Imran Khan Biography. All Rights Reserved. Created by <span class="highlight">Saad Ali</span></p>
     </footer>
-<!-- Google Translate Script (Ab is mein dunya ki TAMAM languages show hongi) -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'ur',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
+
+    <script>
+        const reviewForm = document.getElementById('review-form');
+        const reviewsDisplay = document.getElementById('reviews-display');
+
+        function loadReviews() {
+            reviewsDisplay.innerHTML = '';
+            const reviews = JSON.parse(localStorage.getItem('ik_reviews')) || [
+                { name: 'احمد خان', rating: '⭐⭐⭐⭐⭐', text: 'عمران خان ہمارے سچے لیڈر ہیں۔ ان کے غیرت اور خودداری کے اصولوں پر پوری قوم کو فخر ہے۔' },
+                { name: 'سارہ علی', rating: '⭐⭐⭐⭐⭐', text: 'نوجوانوں کے لیے ان کا عزم اور شوکت خانم کا خواب سب سے بڑا سبق ہے۔' }
+            ];
+
+            reviews.forEach(review => {
+                const card = document.createElement('div');
+                card.className = 'review-card';
+                card.innerHTML = `
+                    <div class="review-header">
+                        <span>${review.name}</span>
+                        <span>${review.rating}</span>
+                    </div>
+                    <p class="review-body">${review.text}</p>
+                `;
+                reviewsDisplay.appendChild(card);
+            });
+        }
+
+        reviewForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('reviewer-name').value;
+            const ratingValue = document.getElementById('review-rating').value;
+            const rating = '⭐'.repeat(parseInt(ratingValue));
+            const text = document.getElementById('reviewer-text').value;
+
+            const reviews = JSON.parse(localStorage.getItem('ik_reviews')) || [
+                { name: 'احمد خان', rating: '⭐⭐⭐⭐⭐', text: 'عمران خان ہمارے سچے لیڈر ہیں۔ ان کے غیرت اور خودداری کے اصولوں پر پوری قوم کو فخر ہے۔' },
+                { name: 'سارہ علی', rating: '⭐⭐⭐⭐⭐', text: 'نوجوانوں کے لیے ان کا عزم اور شوکت خانم کا خواب سب سے بڑا سبق ہے۔' }
+            ];
+
+            reviews.unshift({ name, rating, text });
+            localStorage.setItem('ik_reviews', JSON.stringify(reviews));
+
+            loadReviews();
+            reviewForm.reset();
+        });
+
+        loadReviews();
+
+        function translatePage(langCode) {
+            if (!langCode) return;
+            const currentUrl = window.location.href;
+            let cleanUrl = currentUrl;
+            if (currentUrl.includes('translate.google.com')) {
+                cleanUrl = 'https://sa4102430-sketch.github.io/imran-khan/politics.html';
+            }
+            if (langCode === 'ur') {
+                window.top.location.href = cleanUrl;
+                return;
+            }
+            const translateUrl = `https://translate.google.com/translate?sl=ur&tl=${langCode}&u=${encodeURIComponent(cleanUrl)}`;
+            window.top.location.href = translateUrl;
         }
     </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
 </html>
