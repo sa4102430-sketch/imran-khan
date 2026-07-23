@@ -1,376 +1,709 @@
 <!DOCTYPE html>
-<html lang="ur">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Imran Khan - Home</title>
+    <title>Imran Khan - The Journey of a Leader</title>
+    <!-- Google Fonts for premium typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
+        /* CSS VARIABLES FOR COLORS */
+        :root {
+            --bg-dark: #070b0e;
+            --bg-card: #0c131a;
+            --primary-green: #388e3c;
+            --accent-green: #2e7d32;
+            --text-white: #ffffff;
+            --text-gray: #a0aec0;
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        /* RESET & BASE STYLES */
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-sizing: border-box;
         }
+
         body {
-            background: linear-gradient(135deg, #092c15 0%, #1a0305 100%);
-            color: #f8fafc;
+            font-family: var(--font-body);
+            background-color: var(--bg-dark);
+            color: var(--text-white);
             line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            padding-bottom: 80px !important; /* Prevents overlap with sticky nav */
+            overflow-x: hidden;
         }
-        .navbar {
-            background-color: #061a0c;
-            color: white;
-            padding: 15px 20px;
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* UTILITY CLASSES */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-green);
+            color: var(--text-white);
+            padding: 10px 24px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-green);
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background-color: rgba(7, 11, 14, 0.95);
             position: sticky;
             top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-            border-bottom: 2px solid #dc2626;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
-        .nav-container {
-            max-width: 1000px;
-            margin: 0 auto;
+
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 15px 0;
         }
+
         .logo {
-            font-size: 1.3rem;
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
             font-weight: bold;
-            text-decoration: none;
-            color: white;
-            letter-spacing: 1px;
+            line-height: 1.2;
         }
 
-        /* Beautiful Native Gold Language Selector */
-        .custom-translate select {
-            background-color: #0f172a;
-            color: #facc15;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            outline: none;
-            font-weight: bold;
-        }
-
-        /* Continuous Seamless Glowing Heartbeat Ticker Bar Styling */
-        @keyframes marquee {
-            0% { transform: translateX(0%); }
-            100% { transform: translateX(-50%); }
-        }
-        @keyframes heartbeat {
-            0%, 100% { box-shadow: 0 0 5px rgba(22, 163, 74, 0.3), 0 0 5px rgba(220, 38, 38, 0.3); }
-            50% { box-shadow: 0 0 15px rgba(22, 163, 74, 0.6), 0 0 15px rgba(220, 38, 38, 0.6); }
-        }
-        .ticker-wrap {
-            overflow: hidden;
-            width: 100%;
-            background-color: #020617;
-            border-bottom: 2px solid #dc2626;
-            border-top: 2px solid #16a34a;
-            padding: 8px 0;
-            display: flex;
-            animation: heartbeat 2.5s infinite ease-in-out;
-            z-index: 90;
-        }
-        .ticker {
-            display: flex;
-            white-space: nowrap;
-            animation: marquee 35s linear infinite;
-        }
-        .ticker span {
-            font-weight: 900;
-            font-size: 1rem;
-            letter-spacing: 3px;
-            color: #facc15;
-            padding-right: 40px;
-        }
-
-        .hero {
-            padding: 80px 20px;
-            text-align: center;
-            flex-grow: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-            color: #f8fafc;
-        }
-        
-        .motto-box {
-            background-color: rgba(15, 23, 42, 0.75);
-            border-left: 4px solid #16a34a;
-            border-right: 4px solid #dc2626;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 12px;
-            margin: 25px auto;
-            max-width: 550px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-        }
-        .motto-arabic {
-            font-size: 2.1rem;
-            font-weight: bold;
-            font-family: 'Amiri', 'Georgia', serif;
-            background: linear-gradient(to right, #22c55e, #facc15, #ef4444);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 5px;
-        }
-        .motto-translation {
-            color: #cbd5e1;
-            font-size: 0.95rem;
-            font-style: italic;
-        }
-
-        .hero p.description {
-            font-size: 1.25rem;
-            color: #cbd5e1;
-            margin-bottom: 30px;
-            line-height: 1.8;
-        }
-        .btn {
-            background-color: #eab308;
-            color: #0f172a;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background 0.3s;
-            display: inline-block;
-        }
-        .btn:hover {
-            background-color: #ca8a04;
-        }
-        .quote-box {
-            margin-top: 25px;
-            color: #facc15;
-            font-size: 1.15rem;
-            font-style: italic;
-        }
-
-        /* Floating Instagram Style Sticky Bottom Navigation */
-        .sticky-bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: #061a0c;
-            border-top: 2px solid #dc2626;
-            box-shadow: 0 -4px 10px rgba(0,0,0,0.4);
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 10px 0;
-            z-index: 1000;
-        }
-        .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: #cbd5e1;
+        .logo span {
+            display: block;
             font-size: 0.75rem;
-            font-weight: bold;
+            color: var(--text-gray);
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: color 0.3s;
         }
-        .nav-item .nav-icon {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
-            margin-bottom: 4px;
-        }
-        .nav-item:hover, .nav-item.active {
-            color: #facc15;
+
+        .nav-links a:hover {
+            color: var(--primary-green);
         }
 
-        /* Pure CSS Dual-Language Toggle Classes */
-        .lang-en { display: none !important; }
-        .lang-ur { display: inline-block; }
+        .donate-btn {
+            background-color: var(--primary-green);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
 
-        body.lang-en-active .lang-en { display: inline-block !important; }
-        body.lang-en-active .lang-ur { display: none !important; }
-        body.lang-en-active { direction: ltr !important; text-align: left !important; }
+        /* HERO SECTION */
+        .hero {
+            padding: 80px 0;
+            background: radial-gradient(circle at 70% 30%, rgba(56, 142, 60, 0.1) 0%, rgba(7, 11, 14, 1) 70%);
+        }
 
-        /* Footer */
-        .footer {
-            background-color: #0f0203;
-            color: #94a3b8;
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-image img {
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            max-height: 500px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        .hero-content h2 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero-content p {
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        /* JOURNEY ROLES SECTION */
+        .journey-overview {
+            padding: 80px 0;
             text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
-            border-top: 2px solid #16a34a;
+            background-color: var(--bg-card);
         }
-        .footer .highlight {
-            color: #facc15;
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-green);
+            margin: 10px auto 0 auto;
+        }
+
+        .section-subtitle {
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto 50px auto;
+            font-size: 0.95rem;
+        }
+
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .role-card {
+            background-color: var(--bg-dark);
+            padding: 30px 20px;
+            border-radius: 8px;
+            transition: transform 0.3s, border 0.3s;
+            border: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .role-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-green);
+        }
+
+        .role-icon {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+        }
+
+        .role-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .role-card p {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        /* SECTION TEMPLATE (Two-Column Layout) */
+        .info-section {
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .info-grid.reverse {
+            direction: rtl;
+        }
+
+        .info-grid.reverse .info-content {
+            direction: ltr;
+        }
+
+        .info-grid.reverse .info-image {
+            direction: ltr;
+        }
+
+        .info-image img {
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .info-content h2 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .info-content p {
+            color: var(--text-gray);
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        /* STATS GRID FOR CRICKET */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .stat-box {
+            background-color: var(--bg-card);
+            padding: 15px;
+            text-align: center;
+            border-radius: 6px;
+            border-bottom: 3px solid var(--primary-green);
+        }
+
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
             font-weight: bold;
+            color: var(--text-white);
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ACHIEVEMENTS SECTION */
+        .achievements {
+            padding: 80px 0;
+            text-align: center;
+            background-color: var(--bg-card);
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .achievement-card {
+            background-color: var(--bg-dark);
+            padding: 25px;
+            border-radius: 8px;
+            border-top: 4px solid var(--primary-green);
+        }
+
+        .achievement-card i {
+            font-size: 2rem;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+        }
+
+        .achievement-card h4 {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+        }
+
+        /* STAY UPDATED / NEWSLETTER */
+        .newsletter {
+            background-color: var(--primary-green);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .newsletter p {
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .form-group {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-group input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+            font-family: var(--font-body);
+        }
+
+        .form-group button {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            border: none;
+            padding: 0 25px;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 0 4px 4px 0;
+            transition: background 0.3s;
+        }
+
+        .form-group button:hover {
+            background-color: #1a2630;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--bg-dark);
+            padding: 50px 0 20px 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo h3 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-logo p {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            max-width: 350px;
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            margin-bottom: 15px;
+            color: var(--primary-green);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--text-white);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-green);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 20px;
+            font-size: 0.8rem;
+            color: var(--text-gray);
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 992px) {
+            .roles-grid, .achievements-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
-            .nav-container {
+            .navbar {
                 flex-direction: column;
-                gap: 10px;
+                gap: 15px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero-grid, .info-grid, .info-grid.reverse {
+                grid-template-columns: 1fr;
+                direction: ltr;
+            }
+            .hero-content {
                 text-align: center;
             }
-            .custom-translate {
-                margin-top: 5px;
+            .info-image img {
+                height: 300px;
             }
-            .hero h1 {
-                font-size: 2rem;
+        }
+
+        @media (max-width: 480px) {
+            .roles-grid, .achievements-grid {
+                grid-template-columns: 1fr;
             }
-            .hero p.description {
-                font-size: 1.1rem;
-            }
-            .motto-arabic {
-                font-size: 1.6rem;
+            .stats-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Nav Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">IMRAN KHAN</a>
-            
-            <!-- Beautiful Custom Native Language Selector -->
-            <div class="custom-translate">
-                <select id="lang-select" onchange="toggleLanguage(this.value)">
-                    <option value="ur">اردو (Urdu)</option>
-                    <option value="en">English</option>
-                </select>
+    <!-- HEADER / NAVIGATION -->
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                IMRAN KHAN
+                <span>THE JOURNEY</span>
             </div>
-        </div>
-    </nav>
-
-    <!-- Seamless Heartbeat Ticker Bar with Quranic Motto & Urdu Translation -->
-    <div class="ticker-wrap">
-        <div class="ticker">
-            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
-            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
-        </div>
-    </div>
-
-    <!-- Hero Content -->
-    <header class="hero">
-        <div class="hero-content">
-            <h1>THE LEGEND'S JOURNEY</h1>
-            
-            <div class="motto-box">
-                <p class="motto-arabic">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ</p>
-                <p class="motto-translation">"Thee alone do we worship, and Thee alone do we ask for help."</p>
-            </div>
-
-            <!-- Urdu Description -->
-            <p class="description lang-ur" style="direction: rtl;">
-                عمران خان پاکستان کے سابق وزیر اعظم اور کرکٹ ٹیم کے سابق کپتان ہیں۔ ان کی زندگی کا ہر دور—چاہے وہ ان کا بچپن ہو، کرکٹ کا میدان ہو یا سیاست کا کٹھن راستہ—بے پناہ جدوجہد اور مشکلات سے بھرا رہا ہے۔ اس ویب سائٹ پر ہم ان کے زندگی کے مختلف ادوار کا احاطہ کریں گے۔
-            </p>
-            <!-- English Description -->
-            <p class="description lang-en" style="direction: ltr; text-align: center;">
-                Imran Khan is the former Prime Minister of Pakistan and the former captain of the national cricket team. Every phase of his life—be it his childhood, the cricket field, or the arduous path of politics—has been filled with immense struggle and hardship. On this website, we will cover the different eras of his life.
-            </p>
-
-            <button class="btn" id="quote-btn">
-                <span class="lang-ur">زندگی کا قول پڑھیں</span>
-                <span class="lang-en">Read Life Quote</span>
-            </button>
-            <p class="quote-box" id="quote-text" style="display: none;"></p>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Early Life</a></li>
+                <li><a href="#">Cricket Career</a></li>
+                <li><a href="#">Political Journey</a></li>
+                <li><a href="#">Achievements</a></li>
+                <li><a href="#" class="donate-btn">Donate</a></li>
+            </ul>
         </div>
     </header>
 
-    <!-- Floating Sticky Bottom Nav Bar -->
-    <div class="sticky-bottom-nav">
-        <a href="index.html" class="nav-item active">
-            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-            <span class="lang-ur">ہوم</span><span class="lang-en">Home</span>
-        </a>
-        <a href="early-life.html" class="nav-item">
-            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z M5.89 12.55L12 15.88l6.11-3.33c.03-.02.06-.03.09-.05v3c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-3c.03.02.06.03.09.05z"/></svg>
-            <span class="lang-ur">ابتدائی زندگی</span><span class="lang-en">Early Life</span>
-        </a>
-        <a href="cricket.html" class="nav-item">
-            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v3c0 2.44 1.72 4.44 4 4.9V19H5v2h14v-2h-2v-4.1c2.28-.46 4-2.46 4-4.9V7c0-1.1-.9-2-2-2zM5 10V7h2v3H5zm14 0h-2V7h2v3z"/></svg>
-            <span class="lang-ur">کرکٹ دور</span><span class="lang-en">Cricket Era</span>
-        </a>
-        <a href="politics.html" class="nav-item">
-            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
-            <span class="lang-ur">سیاسی سفر</span><span class="lang-en">Politics</span>
-        </a>
-    </div>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-image">
+                <!-- Replace with your Imran Khan image -->
+                <img src="https://images.unsplash.com/photo-1590086782957-93c06ef217b4?auto=format&fit=crop&q=80&w=800" alt="Imran Khan">
+            </div>
+            <div class="hero-content">
+                <h1>IMRAN KHAN</h1>
+                <h2>THE JOURNEY OF A LEADER</h2>
+                <p>From a cricket legend to a revolutionary leader - explore the inspiring journey of Imran Khan, his struggles, achievements, and vision for Pakistan.</p>
+                <button class="btn">Discover More</button>
+            </div>
+        </div>
+    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2026 Imran Khan Biography. All Rights Reserved. Created by <span class="highlight">Saad Ali</span></p>
+    <!-- JOURNEY LIKE NO OTHER (ROLES) -->
+    <section class="journey-overview">
+        <div class="container">
+            <h2 class="section-title">A Journey Like No Other</h2>
+            <p class="section-subtitle">Imran Khan's life is a story of passion, struggle, and determination. From representing Pakistan on the cricket field to fighting for justice.</p>
+            
+            <div class="roles-grid">
+                <div class="role-card">
+                    <div class="role-icon"><i class="fa-solid fa-trophy"></i></div>
+                    <h3>Cricket Legend</h3>
+                    <p>Led Pakistan to its first World Cup victory in 1992.</p>
+                </div>
+                <div class="role-card">
+                    <div class="role-icon"><i class="fa-solid fa-users"></i></div>
+                    <h3>Visionary Leader</h3>
+                    <p>Founded PTI with a vision for a better Pakistan.</p>
+                </div>
+                <div class="role-card">
+                    <div class="role-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                    <h3>Philanthropist</h3>
+                    <p>Established Shaukat Khanum Hospital and other welfare projects.</p>
+                </div>
+                <div class="role-card">
+                    <div class="role-icon"><i class="fa-solid fa-building-flag"></i></div>
+                    <h3>Nation Builder</h3>
+                    <p>Working for education, health, and poverty alleviation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EARLY LIFE SECTION -->
+    <section class="info-section">
+        <div class="container info-grid">
+            <div class="info-content">
+                <h2>EARLY LIFE</h2>
+                <p>Imran Khan was born on October 5, 1952 in Lahore, Pakistan. He belonged to a noble Pashtun family and was inspired by his father's values of honesty and integrity.</p>
+                <button class="btn">Read More</button>
+            </div>
+            <div class="info-image">
+                <!-- Replace with young Imran Khan image -->
+                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=800" alt="Early Life">
+            </div>
+        </div>
+    </section>
+
+    <!-- CRICKET CAREER SECTION -->
+    <section class="info-section">
+        <div class="container info-grid reverse">
+            <div class="info-content">
+                <h2>CRICKET CAREER</h2>
+                <p>A cricketing icon who brought pride to the nation. His leadership, skill, and determination made Pakistan a world-class team.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-number">88</div>
+                        <div class="stat-label">Test Matches</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">362</div>
+                        <div class="stat-label">Wickets</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">3,807</div>
+                        <div class="stat-label">Test Runs</div>
+                    </div>
+                </div>
+                <button class="btn">Explore More</button>
+            </div>
+            <div class="info-image">
+                <!-- Replace with World Cup / Cricket image -->
+                <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=800" alt="Cricket Career">
+            </div>
+        </div>
+    </section>
+
+    <!-- POLITICAL JOURNEY SECTION -->
+    <section class="info-section">
+        <div class="container info-grid">
+            <div class="info-content">
+                <h2>POLITICAL JOURNEY</h2>
+                <p>Imran Khan entered politics to fight corruption and bring change. His journey with PTI is a movement for justice, equality, and a better future.</p>
+                <button class="btn">Learn More</button>
+            </div>
+            <div class="info-image">
+                <!-- Replace with political rally/Imran Khan waving image -->
+                <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&q=80&w=800" alt="Political Journey">
+            </div>
+        </div>
+    </section>
+
+    <!-- ACHIEVEMENTS & INITIATIVES -->
+    <section class="achievements">
+        <div class="container">
+            <h2 class="section-title">Achievements & Initiatives</h2>
+            <p class="section-subtitle">Through his leadership and vision, numerous projects have been launched for the welfare of Pakistan.</p>
+            
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <h4>Education Initiatives</h4>
+                </div>
+                <div class="achievement-card">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <h4>Health Projects</h4>
+                </div>
+                <div class="achievement-card">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h4>Anti-Corruption Drive</h4>
+                </div>
+                <div class="achievement-card">
+                    <i class="fa-solid fa-users-gear"></i>
+                    <h4>Welfare & Social Programs</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STAY UPDATED / NEWSLETTER -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>STAY UPDATED</h2>
+            <p>Subscribe to our newsletter to get the latest updates about Imran Khan and his initiatives.</p>
+            <div class="form-group">
+                <input type="email" placeholder="Enter your email">
+                <button>Subscribe</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-logo">
+                <h3>IMRAN KHAN THE JOURNEY</h3>
+                <p>The official platform to explore the life, journey, and vision of Imran Khan for Pakistan.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Early Life</a></li>
+                    <li><a href="#">Achievements</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Imran Khan - The Journey. All Rights Reserved.
+        </div>
     </footer>
-
-    <!-- Native Toggle Script (Saves choice in localStorage) -->
-    <script>
-        const quoteBtn = document.getElementById('quote-btn');
-        const quoteText = document.getElementById('quote-text');
-        
-        let isOpen = false;
-
-        quoteBtn.addEventListener('click', () => {
-            const isEnglish = document.body.classList.contains('lang-en-active');
-            if (!isOpen) {
-                if (isEnglish) {
-                    quoteText.innerText = '"You only lose when you give up."';
-                } else {
-                    quoteText.innerText = '"جب تک آپ ہار نہیں مانتے، تب تک آپ کو کوئی ہرا نہیں سکتا۔"';
-                }
-                quoteText.style.display = 'block';
-                isOpen = true;
-            } else {
-                quoteText.style.display = 'none';
-                isOpen = false;
-            }
-        });
-
-        function toggleLanguage(lang) {
-            if (lang === 'en') {
-                document.body.classList.add('lang-en-active');
-                localStorage.setItem('selected_language', 'en');
-            } else {
-                document.body.classList.remove('lang-en-active');
-                localStorage.setItem('selected_language', 'ur');
-            }
-            if (isOpen) {
-                quoteText.style.display = 'none';
-                isOpen = false;
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('selected_language');
-            const langSelect = document.getElementById('lang-select');
-            if (savedLang === 'en') {
-                document.body.classList.add('lang-en-active');
-                if (langSelect) langSelect.value = 'en';
-            } else {
-                document.body.classList.remove('lang-en-active');
-                if (langSelect) langSelect.value = 'ur';
-            }
-        });
-    </script>
 
 </body>
 </html>
