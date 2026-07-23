@@ -5,25 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Imran Khan - Media Gallery</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, sans-serif; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
         body {
-            background: linear-gradient(135deg, #092c15 0%, #1a0305 100%);
+            background-color: #0b0b0b;
             color: #f8fafc;
             line-height: 1.6;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            padding-bottom: 80px !important;
+            padding-bottom: 90px !important; /* Prevents sticky nav overlap */
+            overflow-x: hidden;
         }
+        
+        /* Apple/Stripe-style Blurred Background Glows */
+        .bg-glow {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 200, 83, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+            filter: blur(80px);
+            z-index: -1;
+            pointer-events: none;
+        }
+        .circle-1 { top: 10%; left: -10%; }
+        .circle-2 { bottom: 20%; right: -10%; }
+
+        /* Glassmorphism Navigation Bar */
         .navbar {
-            background-color: #061a0c;
+            background: rgba(11, 11, 11, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             color: white;
             padding: 15px 20px;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-            border-bottom: 2px solid #dc2626;
+            border-bottom: 1px solid rgba(0, 200, 83, 0.15);
         }
         .nav-container {
             max-width: 1000px;
@@ -32,64 +55,225 @@
             justify-content: space-between;
             align-items: center;
         }
-        .logo { font-size: 1.3rem; font-weight: bold; text-decoration: none; color: white; }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            text-decoration: none;
+            background: linear-gradient(135deg, #ffffff 30%, #00E676 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(0, 230, 118, 0.2);
+            letter-spacing: 1px;
+        }
+
+        /* Glassmorphic Language Selector */
         .custom-translate select {
-            background-color: #0f172a;
-            color: #facc15;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            padding: 6px 12px;
-            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: #f8fafc;
+            border: 1px solid rgba(0, 200, 83, 0.25);
+            padding: 8px 16px;
+            border-radius: 20px;
             font-size: 0.85rem;
             cursor: pointer;
             outline: none;
             font-weight: bold;
+            transition: all 0.3s ease;
         }
-        @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
+        .custom-translate select:hover {
+            border-color: #00E676;
+            box-shadow: 0 0 10px rgba(0, 230, 118, 0.15);
+        }
+
+        /* Seamless Continuous Glowing Heartbeat Ticker Bar Styling */
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
         @keyframes heartbeat {
-            0%, 100% { box-shadow: 0 0 5px rgba(22, 163, 74, 0.3), 0 0 5px rgba(220, 38, 38, 0.3); }
-            50% { box-shadow: 0 0 15px rgba(22, 163, 74, 0.6), 0 0 15px rgba(220, 38, 38, 0.6); }
+            0%, 100% { box-shadow: 0 0 5px rgba(0, 200, 83, 0.2); }
+            50% { box-shadow: 0 0 15px rgba(0, 200, 83, 0.4); }
         }
         .ticker-wrap {
             overflow: hidden;
             width: 100%;
-            background-color: #020617;
-            border-bottom: 2px solid #dc2626;
-            border-top: 2px solid #16a34a;
+            background-color: #050505;
+            border-bottom: 1px solid rgba(0, 200, 83, 0.2);
+            border-top: 1px solid rgba(0, 200, 83, 0.2);
             padding: 8px 0;
             display: flex;
             animation: heartbeat 2.5s infinite ease-in-out;
             z-index: 90;
         }
-        .ticker { display: flex; white-space: nowrap; animation: marquee 35s linear infinite; }
-        .ticker span { font-weight: 900; font-size: 1rem; color: #facc15; padding-right: 40px; }
-        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; flex-grow: 1; }
-        .section-title { font-size: 2.25rem; color: #facc15; border-bottom: 3px solid #eab308; padding-bottom: 10px; margin-bottom: 30px; text-transform: uppercase; font-weight: 800; }
-        .media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 20px; }
-        .media-card { background-color: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.2); padding: 15px; display: flex; flex-direction: column; }
-        .media-card img, .media-card iframe { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; border: none; }
-        .media-desc { margin-top: 15px; text-align: right; direction: rtl; font-size: 1.05rem; color: #f1f5f9; }
-        .sticky-bottom-nav {
-            position: fixed; bottom: 0; left: 0; right: 0; background-color: #061a0c; border-top: 2px solid #dc2626; 
-            box-shadow: 0 -4px 10px rgba(0,0,0,0.4); display: flex; justify-content: space-around; align-items: center; padding: 10px 0; z-index: 1000;
+        .ticker {
+            display: flex;
+            white-space: nowrap;
+            animation: marquee 35s linear infinite;
         }
-        .nav-item { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: #cbd5e1; font-size: 0.75rem; font-weight: bold; }
-        .nav-item .nav-icon { width: 24px; height: 24px; fill: currentColor; margin-bottom: 4px; }
-        .nav-item:hover, .nav-item.active { color: #facc15; }
+        .ticker span {
+            font-weight: 900;
+            font-size: 0.95rem;
+            letter-spacing: 3px;
+            color: #00E676;
+            padding-right: 40px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            flex-grow: 1;
+        }
+        .section-title {
+            font-size: 2.25rem;
+            color: #facc15;
+            background: linear-gradient(135deg, #ffffff 40%, #00E676 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            border-bottom: 2px solid rgba(0, 200, 83, 0.3);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        /* Glassmorphic Media Cards Grid */
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .media-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 200, 83, 0.15);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px 0 rgba(0, 200, 83, 0.05);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+        .media-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 230, 118, 0.4);
+            box-shadow: 0 12px 40px 0 rgba(0, 200, 83, 0.1);
+        }
+        .media-card img, .media-card iframe {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 16px;
+            border: none;
+        }
+        .media-desc {
+            margin-top: 15px;
+            text-align: right;
+            direction: rtl;
+            font-size: 1.05rem;
+            color: #e4e4e7;
+        }
+
+        /* Floating Instagram Style Sticky Bottom Navigation */
+        .sticky-bottom-nav {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 40px);
+            max-width: 480px;
+            background: rgba(11, 11, 11, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 200, 83, 0.15);
+            border-radius: 30px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 8px 0;
+            z-index: 1000;
+        }
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #71717a;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 6px 12px;
+            transition: all 0.3s ease;
+        }
+        .nav-item .nav-icon {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+            margin-bottom: 3px;
+        }
+        .nav-item:hover, .nav-item.active {
+            color: #00E676;
+        }
+        .nav-item.active {
+            background: rgba(0, 200, 83, 0.08);
+            border: 1px solid rgba(0, 230, 118, 0.25);
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(0, 230, 118, 0.15);
+        }
+
+        /* Pure CSS Dual-Language Toggle Classes */
         .lang-en { display: none !important; }
         .lang-ur { display: inline-block; }
+
         body.lang-en-active .lang-en { display: inline-block !important; }
         body.lang-en-active .lang-ur { display: none !important; }
         body.lang-en-active { direction: ltr !important; text-align: left !important; }
         body.lang-en-active .media-desc { direction: ltr !important; text-align: left !important; }
-        .footer { background-color: #0f0203; color: #94a3b8; text-align: center; padding: 20px; font-size: 0.9rem; border-top: 2px solid #16a34a; }
-        .footer .highlight { color: #facc15; font-weight: bold; }
+
+        /* Footer */
+        .footer {
+            background-color: #050505;
+            color: #71717a;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.9rem;
+            margin-top: auto;
+            border-top: 1px solid rgba(0, 200, 83, 0.1);
+        }
+        .footer .highlight {
+            color: #00E676;
+            font-weight: bold;
+        }
         @media (max-width: 768px) {
-            .nav-container { flex-direction: column; gap: 10px; }
-            .custom-translate { margin-top: 5px; }
+            .nav-container {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            .custom-translate {
+                margin-top: 5px;
+            }
+            .bottom-nav {
+                flex-wrap: wrap;
+                gap: 8px;
+                padding: 10px;
+            }
+            .bottom-nav a {
+                font-size: 0.85rem;
+                padding: 6px 12px;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- Blurred Glowing Backdrops -->
+    <div class="bg-glow circle-1"></div>
+    <div class="bg-glow circle-2"></div>
 
     <nav class="navbar">
         <div class="nav-container">
@@ -103,10 +287,11 @@
         </div>
     </nav>
 
+    <!-- Seamless Heartbeat Ticker Bar -->
     <div class="ticker-wrap">
         <div class="ticker">
-            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
-            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
+            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ 💚 إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ 💚</span>
+            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ 💚 إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ 💚</span>
         </div>
     </div>
 
@@ -114,7 +299,9 @@
         <h1 class="section-title">
             <span class="lang-ur">میڈیا اور گیلری</span><span class="lang-en">Media Gallery</span>
         </h1>
+        
         <div class="media-grid">
+            
             <div class="media-card">
                 <iframe src="https://www.youtube.com/embed/S2pE4r9p0Zk" allowfullscreen></iframe>
                 <div class="media-desc">
@@ -122,13 +309,15 @@
                     <p class="lang-en"><strong>Historic UNGA Speech:</strong> Imran Khan raised a bold and powerful voice against Islamophobia before the world.</p>
                 </div>
             </div>
+            
             <div class="media-card">
                 <iframe src="https://www.youtube.com/embed/5F_X6pQ_WcQ" allowfullscreen></iframe>
                 <div class="media-desc">
-                    <p class="lang-ur"><strong>1992 ورلڈ کپ کی تقریب:</strong> وہ تاریخی لمحہ جب پاکستان نے پہلا کرکٹ ورلڈ کپ جیتا۔</p>
+                    <p class="lang-ur"><strong>1992 ورلڈ کپ کی تقریب:</strong> وہ تاریخی منظر جب پاکستان نے پہلا کرکٹ ورلڈ کپ جیتا۔</p>
                     <p class="lang-en"><strong>1992 World Cup Ceremony:</strong> The historic moment when Pakistan won its first-ever Cricket World Cup.</p>
                 </div>
             </div>
+            
             <div class="media-card">
                 <img src="ik1.jpg" alt="Imran Khan Oxford">
                 <div class="media-desc">
@@ -136,6 +325,7 @@
                     <p class="lang-en"><strong>Oxford University Days:</strong> A memorable photo of Imran Khan during his academic years at Oxford.</p>
                 </div>
             </div>
+            
             <div class="media-card">
                 <img src="ik3.jpg" alt="Imran Khan PM">
                 <div class="media-desc">
@@ -143,9 +333,11 @@
                     <p class="lang-en"><strong>Prime Minister of Pakistan:</strong> Taking the oath of office after 22 years of political struggle.</p>
                 </div>
             </div>
+            
         </div>
     </div>
 
+    <!-- Floating Sticky Bottom Nav Bar (Always in English) -->
     <div class="sticky-bottom-nav">
         <a href="index.html" class="nav-item">
             <svg class="nav-icon" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
@@ -169,6 +361,7 @@
         </a>
     </div>
 
+    <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2026 Imran Khan Biography. All Rights Reserved. Created by <span class="highlight">Saad Ali</span></p>
     </footer>
