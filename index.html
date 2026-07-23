@@ -974,67 +974,399 @@
                                 <span class="stat-data-lbl">Bowling Average</span>
                                 <span class="stat-data-val">28.96</span>
                             </div>
-                            <div class="stat-data-row">
-                                <span class="stat-data-lbl">Half-Centuries (50s)</span>
-                                <span class="stat-data-val">19</span>
-                            </div>
-                        </div>
+<!-- CRICKET CAREER SECTION -->
+    <style>
+        /* CLASSIC GREEN THEME - CRICKET STYLES */
+        .cricket-career-wrapper {
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: radial-gradient(circle at 10% 50%, rgba(56, 142, 60, 0.03) 0%, rgba(7, 11, 14, 1) 80%);
+        }
+        
+        /* Stylized and averaged heading */
+        .cricket-history-content {
+            margin-bottom: 50px;
+            text-align: left;
+        }
+        .cricket-history-content h2 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem; /* Professional average size */
+            color: var(--text-white);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .cricket-history-content .heading-subtitle {
+            font-size: 0.8rem;
+            color: var(--primary-green);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+            font-weight: 600;
+            display: block;
+        }
+        .cricket-history-content p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
 
-                        <!-- WORLD CUP STATS -->
-                        <div id="wc-glory-stats" class="stats-data-panel">
-                            <div class="stat-data-row">
-                                <span class="stat-data-lbl">World Cup Victory Year</span>
-                                <span class="stat-data-val">1992 (Australia)</span>
-                            </div>
-                            <div class="stat-data-row">
-                                <span class="stat-data-lbl">Final Match Top Scorer</span>
-                                <span class="stat-data-val">Imran Khan (72 Runs)</span>
-                            </div>
-                            <div class="stat-data-row">
-                                <span class="stat-data-lbl">Final Wicket in Final Match</span>
-                                <span class="stat-data-val">Richard Illingworth</span>
-                            </div>
-                            <div class="stat-data-row">
-                                <span class="stat-data-lbl">Team Slogan</span>
-                                <span class="stat-data-val">"Cornered Tigers"</span>
-                            </div>
-                        </div>
+        /* Responsive 2-column grid */
+        .highlights-stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
 
-                    </div>
+        /* 1. NEW STYLE CAREER HIGHLIGHTS (Theme colors) */
+        .highlights-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .highlights-title-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .highlights-title-bar h3 {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            color: var(--text-white);
+            letter-spacing: 1px;
+        }
+        .view-all-link {
+            font-size: 0.85rem;
+            color: var(--primary-green);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+        .view-all-link:hover {
+            color: var(--text-white);
+        }
+        
+        /* Softer glassmorphism style card with our theme border */
+        .milestone-card {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(56, 142, 60, 0.15); 
+            border-radius: 12px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        .milestone-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary-green);
+            box-shadow: 0 10px 25px rgba(56, 142, 60, 0.1);
+        }
+        .card-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .format-badge {
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+        }
+        .format-badge.test-badge {
+            background: rgba(56, 142, 60, 0.12);
+            color: #81c784; /* Soft green badge instead of red */
+        }
+        .format-badge.odi-badge {
+            background: rgba(46, 125, 50, 0.15);
+            color: #a5d6a7; /* Darker soft green badge */
+        }
+        .medal-icon {
+            color: var(--primary-green);
+            font-size: 1.2rem;
+        }
+        .milestone-number {
+            font-size: 3.2rem;
+            font-weight: bold;
+            color: var(--text-white);
+            line-height: 1;
+            font-family: var(--font-heading);
+        }
+        .milestone-bold-lbl {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary-green); /* Our Theme Green Subheading */
+        }
+        .milestone-desc {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+        .milestone-footer-lbl {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #4a5568;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
 
-                    <!-- Bottom green explore button styled exactly like screenshot 2 -->
-                    <div class="stat-footer-bar">
-                        <span class="footer-bar-text">Browse full career metrics</span>
-                        <a href="https://en.wikipedia.org/wiki/Imran_Khan" target="_blank" class="explore-stats-btn">
-                            <span>Explore Stats</span>
+        /* 2. NEW STYLE CAREER STATISTICS (Theme colors) */
+        .statistics-column {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(56, 142, 60, 0.15);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        .stat-box-content {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .stat-icon-box {
+            width: 48px;
+            height: 48px;
+            background-color: rgba(56, 142, 60, 0.1); 
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-green);
+            font-size: 1.3rem;
+            border: 1px solid rgba(56, 142, 60, 0.15);
+        }
+        .stat-box-content h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--text-white);
+            margin-top: 5px;
+        }
+        .stat-box-desc {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+        
+        /* Theme toggle tags styling */
+        .stat-toggles {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 10px 0;
+        }
+        .stat-tag-btn {
+            background: rgba(56, 142, 60, 0.03);
+            border: 1px solid rgba(56, 142, 60, 0.2);
+            color: #81c784;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .stat-tag-btn.active, .stat-tag-btn:hover {
+            background: var(--primary-green);
+            border-color: var(--primary-green);
+            color: var(--text-white);
+        }
+
+        /* Tab Content rows */
+        .stats-data-panel {
+            display: none;
+            margin-top: 10px;
+        }
+        .stats-data-panel.active {
+            display: block;
+            animation: fadeInStats 0.4s ease-in-out;
+        }
+        @keyframes fadeInStats {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .stat-data-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.9rem;
+        }
+        .stat-data-row:last-child {
+            border-bottom: none;
+        }
+        .stat-data-lbl {
+            color: var(--text-gray);
+        }
+        .stat-data-val {
+            color: var(--text-white);
+            font-weight: bold;
+        }
+
+        /* Bottom Footer bar (Sleek Theme style) */
+        .stat-footer-bar {
+            background-color: rgba(0, 0, 0, 0.15);
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .footer-bar-text {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+        .explore-stats-btn {
+            background-color: var(--primary-green);
+            color: var(--text-white);
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(56, 142, 60, 0.15);
+        }
+        .explore-stats-btn:hover {
+            background-color: var(--accent-green);
+            box-shadow: 0 4px 20px rgba(56, 142, 60, 0.3);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 992px) {
+            .highlights-stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <section class="cricket-career-wrapper">
+        <div class="container">
+            
+            <!-- FULL RICH HISTORY WITH STYLISH HEADING -->
+            <div class="cricket-history-content">
+                <h2>Cricket Career</h2>
+                <span class="heading-subtitle">The Kaptaan's Reign</span>
+                <p>Imran Khan’s cricket career is a legendary saga of raw determination, athletic genius, and unmatched leadership. Making his international debut in 1971 at the age of 18 against England, he initially played as a medium-pace bowler. However, through a relentless work ethic, he remodeled his bowling action to gain fearsome pace and eventually mastered the art of reverse swing, pioneering a bowling revolution globally.</p>
+                <p>By the late 1970s and throughout the 1980s, Imran Khan transformed into a peerless all-rounder. During his peak decade from 1981 to 1987, his batting average was over 50 while his bowling average was under 18—a statistical peak unmatched by any other all-rounder in the history of the game. He achieved the legendary 'all-rounder’s double' of 3,000 runs and 300 wickets in Test matches in just 75 Tests.</p>
+                <p>As a captain, his impact was revolutionary. Taking leadership in 1982, his immense charisma unified a notoriously fragmented Pakistan side. He led Pakistan to their first Test series victories in England (1987) and India (1986-87), and held the mighty West Indies team of the 1980s to three consecutive drawn series. His ultimate crowning glory was leading his 'Cornered Tigers' to a historic World Cup triumph in 1992 in Melbourne, forever cementing his status as a national icon.</p>
+            </div>
+
+            <!-- HIGHLIGHTS & STATS ROW (Theme colors) -->
+            <div class="highlights-stats-grid">
+                
+                <!-- 1. LEFT COLUMN: Career Highlights -->
+                <div class="highlights-column">
+                    <div class="highlights-title-bar">
+                        <h3>Career Highlights</h3>
+                        <a href="https://en.wikipedia.org/wiki/Imran_Khan" target="_blank" class="view-all-link">
+                            <span>View All Records</span>
                             <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
+
+                    <!-- Milestone Card 1: Wickets -->
+                    <div class="milestone-card">
+                        <div class="card-header-row">
+                            <span class="format-badge test-badge">TEST</span>
+                            <span class="medal-icon"><i class="fa-solid fa-award"></i></span>
+                        </div>
+                        <div class="milestone-number">362</div>
+                        <div class="milestone-bold-lbl">2nd Most Test Wickets for Pakistan</div>
+                        <div class="milestone-desc">
+                            Imran Khan dismantled world-class batting lineups, claiming 362 wickets in 88 Test matches at an extraordinary bowling average of 22.81.
+                        </div>
+                        <div class="milestone-footer-lbl">CAREER MILESTONE</div>
+                    </div>
+
+                    <!-- Milestone Card 2: Captaincy -->
+                    <div class="milestone-card">
+                        <div class="card-header-row">
+                            <span class="format-badge odi-badge">ODI</span>
+                            <span class="medal-icon"><i class="fa-solid fa-trophy"></i></span>
+                        </div>
+                        <div class="milestone-number">187</div>
+                        <div class="milestone-bold-lbl">Most Wickets as a Test Captain</div>
+                        <div class="milestone-desc">
+                            He holds the prestigious world record for taking the highest number of wickets in Test matches while serving as captain of the team (187 wickets).
+                        </div>
+                        <div class="milestone-footer-lbl">LEADERSHIP RECORD</div>
+                    </div>
                 </div>
 
-            </div>
-        </div>
-    </section>
+                <!-- 2. RIGHT COLUMN: Career Statistics (Theme colors) -->
+                <div class="statistics-column">
+                    <div class="stat-box-content">
+                        <div class="stat-icon-box">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <h3>Career Statistics</h3>
+                        <p class="stat-box-desc">
+                            View full detailed player performance records. Toggle across major match formats: **ODI** and **Test** matches. Search, filter, and analyze his runs over time.
+                        </p>
 
-    <!-- Vanilla Javascript to switch the stats beautifully -->
-    <script>
-        function switchFakharTab(targetPanelId, clickedBtn) {
-            // Select all stat panels and toggle buttons
-            const panels = document.querySelectorAll('.stats-data-panel');
-            const toggleButtons = document.querySelectorAll('.stat-tag-btn');
-            
-            // Hide all panels
-            panels.forEach(panel => panel.classList.remove('active'));
-            // Remove active style from all toggle buttons
-            toggleButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Show the target panel
-            document.getElementById(targetPanelId).classList.add('active');
-            // Make the clicked button active
-            clickedBtn.classList.add('active');
-        }
-    </script>
+                        <!-- Toggle buttons styled in theme green -->
+                        <div class="stat-toggles">
+                            <button class="stat-tag-btn active" onclick="switchCareerThemeTab('test-history-stats', this)">Test History</button>
+                            <button class="stat-tag-btn" onclick="switchCareerThemeTab('odi-records-stats', this)">ODI Records</button>
+                            <button class="stat-tag-btn" onclick="switchCareerThemeTab('wc-glory-stats', this)">1992 WC Glory</button>
+                        </div>
 
+                        <!-- TEST STATS -->
+                        <div id="test-history-stats" class="stats-data-panel active">
+                            <div class="stat-data-row">
+                                <span class="stat-data-lbl">Matches</span>
+                                <span class="stat-data-val">88</span>
+                            </div>
+                            <div class="stat-data-row">
+                                <span class="stat-data-lbl">Runs Scored</span>
+                                <span class="stat-data-val">3,807</span>
+                            </div>
+                            <div class="stat-data-row">
+                                <span class="stat-data-lbl">Batting Average</span>
+                                <span class="stat-data-val">37.69</span>
+                            </div>
+                            <div class="stat-data-row">
+                                <span class="stat-data-lbl">Wickets Taken</span>
+                                <span class="stat-data-val">362</span>
+                            </div>
+                            <div class="stat-data-row">
+                                <span class="stat-data-lbl">Bowling Average</span>
+                                <span class="stat-data-val">22.81</span>
+                            </div>
+                            <div class="stat-data-row">
+                                <span class="stat-data-lbl">5-Wicket Innings</span>
+                                <span class="stat-data-val">23</span>
+                            </div>
+                        </div>
+
+                        <!-- ODI STATS -->
+                        <div id="odi-records-stats" class="stats-data-panel">
+                            <div class="stat-data-row">
+                                <span class="stat-data-lbl">Matches</span>
+                                <span class="stat-data-val">175</span>
+                            </div>
+                            <div class="stat-data-row">
+                                <span class="stat-data-lbl">Runs Scored</span>
+                                <span class="stat-data-val">3,709</span>
+                            </div>
+                            <div class="stat-data-row">
+                                <span class="stat-data-lbl">Batting Average</span>
+                                <span class="stat-data-val">33.41</span>
+                            </div>
+                            <div class="stat
     <!-- POLITICAL JOURNEY SECTION -->
     <section class="info-section">
         <div class="container info-grid">
