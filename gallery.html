@@ -5,48 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Imran Khan - Media Gallery</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, sans-serif; }
         body {
-            background-color: #0b0b0b;
+            background: linear-gradient(135deg, #092c15 0%, #1a0305 100%);
             color: #f8fafc;
             line-height: 1.6;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            padding-bottom: 90px !important; /* Prevents sticky nav overlap */
-            overflow-x: hidden;
         }
-        
-        /* Apple/Stripe-style Blurred Background Glows */
-        .bg-glow {
-            position: fixed;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(0, 200, 83, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
-            filter: blur(80px);
-            z-index: -1;
-            pointer-events: none;
-        }
-        .circle-1 { top: 10%; left: -10%; }
-        .circle-2 { bottom: 20%; right: -10%; }
-
-        /* Glassmorphism Navigation Bar */
         .navbar {
-            background: rgba(11, 11, 11, 0.6);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background-color: #061a0c;
             color: white;
             padding: 15px 20px;
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid rgba(0, 200, 83, 0.15);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            border-bottom: 2px solid #16a34a;
         }
         .nav-container {
             max-width: 1000px;
@@ -55,328 +31,113 @@
             justify-content: space-between;
             align-items: center;
         }
-        .logo {
-            font-size: 1.3rem;
-            font-weight: 800;
-            text-decoration: none;
-            background: linear-gradient(135deg, #ffffff 30%, #00E676 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(0, 230, 118, 0.2);
-            letter-spacing: 1px;
+        .logo { font-size: 1.3rem; font-weight: bold; text-decoration: none; color: white; }
+        .nav-links a { color: #cbd5e1; text-decoration: none; margin-left: 20px; font-weight: 500; font-size: 0.95rem; transition: color 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: #facc15; }
+        .goog-te-gadget { font-family: 'Segoe UI', sans-serif !important; color: transparent !important; font-size: 0px !important; }
+        .goog-te-combo {
+            background-color: #0f172a !important; color: #facc15 !important; border: 1px solid rgba(255, 255, 255, 0.25) !important;
+            padding: 4px 10px !important; border-radius: 6px !important; font-size: 0.85rem !important; font-weight: bold !important; outline: none !important;
         }
-
-        /* Glassmorphic Language Selector */
-        .custom-translate select {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            color: #f8fafc;
-            border: 1px solid rgba(0, 200, 83, 0.25);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            outline: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-        .custom-translate select:hover {
-            border-color: #00E676;
-            box-shadow: 0 0 10px rgba(0, 230, 118, 0.15);
-        }
-
-        /* Seamless Continuous Glowing Heartbeat Ticker Bar Styling */
-        @keyframes marquee {
-            0% { transform: translateX(0%); }
-            100% { transform: translateX(-50%); }
-        }
+        .goog-te-banner-frame.skiptranslate, .goog-logo-link, .goog-te-gadget span { display: none !important; }
+        body { top: 0px !important; }
+        @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
         @keyframes heartbeat {
-            0%, 100% { box-shadow: 0 0 5px rgba(0, 200, 83, 0.2); }
-            50% { box-shadow: 0 0 15px rgba(0, 200, 83, 0.4); }
+            0%, 100% { box-shadow: 0 0 5px rgba(22, 163, 74, 0.3), 0 0 5px rgba(220, 38, 38, 0.3); }
+            50% { box-shadow: 0 0 15px rgba(22, 163, 74, 0.6), 0 0 15px rgba(220, 38, 38, 0.6); }
         }
         .ticker-wrap {
-            overflow: hidden;
-            width: 100%;
-            background-color: #050505;
-            border-bottom: 1px solid rgba(0, 200, 83, 0.2);
-            border-top: 1px solid rgba(0, 200, 83, 0.2);
-            padding: 8px 0;
-            display: flex;
-            animation: heartbeat 2.5s infinite ease-in-out;
-            z-index: 90;
+            overflow: hidden; width: 100%; background-color: #020617; border-bottom: 2px solid #dc2626; border-top: 2px solid #16a34a;
+            padding: 8px 0; display: flex; animation: heartbeat 2.5s infinite ease-in-out; z-index: 90;
         }
-        .ticker {
-            display: flex;
-            white-space: nowrap;
-            animation: marquee 35s linear infinite;
-        }
-        .ticker span {
-            font-weight: 900;
-            font-size: 0.95rem;
-            letter-spacing: 3px;
-            color: #00E676;
-            padding-right: 40px;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
-            flex-grow: 1;
-        }
-        .section-title {
-            font-size: 2.25rem;
-            color: #facc15;
-            background: linear-gradient(135deg, #ffffff 40%, #00E676 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            border-bottom: 2px solid rgba(0, 200, 83, 0.3);
-            padding-bottom: 10px;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            font-weight: 800;
-        }
-
-        /* Glassmorphic Media Cards Grid */
-        .media-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 20px;
-        }
-        .media-card {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(0, 200, 83, 0.15);
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 8px 32px 0 rgba(0, 200, 83, 0.05);
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            transition: all 0.3s ease;
-        }
-        .media-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(0, 230, 118, 0.4);
-            box-shadow: 0 12px 40px 0 rgba(0, 200, 83, 0.1);
-        }
-        .media-card img, .media-card iframe {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 16px;
-            border: none;
-        }
-        .media-desc {
-            margin-top: 15px;
-            text-align: right;
-            direction: rtl;
-            font-size: 1.05rem;
-            color: #e4e4e7;
-        }
-
-        /* Floating Instagram Style Sticky Bottom Navigation */
-        .sticky-bottom-nav {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: calc(100% - 40px);
-            max-width: 480px;
-            background: rgba(11, 11, 11, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 200, 83, 0.15);
-            border-radius: 30px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 8px 0;
-            z-index: 1000;
-        }
-        .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: #71717a;
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 6px 12px;
-            transition: all 0.3s ease;
-        }
-        .nav-item .nav-icon {
-            width: 22px;
-            height: 22px;
-            fill: currentColor;
-            margin-bottom: 3px;
-        }
-        .nav-item:hover, .nav-item.active {
-            color: #00E676;
-        }
-        .nav-item.active {
-            background: rgba(0, 200, 83, 0.08);
-            border: 1px solid rgba(0, 230, 118, 0.25);
-            border-radius: 20px;
-            box-shadow: 0 0 15px rgba(0, 230, 118, 0.15);
-        }
-
-        /* Pure CSS Dual-Language Toggle Classes */
-        .lang-en { display: none !important; }
-        .lang-ur { display: inline-block; }
-
-        body.lang-en-active .lang-en { display: inline-block !important; }
-        body.lang-en-active .lang-ur { display: none !important; }
-        body.lang-en-active { direction: ltr !important; text-align: left !important; }
-        body.lang-en-active .media-desc { direction: ltr !important; text-align: left !important; }
-
-        /* Footer */
-        .footer {
-            background-color: #050505;
-            color: #71717a;
-            text-align: center;
-            padding: 25px;
-            font-size: 0.9rem;
-            margin-top: auto;
-            border-top: 1px solid rgba(0, 200, 83, 0.1);
-        }
-        .footer .highlight {
-            color: #00E676;
-            font-weight: bold;
-        }
+        .ticker { display: flex; white-space: nowrap; animation: marquee 35s linear infinite; }
+        .ticker span { font-weight: 900; font-size: 1rem; color: #facc15; padding-right: 40px; }
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; flex-grow: 1; }
+        .section-title { font-size: 2.25rem; color: #facc15; border-bottom: 3px solid #eab308; padding-bottom: 10px; margin-bottom: 30px; text-transform: uppercase; font-weight: 800; }
+        .media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 20px; }
+        .media-card { background-color: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.2); padding: 15px; display: flex; flex-direction: column; }
+        .media-card img, .media-card iframe { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; border: none; }
+        .media-desc { margin-top: 15px; text-align: right; direction: rtl; font-size: 1.05rem; color: #f1f5f9; }
+        .footer { background-color: #0f0203; color: #94a3b8; text-align: center; padding: 20px; font-size: 0.9rem; border-top: 2px solid #16a34a; }
+        .footer .highlight { color: #facc15; font-weight: bold; }
         @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
-            }
-            .custom-translate {
-                margin-top: 5px;
-            }
-            .bottom-nav {
-                flex-wrap: wrap;
-                gap: 8px;
-                padding: 10px;
-            }
-            .bottom-nav a {
-                font-size: 0.85rem;
-                padding: 6px 12px;
-            }
+            .nav-container { flex-direction: column; gap: 10px; }
+            .nav-links { flex-wrap: wrap; justify-content: center; gap: 10px; }
+            .nav-links a { margin: 0 5px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Blurred Glowing Backdrops -->
-    <div class="bg-glow circle-1"></div>
-    <div class="bg-glow circle-2"></div>
-
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">IMRAN KHAN</a>
-            <div class="custom-translate">
-                <select id="lang-select" onchange="toggleLanguage(this.value)">
-                    <option value="ur">اردو (Urdu)</option>
-                    <option value="en">English</option>
-                </select>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="early-life.html">Early Life</a>
+                <a href="cricket.html">Cricket Era</a>
+                <a href="politics.html">Political Journey</a>
+                <a href="gallery.html" class="active">Media</a>
             </div>
+            <div id="google_translate_element"></div>
         </div>
     </nav>
 
-    <!-- Seamless Heartbeat Ticker Bar -->
     <div class="ticker-wrap">
         <div class="ticker">
-            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ 💚 إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ 💚</span>
-            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ 💚 إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ 💚</span>
+            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ❤️</span>
+            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ❤️</span>
         </div>
     </div>
 
     <div class="container">
-        <h1 class="section-title">
-            <span class="lang-ur">میڈیا اور گیلری</span><span class="lang-en">Media Gallery</span>
-        </h1>
-        
+        <h1 class="section-title">Media & Gallery</h1>
         <div class="media-grid">
             
+            <!-- Video 1 -->
             <div class="media-card">
                 <iframe src="https://www.youtube.com/embed/S2pE4r9p0Zk" allowfullscreen></iframe>
                 <div class="media-desc">
-                    <p class="lang-ur"><strong>اقوامِ متحدہ میں خطاب:</strong> عمران خان نے اسلامو فوبیا کے خلاف دنیا بھر کے سامنے جرات مندانہ آواز اٹھائی۔</p>
-                    <p class="lang-en"><strong>Historic UNGA Speech:</strong> Imran Khan raised a bold and powerful voice against Islamophobia before the world.</p>
+                    <p><strong>Historic Speech at UNGA (2019):</strong> عمران خان نے اقوام متحدہ کے اجلاس میں اسلامو فوبیا اور کشمیر کا مقدمہ دنیا کے سامنے جرات کے ساتھ پیش کیا۔</p>
                 </div>
             </div>
-            
+
+            <!-- Video 2 -->
             <div class="media-card">
                 <iframe src="https://www.youtube.com/embed/5F_X6pQ_WcQ" allowfullscreen></iframe>
                 <div class="media-desc">
-                    <p class="lang-ur"><strong>1992 ورلڈ کپ کی تقریب:</strong> وہ تاریخی منظر جب پاکستان نے پہلا کرکٹ ورلڈ کپ جیتا۔</p>
-                    <p class="lang-en"><strong>1992 World Cup Ceremony:</strong> The historic moment when Pakistan won its first-ever Cricket World Cup.</p>
+                    <p><strong>1992 World Cup Victory Speech:</strong> عمران خان نے تاریخی فائنل کے بعد ورلڈ کپ ٹرافی اٹھاتے ہوئے کینسر ہسپتال بنانے کے خواب کا اعلان کیا۔</p>
                 </div>
             </div>
-            
+
+            <!-- Photo 1 (Using your uploaded ik1.jpg) -->
             <div class="media-card">
-                <img src="ik1.jpg" alt="Imran Khan Oxford">
+                <img src="ik1.jpg" alt="Imran Khan Young">
                 <div class="media-desc">
-                    <p class="lang-ur"><strong>آکسفورڈ یونیورسٹی کے دن:</strong> عمران خان کی آکسفورڈ میں تعلیم کے دوران کی یادگار تصویر۔</p>
-                    <p class="lang-en"><strong>Oxford University Days:</strong> A memorable photo of Imran Khan during his academic years at Oxford.</p>
+                    <p><strong>Oxford University Days:</strong> عمران خان کی آکسفورڈ میں تعلیم اور کھیل کے حسین دور کی یادگار تصویر۔</p>
                 </div>
             </div>
-            
+
+            <!-- Photo 2 (Using your uploaded ik3.jpg) -->
             <div class="media-card">
                 <img src="ik3.jpg" alt="Imran Khan PM">
                 <div class="media-desc">
-                    <p class="lang-ur"><strong>وزیر اعظم پاکستان:</strong> 22 سال کی طویل جدوجہد کے بعد حلف اٹھانے کا تاریخی منظر۔</p>
-                    <p class="lang-en"><strong>Prime Minister of Pakistan:</strong> Taking the oath of office after 22 years of political struggle.</p>
+                    <p><strong>Oath taking Ceremony as PM (2018):</strong> عمران خان کی 22 سال کی طویل جدوجہد کے بعد پاکستان کے 22ویں وزیر اعظم کا حلف اٹھانے کی تصویر۔</p>
                 </div>
             </div>
-            
+
         </div>
     </div>
 
-    <!-- Floating Sticky Bottom Nav Bar (Always in English) -->
-    <div class="sticky-bottom-nav">
-        <a href="index.html" class="nav-item">
-            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-            <span>Home</span>
-        </a>
-        <a href="early-life.html" class="nav-item">
-            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z M5.89 12.55L12 15.88l6.11-3.33c.03-.02.06-.03.09-.05v3c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-3c.03.02.06.03.09.05z"/></svg>
-            <span>Early Life</span>
-        </a>
-        <a href="cricket.html" class="nav-item">
-            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v3c0 2.44 1.72 4.44 4 4.9V19H5v2h14v-2h-2v-4.1c2.28-.46 4-2.46 4-4.9V7c0-1.1-.9-2-2-2zM5 10V7h2v3H5zm14 0h-2V7h2v3z"/></svg>
-            <span>Cricket Era</span>
-        </a>
-        <a href="politics.html" class="nav-item">
-            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
-            <span>Politics</span>
-        </a>
-        <a href="gallery.html" class="nav-item active">
-            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 12.5v-9l6 4.5-6 4.5z"/></svg>
-            <span>Media</span>
-        </a>
-    </div>
-
-    <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2026 Imran Khan Biography. All Rights Reserved. Created by <span class="highlight">Saad Ali</span></p>
     </footer>
 
-    <script>
-        function toggleLanguage(lang) {
-            if (lang === 'en') { document.body.classList.add('lang-en-active'); localStorage.setItem('selected_language', 'en'); }
-            else { document.body.classList.remove('lang-en-active'); localStorage.setItem('selected_language', 'ur'); }
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'ur', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
         }
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('selected_language');
-            const langSelect = document.getElementById('lang-select');
-            if (savedLang === 'en') { document.body.classList.add('lang-en-active'); if (langSelect) langSelect.value = 'en'; }
-            else { document.body.classList.remove('lang-en-active'); if (langSelect) langSelect.value = 'ur'; }
-        });
     </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
