@@ -18,7 +18,8 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            padding-bottom: 80px !important;
+            padding-bottom: 90px !important; /* Prevents sticky nav overlap */
+            overflow-x: hidden;
         }
         .navbar {
             background-color: #061a0c;
@@ -28,7 +29,7 @@
             top: 0;
             z-index: 100;
             box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-            border-bottom: 2px solid #16a34a;
+            border-bottom: 2px solid #dc2626;
         }
         .nav-container {
             max-width: 1000px;
@@ -44,18 +45,8 @@
             color: white;
             letter-spacing: 1px;
         }
-        .nav-links a {
-            color: #cbd5e1;
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover, .nav-links a.active {
-            color: #facc15;
-        }
         
+        /* Custom Native Gold Language Selector */
         .custom-translate select {
             background-color: #0f172a;
             color: #facc15;
@@ -145,11 +136,10 @@
             opacity: 1;
         }
 
-        /* Beautiful Typography with Balanced Font Size */
         .urdu-text {
             direction: rtl;
             text-align: right;
-            font-size: 1.15rem; /* Balanced, comfortable reading size */
+            font-size: 1.15rem;
             color: #f1f5f9;
         }
         .urdu-text h3 {
@@ -177,6 +167,41 @@
         }
         .urdu-text ul li span {
             color: #e2e8f0;
+        }
+
+        /* Floating Instagram Style Sticky Bottom Navigation */
+        .sticky-bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #061a0c;
+            border-top: 2px solid #dc2626; 
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.4);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #cbd5e1;
+            font-size: 0.75rem;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .nav-item .nav-icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+            margin-bottom: 4px;
+        }
+        .nav-item:hover, .nav-item.active {
+            color: #facc15; 
         }
 
         /* Pure CSS Dual-Language Toggle Classes */
@@ -209,13 +234,8 @@
                 gap: 10px;
                 text-align: center;
             }
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 10px;
-            }
-            .nav-links a {
-                margin: 0 5px;
+            .custom-translate {
+                margin-top: 5px;
             }
             .grid {
                 grid-template-columns: 1fr;
@@ -228,21 +248,21 @@
 </head>
 <body>
 
+    <!-- Nav Bar -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">IMRAN KHAN</a>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="early-life.html" class="active">Early Life</a>
-                <a href="cricket.html">Cricket Era</a>
-                <a href="politics.html">Political Journey</a>
-                <a href="gallery.html">Media</a>
+            
+            <div class="custom-translate">
+                <select id="lang-select" onchange="toggleLanguage(this.value)">
+                    <option value="ur">اردو (Urdu)</option>
+                    <option value="en">English</option>
+                </select>
             </div>
-            <div id="google_translate_element"></div>
         </div>
     </nav>
 
-    <!-- Seamless Heartbeat Ticker Bar -->
+    <!-- Seamless Heartbeat Ticker Bar with Quranic Motto & Urdu Translation -->
     <div class="ticker-wrap">
         <div class="ticker">
             <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ❤️</span>
@@ -252,12 +272,10 @@
 
     <div class="container">
         <h1 class="section-title">
-            <span class="lang-ur">بچپن، تعلیم اور خواب</span>
-            <span class="lang-en">Childhood, Education & Dreams</span>
+            <span class="lang-ur">بچپن، تعلیم اور خواب</span><span class="lang-en">Childhood, Education & Dreams</span>
         </h1>
         
         <div class="grid">
-            <!-- Automatic Photo Slideshow with Local Uploaded Images -->
             <div class="slideshow-container">
                 <img class="slide" src="ik1.jpg" alt="Imran Khan 1">
                 <img class="slide" src="ik2.jpg" alt="Imran Khan 2">
@@ -265,7 +283,7 @@
             </div>
             
             <div class="urdu-text">
-                <!-- Urdu Block (Saad's Writer-Style Urdu Text) -->
+                <!-- Urdu Block -->
                 <div class="lang-ur" style="direction: rtl;">
                     <h3>پیدائش اور ایک عظیم خواب کی شروعات</h3>
                     <p>
@@ -306,7 +324,7 @@
                     </ul>
                 </div>
 
-                <!-- English Block (Beautiful English Translation) -->
+                <!-- English Block -->
                 <div class="lang-en" style="direction: ltr; text-align: left;">
                     <h3>Birth and the Start of a Great Dream</h3>
                     <p>
@@ -350,11 +368,36 @@
         </div>
     </div>
 
+    <!-- Floating Sticky Bottom Nav Bar (Always in English, always sticky) -->
+    <div class="sticky-bottom-nav">
+        <a href="index.html" class="nav-item">
+            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            <span>Home</span>
+        </a>
+        <a href="early-life.html" class="nav-item active">
+            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z M5.89 12.55L12 15.88l6.11-3.33c.03-.02.06-.03.09-.05v3c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-3c.03.02.06.03.09.05z"/></svg>
+            <span>Early Life</span>
+        </a>
+        <a href="cricket.html" class="nav-item">
+            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v3c0 2.44 1.72 4.44 4 4.9V19H5v2h14v-2h-2v-4.1c2.28-.46 4-2.46 4-4.9V7c0-1.1-.9-2-2-2zM5 10V7h2v3H5zm14 0h-2V7h2v3z"/></svg>
+            <span>Cricket Era</span>
+        </a>
+        <a href="politics.html" class="nav-item">
+            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+            <span>Politics</span>
+        </a>
+        <a href="gallery.html" class="nav-item">
+            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 12.5v-9l6 4.5-6 4.5z"/></svg>
+            <span>Media</span>
+        </a>
+    </div>
+
+    <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2026 Imran Khan Biography. All Rights Reserved. Created by <span class="highlight">Saad Ali</span></p>
     </footer>
 
-    <!-- Slideshow Auto-play Script (5s Gap) & Translation Toggle -->
+    <!-- Slideshow Auto-play Script & Translation Manager -->
     <script>
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
@@ -367,7 +410,7 @@
             slides[currentSlide].classList.add('active');
         }
 
-        setInterval(nextSlide, 5000); // 5s Gap
+        setInterval(nextSlide, 5000); // 5 Seconds Gap
 
         function toggleLanguage(lang) {
             if (lang === 'en') {
@@ -391,11 +434,6 @@
             }
         });
     </script>
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({ pageLanguage: 'ur', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
 </html>
