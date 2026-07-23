@@ -18,17 +18,34 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            padding-bottom: 80px !important;
+            padding-bottom: 90px !important;
+            overflow-x: hidden;
         }
+        /* Apple-style Blurred Background Glows */
+        .bg-glow {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 200, 83, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+            filter: blur(80px);
+            z-index: -1;
+            pointer-events: none;
+        }
+        .circle-1 { top: 15%; left: -10%; }
+        .circle-2 { bottom: 10%; right: -10%; }
+
+        /* Glassmorphism Navigation Bar */
         .navbar {
-            background-color: #061a0c;
+            background: rgba(11, 11, 11, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             color: white;
             padding: 15px 20px;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
-            border-bottom: 2px solid #dc2626;
+            border-bottom: 1px solid rgba(0, 200, 83, 0.15);
         }
         .nav-container {
             max-width: 1000px;
@@ -39,22 +56,33 @@
         }
         .logo {
             font-size: 1.3rem;
-            font-weight: bold;
+            font-weight: 800;
             text-decoration: none;
-            color: white;
+            background: linear-gradient(135deg, #ffffff 30%, #00E676 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(0, 230, 118, 0.2);
             letter-spacing: 1px;
         }
         
+        /* Glassmorphic Language Selector */
         .custom-translate select {
-            background-color: #0f172a;
-            color: #facc15;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            padding: 6px 12px;
-            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: #f8fafc;
+            border: 1px solid rgba(0, 200, 83, 0.25);
+            padding: 8px 16px;
+            border-radius: 20px;
             font-size: 0.85rem;
             cursor: pointer;
             outline: none;
             font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .custom-translate select:hover {
+            border-color: #00E676;
+            box-shadow: 0 0 10px rgba(0, 230, 118, 0.15);
         }
 
         /* Seamless Continuous Glowing Heartbeat Ticker Bar Styling */
@@ -63,15 +91,15 @@
             100% { transform: translateX(-50%); }
         }
         @keyframes heartbeat {
-            0%, 100% { box-shadow: 0 0 5px rgba(22, 163, 74, 0.3), 0 0 5px rgba(220, 38, 38, 0.3); }
-            50% { box-shadow: 0 0 15px rgba(22, 163, 74, 0.6), 0 0 15px rgba(220, 38, 38, 0.6); }
+            0%, 100% { box-shadow: 0 0 5px rgba(0, 200, 83, 0.2); }
+            50% { box-shadow: 0 0 15px rgba(0, 200, 83, 0.4); }
         }
         .ticker-wrap {
             overflow: hidden;
             width: 100%;
-            background-color: #020617;
-            border-bottom: 2px solid #dc2626;
-            border-top: 2px solid #16a34a;
+            background-color: #050505;
+            border-bottom: 1px solid rgba(0, 200, 83, 0.2);
+            border-top: 1px solid rgba(0, 200, 83, 0.2);
             padding: 8px 0;
             display: flex;
             animation: heartbeat 2.5s infinite ease-in-out;
@@ -80,13 +108,13 @@
         .ticker {
             display: flex;
             white-space: nowrap;
-            animation: marquee 32s linear infinite;
+            animation: marquee 35s linear infinite;
         }
         .ticker span {
             font-weight: 900;
-            font-size: 1rem;
+            font-size: 0.95rem;
             letter-spacing: 3px;
-            color: #facc15;
+            color: #00E676;
             padding-right: 40px;
         }
 
@@ -99,7 +127,10 @@
         .section-title {
             font-size: 2.25rem;
             color: #facc15;
-            border-bottom: 3px solid #eab308;
+            background: linear-gradient(135deg, #ffffff 40%, #00E676 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            border-bottom: 2px solid rgba(0, 200, 83, 0.3);
             padding-bottom: 10px;
             margin-bottom: 30px;
             text-transform: uppercase;
@@ -115,6 +146,63 @@
             margin-bottom: 20px;
             line-height: 1.9;
         }
+
+        /* Content Frosted Glass Card & Sliders */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 200, 83, 0.15);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 0 8px 32px 0 rgba(0, 200, 83, 0.05);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(0, 230, 118, 0.3);
+            box-shadow: 0 12px 40px 0 rgba(0, 200, 83, 0.1);
+        }
+
+        .carousel-container {
+            width: 100%;
+            position: relative;
+        }
+        .carousel-track {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+        .carousel-track::-webkit-scrollbar {
+            display: none;
+        }
+        .carousel-slide {
+            min-width: 100%;
+            scroll-snap-align: start;
+            flex-shrink: 0;
+            padding: 5px;
+        }
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.15);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .dot.active {
+            background-color: #00E676;
+            transform: scale(1.2);
+            box-shadow: 0 0 8px rgba(0, 230, 118, 0.5);
+        }
+
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -122,15 +210,21 @@
             margin: 30px 0;
         }
         .card {
-            background-color: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            background-color: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(0, 200, 83, 0.15);
             padding: 20px;
-            border-radius: 12px;
+            border-radius: 20px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             text-align: center;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 230, 118, 0.3);
+            box-shadow: 0 12px 40px 0 rgba(0, 200, 83, 0.1);
         }
         .card h4 {
-            color: #facc15;
+            color: #00E676;
             font-size: 1.25rem;
             font-weight: bold;
             margin-bottom: 10px;
@@ -143,12 +237,12 @@
         /* Lessons Section */
         .lessons-section {
             margin-top: 50px;
-            border-top: 2px dashed rgba(255, 255, 255, 0.2);
+            border-top: 1px solid rgba(0, 200, 83, 0.2);
             padding-top: 40px;
         }
         .lessons-title {
             font-size: 2rem;
-            color: #facc15;
+            color: #00E676;
             text-align: center;
             margin-bottom: 35px;
             font-weight: bold;
@@ -159,17 +253,23 @@
             gap: 25px;
         }
         .lesson-card {
-            background-color: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-left: 4px solid #16a34a;
+            background-color: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(0, 200, 83, 0.15);
+            border-left: 4px solid #00E676;
             padding: 25px;
-            border-radius: 12px;
+            border-radius: 20px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.15);
             text-align: right;
             direction: rtl;
+            transition: all 0.3s ease;
+        }
+        .lesson-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 230, 118, 0.3);
+            box-shadow: 0 12px 40px 0 rgba(0, 200, 83, 0.1);
         }
         .lesson-card h3 {
-            color: #facc15;
+            color: #00E676;
             font-size: 1.3rem;
             margin-bottom: 12px;
         }
@@ -182,26 +282,31 @@
         /* Public Review Section - FORCED LEFT ALIGNED IN BOTH LANGUAGES */
         .review-section {
             margin-top: 50px;
-            border-top: 2px dashed rgba(255, 255, 255, 0.2);
+            border-top: 1px solid rgba(0, 200, 83, 0.2);
             padding-top: 40px;
         }
         .review-title {
             font-size: 2rem;
-            color: #facc15;
+            color: #00E676;
             text-align: center;
             margin-bottom: 30px;
             font-weight: bold;
         }
         .review-form {
-            background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(0, 200, 83, 0.15);
             padding: 30px;
-            border-radius: 12px;
+            border-radius: 24px;
             max-width: 600px;
             margin: 0 auto;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 200, 83, 0.05);
             text-align: left !important; /* Forced Left Align */
             direction: ltr !important;    /* Forced LTR */
+            transition: all 0.3s ease;
+        }
+        .review-form:hover {
+            border-color: rgba(0, 230, 118, 0.3);
+            box-shadow: 0 12px 40px 0 rgba(0, 200, 83, 0.1);
         }
         .form-group {
             margin-bottom: 20px;
@@ -210,7 +315,7 @@
         }
         .form-group label {
             display: block;
-            color: #facc15;
+            color: #00E676;
             font-weight: 600;
             margin-bottom: 8px;
             font-size: 1.1rem;
@@ -219,32 +324,35 @@
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
             padding: 12px;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            background-color: rgba(15, 23, 42, 0.6);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 200, 83, 0.2);
+            background-color: rgba(11, 11, 11, 0.6);
             color: white;
             font-size: 1rem;
             text-align: left !important; /* Always type left to right */
             direction: ltr !important;
+            outline: none;
+            transition: all 0.3s ease;
         }
         .form-group input:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: #facc15;
+            border-color: #00E676;
+            box-shadow: 0 0 10px rgba(0, 230, 118, 0.15);
         }
         .btn-submit {
-            background-color: #eab308;
-            color: #0f172a;
+            background: linear-gradient(135deg, #00C853 0%, #00E676 100%);
+            color: #000000;
             padding: 12px 30px;
-            border-radius: 8px;
+            border-radius: 15px;
             border: none;
-            font-weight: bold;
+            font-weight: 800;
             font-size: 1.1rem;
             cursor: pointer;
             width: 100%;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
         }
         .btn-submit:hover {
-            background-color: #ca8a04;
+            transform: scale(1.02);
+            box-shadow: 0 0 15px rgba(0, 230, 118, 0.3);
         }
         .reviews-list-container {
             max-width: 600px;
@@ -253,28 +361,33 @@
             direction: ltr !important;
         }
         .reviews-list-container h3 {
-            color: #facc15;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            color: #00E676;
+            border-bottom: 1px solid rgba(0, 200, 83, 0.15);
             padding-bottom: 10px;
             margin-bottom: 20px;
             text-align: left !important;
         }
         .review-card {
-            background-color: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-left: 4px solid #16a34a; /* Forced Green Left Border */
+            background-color: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(0, 200, 83, 0.1);
+            border-left: 4px solid #00E676; /* Forced Green Left Border */
             border-right: none !important;
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 15px;
             margin-bottom: 15px;
             text-align: left !important;
             direction: ltr !important;
+            transition: all 0.3s ease;
+        }
+        .review-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(0, 230, 118, 0.3);
         }
         .review-header {
             display: flex;
             justify-content: space-between;
             margin-bottom: 8px;
-            color: #facc15;
+            color: #00E676;
             font-weight: bold;
         }
         .review-body {
@@ -287,16 +400,21 @@
         /* Floating Instagram Style Sticky Bottom Navigation */
         .sticky-bottom-nav {
             position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: #061a0c;
-            border-top: 2px solid #dc2626; /* PTI Red Border */
-            box-shadow: 0 -4px 10px rgba(0,0,0,0.4);
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 40px);
+            max-width: 480px;
+            background: rgba(11, 11, 11, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 200, 83, 0.15);
+            border-radius: 30px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
             display: flex;
             justify-content: space-around;
             align-items: center;
-            padding: 10px 0;
+            padding: 8px 0;
             z-index: 1000;
         }
         .nav-item {
@@ -304,43 +422,42 @@
             flex-direction: column;
             align-items: center;
             text-decoration: none;
-            color: #cbd5e1;
+            color: #71717a;
             font-size: 0.75rem;
-            font-weight: bold;
-            transition: color 0.3s;
+            font-weight: 700;
+            padding: 6px 12px;
+            transition: all 0.3s ease;
         }
         .nav-item .nav-icon {
-            width: 24px;
-            height: 24px;
+            width: 22px;
+            height: 22px;
             fill: currentColor;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
         .nav-item:hover, .nav-item.active {
-            color: #facc15; /* PTI Gold */
+            color: #00E676;
+        }
+        .nav-item.active {
+            background: rgba(0, 200, 83, 0.08);
+            border: 1px solid rgba(0, 230, 118, 0.25);
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(0, 230, 118, 0.15);
         }
 
+        /* Footer */
         .footer {
-            background-color: #0f0203;
-            color: #94a3b8;
+            background-color: #050505;
+            color: #71717a;
             text-align: center;
-            padding: 20px;
+            padding: 25px;
             font-size: 0.9rem;
             margin-top: auto;
-            border-top: 2px solid #16a34a;
+            border-top: 1px solid rgba(0, 200, 83, 0.1);
         }
         .footer .highlight {
-            color: #facc15;
+            color: #00E676;
             font-weight: bold;
         }
-
-        /* Pure CSS Dual-Language Toggle Classes */
-        .lang-en { display: none !important; }
-        .lang-ur { display: inline-block; }
-
-        body.lang-en-active .lang-en { display: inline-block !important; }
-        body.lang-en-active .lang-ur { display: none !important; }
-        body.lang-en-active { direction: ltr !important; text-align: left !important; }
-
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
@@ -364,6 +481,10 @@
 </head>
 <body>
 
+    <!-- Blurred Glowing Backdrops -->
+    <div class="bg-glow circle-1"></div>
+    <div class="bg-glow circle-2"></div>
+
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">IMRAN KHAN</a>
@@ -379,80 +500,90 @@
     <!-- Seamless Heartbeat Ticker Bar -->
     <div class="ticker-wrap">
         <div class="ticker">
-            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
-            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
+            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ 💚 إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ 💚</span>
+            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ 💚 إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ 💚</span>
         </div>
     </div>
 
     <div class="container">
-        <h1 class="section-title">Political Struggle</h1>
+        <h1 class="section-title">
+            <span class="lang-ur">سیاسی جدوجہد اور سفر</span><span class="lang-en">Political Struggle & Journey</span>
+        </h1>
         
-        <div class="urdu-text">
-            <!-- Urdu Block -->
-            <div class="lang-ur" style="direction: rtl;">
-                <p>
-                    کرکٹ کے بعد عمران خان کا سب سے بڑا کام اپنی والدہ کی یاد میں <strong>شوکت خانم میموریل کینسر ہسپتال</strong> کی تعمیر تھا، جس کے فنڈز اکٹھے کرنے کے لیے انہوں نے ملک گیر مہم چلائی۔
-                </p>
-                
-                <div class="cards-grid">
-                    <div class="card">
-                        <h4>1996 - تحریک انصاف کا قیام</h4>
-                        <p>عمران خان نے 1996 میں پاکستان تحریک انصاف (PTI) کی بنیاد رکھی۔ ابتدائی دور انتہائی کٹھن تھا اور لوگ مذاق اڑاتے تھے۔</p>
+        <div class="glass-card">
+            <div class="carousel-container">
+                <div class="carousel-track" id="politics-carousel-track">
+                    <div class="carousel-slide">
+                        <div class="urdu-text">
+                            <!-- Urdu Block -->
+                            <div class="lang-ur" style="direction: rtl;">
+                                <p>کرکٹ کے بعد عمران خان کا سب سے بڑا کام اپنی والدہ کی یاد میں <strong>شوکت خانم میموریل کینسر ہسپتال</strong> کی تعمیر تھا، جس کے فنڈز اکٹھے کرنے کے لیے انہوں نے ملک گیر مہم چلائی۔</p>
+                                
+                                <div class="cards-grid">
+                                    <div class="card">
+                                        <h4>1996 - تحریک انصاف کا قیام</h4>
+                                        <p>عمران خان نے 1996 میں پاکستان تحریک انصاف (PTI) کی بنیاد رکھی۔ ابتدائی دور انتہائی کٹھن تھا اور لوگ مذاق اڑاتے تھے۔</p>
+                                    </div>
+                                    <div class="card">
+                                        <h4>2014 - تاریخی دھرنا</h4>
+                                        <p>نظام میں تبدیلی اور انصاف کے لیے اسلام آباد میں 126 دن کا تاریخی دھرنا دیا، جس نے ملکی سیاست کا رخ موڑ دیا۔</p>
+                                    </div>
+                                    <div class="card">
+                                        <h4>2018 - وزیر اعظم پاکستان</h4>
+                                        <p>22 سال کی طویل ترین اور کٹھن جدوجہد کے بعد، عمران خان پاکستان کے 22ویں وزیر اعظم منتخب ہوئے۔</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- English Block -->
+                            <div class="lang-en" style="direction: ltr; text-align: left;">
+                                <p>After cricket, Imran Khan's greatest achievement was building the Shaukat Khanum Memorial Cancer Hospital in memory of his mother, running a nationwide campaign to raise funds for this monumental project.</p>
+                                
+                                <div class="cards-grid">
+                                    <div class="card">
+                                        <h4>1996 - PTI Founded</h4>
+                                        <p>Imran Khan founded Pakistan Tehreek-e-Insaf (PTI) in 1996. The initial years were extremely difficult, and his party was widely dismissed by critics.</p>
+                                    </div>
+                                    <div class="card">
+                                        <h4>2014 - Dharna & Protest</h4>
+                                        <p>He led historical protests, including the 126-day sit-in in Islamabad for justice and system change, which reshaped the country's political landscape.</p>
+                                    </div>
+                                    <div class="card">
+                                        <h4>2018 - Prime Minister</h4>
+                                        <p>Following a grueling 22-year political struggle, Imran Khan was elected as the 22nd Prime Minister of Pakistan in 2018.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card">
-                        <h4>2014 - تاریخی دھرنا</h4>
-                        <p>نظام میں تبدیلی اور انصاف کے لیے اسلام آباد میں 126 دن کا تاریخی دھرنا دیا، جس نے ملکی سیاست کا رخ موڑ دیا۔</p>
+                    <div class="carousel-slide">
+                        <div class="urdu-text">
+                            <div class="lang-ur" style="direction: rtl;">
+                                <p>سیاست کے اس طویل سفر میں انہیں شدید ترین تنقید، دباؤ، اور مختلف سیاسی چیلنجز کا سامنا رہا، لیکن ان کا عزم اور نظریہ ہمیشہ اٹل رہا۔</p>
+                                <p><strong>ان کے سیاسی اور نظریاتی بیانیے کا سب سے بڑا اور مضبوط اصول یہ تھا کہ وہ نہ کبھی امریکہ یا کسی بیرونی عالمی طاقت کے سامنے جھکے، اور نہ کبھی انہوں نے پاکستان کو جھکنے دیا</strong>۔ انہوں نے ہمیشہ خوددار اور آزاد خارجہ پالیسی کی وکالت کی اور ملکی خود مختاری کے خلاف ہر قسم کے سمجھوتے سے صاف انکار کیا۔</p>
+                            </div>
+                            <div class="lang-en" style="direction: ltr; text-align: left;">
+                                <p>His political journey was defined by severe criticism, immense pressure, and monumental political challenges, but his resolve and ideology remained unshakeable.</p>
+                                <p><strong>The core of his political and ideological narrative was that he never bowed to American or any foreign global power, nor did he ever let Pakistan bow.</strong> He consistently advocated for a sovereign and independent foreign policy, flatly refusing any compromise on national sovereignty.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card">
-                        <h4>2018 - وزیر اعظم پاکستان</h4>
-                        <p>22 سال کی طویل ترین اور کٹھن جدوجہد کے بعد، عمران خان پاکستان کے 22ویں وزیر اعظم منتخب ہوئے۔</p>
+                    <div class="carousel-slide">
+                        <div class="urdu-text">
+                            <div class="lang-ur" style="direction: rtl;">
+                                <p><strong>اپنے عہدے سے ہٹائے جانے کے بعد، عمران خان کو متعدد ایسے مقدمات کا سامنا کرنا پڑا جنہیں ان کے حامی اور قانونی ماہرین سیاسی نوعیت کے یکطرفہ اور من گھڑت الزامات قرار دیتے ہیں</strong>۔ ان تمام تر مشکلات اور قید کے باوجود وہ مضبوطی سے ڈٹے ہوئے ہیں۔ دورانِ حراست ان کی صحت، بالخصوص ان کی آنکھ کی تکلیف کے حوالے سے بھی شدید خدشات سامنے آئے، لیکن اس جسمانی تکلیف اور قید کے باوجود انہوں نے روایتی سیاستدانوں (جیسے شریف خاندان) کی طرح بیرونِ ملک علاج یا ریلیف حاصل کرنے کے لیے کوئی ڈیل کرنے یا ملک چھوڑنے سے صاف انکار کر دیا۔</p>
+                            </div>
+                            <div class="lang-en" style="direction: ltr; text-align: left;">
+                                <p><strong>Following his removal from office, Imran Khan faced numerous cases which his supporters and legal experts dismiss as politically motivated and fabricated charges.</strong> Despite all hardships and ongoing imprisonment, he remains steadfast. During his detention, serious concerns emerged regarding his health, particularly a severe eye ailment. Yet, despite this physical suffering, he flatly refused to make deals or leave the country for medical treatment like dynastic politicians (such as the Sharif family).</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <p>
-                    سیاست کے اس طویل سفر میں انہیں شدید ترین تنقید، دباؤ، اور مختلف سیاسی چیلنجز کا سامنا رہا، لیکن ان کا عزم اور نظریہ ہمیشہ اٹل رہا۔
-                </p>
-                
-                <p>
-                    <strong>ان کے سیاسی اور نظریاتی بیانیے کا سب سے بڑا اور مضبوط اصول یہ تھا کہ وہ نہ کبھی امریکہ یا کسی بیرونی عالمی طاقت کے سامنے جھکے، اور نہ کبھی انہوں نے پاکستان کو جھکنے دیا</strong>۔ انہوں نے ہمیشہ خوددار اور آزاد خارجہ پالیسی کی وکالت کی اور ملکی خود مختاری کے خلاف ہر قسم کے سمجھوتے سے صاف انکار کیا۔ ان کا یہ جرات مندانہ موقف دنیا بھر میں ان کے حامیوں کے لیے خود اعتمادی کا باعث بنا۔
-                </p>
-                
-                <p>
-                    <strong>اپنے عہدے سے ہٹائے جانے کے بعد، عمران خان کو متعدد ایسے مقدمات کا سامنا کرنا پڑا جنہیں ان کے حامی اور قانونی ماہرین سیاسی نوعیت کے یکطرفہ اور من گھڑت الزامات قرار دیتے ہیں</strong>۔ ان تمام تر مشکلات اور قید کے باوجود وہ مضبوطی سے ڈٹے ہوئے ہیں۔ دورانِ حراست ان کی صحت، بالخصوص ان کی آنکھ کی تکلیف کے حوالے سے بھی شدید خدشات سامنے آئے، لیکن اس جسمانی تکلیف اور قید کے باوجود انہوں نے روایتی سیاستدانوں (جیسے شریف خاندان) کی طرح بیرونِ ملک علاج یا ریلیف حاصل کرنے کے لیے کوئی ڈیل کرنے یا ملک چھوڑنے سے صاف انکار کر دیا۔ ان کا یہ عزم کہ وہ آخری سانس تک اسی مٹی میں رہیں گے، ان کے سیاسی سفر کو منفرد بناتا ہے۔
-                </p>
-            </div>
-            <!-- English Block -->
-            <div class="lang-en" style="direction: ltr; text-align: left;">
-                <p>
-                    After cricket, Imran Khan's greatest achievement was building the Shaukat Khanum Memorial Cancer Hospital in memory of his mother, running a nationwide campaign to raise funds for this monumental project.
-                </p>
-                
-                <div class="cards-grid">
-                    <div class="card">
-                        <h4>1996 - PTI Founded</h4>
-                        <p>Imran Khan founded Pakistan Tehreek-e-Insaf (PTI) in 1996. The initial years were extremely difficult, and his party was widely dismissed by critics.</p>
-                    </div>
-                    <div class="card">
-                        <h4>2014 - Dharna & Protest</h4>
-                        <p>He led historical protests, including the 126-day sit-in in Islamabad for justice and system change, which reshaped the country's political landscape.</p>
-                    </div>
-                    <div class="card">
-                        <h4>2018 - Prime Minister</h4>
-                        <p>Following a grueling 22-year political struggle, Imran Khan was elected as the 22nd Prime Minister of Pakistan in 2018.</p>
-                    </div>
+                <!-- Exactly 3 centered pagination dots -->
+                <div class="carousel-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
                 </div>
-
-                <p>
-                    His political journey was defined by severe criticism, immense pressure, and monumental political challenges, but his resolve and ideology remained unshakeable.
-                </p>
-                
-                <p>
-                    <strong>The core of his political and ideological narrative was that he never bowed to American or any foreign global power, nor did he ever let Pakistan bow.</strong> He consistently advocated for a sovereign and independent foreign policy, flatly refusing any compromise on national sovereignty. His courageous stance became a global symbol of self-respect for his supporters.
-                </p>
-                
-                <p>
-                    <strong>Following his removal from office, Imran Khan faced numerous cases which his supporters and legal experts dismiss as politically motivated and fabricated charges.</strong> Despite all hardships and ongoing imprisonment, he remains steadfast. During his detention, serious concerns emerged regarding his health, particularly a severe eye ailment. Yet, despite this physical suffering, he flatly refused to make deals or leave the country for medical treatment like dynastic politicians (such as the Sharif family). His resolve to live and die in his homeland makes his journey truly historic.
-                </p>
             </div>
         </div>
 
@@ -483,16 +614,11 @@
             </div>
         </section>
 
-        <!-- Public Opinion & Reviews Form Section (Always Left-Aligned LTR) -->
+        <!-- Public Opinion & Reviews Form Section (RTL Form, Always Left-Aligned, NO NAME INPUT, Fixed Submission) -->
         <section class="review-section">
             <h2 class="review-title">Public Opinion & Reviews (عوامی رائے اور تجزیے)</h2>
             
             <div class="review-form">
-                <!-- Name input RESTORED as requested -->
-                <div class="form-group">
-                    <label id="lbl-name" for="reviewer-name">What should we call you, Patriot?</label>
-                    <input type="text" id="reviewer-name" required placeholder="Saad Ali...">
-                </div>
                 <div class="form-group">
                     <label id="lbl-rating" for="review-rating">How much love do you have for the Captain?</label>
                     <select id="review-rating">
@@ -505,7 +631,7 @@
                 </div>
                 <div class="form-group">
                     <label id="lbl-text" for="reviewer-text">Express your thoughts about Khan Sahab:</label>
-                    <textarea id="reviewer-text" rows="4" required placeholder="Apni raye likhein..."></textarea>
+                    <textarea id="reviewer-text" rows="4" required placeholder="...Apni raye likhein"></textarea>
                 </div>
                 <button type="button" id="submit-review-btn" class="btn-submit">Send Your Message of Hope</button>
             </div>
@@ -553,7 +679,7 @@
             reviewsDisplay.innerHTML = '';
             const reviews = JSON.parse(localStorage.getItem('ik_reviews')) || [
                 { name: 'احمد خان', rating: '⭐⭐⭐⭐⭐', text: 'عمران خان ہمارے سچے لیڈر ہیں۔ ان کے غیرت اور خودداری کے اصولوں پر پوری قوم کو فخر ہے۔' },
-                { name: 'سارہ علی', rating: '⭐⭐⭐⭐⭐', text: 'نوجوانوں کے لیے ان کا عزم اور شوکت خانم کا خواب سب سے بڑا سبق ہے۔' }
+                { name: 'سارہ علی', rating: '⭐⭐⭐⭐⭐', text: 'ننوعمرانوں کے لیے ان کا عزم اور شوکت خانم کا خواب سب سے بڑا سبق ہے۔' }
             ];
 
             reviews.forEach(review => {
@@ -571,20 +697,22 @@
         }
 
         submitBtn.addEventListener('click', () => {
-            const nameField = document.getElementById('reviewer-name');
             const ratingField = document.getElementById('review-rating');
             const textField = document.getElementById('reviewer-text');
 
-            const name = nameField.value.trim();
-            const ratingValue = ratingField.value;
             const text = textField.value.trim();
 
-            if (!name || !text) {
-                alert('Please fill out all fields!');
+            if (!text) {
+                alert('Please write your opinion first!');
                 return;
             }
 
+            const ratingValue = ratingField.value;
             const rating = '⭐'.repeat(parseInt(ratingValue));
+            
+            // Name input completely removed; defaulting name dynamically based on selected language
+            const isEnglish = document.body.classList.contains('lang-en-active');
+            const name = isEnglish ? 'Patriot' : 'محبِ وطن';
 
             const reviews = JSON.parse(localStorage.getItem('ik_reviews')) || [
                 { name: 'احمد خان', rating: '⭐⭐⭐⭐⭐', text: 'عمران خان ہمارے سچے لیڈر ہیں۔ ان کے غیرت اور خودداری کے اصولوں پر پوری قوم کو فخر ہے۔' },
@@ -597,7 +725,6 @@
             loadReviews();
             
             // Clear inputs
-            nameField.value = '';
             textField.value = '';
         });
 
@@ -622,6 +749,18 @@
             } else {
                 document.body.classList.remove('lang-en-active');
                 if (langSelect) langSelect.value = 'ur';
+            }
+
+            // Sync Carousel Swipe Dots natively
+            const track = document.getElementById('politics-carousel-track');
+            const dots = document.querySelectorAll('.carousel-dots .dot');
+            if (track && dots.length > 0) {
+                track.addEventListener('scroll', () => {
+                    const index = Math.round(track.scrollLeft / track.clientWidth);
+                    dots.forEach((dot, i) => {
+                        dot.classList.toggle('active', i === index);
+                    });
+                });
             }
         });
     </script>
