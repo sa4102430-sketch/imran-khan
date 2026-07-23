@@ -188,4 +188,275 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background-c
+            background-color: #061a0c;
+            border-top: 2px solid #dc2626; 
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.4);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #cbd5e1;
+            font-size: 0.75rem;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .nav-item .nav-icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+            margin-bottom: 4px;
+        }
+        .nav-item:hover, .nav-item.active {
+            color: #facc15;
+        }
+
+        /* Pure CSS Dual-Language Toggle Classes */
+        .lang-en { display: none !important; }
+        .lang-ur { display: inline-block; }
+
+        body.lang-en-active .lang-en { display: inline-block !important; }
+        body.lang-en-active .lang-ur { display: none !important; }
+        body.lang-en-active { direction: ltr !important; text-align: left !important; }
+        body.lang-en-active .urdu-text { direction: ltr !important; text-align: left !important; }
+        body.lang-en-active .urdu-text h3 { border-left: 3px solid #facc15; border-right: none; padding-left: 10px; padding-right: 0; text-align: left; }
+        body.lang-en-active .urdu-text ul { margin-left: 20px; margin-right: 0; text-align: left; }
+
+        .footer {
+            background-color: #0f0203;
+            color: #94a3b8;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            margin-top: auto;
+            border-top: 2px solid #16a34a;
+        }
+        .footer .highlight {
+            color: #facc15;
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .nav-links a {
+                margin: 0 5px;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .slideshow-container {
+                height: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">IMRAN KHAN</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="early-life.html" class="active">Early Life</a>
+                <a href="cricket.html">Cricket Era</a>
+                <a href="politics.html">Political Journey</a>
+                <a href="gallery.html">Media</a>
+            </div>
+            <div id="google_translate_element"></div>
+        </div>
+    </nav>
+
+    <!-- Seamless Heartbeat Ticker Bar -->
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ❤️</span>
+            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ❤️</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1 class="section-title">
+            <span class="lang-ur">بچپن، تعلیم اور خواب</span><span class="lang-en">Childhood, Education & Dreams</span>
+        </h1>
+        
+        <div class="grid">
+            <!-- Automatic Photo Slideshow -->
+            <div class="slideshow-container">
+                <img class="slide" src="ik1.jpg" alt="Imran Khan 1">
+                <img class="slide" src="ik2.jpg" alt="Imran Khan 2">
+                <img class="slide" src="ik3.jpg" alt="Imran Khan 3">
+            </div>
+            
+            <div class="urdu-text">
+                <!-- Urdu Block (Saad's Writer-Style Urdu Text) -->
+                <div class="lang-ur" style="direction: rtl;">
+                    <h3>پیدائش اور ایک عظیم خواب کی شروعات</h3>
+                    <p>
+                        5 اکتوبر 1952 کی ایک خوشگوار صبح لاہور میں ایک بچے نے آنکھ کھولی، جس کا نام عمران احمد خان نیازی رکھا گیا۔ اس وقت کسی نے نہیں سوچا تھا کہ یہی بچہ ایک دن پاکستان کو پہلا کرکٹ ورلڈ کپ جتوائے گا، دنیا کے بڑے خیراتی اسپتالوں میں سے ایک قائم کرے گا اور پھر ملک کا وزیر اعظم بھی بنے گا۔
+                    </p>
+
+                    <h3>خاندانی پس منظر اور ابتدائی ماحول</h3>
+                    <p>
+                        عمران خان ایک تعلیم یافتہ پشتون خاندان میں پیدا ہوئے۔ ان کے والد اکرام اللہ خان نیازی ایک انجینئر تھے جبکہ والدہ شوکت خانم نہایت مہربان اور مذہبی خاتون تھیں۔ عمران چار بہنوں کے اکلوتے بھائی تھے، اسی وجہ سے گھر میں ان پر خاص توجہ دی جاتی تھی۔
+                    </p>
+
+                    <h3>بچپن، کھیل اور کرکٹ کا جنون</h3>
+                    <p>
+                        بچپن میں عمران بہت شرارتی مگر خاموش مزاج تھے Dunya سے کترانے والے۔ انہیں کھیل کود کا بے حد شوق تھا، خاص طور پر کرکٹ کا۔ وہ گھنٹوں اپنے دوستوں کے ساتھ گلیوں میں کرکٹ کھیلتے رہتے۔ اسی دوران ان کے دل میں ایک خواب پیدا ہوا کہ ایک دن وہ پاکستان کی نمائندگی کریں گے۔
+                    </p>
+
+                    <h3>تعلیمی سفر اور آکسفورڈ کا تجربہ</h3>
+                    <p>
+                        ابتدائی تعلیم لاہور کے کیتھیڈرل اسکول میں حاصل کی، پھر ایچی سن کالج میں داخلہ لیا۔ اس کے بعد اعلیٰ تعلیم کے لیے انگلینڈ گئے، جہاں انہوں نے رائل گرامر اسکول میں تعلیم حاصل کی اور بعد میں آکسفورڈ یونیورسٹی کے کیبل کالج سے فلسفہ، سیاست اور معاشیات (PPE) میں ڈگری حاصل کی۔
+                    </p>
+
+                    <h3>خود اعتمادی اور صلاحیتوں کا نکھار</h3>
+                    <p>
+                        انگلینڈ میں رہتے ہوئے انہوں نے نہ صرف تعلیم پر توجہ دی بلکہ اپنی کرکٹ کو بھی بہتر بنایا۔ وہاں کے سخت مقابلوں نے ان کی صلاحیتوں کو مزید نکھارا۔ یہی وہ دور تھا جب انہوں نے یہ یقین کر لیا کہ اگر مسلسل محنت کی جائے تو دنیا کی کوئی طاقت کامیابی کو نہیں روک سکتی۔
+                    </p>
+
+                    <h3>قومی ٹیم کے لیے انتخاب اور اصل جدوجہد</h3>
+                    <p>
+                        کرکٹ کے میدان میں ان کی رفتار، ذہانت اور قیادت کی صلاحیت نمایاں ہونے لگی۔ جلد ہی وہ پاکستان کی قومی ٹیم کے لیے منتخب ہو گئے، اور ان کی اصل جدوجہد کا آغاز ہوا۔
+                    </p>
+
+                    <h3>اس دور سے ملنے والے سبق</h3>
+                    <ul>
+                        <li><span>بڑے خواب دیکھنے سے ڈرنا نہیں چاہیے۔</span></li>
+                        <li><span>تعلیم اور کھیل ساتھ ساتھ کامیابی کی بنیاد بن سکتے ہیں۔</span></li>
+                        <li><span>مسلسل محنت انسان کی قسمت بدل سکتی ہے۔</span></li>
+                        <li><span>مشکلات کامیابی کے راستے کی رکاوٹ نہیں بلکہ سبق ہوتی ہیں۔</span></li>
+                    </ul>
+                </div>
+
+                <!-- English Block (Beautiful English Translation) -->
+                <div class="lang-en" style="direction: ltr; text-align: left;">
+                    <h3>Birth and the Start of a Great Dream</h3>
+                    <p>
+                        On a pleasant morning of October 5, 1952, a child opened his eyes in Lahore, who was named Imran Ahmed Khan Niazi. At that time, no one imagined that this very child would one day win Pakistan's first cricket World Cup, establish one of the world's largest charitable hospitals, and eventually become the Prime Minister of the nation.
+                    </p>
+
+                    <h3>Family Background and Early Environment</h3>
+                    <p>
+                        Imran Khan was born into an educated Pashtun family. His father, Ikramullah Khan Niazi, was an engineer, while his mother, Shaukat Khanum, was a very kind and religious woman. Imran was the only brother of four sisters, which is why special attention was given to him at home.
+                    </p>
+
+                    <h3>Childhood, Play, and Cricketing Passion</h3>
+                    <p>
+                        In his childhood, Imran was very mischievous yet reserved. He loved sports immensely, especially cricket. He would spend hours playing cricket in the streets with his friends. It was during this time that a dream was born in his heart that one day he would represent Pakistan.
+                    </p>
+
+                    <h3>Educational Journey & the Oxford Experience</h3>
+                    <p>
+                        He received his early education at Cathedral School in Lahore, then gained admission to Aitchison College. After that, he went to England for higher studies, where he studied at the Royal Grammar School and later earned his degree in Philosophy, Politics, and Economics (PPE) from Keble College, Oxford University.
+                    </p>
+
+                    <h3>Confidence and Refining of Skills</h3>
+                    <p>
+                        While living in England, he focused not only on his studies but also improved his cricket. The tough competitions there further refined his skills. It was during this period that he believed that if one works continuously, no power in the world can stop success.
+                    </p>
+
+                    <h3>Selection for National Team & Real Struggle</h3>
+                    <p>
+                        In the cricket field, his speed, intelligence, and leadership skills began to stand out. Soon, he was selected for Pakistan's national team, and his real struggle began.
+                    </p>
+
+                    <h3>Lessons Learned from this Era</h3>
+                    <ul>
+                        <li><span>One should not be afraid to dream big.</span></li>
+                        <li><span>Education and sports together can form the foundation of success.</span></li>
+                        <li><span>Continuous hard work can change a person's destiny.</span></li>
+                        <li><span>Difficulties are not obstacles in the path of success, but lessons.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Sticky Bottom Nav Bar (Always in English) -->
+    <div class="sticky-bottom-nav">
+        <a href="index.html" class="nav-item">
+            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            <span>Home</span>
+        </a>
+        <a href="early-life.html" class="nav-item active">
+            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z M5.89 12.55L12 15.88l6.11-3.33c.03-.02.06-.03.09-.05v3c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-3c.03.02.06.03.09.05z"/></svg>
+            <span>Early Life</span>
+        </a>
+        <a href="cricket.html" class="nav-item">
+            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v3c0 2.44 1.72 4.44 4 4.9V19H5v2h14v-2h-2v-4.1c2.28-.46 4-2.46 4-4.9V7c0-1.1-.9-2-2-2zM5 10V7h2v3H5zm14 0h-2V7h2v3z"/></svg>
+            <span>Cricket Era</span>
+        </a>
+        <a href="politics.html" class="nav-item">
+            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+            <span>Politics</span>
+        </a>
+        <a href="gallery.html" class="nav-item">
+            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 12.5v-9l6 4.5-6 4.5z"/></svg>
+            <span>Media</span>
+        </a>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 Imran Khan Biography. All Rights Reserved. Created by <span class="highlight">Saad Ali</span></p>
+    </footer>
+
+    <!-- Slideshow Auto-play Script & Translation Manager -->
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        slides[currentSlide].classList.add('active');
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        setInterval(nextSlide, 5000); // 5 Seconds Gap
+
+        function toggleLanguage(lang) {
+            if (lang === 'en') {
+                document.body.classList.add('lang-en-active');
+                localStorage.setItem('selected_language', 'en');
+            } else {
+                document.body.classList.remove('lang-en-active');
+                localStorage.setItem('selected_language', 'ur');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('selected_language');
+            const langSelect = document.getElementById('lang-select');
+            if (savedLang === 'en') {
+                document.body.classList.add('lang-en-active');
+                if (langSelect) langSelect.value = 'en';
+            } else {
+                document.body.classList.remove('lang-en-active');
+                if (langSelect) langSelect.value = 'ur';
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'ur', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
