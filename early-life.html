@@ -28,7 +28,7 @@
             top: 0;
             z-index: 100;
             box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-            border-bottom: 2px solid #dc2626;
+            border-bottom: 2px solid #16a34a;
         }
         .nav-container {
             max-width: 1000px;
@@ -43,6 +43,17 @@
             text-decoration: none;
             color: white;
             letter-spacing: 1px;
+        }
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #facc15;
         }
         
         .custom-translate select {
@@ -80,7 +91,7 @@
         .ticker {
             display: flex;
             white-space: nowrap;
-            animation: marquee 32s linear infinite;
+            animation: marquee 35s linear infinite;
         }
         .ticker span {
             font-weight: 900;
@@ -134,50 +145,38 @@
             opacity: 1;
         }
 
+        /* Beautiful Typography with Balanced Font Size */
         .urdu-text {
             direction: rtl;
             text-align: right;
-            font-size: 1.25rem;
+            font-size: 1.15rem; /* Balanced, comfortable reading size */
             color: #f1f5f9;
+        }
+        .urdu-text h3 {
+            color: #facc15;
+            font-size: 1.35rem;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgba(250, 204, 21, 0.2);
+            padding-bottom: 5px;
+            font-weight: bold;
         }
         .urdu-text p {
             margin-bottom: 20px;
-            line-height: 1.9;
+            line-height: 1.85;
+            color: #e2e8f0;
         }
-
-        /* Floating Instagram Style Sticky Bottom Navigation */
-        .sticky-bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: #061a0c;
-            border-top: 2px solid #dc2626;
-            box-shadow: 0 -4px 10px rgba(0,0,0,0.4);
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 10px 0;
-            z-index: 1000;
-        }
-        .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: #cbd5e1;
-            font-size: 0.75rem;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-        .nav-item .nav-icon {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
-            margin-bottom: 4px;
-        }
-        .nav-item:hover, .nav-item.active {
+        .urdu-text ul {
+            margin-right: 20px;
+            margin-bottom: 20px;
+            list-style-type: square;
             color: #facc15;
+        }
+        .urdu-text ul li {
+            margin-bottom: 10px;
+        }
+        .urdu-text ul li span {
+            color: #e2e8f0;
         }
 
         /* Pure CSS Dual-Language Toggle Classes */
@@ -187,6 +186,9 @@
         body.lang-en-active .lang-en { display: inline-block !important; }
         body.lang-en-active .lang-ur { display: none !important; }
         body.lang-en-active { direction: ltr !important; text-align: left !important; }
+        body.lang-en-active .urdu-text { direction: ltr !important; text-align: left !important; }
+        body.lang-en-active .urdu-text h3 { border-bottom: 1px solid rgba(250, 204, 21, 0.2); text-align: left; }
+        body.lang-en-active .urdu-text ul { margin-left: 20px; margin-right: 0; text-align: left; }
 
         .footer {
             background-color: #0f0203;
@@ -207,8 +209,13 @@
                 gap: 10px;
                 text-align: center;
             }
-            .custom-translate {
-                margin-top: 5px;
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .nav-links a {
+                margin: 0 5px;
             }
             .grid {
                 grid-template-columns: 1fr;
@@ -224,30 +231,33 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">IMRAN KHAN</a>
-            <div class="custom-translate">
-                <select id="lang-select" onchange="toggleLanguage(this.value)">
-                    <option value="ur">اردو (Urdu)</option>
-                    <option value="en">English</option>
-                </select>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="early-life.html" class="active">Early Life</a>
+                <a href="cricket.html">Cricket Era</a>
+                <a href="politics.html">Political Journey</a>
+                <a href="gallery.html">Media</a>
             </div>
+            <div id="google_translate_element"></div>
         </div>
     </nav>
 
     <!-- Seamless Heartbeat Ticker Bar -->
     <div class="ticker-wrap">
         <div class="ticker">
-            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
-            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ﮩـہہہـ٨ـــ٨ـہہہـ ❤️</span>
+            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ❤️</span>
+            <span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ❤️ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں) 💚 ❤️</span>
         </div>
     </div>
 
     <div class="container">
         <h1 class="section-title">
-            <span class="lang-ur">ابتدائی زندگی اور تعلیم</span>
-            <span class="lang-en">Early Life & Education</span>
+            <span class="lang-ur">بچپن، تعلیم اور خواب</span>
+            <span class="lang-en">Childhood, Education & Dreams</span>
         </h1>
         
         <div class="grid">
+            <!-- Automatic Photo Slideshow with Local Uploaded Images -->
             <div class="slideshow-container">
                 <img class="slide" src="ik1.jpg" alt="Imran Khan 1">
                 <img class="slide" src="ik2.jpg" alt="Imran Khan 2">
@@ -255,64 +265,96 @@
             </div>
             
             <div class="urdu-text">
-                <!-- Urdu Block -->
+                <!-- Urdu Block (Saad's Writer-Style Urdu Text) -->
                 <div class="lang-ur" style="direction: rtl;">
+                    <h3>پیدائش اور ایک عظیم خواب کی شروعات</h3>
                     <p>
-                        عمران خان 5 اکتوبر 1952 کو لاہور کے ایک متمول، پڑھے لکھے اور بااثر نیازی خاندان میں پیدا ہوئے۔ ان کے والد اکرام اللہ خان نیازی ایک نامور سول انجینئر تھے اور ان کی والدہ شوکت خانم ایک انتہائی باوقار اور مضبوط ارادوں کی مالک خاتون تھیں۔ عمران خان اپنے والدین کے اکلوتے بیٹے ہیں اور ان کی چار بہنیں ہیں، جن کے ساتھ ان کا بچپن لاہور کے ایک پرسکون اور محبت بھرے ماحول میں گزرا۔
+                        5 اکتوبر 1952 کی ایک خوشگوار صبح لاہور میں ایک بچے نے آنکھ کھولی، جس کا نام عمران احمد خان نیازی رکھا گیا۔ اس وقت کسی نے نہیں سوچا تھا کہ یہی بچہ ایک دن پاکستان کو پہلا کرکٹ ورلڈ کپ جتوائے گا، دنیا کے بڑے خیراتی اسپتالوں میں سے ایک قائم کرے گا اور پھر ملک کا وزیر اعظم بھی بنے گا۔
                     </p>
+
+                    <h3>خاندانی پس منظر اور ابتدائی ماحول</h3>
                     <p>
-                        <strong>بچپن میں عمران خان انتہائی شرمیلے (shy) اور خاموش مزاج کے مالک تھے</strong>، یہاں تک کہ وہ اجنبیوں کے سامنے بات کرنے اور کھل کر اظہارِ خیال کرنے سے کتراتے تھے۔ ان کی اس شرمیلی طبیعت کو دیکھ کر اس وقت کوئی اندازہ نہیں لگا سکتا تھا کہ وہ مستقبل میں دنیا کے سامنے ایک نڈر اور بااثر لیڈر بن کر ابھریں گے۔
+                        عمران خان ایک تعلیم یافتہ پشتون خاندان میں پیدا ہوئے۔ ان کے والد اکرام اللہ خان نیازی ایک انجینئر تھے جبکہ والدہ شوکت خانم نہایت مہربان اور مذہبی خاتون تھیں۔ عمران چار بہنوں کے اکلوتے بھائی تھے، اسی وجہ سے گھر میں ان پر خاص توجہ دی جاتی تھی۔
                     </p>
+
+                    <h3>بچپن، کھیل اور کرکٹ کا جنون</h3>
                     <p>
-                        انہوں نے اپنی ابتدائی تعلیم لاہور کے مشہور <strong>ایچی سن کالج</strong> سے حاصل کی جہاں انہوں نے پڑھائی کے ساتھ ساتھ کھیلوں، خاص طور پر کرکٹ میں اپنی صلاحیتوں کا لوہا منوایا، جس نے آہستہ آہستہ ان کے اندر سے شرمیلا پن دور کیا اور خود اعتمادی پیدا کی۔
+                        بچپن میں عمران بہت شرارتی مگر خاموش مزاج تھے Dunya سے کترانے والے۔ انہیں کھیل کود کا بے حد شوق تھا، خاص طور پر کرکٹ کا۔ وہ گھنٹوں اپنے دوستوں کے ساتھ گلیوں میں کرکٹ کھیلتے رہتے۔ اسی دوران ان کے دل میں ایک خواب پیدا ہوا کہ ایک دن وہ پاکستان کی نمائندگی کریں گے۔
                     </p>
+
+                    <h3>تعلیمی سفر اور آکسفورڈ کا تجربہ</h3>
                     <p>
-                        بعد ازاں، وہ اعلیٰ تعلیم کے لیے انگلستان چلے گئے اور وہاں دنیا کی مایہ ناز <strong>آکسفورڈ یونیورسٹی</strong> سے فلسفہ، سیاست اور معاشیات (PPE) میں ڈگری حاصل کی۔ بچپن کی خاموشی سے آکسفورڈ کی زندگی تک، ان کے مزاج اور شخصیت میں ایک غیر معمولی تبدیلی آئی۔
+                        ابتدائی تعلیم لاہور کے کیتھیڈرل اسکول میں حاصل کی، پھر ایچی سن کالج میں داخلہ لیا۔ اس کے بعد اعلیٰ تعلیم کے لیے انگلینڈ گئے، جہاں انہوں نے رائل گرامر اسکول میں تعلیم حاصل کی اور بعد میں آکسفورڈ یونیورسٹی کے کیبل کالج سے فلسفہ، سیاست اور معاشیات (PPE) میں ڈگری حاصل کی۔
                     </p>
+
+                    <h3>خود اعتمادی اور صلاحیتوں کا نکھار</h3>
+                    <p>
+                        انگلینڈ میں رہتے ہوئے انہوں نے نہ صرف تعلیم پر توجہ دی بلکہ اپنی کرکٹ کو بھی بہتر بنایا۔ وہاں کے سخت مقابلوں نے ان کی صلاحیتوں کو مزید نکھارا۔ یہی وہ دور تھا جب انہوں نے یہ یقین کر لیا کہ اگر مسلسل محنت کی جائے تو دنیا کی کوئی طاقت کامیابی کو نہیں روک سکتی۔
+                    </p>
+
+                    <h3>قومی ٹیم کے لیے انتخاب اور اصل جدوجہد</h3>
+                    <p>
+                        کرکٹ کے میدان میں ان کی رفتار، ذہانت اور قیادت کی صلاحیت نمایاں ہونے لگی۔ جلد ہی وہ پاکستان کی قومی ٹیم کے لیے منتخب ہو گئے، اور ان کی اصل جدوجہد کا آغاز ہوا۔
+                    </p>
+
+                    <h3>اس دور سے ملنے والے سبق</h3>
+                    <ul>
+                        <li><span>بڑے خواب دیکھنے سے ڈرنا نہیں چاہیے۔</span></li>
+                        <li><span>تعلیم اور کھیل ساتھ ساتھ کامیابی کی بنیاد بن سکتے ہیں۔</span></li>
+                        <li><span>مسلسل محنت انسان کی قسمت بدل سکتی ہے۔</span></li>
+                        <li><span>مشکلات کامیابی کے راستے کی رکاوٹ نہیں بلکہ سبق ہوتی ہیں۔</span></li>
+                    </ul>
                 </div>
-                <!-- English Block -->
+
+                <!-- English Block (Beautiful English Translation) -->
                 <div class="lang-en" style="direction: ltr; text-align: left;">
+                    <h3>Birth and the Start of a Great Dream</h3>
                     <p>
-                        Imran Khan was born on October 5, 1952, in Lahore into an affluent, educated, and influential Niazi family. His father, Ikramullah Khan Niazi, was a prominent civil engineer, and his mother, Shaukat Khanum, was a highly dignified woman of strong resolve. Imran Khan was the only son of his parents and grew up with his four sisters in a peaceful and loving environment in Lahore.
+                        On a pleasant morning of October 5, 1952, a child opened his eyes in Lahore, who was named Imran Ahmed Khan Niazi. At that time, no one imagined that this very child would one day win Pakistan's first cricket World Cup, establish one of the world's largest charitable hospitals, and eventually become the Prime Minister of the nation.
                     </p>
+
+                    <h3>Family Background and Early Environment</h3>
                     <p>
-                        <strong>In his childhood, Imran Khan was extremely shy, quiet, and reserved.</strong> He generally hesitated to speak or express himself openly in front of strangers. Looking at his quiet nature, no one among his close relatives could have imagined that this shy boy would grow up to become not only a legendary sportsman but a fearless and influential leader of millions.
+                        Imran Khan was born into an educated Pashtun family. His father, Ikramullah Khan Niazi, was an engineer, while his mother, Shaukat Khanum, was a very kind and religious woman. Imran was the only brother of four sisters, which is why special attention was given to him at home.
                     </p>
+
+                    <h3>Childhood, Play, and Cricketing Passion</h3>
                     <p>
-                        He received his early education from the historical and prestigious Aitchison College in Lahore. Aitchison College played a pivotal role in shaping his personality. There, he focused on his studies while excelling in sports, particularly cricket, hockey, and horse riding. The cricket field helped him overcome his shyness and develop his leadership skills.
+                        In his childhood, Imran was very mischievous yet reserved. He loved sports immensely, especially cricket. He would spend hours playing cricket in the streets with his friends. It was during this time that a dream was born in his heart that one day he would represent Pakistan.
                     </p>
+
+                    <h3>Educational Journey & the Oxford Experience</h3>
                     <p>
-                        After completing his education at Aitchison College, he went to England for higher studies, enrolling in the Royal Grammar School in Worcester. After completing his A-levels there, he gained admission to Keble College, Oxford University, where he studied Philosophy, Politics, and Economics (PPE) from 1972 to 1975, graduating with a bachelor's degree.
+                        He received his early education at Cathedral School in Lahore, then gained admission to Aitchison College. After that, he went to England for higher studies, where he studied at the Royal Grammar School and later earned his degree in Philosophy, Politics, and Economics (PPE) from Keble College, Oxford University.
                     </p>
+
+                    <h3>Confidence and Refining of Skills</h3>
+                    <p>
+                        While living in England, he focused not only on his studies but also improved his cricket. The tough competitions there further refined his skills. It was during this period that he believed that if one works continuously, no power in the world can stop success.
+                    </p>
+
+                    <h3>Selection for National Team & Real Struggle</h3>
+                    <p>
+                        In the cricket field, his speed, intelligence, and leadership skills began to stand out. Soon, he was selected for Pakistan's national team, and his real struggle began.
+                    </p>
+
+                    <h3>Lessons Learned from this Era</h3>
+                    <ul>
+                        <li><span>One should not be afraid to dream big.</span></li>
+                        <li><span>Education and sports together can form the foundation of success.</span></li>
+                        <li><span>Continuous hard work can change a person's destiny.</span></li>
+                        <li><span>Difficulties are not obstacles in the path of success, but lessons.</span></li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Floating Sticky Bottom Nav Bar -->
-    <div class="sticky-bottom-nav">
-        <a href="index.html" class="nav-item">
-            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-            <span class="lang-ur">ہوم</span><span class="lang-en">Home</span>
-        </a>
-        <a href="early-life.html" class="nav-item active">
-            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z M5.89 12.55L12 15.88l6.11-3.33c.03-.02.06-.03.09-.05v3c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-3c.03.02.06.03.09.05z"/></svg>
-            <span class="lang-ur">ابتدائی زندگی</span><span class="lang-en">Early Life</span>
-        </a>
-        <a href="cricket.html" class="nav-item">
-            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v3c0 2.44 1.72 4.44 4 4.9V19H5v2h14v-2h-2v-4.1c2.28-.46 4-2.46 4-4.9V7c0-1.1-.9-2-2-2zM5 10V7h2v3H5zm14 0h-2V7h2v3z"/></svg>
-            <span class="lang-ur">کرکٹ دور</span><span class="lang-en">Cricket Era</span>
-        </a>
-        <a href="politics.html" class="nav-item">
-            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
-            <span class="lang-ur">سیاسی سفر</span><span class="lang-en">Politics</span>
-        </a>
     </div>
 
     <footer class="footer">
         <p>&copy; 2026 Imran Khan Biography. All Rights Reserved. Created by <span class="highlight">Saad Ali</span></p>
     </footer>
 
+    <!-- Slideshow Auto-play Script (5s Gap) & Translation Toggle -->
     <script>
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
@@ -325,7 +367,7 @@
             slides[currentSlide].classList.add('active');
         }
 
-        setInterval(nextSlide, 5000);
+        setInterval(nextSlide, 5000); // 5s Gap
 
         function toggleLanguage(lang) {
             if (lang === 'en') {
@@ -349,6 +391,11 @@
             }
         });
     </script>
-
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'ur', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
