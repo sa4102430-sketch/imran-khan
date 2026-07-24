@@ -299,7 +299,7 @@
         }
         .cricket-history-content h2 {
             font-family: var(--font-heading);
-            font-size: 1.8rem; /* Professional average size */
+            font-size: 1.8rem;
             color: var(--text-white);
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -424,6 +424,7 @@
             text-transform: uppercase;
         }
 
+        /* STATISTICS COLUMN - PURE CSS TAB SYSTEM (NO JAVASCRIPT) */
         .statistics-column {
             background-color: var(--bg-card);
             border: 1px solid rgba(56, 142, 60, 0.15);
@@ -469,6 +470,8 @@
             flex-wrap: wrap;
             margin: 10px 0;
         }
+        
+        /* Label styled as toggle buttons */
         .stat-tag-btn {
             background: rgba(56, 142, 60, 0.03);
             border: 1px solid rgba(56, 142, 60, 0.2);
@@ -479,25 +482,39 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            user-select: none;
         }
-        .stat-tag-btn.active, .stat-tag-btn:hover {
+        .stat-tag-btn:hover {
+            border-color: #a2fc32;
+        }
+
+        /* Hide Tab Panels by default */
+        .stats-data-panel {
+            display: none;
+            margin-top: 10px;
+        }
+        
+        /* CSS-ONLY TRIGGER LOGIC */
+        #radio-test:checked ~ .stat-box-content .test-btn,
+        #radio-odi:checked ~ .stat-box-content .odi-btn,
+        #radio-wc:checked ~ .stat-box-content .wc-btn {
             background: var(--primary-green);
             border-color: var(--primary-green);
             color: var(--text-white);
         }
 
-        .stats-data-panel {
-            display: none;
-            margin-top: 10px;
-        }
-        .stats-data-panel.active {
+        #radio-test:checked ~ .stat-box-content #panel-test,
+        #radio-odi:checked ~ .stat-box-content #panel-odi,
+        #radio-wc:checked ~ .stat-box-content #panel-wc {
             display: block;
             animation: fadeInStats 0.4s ease-in-out;
         }
+
         @keyframes fadeInStats {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
         }
+
         .stat-data-row {
             display: flex;
             justify-content: space-between;
@@ -523,6 +540,7 @@
             justify-content: space-between;
             align-items: center;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: auto;
         }
         .footer-bar-text {
             font-size: 0.85rem;
@@ -545,6 +563,44 @@
             background-color: var(--accent-green);
             box-shadow: 0 4px 20px rgba(56, 142, 60, 0.3);
             transform: translateY(-2px);
+        }
+
+        /* CHRONOLOGICAL PERFORMANCE GRAPH (SVG LINE GRAPH) */
+        .trend-graph-card {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(56, 142, 60, 0.15);
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        .graph-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .graph-header h4 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: var(--text-white);
+        }
+        .graph-subtitle {
+            font-size: 0.75rem;
+            color: var(--primary-green);
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+        .svg-container {
+            width: 100%;
+            overflow: visible;
+        }
+        .performance-chart {
+            width: 100%;
+            height: auto;
+            overflow: visible;
         }
 
         /* ACHIEVEMENTS SECTION */
@@ -833,10 +889,10 @@
                 <p>As a captain, his impact was revolutionary. Taking leadership in 1982, his immense charisma unified a notoriously fragmented Pakistan side. He led Pakistan to their first Test series victories in England (1987) and India (1986-87), and held the mighty West Indies team of the 1980s to three consecutive drawn series. His ultimate crowning glory was leading his 'Cornered Tigers' to a historic World Cup triumph in 1992 in Melbourne, forever cementing his status as a national icon.</p>
             </div>
 
-            <!-- HIGHLIGHTS & STATS ROW -->
+            <!-- HIGHLIGHTS, STATS & GRAPH ROW -->
             <div class="highlights-stats-grid">
                 
-                <!-- 1. LEFT COLUMN: Career Highlights -->
+                <!-- 1. LEFT COLUMN: Highlights & Trend Graph -->
                 <div class="highlights-column">
                     <div class="highlights-title-bar">
                         <h3>Career Highlights</h3>
@@ -873,21 +929,271 @@
                         </div>
                         <div class="milestone-footer-lbl">LEADERSHIP RECORD</div>
                     </div>
+
+                    <!-- PURE SVG & CSS CHRONOLOGICAL PERFORMANCE GRAPH -->
+                    <div class="trend-graph-card">
+                        <div class="graph-header">
+                            <div class="stat-icon-box" style="width: 36px; height: 36px; font-size: 1rem;">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <h4>Performance Progression</h4>
+                                <span class="graph-subtitle">Test Batting Average (1971 - 1992)</span>
+                            </div>
+                        </div>
+                        <div class="svg-container">
+                            <svg viewBox="0 0 500 250" class="performance-chart">
+                                <!-- Grid Lines -->
+                                <line x1="40" y1="30" x2="480" y2="30" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+                                <line x1="40" y1="70" x2="480" y2="70" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+                                <line x1="40" y1="110" x2="480" y2="110" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+                                <line x1="40" y1="150" x2="480" y2="150" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+                                <line x1="40" y1="190" x2="480" y2="190" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+                                <line x1="40" y1="220" x2="480" y2="220" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" />
+                                
+                                <!-- Y-Axis Labels -->
+                                <text x="15" y="35" fill="var(--text-gray)" font-size="10">50+</text>
+                                <text x="15" y="75" fill="var(--text-gray)" font-size="10">40</text>
+                                <text x="15" y="115" fill="var(--text-gray)" font-size="10">30</text>
+                                <text x="15" y="155" fill="var(--text-gray)" font-size="10">20</text>
+                                <text x="15" y="195" fill="var(--text-gray)" font-size="10">10</text>
+                                <text x="20" y="225" fill="var(--text-gray)" font-size="10">0</text>
+                                
+                                <!-- Chart Line / Path -->
+                                <path d="M 50 210 L 110 190 L 170 150 L 230 110 L 290 55 L 350 70 L 410 40 L 470 50" 
+                                      fill="none" stroke="var(--primary-green)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                      
+                                <!-- Glow effect path -->
+                                <path d="M 50 210 L 110 190 L 170 150 L 230 110 L 290 55 L 350 70 L 410 40 L 470 50" 
+                                      fill="none" stroke="var(--primary-green)" stroke-width="8" stroke-opacity="0.15" stroke-linecap="round" stroke-linejoin="round" />
+
+                                <!-- Dots with white fill and green border -->
+                                <circle cx="50" cy="210" r="5" fill="#fff" stroke="var(--primary-green)" stroke-width="2" />
+                                <circle cx="110" cy="190" r="5" fill="#fff" stroke="var(--primary-green)" stroke-width="2" />
+                                <circle cx="170" cy="150" r="5" fill="#fff" stroke="var(--primary-green)" stroke-width="2" />
+                                <circle cx="230" cy="110" r="5" fill="#fff" stroke="var(--primary-green)" stroke-width="2" />
+                                <circle cx="290" cy="55" r="5" fill="#fff" stroke="var(--primary-green)" stroke-width="2" />
+                                <circle cx="350" cy="70" r="5" fill="#fff" stroke="var(--primary-green)" stroke-width="2" />
+                                <circle cx="410" cy="40" r="5" fill="#fff" stroke="var(--primary-green)" stroke-width="2" />
+                                <circle cx="470" cy="50" r="5" fill="#fff" stroke="var(--primary-green)" stroke-width="2" />
+                                
+                                <!-- X-Axis Labels (Slanted) -->
+                                <text x="50" y="235" fill="var(--text-gray)" font-size="9" transform="rotate(25, 50, 235)">1971</text>
+                                <text x="110" y="235" fill="var(--text-gray)" font-size="9" transform="rotate(25, 110, 235)">1975</text>
+                                <text x="170" y="235" fill="var(--text-gray)" font-size="9" transform="rotate(25, 170, 235)">1979</text>
+                                <text x="230" y="235" fill="var(--text-gray)" font-size="9" transform="rotate(25, 230, 235)">1982</text>
+                                <text x="290" y="235" fill="var(--text-gray)" font-size="9" transform="rotate(25, 290, 235)">1985</text>
+                                <text x="350" y="235" fill="var(--text-gray)" font-size="9" transform="rotate(25, 350, 235)">1987</text>
+                                <text x="410" y="235" fill="var(--text-gray)" font-size="9" transform="rotate(25, 410, 235)">1990</text>
+                                <text x="470" y="235" fill="var(--text-gray)" font-size="9" transform="rotate(25, 470, 235)">1992</text>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- 2. RIGHT COLUMN: Career Statistics -->
+                <!-- 2. RIGHT COLUMN: Career Statistics (PURE CSS TABS - NO JAVASCRIPT) -->
                 <div class="statistics-column">
+                    <!-- Hidden Radio Buttons for CSS-Only Tabs -->
+                    <input type="radio" id="radio-test" name="stats-tabs-group" checked style="display: none;">
+                    <input type="radio" id="radio-odi" name="stats-tabs-group" style="display: none;">
+                    <input type="radio" id="radio-wc" name="stats-tabs-group" style="display: none;">
+
                     <div class="stat-box-content">
                         <div class="stat-icon-box">
                             <i class="fa-solid fa-chart-line"></i>
                         </div>
                         <h3>Career Statistics</h3>
                         <p class="stat-box-desc">
-                            View full detailed player performance records. Toggle across major match formats: **ODI** and **Test** matches. Search, filter, and analyze his runs over time.
+                            View full detailed player performance records. Toggle across major match formats: Test and ODI matches. Analyze his runs, wickets, and averages.
                         </p>
 
-                        <!-- Toggle buttons styled in theme green -->
+                        <!-- Labels serving as Toggle Buttons -->
                         <div class="stat-toggles">
-                            <button class="stat-tag-btn active" onclick="switchCareerThemeTab('test-history-stats', this)">Test History</button>
-                            <button class="stat-tag-btn" onclick="switchCareerThemeTab('odi-records-stats', this)">ODI Records</button>
-                            <button class="stat-tag-btn" onclick="switchCareerThemeTab('wc-glory-stats', this
+                            <label for="radio-test" class="stat-tag-btn test-btn">Test History</label>
+                            <label for="radio-odi" class="stat-tag-btn odi-btn">ODI Records</label>
+                            <label for="radio-wc" class="stat-tag-btn wc-btn">1992 WC Glory</label>
+                        </div>
+
+                        <!-- TEST STATS PANEL -->
+                        <div id="panel-test" class="stats-data-panel">
+                            <div class="stat-data-row">
+                                <span class="stat-data-lbl">Matches</span>
+                                <span class="stat-data-val">88</span>
+                            </div>
+                            <div class="stat-data-row">
+                                <span class="stat-data-lbl">Runs Scored</span>
+                                <span class="stat-data-val">3,807</span>
+                            </div>
+                            <div class="stat-data-row">
+                                <span class="stat-data-lbl">Batting Average</span>
+                                <span class="stat-data-val">37.69</span>
+                            </div>
+                            <div class="stat-data-row">
+                                <span class="stat-data-lbl">Wickets Taken</span>
+                                <span class="stat-data-val">362</span>
+                            </div>
+                            <div class="stat-data-row">
+                                <span class="stat-data-lbl">Bowling Average</span>
+                                <span class="stat-data-val">22.81</span>
+                            </div>
+                            <div class="stat-data-row">
+                                <span class="stat-data-lbl">5-Wicket Innings</span>
+                                <span class="stat-data-val">23</span>
+                            </div>
+                        </div>
+
+                        <!-- ODI STATS PANEL -->
+                        <div id="panel-odi" class="stats-data-panel">
+                            <div class="stat-data-row">
+                                <span class="stat-data-lbl">Matches</span>
+                                <span class="stat-data-val">175</span>
+                            </div>
+                            <div class="stat-data-row">
+                                <span class="stat-data-lbl">Runs Scored</span>
+                                <span class="stat-data-val">3,709</span>
+                            </div>
+                            <div class="stat-data-row">
+                                <span class="stat-data-lbl">Batting Average</span>
+                                <span class="stat-data-val">33.41</span>
+                            </div>
+                            <div class="stat-data-row">
+                                <span class="stat-data-lbl">Wickets Taken</span>
+                                <span class="stat-data-val">182</span>
+                            </div>
+                            <div class="stat-data-row">
+                                <span class="stat-data-lbl">Bowling Average</span>
+                                <span class="stat-data-val">28.96</span>
+                            </div>
+                            <div class="stat-data-row">
+                                <span class="stat-data-lbl">Half-Centuries (50s)</span>
+                                <span class="stat-data-val">19</span>
+                            </div>
+                        </div>
+
+                        <!-- WORLD CUP STATS PANEL -->
+                        <div id="panel-wc" class="stats-data-panel">
+                            <div class="stat-data-row">
+                                <span class="stat-data-lbl">World Cup Victory Year</span>
+                                <span class="stat-data-val">1992 (Australia)</span>
+                            </div>
+                            <div class="stat-data-row">
+                                <span class="stat-data-lbl">Final Match Top Scorer</span>
+                                <span class="stat-data-val">Imran Khan (72 Runs)</span>
+                            </div>
+                            <div class="stat-data-row">
+                                <span class="stat-data-lbl">Final Wicket in Final Match</span>
+                                <span class="stat-data-val">Richard Illingworth</span>
+                            </div>
+                            <div class="stat-data-row">
+                                <span class="stat-data-lbl">Team Slogan</span>
+                                <span class="stat-data-val">"Cornered Tigers"</span>
+                            </div>
+                        </div>
+
+                        <!-- Additional Space to add Cricket Image inside right column -->
+                        <div class="info-image" style="margin-top: 20px;">
+                            <img src="cricket_imran.jpg" alt="Imran Khan Cricket" style="border-radius: 8px; max-height: 250px; object-fit: cover; width: 100%;">
+                        </div>
+
+                    </div>
+
+                    <!-- Bottom green explore button styled exactly like theme -->
+                    <div class="stat-footer-bar">
+                        <span class="footer-bar-text">Browse full career metrics</span>
+                        <a href="https://en.wikipedia.org/wiki/Imran_Khan" target="_blank" class="explore-stats-btn">
+                            <span>Explore Stats</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- POLITICAL JOURNEY SECTION -->
+    <section class="info-section">
+        <div class="container info-grid">
+            <div class="info-content">
+                <h2>POLITICAL JOURNEY</h2>
+                <p>Imran Khan entered politics to fight corruption and bring change. His journey with PTI is a movement for justice, equality and a better future.</p>
+                <button class="btn">Learn More</button>
+            </div>
+            <div class="info-image">
+                <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&get=80&w=800" alt="Political Journey">
+            </div>
+        </div>
+    </section>
+
+    <!-- ACHIEVEMENTS & INITIATIVES -->
+    <section class="achievements">
+        <div class="container">
+            <h2 class="section-title">Achievements & Initiatives</h2>
+            <p class="section-subtitle">Through his leadership and vision, numerous projects have been launched for the welfare of Pakistan.</p>
+            
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <h4>Education Initiatives</h4>
+                </div>
+                <div class="achievement-card">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <h4>Health Projects</h4>
+                </div>
+                <div class="achievement-card">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h4>Anti-Corruption Drive</h4>
+                </div>
+                <div class="achievement-card">
+                    <i class="fa-solid fa-users-gear"></i>
+                    <h4>Welfare & Social Programs</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STAY UPDATED / NEWSLETTER -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>STAY UPDATED</h2>
+            <p>Subscribe to our newsletter to get the latest updates about Imran Khan and his initiatives.</p>
+            <div class="form-group">
+                <input type="email" placeholder="Enter your email">
+                <button>Subscribe</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-logo">
+                <h3>IMRAN KHAN THE JOURNEY</h3>
+                <p>The official platform to explore the life, journey and vision of Imran Khan for Pakistan.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Early Life</a></li>
+                    <li><a href="#">Achievements</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Imran Khan - The Journey. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
