@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Imran Khan - The Journey of 804</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Modern Reset & Custom Variables */
+        /* CSS Reset & Variables */
         * {
             margin: 0;
             padding: 0;
@@ -19,26 +19,25 @@
         }
 
         :root {
-            --bg-dark: #040805; /* Deep Green-Black */
-            --bg-card: #0a100c; /* Card Dark Green */
-            --primary-green: #1b5e31; /* Accent Forest Green */
-            --bright-green: #2ecc71; /* Imran Khan 804 Green */
-            --text-white: #ffffff;
-            --text-gray: #a6b1a9;
-            --border-color: rgba(255, 255, 255, 0.08);
+            --bg-dark: #080b09; /* Deep Carbon Black with Green Tint */
+            --bg-card: #0f1410; /* Premium Card Background */
+            --parrot-green: #1bf25b; /* Glowing Parrot Green */
+            --white: #ffffff;
+            --text-gray: #9ca3af;
+            --border-color: rgba(27, 242, 91, 0.15);
             --font-headings: 'Cinzel', serif;
             --font-body: 'Poppins', sans-serif;
         }
 
         body {
             background-color: var(--bg-dark);
-            color: var(--text-white);
+            color: var(--white);
             font-family: var(--font-body);
-            line-height: 1.8;
+            line-height: 1.7;
             overflow-x: hidden;
         }
 
-        /* custom scrollbar */
+        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -46,28 +45,66 @@
             background: var(--bg-dark);
         }
         ::-webkit-scrollbar-thumb {
-            background: var(--primary-green);
+            background: var(--parrot-green);
             border-radius: 4px;
         }
 
-        /* Header / Navigation Bar */
+        /* Premium Heading Divider with Flower and Side Lines */
+        .premium-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px auto 30px auto;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .premium-divider .line {
+            flex: 1;
+            height: 1.5px;
+            background: linear-gradient(to var(--dir, right), transparent, var(--parrot-green));
+        }
+
+        .premium-divider .line.left {
+            --dir: left;
+        }
+
+        .premium-divider .line.right {
+            --dir: right;
+        }
+
+        .premium-divider .flower {
+            color: var(--parrot-green);
+            font-size: 1.3rem;
+            margin: 0 15px;
+            text-shadow: 0 0 10px rgba(27, 242, 91, 0.7);
+            display: inline-block;
+            transition: transform 0.6s ease;
+        }
+
+        /* Hover animation for the flower */
+        .premium-divider:hover .flower {
+            transform: rotate(180deg);
+        }
+
+        /* Navigation Bar */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 8%;
-            background-color: rgba(4, 8, 5, 0.98);
-            backdrop-filter: blur(10px);
+            background-color: rgba(8, 11, 9, 0.98);
+            backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid var(--border-color);
         }
 
-        /* 804 Logo Design */
+        /* Logo design with glow */
         .logo {
             font-family: var(--font-headings);
-            font-weight: 800;
+            font-weight: 900;
             font-size: 1.4rem;
             letter-spacing: 1.5px;
             line-height: 1.1;
@@ -75,15 +112,16 @@
 
         .logo span.num-804 {
             display: block;
-            font-size: 1.1rem;
-            color: var(--bright-green);
+            font-size: 1.15rem;
+            color: var(--parrot-green);
             font-family: var(--font-body);
             font-weight: 700;
             letter-spacing: 3px;
             margin-top: 2px;
+            text-shadow: 0 0 8px rgba(27, 242, 91, 0.5);
         }
 
-        /* Desktop Nav Links with Icons */
+        /* Desktop Nav Links */
         .nav-links {
             display: flex;
             align-items: center;
@@ -99,48 +137,60 @@
             gap: 8px;
             transition: color 0.3s ease, transform 0.2s;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-links a i {
-            font-size: 1rem;
-            color: var(--primary-green);
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--text-white);
-            transform: translateY(-1px);
-        }
-
-        .nav-links a:hover i {
-            color: var(--bright-green);
-        }
-
-        /* Active Navigation Tab Style */
-        .nav-links a.active {
-            color: var(--bright-green);
-            border-bottom: 2px solid var(--bright-green);
+            letter-spacing: 1px;
+            position: relative;
             padding-bottom: 4px;
         }
 
+        .nav-links a i {
+            font-size: 0.95rem;
+            color: var(--parrot-green);
+        }
+
+        /* Line slide effect under links */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--parrot-green);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
         .btn-donate {
-            background-color: var(--primary-green);
-            color: var(--text-white) !important;
-            padding: 10px 24px;
+            background-color: transparent;
+            color: var(--white) !important;
+            padding: 8px 22px;
             border-radius: 4px;
             font-size: 0.85rem;
             font-weight: 600;
-            transition: background-color 0.3s, transform 0.3s !important;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--parrot-green);
+            box-shadow: 0 0 10px rgba(27, 242, 91, 0.2);
+            transition: all 0.3s ease !important;
         }
 
         .btn-donate:hover {
-            background-color: var(--bright-green);
+            background-color: var(--parrot-green);
+            color: var(--bg-dark) !important;
+            box-shadow: 0 0 20px rgba(27, 242, 91, 0.6);
             transform: scale(1.05);
         }
 
-        /* Hamburger Menu Icon (3 Lines) for Mobile */
+        .btn-donate::after {
+            display: none !important; /* disable line effect for button */
+        }
+
+        /* 3-Lines Hamburger Menu Icon */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -150,9 +200,9 @@
         }
 
         .menu-toggle span {
-            width: 30px;
+            width: 28px;
             height: 3px;
-            background-color: var(--text-white);
+            background-color: var(--white);
             border-radius: 2px;
             transition: all 0.3s ease;
         }
@@ -171,81 +221,70 @@
             flex: 1;
             display: flex;
             justify-content: center;
-            position: relative;
-            z-index: 1;
         }
 
         .hero-image img {
             width: 100%;
-            max-width: 480px;
+            max-width: 440px;
             border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        /* Background Star Outline */
-        .hero::before {
-            content: "★";
-            position: absolute;
-            top: 10%;
-            left: 5%;
-            font-size: 14rem;
-            color: rgba(46, 204, 113, 0.03);
-            font-family: var(--font-headings);
-            z-index: 0;
+            box-shadow: 0 15px 35px rgba(27, 242, 91, 0.15);
+            border: 1px solid var(--border-color);
         }
 
         .hero-content {
             flex: 1.2;
-            z-index: 1;
         }
 
         .hero-title {
             font-family: var(--font-headings);
-            font-size: 4rem;
-            font-weight: 800;
+            font-size: 3.8rem;
+            font-weight: 900;
             letter-spacing: 2px;
             line-height: 1.1;
             margin-bottom: 5px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            color: var(--white);
         }
 
         .hero-subtitle {
-            font-size: 1.2rem;
-            color: var(--bright-green);
+            font-size: 1.15rem;
+            color: var(--parrot-green);
             font-weight: 600;
             letter-spacing: 4px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(27, 242, 91, 0.3);
         }
 
         .hero-text {
             color: var(--text-gray);
-            font-size: 1rem;
+            font-size: 0.95rem;
             margin-bottom: 35px;
-            max-width: 580px;
+            max-width: 560px;
         }
 
         .btn-primary {
             display: inline-block;
-            background-color: var(--primary-green);
-            color: var(--text-white);
-            padding: 14px 35px;
+            background-color: var(--parrot-green);
+            color: var(--bg-dark);
+            padding: 13px 32px;
             border-radius: 4px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            letter-spacing: 1px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            transition: background-color 0.3s, transform 0.3s;
-            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 15px rgba(27, 242, 91, 0.4);
         }
 
         .btn-primary:hover {
-            background-color: var(--bright-green);
+            background-color: var(--white);
+            color: var(--bg-dark);
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.4);
             transform: translateY(-2px);
         }
 
-        /* Overview Section */
+        /* Overview / Highlights Grid Section */
         .section-center {
             padding: 90px 8%;
             text-align: center;
@@ -254,75 +293,60 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        .section-title {
-            font-family: var(--font-headings);
-            font-size: 2.4rem;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 3px;
-            background-color: var(--bright-green);
-            margin: 15px auto 0 auto;
-        }
-
         .section-desc {
             color: var(--text-gray);
-            max-width: 800px;
-            margin: 0 auto 60px auto;
-            font-size: 1rem;
+            max-width: 750px;
+            margin: 0 auto 50px auto;
+            font-size: 0.95rem;
         }
 
         .highlights-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
             gap: 30px;
         }
 
         .highlight-card {
             background-color: rgba(255, 255, 255, 0.01);
             border: 1px solid var(--border-color);
-            padding: 45px 25px;
+            padding: 40px 22px;
             border-radius: 8px;
             transition: all 0.3s ease;
         }
 
         .highlight-card:hover {
             transform: translateY(-8px);
-            border-color: var(--bright-green);
-            background-color: rgba(46, 204, 113, 0.02);
-            box-shadow: 0 10px 30px rgba(46, 204, 113, 0.05);
+            border-color: var(--parrot-green);
+            background-color: rgba(27, 242, 91, 0.02);
+            box-shadow: 0 10px 25px rgba(27, 242, 91, 0.1);
         }
 
         .highlight-card i {
-            font-size: 2.8rem;
-            color: var(--bright-green);
-            margin-bottom: 25px;
+            font-size: 2.5rem;
+            color: var(--parrot-green);
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(27, 242, 91, 0.4);
         }
 
         .highlight-card h3 {
             font-family: var(--font-headings);
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             margin-bottom: 15px;
             letter-spacing: 1px;
         }
 
         .highlight-card p {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-gray);
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
-        /* Split Sections (Row Layouts) */
+        /* Two Column Row Layouts (Biography Sections) */
         .row-section {
             display: flex;
             align-items: center;
-            padding: 100px 8%;
-            gap: 80px;
+            padding: 90px 8%;
+            gap: 70px;
             border-bottom: 1px solid var(--border-color);
         }
 
@@ -338,10 +362,10 @@
 
         .row-image img {
             width: 100%;
-            max-width: 460px;
+            max-width: 420px;
             border-radius: 10px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 15px 30px rgba(27, 242, 91, 0.1);
+            border: 1px solid var(--border-color);
         }
 
         .row-content {
@@ -350,21 +374,10 @@
 
         .row-content .label {
             font-family: var(--font-headings);
-            font-size: 2.2rem;
+            font-size: 2.1rem;
             letter-spacing: 2px;
-            margin-bottom: 25px;
-            color: var(--text-white);
-            position: relative;
-            display: inline-block;
-        }
-
-        .row-content .label::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 2px;
-            background-color: var(--bright-green);
-            margin-top: 10px;
+            margin-bottom: 5px;
+            color: var(--white);
         }
 
         .row-content p {
@@ -374,13 +387,13 @@
             text-align: justify;
         }
 
-        /* Stats Container for Cricket Section */
+        /* Stats Box in Cricket Section */
         .stats-box {
             display: flex;
             border: 1px solid var(--border-color);
             background-color: rgba(255, 255, 255, 0.02);
-            padding: 25px;
-            margin: 30px 0;
+            padding: 20px;
+            margin: 25px 0;
             border-radius: 6px;
         }
 
@@ -396,36 +409,37 @@
 
         .stat-number {
             font-family: var(--font-headings);
-            font-size: 2.2rem;
+            font-size: 2.1rem;
             font-weight: 700;
-            color: var(--bright-green);
+            color: var(--parrot-green);
+            text-shadow: 0 0 10px rgba(27, 242, 91, 0.3);
         }
 
         .stat-label {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--text-gray);
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-top: 8px;
+            letter-spacing: 1px;
+            margin-top: 5px;
         }
 
-        /* Achievements & Initiatives Grid */
+        /* Achievements Grid Section */
         .achievements-section {
             background-color: var(--bg-card);
-            padding: 100px 8%;
+            padding: 95px 8%;
             text-align: center;
             border-bottom: 1px solid var(--border-color);
         }
 
         .achievements-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
             gap: 25px;
-            margin-top: 50px;
+            margin-top: 45px;
         }
 
         .achievement-item {
-            padding: 40px 20px;
+            padding: 35px 20px;
             background: rgba(255,255,255,0.01);
             border: 1px solid var(--border-color);
             border-radius: 6px;
@@ -433,14 +447,16 @@
         }
 
         .achievement-item:hover {
-            border-color: var(--bright-green);
-            background: rgba(46, 204, 113, 0.01);
+            border-color: var(--parrot-green);
+            background: rgba(27, 242, 91, 0.02);
+            transform: translateY(-5px);
         }
 
         .achievement-item i {
-            font-size: 2.5rem;
-            color: var(--bright-green);
-            margin-bottom: 20px;
+            font-size: 2.3rem;
+            color: var(--parrot-green);
+            margin-bottom: 18px;
+            text-shadow: 0 0 8px rgba(27, 242, 91, 0.4);
         }
 
         .achievement-item h4 {
@@ -452,7 +468,7 @@
 
         /* Newsletter (Stay Updated) Section */
         .newsletter {
-            background: linear-gradient(135deg, #0e2b17 0%, #05140a 100%);
+            background: linear-gradient(135deg, #0b150e 0%, #040805 100%);
             padding: 80px 8%;
             text-align: center;
             border-bottom: 1px solid var(--border-color);
@@ -460,46 +476,47 @@
 
         .newsletter h2 {
             font-family: var(--font-headings);
-            font-size: 2.4rem;
+            font-size: 2.2rem;
             letter-spacing: 2px;
-            margin-bottom: 15px;
+            margin-bottom: 5px;
         }
 
         .newsletter p {
-            font-size: 1rem;
-            color: #c4d4ca;
-            margin-bottom: 35px;
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            margin-bottom: 30px;
         }
 
         .newsletter-form {
             display: flex;
             justify-content: center;
-            max-width: 550px;
+            max-width: 500px;
             margin: 0 auto;
-            gap: 15px;
+            gap: 12px;
         }
 
         .newsletter-form input {
             flex: 1;
-            padding: 14px 25px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 12px 20px;
+            border: 1px solid rgba(27, 242, 91, 0.3);
             background-color: rgba(0, 0, 0, 0.4);
-            color: var(--text-white);
+            color: var(--white);
             border-radius: 4px;
             outline: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: border-color 0.3s;
         }
 
         .newsletter-form input:focus {
-            border-color: var(--bright-green);
+            border-color: var(--parrot-green);
+            box-shadow: 0 0 10px rgba(27, 242, 91, 0.2);
         }
 
         .newsletter-form button {
-            background-color: var(--bright-green);
+            background-color: var(--parrot-green);
             color: var(--bg-dark);
             border: none;
-            padding: 14px 35px;
+            padding: 12px 30px;
             border-radius: 4px;
             font-weight: 700;
             text-transform: uppercase;
@@ -509,32 +526,33 @@
         }
 
         .newsletter-form button:hover {
-            background-color: #27ae60;
+            background-color: var(--white);
+            color: var(--bg-dark);
         }
 
         /* Footer */
         footer {
             padding: 80px 8% 30px 8%;
-            background-color: #020403;
+            background-color: #030504;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 50px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
         .footer-col h3 {
             font-family: var(--font-headings);
-            font-size: 1.2rem;
-            margin-bottom: 25px;
+            font-size: 1.15rem;
+            margin-bottom: 20px;
             letter-spacing: 1px;
         }
 
         .footer-col p {
             color: var(--text-gray);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             line-height: 1.8;
         }
 
@@ -543,12 +561,12 @@
         }
 
         .footer-links li {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .footer-links a {
             color: var(--text-gray);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: color 0.3s;
             display: flex;
             align-items: center;
@@ -556,47 +574,48 @@
         }
 
         .footer-links a:hover {
-            color: var(--bright-green);
+            color: var(--parrot-green);
         }
 
         .social-icons {
             display: flex;
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         .social-icons a {
             display: inline-flex;
             justify-content: center;
             align-items: center;
-            width: 40px;
-            height: 40px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.03);
+            background-color: rgba(255, 255, 255, 0.02);
             border: 1px solid var(--border-color);
             transition: all 0.3s;
         }
 
         .social-icons a:hover {
-            background-color: var(--bright-green);
+            background-color: var(--parrot-green);
             color: var(--bg-dark);
             transform: translateY(-3px);
+            box-shadow: 0 0 10px rgba(27, 242, 91, 0.4);
         }
 
         .copyright {
             text-align: center;
             color: rgba(255, 255, 255, 0.2);
-            font-size: 0.85rem;
-            padding-top: 30px;
+            font-size: 0.8rem;
+            padding-top: 25px;
             border-top: 1px solid var(--border-color);
         }
 
-        /* Mobile Responsive View Styling */
+        /* Mobile View Menu & Layout Styles */
         @media (max-width: 1024px) {
             .hero, .row-section, .row-section.reverse {
                 flex-direction: column;
                 text-align: center;
-                gap: 50px;
+                gap: 45px;
                 padding: 70px 5%;
             }
             .row-content p {
@@ -615,25 +634,25 @@
             }
 
             .menu-toggle {
-                display: flex; /* Mobile menu indicator */
+                display: flex;
             }
 
-            /* Responsive Navbar Panel */
+            /* Sliding Navigation Drawer */
             .nav-links {
                 position: fixed;
                 top: 80px;
                 right: -100%;
-                width: 70%;
+                width: 75%;
                 height: calc(100vh - 80px);
-                background-color: rgba(4, 8, 5, 0.98);
+                background-color: rgba(8, 11, 9, 0.98);
                 backdrop-filter: blur(15px);
                 flex-direction: column;
                 align-items: flex-start;
                 padding: 40px;
-                gap: 30px;
+                gap: 25px;
                 transition: right 0.4s ease;
                 border-left: 1px solid var(--border-color);
-                box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+                box-shadow: -10px 0 30px rgba(0,0,0,0.6);
                 z-index: 999;
             }
 
@@ -644,9 +663,11 @@
             .nav-links a {
                 font-size: 1rem;
                 width: 100%;
+                border-bottom: 1px solid rgba(27, 242, 91, 0.1);
+                padding-bottom: 10px;
             }
 
-            /* Hamburger animation classes */
+            /* Hambuger Line Transitions */
             .menu-toggle.open span:nth-child(1) {
                 transform: rotate(45deg) translate(6px, 6px);
             }
@@ -661,25 +682,25 @@
 </head>
 <body>
 
-    <!-- Header Navigation Section -->
+    <!-- Header Navigation Panel -->
     <header class="navbar">
         <div class="logo">
             IMRAN KHAN
             <span class="num-804">804</span>
         </div>
         
-        <!-- Toggle Menu Icon -->
+        <!-- Hamburger Menu Button -->
         <div class="menu-toggle" id="mobile-menu">
             <span></span>
             <span></span>
             <span></span>
         </div>
 
-        <!-- Links with beautiful Font Awesome Icons -->
+        <!-- Links with icons -->
         <nav class="nav-links" id="nav-menu">
-            <a href="#home" class="active"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="#home"><i class="fa-solid fa-house"></i> Home</a>
             <a href="#early-life"><i class="fa-solid fa-book-open-reader"></i> Early Life</a>
-            <a href="#cricket-career"><i class="fa-solid fa-trophy"></i> Cricket Career</a>
+            <a href="#cricket-career"><i class="fa-solid fa-trophy"></i> Cricket Journey</a>
             <a href="#political-journey"><i class="fa-solid fa-landmark"></i> Politics</a>
             <a href="#achievements"><i class="fa-solid fa-award"></i> Achievements</a>
             <a href="#donate" class="btn-donate"><i class="fa-solid fa-heart-pulse"></i> Donate</a>
@@ -689,67 +710,26 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-image">
-            <!-- Professional Main Image of Imran Khan -->
-            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=500" alt="Imran Khan Professional Portrait">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=450" alt="Imran Khan Portrait">
         </div>
         <div class="hero-content">
             <h1 class="hero-title">IMRAN KHAN</h1>
-            <p class="hero-subtitle">THE JOURNEY OF A LEADER</p>
+            <p class="hero-subtitle">The Journey of a Leader</p>
+            
+            <!-- Beautiful flower divider under main title -->
+            <div class="premium-divider" style="margin-left: 0; justify-content: flex-start; max-width: 250px;">
+                <span class="line left"></span>
+                <span class="flower">✿</span>
+                <span class="line right"></span>
+            </div>
+            
             <p class="hero-text">From a young passionate boy to a global cricket sensation, a philanthropist, and finally the Prime Minister of Pakistan. Experience the journey of struggle, defiance, and visionary leadership.</p>
             <a href="#early-life" class="btn-primary">Explore Biography</a>
         </div>
     </section>
 
-    <!-- Overview / Highlights Section -->
+    <!-- Overview Section -->
     <section class="section-center">
-        <h2 class="section-title">A JOURNEY LIKE NO OTHER</h2>
-        <p class="section-desc">Witness the life phases of a leader who redefined standard boundaries, built world-class free cancer hospitals, and motivated a whole nation for real independence and justice.</p>
+        <h2 class="section-title">A Journey Like No Other</h2>
         
-        <div class="highlights-grid">
-            <div class="highlight-card">
-                <i class="fa-solid fa-star"></i>
-                <h3>Early Life</h3>
-                <p>Born into an affluent family, nurtured with strong values, and educated at Cathedral, Aitchison, and Oxford University.</p>
-            </div>
-            <div class="highlight-card">
-                <i class="fa-solid fa-baseball-bat-ball"></i>
-                <h3>Cricket Era</h3>
-                <p>Recognized worldwide as one of the finest all-rounders, culminating in the historic 1992 World Cup victory.</p>
-            </div>
-            <div class="highlight-card">
-                <i class="fa-solid fa-hospital"></i>
-                <h3>Philanthropy</h3>
-                <p>Established Shaukat Khanum Cancer Hospital and NAMAL University, providing free high-quality facilities to the poor.</p>
-            </div>
-            <div class="highlight-card">
-                <i class="fa-solid fa-scale-balanced"></i>
-                <h3>Political Rise</h3>
-                <p>Dedicated 22 years to political struggle against corruption, leading to the Prime Ministership of Pakistan in 2018.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Early Life Section (Highly Detailed) -->
-    <section class="row-section" id="early-life">
-        <div class="row-content">
-            <h2 class="label">EARLY LIFE & FAMILY</h2>
-            <p>Imran Khan was born on October 5, 1952, in Lahore into an affluent Niazi Pashtun family. His father, Ikramullah Khan Niazi, was a highly qualified civil engineer, while his mother, Shaukat Khanum, belonged to a deeply respected Sufi family in Mianwali. His maternal family possessed a rich history of producing exceptional cricketers, which unknowingly laid the foundation of Imran's future sports journey.</p>
-            <p>Growing up, Imran was a quiet and relatively shy boy, surrounded by four loving sisters. He received his elite education at the prestigious Cathedral School and Aitchison College in Lahore, where he excelled in both sports and academics. His talent was undeniable, leading him to Worcester, England, for higher school education.</p>
-            <p>In 1972, Imran Khan was admitted to Keble College, Oxford, where he studied Philosophy, Politics, and Economics (PPE). Graduating in 1975, his academic years in the UK broadened his vision and global outlook, shaping the powerful personality that would later lead a nation of 240 million people.</p>
-            <a href="#" class="btn-primary">Learn More</a>
-        </div>
-        <div class="row-image">
-            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=450" alt="Young Imran Khan Early Days">
-        </div>
-    </section>
-
-    <!-- Cricket Career Section (Highly Detailed & Stats) -->
-    <section class="row-section reverse" id="cricket-career">
-        <div class="row-content">
-            <h2 class="label">THE CRICKET LEGEND</h2>
-            <p>Imran Khan made his first-class cricket debut at the age of 16 in Lahore and shortly represented the national team in 1971. Initially regarded as a medium-fast bowler, he worked tirelessly on his physical strength and bowling action. By the late 1970s, he emerged as one of the fastest, most feared bowlers in international cricket, spearheading Pakistan’s bowling attack.</p>
-            <p>In 1982, Imran was appointed the Captain of the national team. His uncompromising leadership, unmatched tactical awareness, and ability to discover young raw talent (like Wasim Akram and Waqar Younis) transformed Pakistan from a fragmented team into a world-class force. He commanded respect and instilled absolute self-belief in his squad.</p>
-            <p>The crown jewel of his cricketing career was the 1992 Cricket World Cup. At the age of 39, coming out of retirement on the popular demand of his country, he led his "Cornered Tigers" from the brink of elimination to an emotional and historic World Cup victory at the Melbourne Cricket Ground, securing Pakistan's first-ever world title.</p>
-            
-            <!-- Beautiful Stats Row -->
-            <div class="stats-box">
+        <!-- Premium Divider with S
