@@ -97,7 +97,7 @@
             position: relative;
         }
 
-        /* Elegant Logo with Solid Green Line Underneath */
+        /* Elegant Logo with Solid Green Line Underneath & Green 804 */
         .logo {
             font-family: var(--font-heading);
             font-size: 1.2rem;
@@ -110,13 +110,13 @@
 
         .logo span {
             display: block;
-            font-size: 0.65rem;
-            color: #81c784;
-            letter-spacing: 3px;
+            font-size: 0.85rem;
+            color: #81c784; /* Green 804 */
+            letter-spacing: 4px;
             margin-top: 4px;
             font-family: var(--font-body);
             text-transform: uppercase;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         /* Hamburger Menu Icon (CSS Only Toggle) */
@@ -160,8 +160,15 @@
 
         /* MOBILE RESPONSIVE HAMBURGER NAVIGATION (CSS ONLY) */
         @media (max-width: 768px) {
+            .navbar {
+                flex-direction: row; /* Keep in a row so hamburger stays in the absolute right corner */
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+            }
+
             .menu-icon {
-                display: block; /* Show menu icon on mobile */
+                display: block; /* Show menu icon on mobile right corner */
             }
 
             .nav-links {
@@ -485,7 +492,6 @@
             text-transform: uppercase;
         }
 
-        /* STATISTICS COLUMN - PURE CSS TAB SYSTEM (NO JAVASCRIPT) */
         .statistics-column {
             background-color: var(--bg-card);
             border: 1px solid rgba(56, 142, 60, 0.15);
@@ -835,22 +841,43 @@
 
         @media (max-width: 768px) {
             .navbar {
-                flex-direction: column;
-                gap: 15px;
+                flex-direction: row; /* Keep in a row so hamburger stays in the absolute right corner */
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
             }
+
+            .menu-icon {
+                display: block; /* Show menu icon on mobile right corner */
+            }
+
             .nav-links {
-                flex-wrap: wrap;
+                position: fixed;
+                top: 0;
+                right: -100%; /* Hidden off-screen on the right */
+                width: 280px; /* Sidebar width */
+                height: 100vh;
+                background-color: rgba(12, 19, 26, 0.98);
+                backdrop-filter: blur(15px);
+                -webkit-backdrop-filter: blur(15px);
+                flex-direction: column;
                 justify-content: center;
+                align-items: center;
+                gap: 30px;
+                transition: right 0.4s cubic-bezier(0.1, 0.8, 0.3, 1);
+                box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+                z-index: 1001;
+                padding: 50px 20px;
             }
-            .hero-grid, .info-grid, .info-grid.reverse, .highlights-stats-grid {
-                grid-template-columns: 1fr;
-                direction: ltr;
+
+            /* Slide-in menu when checkbox is checked */
+            #menu-toggle:checked ~ .nav-links {
+                right: 0;
             }
-            .hero-content {
-                text-align: center;
-            }
-            .info-image img {
-                height: 300px;
+
+            /* Switch from bars to close icon (x) using FontAwesome content when checked */
+            #menu-toggle:checked ~ .menu-icon i::before {
+                content: "\f00d"; /* FontAwesome Close Icon */
             }
         }
 
@@ -871,7 +898,7 @@
             
             <div class="logo">
                 IMRAN KHAN
-                <span>THE JOURNEY</span>
+                <span>804</span> <!-- Replaced with green '804' -->
             </div>
             
             <ul class="nav-links">
@@ -880,10 +907,10 @@
                 <li><a href="#">Cricket Career</a></li>
                 <li><a href="#">Political Journey</a></li>
                 <li><a href="#">Achievements</a></li>
-                <li><a href="#" class="donate-btn">Join Us</a></li>
+                <li><a href="#" class="donate-btn">Join Us</a></li> <!-- Replaced with Join Us -->
             </ul>
 
-            <!-- Label styled as Hamburger lines (Triggered on mobile) -->
+            <!-- Label styled as Hamburger lines (Triggered on mobile right corner) -->
             <label for="menu-toggle" class="menu-icon">
                 <i class="fa-solid fa-bars"></i>
             </label>
@@ -941,6 +968,8 @@
         <div class="container info-grid">
             <div class="info-content">
                 <h2>EARLY LIFE</h2>
+                <!-- Added green subtitle "When Legends Rise" below heading -->
+                <span style="color: #81c784; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 3px; display: block; margin-top: 5px; margin-bottom: 20px; font-weight: 600; font-family: var(--font-body);">When Legends Rise</span>
                 <p>Imran Khan was born on October 5, 1952, in Lahore, Pakistan, into a noble Pashtun family. In his youth, he was known to be an exceptionally shy, quiet, and introverted child, especially compared to his sisters. However, it was his growing passion for cricket and the intense pressure of sportsmanship that eventually compelled him to break out of his comfort zone. Overcoming this deep-seated shyness, he gradually transformed into a highly confident, articulate speaker and a fearless leader both on and off the field.</p>
                 <a href="https://en.wikipedia.org/wiki/Imran_Khan#Early_life_and_family" target="_blank" class="btn" style="display: inline-block; text-align: center;">Read More</a>
             </div>
@@ -970,10 +999,7 @@
                 <div class="highlights-column">
                     <div class="highlights-title-bar">
                         <h3>Career Highlights</h3>
-                        <a href="https://en.wikipedia.org/wiki/Imran_Khan" target="_blank" class="view-all-link">
-                            <span>View All Records</span>
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
+                        <!-- Removed 'View All Records' link entirely as requested -->
                     </div>
 
                     <!-- Milestone Card 1: Wickets -->
@@ -983,7 +1009,8 @@
                             <span class="medal-icon"><i class="fa-solid fa-award"></i></span>
                         </div>
                         <div class="milestone-number">362</div>
-                        <div class="milestone-bold-lbl">2nd Most Test Wickets for Pakistan</div>
+                        <!-- Replaced 2nd with 3rd most wickets for Pakistan -->
+                        <div class="milestone-bold-lbl">3rd Most Test Wickets for Pakistan</div>
                         <div class="milestone-desc">
                             Imran Khan dismantled world-class batting lineups, claiming 362 wickets in 88 Test matches at an extraordinary bowling average of 22.81.
                         </div>
@@ -993,8 +1020,10 @@
                     <!-- Milestone Card 2: Captaincy -->
                     <div class="milestone-card">
                         <div class="card-header-row">
-                            <span class="format-badge odi-badge">ODI</span>
-                            <span class="medal-icon"><i class="fa-solid fa-trophy"></i></span>
+                            <!-- Replaced ODI badge with TEST badge -->
+                            <span class="format-badge test-badge">TEST</span>
+                            <!-- Replaced trophy icon with Medal/Award icon -->
+                            <span class="medal-icon"><i class="fa-solid fa-award"></i></span>
                         </div>
                         <div class="milestone-number">187</div>
                         <div class="milestone-bold-lbl">Most Wickets as a Test Captain</div>
