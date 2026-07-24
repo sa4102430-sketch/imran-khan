@@ -1141,65 +1141,259 @@
                             <div class="stat-data-row">
                                 <span class="stat-data-lbl">Runs Scored</span>
                                 <span class="stat-data-val">3,709</span>
-                            </div>
-                            <div class="stat-data-row">
-                                <span class="stat-data-lbl">Batting Average</span>
-                                <span class="stat-data-val">33.41</span>
-                            </div>
-                            <div class="stat-data-row">
-                                <span class="stat-data-lbl">Wickets Taken</span>
-                                <span class="stat-data-val">182</span>
-                            </div>
-                            <div class="stat-data-row">
-                                <span class="stat-data-lbl">Bowling Average</span>
-                                <span class="stat-data-val">28.96</span>
-                            </div>
-                            <div class="stat-data-row">
-                                <span class="stat-data-lbl">Half-Centuries (50s)</span>
-                                <span class="stat-data-val">19</span>
+<!-- 2. RIGHT COLUMN: Career Statistics (PURE CSS CARDS GRID - NO JAVASCRIPT) -->
+                <div class="statistics-column" style="background: none; border: none; box-shadow: none;">
+                    
+                    <!-- Hidden Radio Buttons for CSS-Only Tabs switching -->
+                    <input type="radio" id="radio-test" name="stats-tabs-group" checked style="display: none;">
+                    <input type="radio" id="radio-odi" name="stats-tabs-group" style="display: none;">
+                    <input type="radio" id="radio-wc" name="stats-tabs-group" style="display: none;">
+
+                    <style>
+                        /* Grid Styles according to the uploaded picture */
+                        .stats-box-content {
+                            padding: 0;
+                            display: flex;
+                            flex-direction: column;
+                        }
+                        .stats-tabs {
+                            display: flex;
+                            gap: 12px;
+                            margin-bottom: 20px;
+                        }
+                        .stat-tag-btn {
+                            background-color: #11161d;
+                            border: 1px solid rgba(255, 255, 255, 0.08);
+                            color: var(--text-gray);
+                            padding: 10px 22px;
+                            border-radius: 8px;
+                            font-size: 0.85rem;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                            user-select: none;
+                        }
+                        .stat-tag-btn:hover {
+                            border-color: rgba(56, 142, 60, 0.5);
+                        }
+
+                        /* Grid Container of Cards */
+                        .stats-cards-container {
+                            display: grid;
+                            grid-template-columns: repeat(2, 1fr);
+                            gap: 15px;
+                        }
+                        .stat-pic-card {
+                            background-color: #0c131a;
+                            border: 1px solid rgba(255, 255, 255, 0.03);
+                            border-radius: 10px;
+                            padding: 20px;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 10px;
+                        }
+                        .stat-pic-card-header {
+                            display: flex;
+                            align-items: center;
+                            gap: 8px;
+                            color: var(--text-gray);
+                            font-size: 0.7rem;
+                            font-weight: 600;
+                            letter-spacing: 1px;
+                        }
+                        .stat-pic-card-header i {
+                            color: var(--primary-green);
+                            font-size: 1rem;
+                        }
+                        .stat-pic-card-number {
+                            font-size: 2.2rem;
+                            font-weight: bold;
+                            color: var(--text-white);
+                            line-height: 1.1;
+                        }
+                        .stat-pic-progress {
+                            width: 100%;
+                            height: 4px;
+                            background: rgba(255, 255, 255, 0.05);
+                            border-radius: 2px;
+                            overflow: hidden;
+                        }
+                        .stat-pic-progress-fill {
+                            height: 100%;
+                            background: var(--primary-green);
+                            border-radius: 2px;
+                        }
+                        .stat-pic-card-footer {
+                            font-size: 0.75rem;
+                            color: #4a5568;
+                            text-transform: capitalize;
+                        }
+
+                        /* Tab Visibility Trigger */
+                        .stats-data-panel {
+                            display: none;
+                        }
+                        #radio-test:checked ~ .stat-box-content .test-btn,
+                        #radio-odi:checked ~ .stat-box-content .odi-btn,
+                        #radio-wc:checked ~ .stat-box-content .wc-btn {
+                            background-color: var(--primary-green) !important;
+                            border-color: var(--primary-green) !important;
+                            color: var(--text-white) !important;
+                        }
+                        #radio-test:checked ~ .stat-box-content #panel-test,
+                        #radio-odi:checked ~ .stat-box-content #panel-odi,
+                        #radio-wc:checked ~ .stat-box-content #panel-wc {
+                            display: block;
+                            animation: fadeInStatsGrid 0.4s ease-in-out;
+                        }
+                        @keyframes fadeInStatsGrid {
+                            from { opacity: 0; transform: translateY(5px); }
+                            to { opacity: 1; transform: translateY(0); }
+                        }
+
+                        @media (max-width: 480px) {
+                            .stats-cards-container {
+                                grid-template-columns: 1fr !important;
+                            }
+                        }
+                    </style>
+
+                    <div class="stat-box-content">
+                        <!-- Navigation Tabs (Pill style like image) -->
+                        <div class="stats-tabs">
+                            <label for="radio-test" class="stat-tag-btn test-btn">Test Career</label>
+                            <label for="radio-odi" class="stat-tag-btn odi-btn">ODI Career</label>
+                            <label for="radio-wc" class="stat-tag-btn wc-btn">1992 World Cup</label>
+                        </div>
+
+                        <!-- TEST CAREER STATS PANEL (6 Cards) -->
+                        <div id="panel-test" class="stats-data-panel">
+                            <div class="stats-cards-container">
+                                <div class="stat-pic-card">
+                                    <div class="stat-pic-card-header"><i class="fa-solid fa-calendar-days"></i> <span>MATCHES</span></div>
+                                    <div class="stat-pic-card-number">88</div>
+                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 80%;"></div></div>
+                                    <div class="stat-pic-card-footer">Test Matches</div>
+                                </div>
+                                <div class="stat-pic-card">
+                                    <div class="stat-pic-card-header"><i class="fa-solid fa-baseball-bat-ball"></i> <span>RUNS SCORED</span></div>
+                                    <div class="stat-pic-card-number">3,807</div>
+                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 85%;"></div></div>
+                                    <div class="stat-pic-card-footer">Total Runs</div>
+                                </div>
+                                <div class="stat-pic-card">
+                                    <div class="stat-pic-card-header"><i class="fa-solid fa-chart-simple"></i> <span>BATTING AVERAGE</span></div>
+                                    <div class="stat-pic-card-number">37.69</div>
+                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 65%;"></div></div>
+                                    <div class="stat-pic-card-footer">Average</div>
+                                </div>
+                                <div class="stat-pic-card">
+                                    <div class="stat-pic-card-header"><i class="fa-solid fa-baseball"></i> <span>WICKETS TAKEN</span></div>
+                                    <div class="stat-pic-card-number">362</div>
+                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 90%;"></div></div>
+                                    <div class="stat-pic-card-footer">Total Wickets</div>
+                                </div>
+                                <div class="stat-pic-card">
+                                    <div class="stat-pic-card-header"><i class="fa-solid fa-chart-line"></i> <span>BOWLING AVERAGE</span></div>
+                                    <div class="stat-pic-card-number">22.81</div>
+                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 85%;"></div></div>
+                                    <div class="stat-pic-card-footer">Average</div>
+                                end</div>
+                                <div class="stat-pic-card">
+                                    <div class="stat-pic-card-header"><i class="fa-solid fa-trophy"></i> <span>5-WICKET INNINGS</span></div>
+                                    <div class="stat-pic-card-number">23</div>
+                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 70%;"></div></div>
+                                    <div class="stat-pic-card-footer">Hauls</div>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- WORLD CUP STATS PANEL -->
+                        <!-- ODI CAREER STATS PANEL (6 Cards) -->
+                        <div id="panel-odi" class="stats-data-panel">
+                            <div class="stats-cards-container">
+                                <div class="stat-pic-card">
+                                    <div class="stat-pic-card-header"><i class="fa-solid fa-calendar-days"></i> <span>MATCHES</span></div>
+                                    <div class="stat-pic-card-number">175</div>
+                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 85%;"></div></div>
+                                    <div class="stat-pic-card-footer">ODI Matches</div>
+                                </div>
+                                <div class="stat-pic-card">
+                                    <div class="stat-pic-card-header"><i class="fa-solid fa-baseball-bat-ball"></i> <span>RUNS SCORED</span></div>
+                                    <div class="stat-pic-card-number">3,709</div>
+                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 82%;"></div></div>
+                                    <div class="stat-pic-card-footer">Total Runs</div>
+                                </div>
+                                <div class="stat-pic-card">
+                                    <div class="stat-pic-card-header"><i class="fa-solid fa-chart-simple"></i> <span>BATTING AVERAGE</span></div>
+                                    <div class="stat-pic-card-number">33.41</div>
+                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 60%;"></div></div>
+                                    <div class="stat-pic-card-footer">Average</div>
+                                </div>
+                                <div class="stat-pic-card">
+                                    <div class="stat-pic-card-header"><i class="fa-solid fa-baseball"></i> <span>WICKETS TAKEN</span></div>
+                                    <div class="stat-pic-card-number">182</div>
+                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 75%;"></div></div>
+                                    <div class="stat-pic-card-footer">Total Wickets</div>
+                                </div>
+                                <div class="stat-pic-card">
+                                    <div class="stat-pic-card-header"><i class="fa-solid fa-chart-line"></i> <span>BOWLING AVERAGE</span></div>
+                                    <div class="stat-pic-card-number">28.96</div>
+                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 70%;"></div></div>
+                                    <div class="stat-pic-card-footer">Average</div>
+                                </div>
+                                <div class="stat-pic-card">
+                                    <div class="stat-pic-card-header"><i class="fa-solid fa-trophy"></i> <span>HALF-CENTURIES</span></div>
+                                    <div class="stat-pic-card-number">19</div>
+                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 65%;"></div></div>
+                                    <div class="stat-pic-card-footer">50s Scored</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 1992 WORLD CUP STATS PANEL (6 Cards) -->
                         <div id="panel-wc" class="stats-data-panel">
-                            <div class="stat-data-row">
-                                <span class="stat-data-lbl">World Cup Victory Year</span>
-                                <span class="stat-data-val">1992 (Australia)</span>
-                            </div>
-                            <div class="stat-data-row">
-                                <span class="stat-data-lbl">Final Match Top Scorer</span>
-                                <span class="stat-data-val">Imran Khan (72 Runs)</span>
-                            </div>
-                            <div class="stat-data-row">
-                                <span class="stat-data-lbl">Final Wicket in Final Match</span>
-                                <span class="stat-data-val">Richard Illingworth</span>
-                            </div>
-                            <div class="stat-data-row">
-                                <span class="stat-data-lbl">Team Slogan</span>
-                                <span class="stat-data-val">"Cornered Tigers"</span>
+                            <div class="stats-cards-container">
+                                <div class="stat-pic-card">
+                                    <div class="stat-pic-card-header"><i class="fa-solid fa-calendar-days"></i> <span>WORLD CUP YEAR</span></div>
+                                    <div class="stat-pic-card-number">1992</div>
+                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 100%;"></div></div>
+                                    <div class="stat-pic-card-footer">Tournament Year</div>
+                                </div>
+                                <div class="stat-pic-card">
+                                    <div class="stat-pic-card-header"><i class="fa-solid fa-medal"></i> <span>FINAL POSITION</span></div>
+                                    <div class="stat-pic-card-number" style="font-size: 1.6rem; padding: 5px 0;">Champions</div>
+                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 100%;"></div></div>
+                                    <div class="stat-pic-card-footer">World Champions</div>
+                                </div>
+                                <div class="stat-pic-card">
+                                    <div class="stat-pic-card-header"><i class="fa-solid fa-baseball-bat-ball"></i> <span>FINAL SCORER</span></div>
+                                    <div class="stat-pic-card-number">72</div>
+                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 90%;"></div></div>
+                                    <div class="stat-pic-card-footer">Runs in Final</div>
+                                </div>
+                                <div class="stat-pic-card">
+                                    <div class="stat-pic-card-header"><i class="fa-solid fa-baseball"></i> <span>FINAL WICKET</span></div>
+                                    <div class="stat-pic-card-number">1</div>
+                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 50%;"></div></div>
+                                    <div class="stat-pic-card-footer">Richard Illingworth</div>
+                                </div>
+                                <div class="stat-pic-card">
+                                    <div class="stat-pic-card-header"><i class="fa-solid fa-circle-check"></i> <span>MATCHES PLAYED</span></div>
+                                    <div class="stat-pic-card-number">10</div>
+                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 100%;"></div></div>
+                                    <div class="stat-pic-card-footer">World Cup Matches</div>
+                                </div>
+                                <div class="stat-pic-card">
+                                    <div class="stat-pic-card-header"><i class="fa-solid fa-quote-left"></i> <span>TEAM SPIRIT</span></div>
+                                    <div class="stat-pic-card-number" style="font-size: 1.25rem; padding: 8px 0; color: #ffd700;">Cornered Tigers</div>
+                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 100%; background: #ffd700;"></div></div>
+                                    <div class="stat-pic-card-footer" style="color: #ffd700;">Iconic Team Slogan</div>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Additional Space to add Cricket Image inside right column -->
-                        <div class="info-image" style="margin-top: 20px;">
-                            <img src="cricket_imran.jpg" alt="Imran Khan Cricket" style="border-radius: 8px; max-height: 250px; object-fit: cover; width: 100%;">
-                        </div>
-
                     </div>
-
-                    <!-- Bottom green explore button styled exactly like theme -->
-                    <div class="stat-footer-bar">
-                        <span class="footer-bar-text">Browse full career metrics</span>
-                        <a href="https://en.wikipedia.org/wiki/Imran_Khan" target="_blank" class="explore-stats-btn">
-                            <span>Explore Stats</span>
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
+                </div> <!-- END of statistics-column -->
 
     <!-- POLITICAL JOURNEY SECTION -->
     <section class="info-section">
