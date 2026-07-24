@@ -29,7 +29,10 @@
             box-sizing: border-box;
         }
 
-        html {
+        /* Prevent page from sliding horizontally on mobile */
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
             scroll-behavior: smooth; /* Smooth scroll support */
         }
 
@@ -38,7 +41,6 @@
             background-color: var(--bg-dark);
             color: var(--text-white);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
         a {
@@ -92,20 +94,43 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 0;
+            position: relative;
         }
 
+        /* Elegant Logo with Solid Green Line Underneath */
         .logo {
             font-family: var(--font-heading);
             font-size: 1.2rem;
             font-weight: bold;
-            line-height: 1.2;
+            line-height: 1.1;
+            border-bottom: 2px solid var(--primary-green); /* Stylish Line Under Logo */
+            padding-bottom: 6px;
+            display: inline-block;
         }
 
         .logo span {
             display: block;
-            font-size: 0.75rem;
-            color: var(--text-gray);
-            letter-spacing: 2px;
+            font-size: 0.65rem;
+            color: #81c784;
+            letter-spacing: 3px;
+            margin-top: 4px;
+            font-family: var(--font-body);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        /* Hamburger Menu Icon (CSS Only Toggle) */
+        #menu-toggle {
+            display: none;
+        }
+
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+            font-size: 1.6rem;
+            color: var(--text-white);
+            z-index: 1002;
+            transition: color 0.3s;
         }
 
         .nav-links {
@@ -131,6 +156,42 @@
             padding: 8px 16px;
             border-radius: 4px;
             font-weight: 600;
+        }
+
+        /* MOBILE RESPONSIVE HAMBURGER NAVIGATION (CSS ONLY) */
+        @media (max-width: 768px) {
+            .menu-icon {
+                display: block; /* Show menu icon on mobile */
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%; /* Hidden off-screen on the right */
+                width: 280px; /* Sidebar width */
+                height: 100vh;
+                background-color: rgba(12, 19, 26, 0.98);
+                backdrop-filter: blur(15px);
+                -webkit-backdrop-filter: blur(15px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
+                transition: right 0.4s cubic-bezier(0.1, 0.8, 0.3, 1);
+                box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+                z-index: 1001;
+                padding: 50px 20px;
+            }
+
+            /* Slide-in menu when checkbox is checked */
+            #menu-toggle:checked ~ .nav-links {
+                right: 0;
+            }
+
+            /* Switch from bars to close icon (x) using FontAwesome content when checked */
+            #menu-toggle:checked ~ .menu-icon i::before {
+                content: "\f00d"; /* FontAwesome Close Icon */
+            }
         }
 
         /* HERO SECTION */
@@ -573,6 +634,8 @@
             padding: 25px;
             margin-top: 25px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            max-width: 100%;
+            overflow: hidden; /* Fixes sliding issue */
         }
         .graph-header {
             display: flex;
@@ -595,12 +658,14 @@
         }
         .svg-container {
             width: 100%;
-            overflow: visible;
+            max-width: 100%;
+            overflow: hidden;
         }
         .performance-chart {
             width: 100%;
             height: auto;
-            overflow: visible;
+            max-width: 100%;
+            display: block;
         }
 
         /* ACHIEVEMENTS SECTION */
@@ -798,21 +863,30 @@
 </head>
 <body>
 
-    <!-- HEADER / NAVIGATION -->
+    <!-- HEADER / NAVIGATION WITH Hamburger (3 lines) on mobile -->
     <header>
         <div class="container navbar">
+            <!-- Hidden Checkbox for Mobile Navigation Toggle -->
+            <input type="checkbox" id="menu-toggle">
+            
             <div class="logo">
                 IMRAN KHAN
                 <span>THE JOURNEY</span>
             </div>
+            
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Early Life</a></li>
                 <li><a href="#">Cricket Career</a></li>
                 <li><a href="#">Political Journey</a></li>
                 <li><a href="#">Achievements</a></li>
-                <li><a href="#" class="donate-btn">Donate</a></li>
+                <li><a href="#" class="donate-btn">Join Us</a></li>
             </ul>
+
+            <!-- Label styled as Hamburger lines (Triggered on mobile) -->
+            <label for="menu-toggle" class="menu-icon">
+                <i class="fa-solid fa-bars"></i>
+            </label>
         </div>
     </header>
 
@@ -889,7 +963,7 @@
                 <p>As a captain, his impact was revolutionary. Taking leadership in 1982, his immense charisma unified a notoriously fragmented Pakistan side. He led Pakistan to their first Test series victories in England (1987) and India (1986-87), and held the mighty West Indies team of the 1980s to three consecutive drawn series. His ultimate crowning glory was leading his 'Cornered Tigers' to a historic World Cup triumph in 1992 in Melbourne, forever cementing his status as a national icon.</p>
             </div>
 
-            <!-- HIGHLIGHTS, STATS & GRAPH ROW -->
+            <!-- HIGHLIGHTS & STATS ROW -->
             <div class="highlights-stats-grid">
                 
                 <!-- 1. LEFT COLUMN: Highlights & Trend Graph -->
@@ -1120,7 +1194,7 @@
                 <button class="btn">Learn More</button>
             </div>
             <div class="info-image">
-                <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&get=80&w=800" alt="Political Journey">
+                <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&q=80&w=800" alt="Political Journey">
             </div>
         </div>
     </section>
