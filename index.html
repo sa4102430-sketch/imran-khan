@@ -1,230 +1,789 @@
-<!-- 2. RIGHT COLUMN: Career Statistics (PURE CSS CARDS GRID - NO JAVASCRIPT) -->
-                <div class="statistics-column" style="background: none; border: none; box-shadow: none;">
-                    
-                    <!-- Hidden Radio Buttons for CSS-Only Tabs switching -->
-                    <input type="radio" id="radio-test" name="stats-tabs-group" checked style="display: none;">
-                    <input type="radio" id="radio-odi" name="stats-tabs-group" style="display: none;">
-                    <input type="radio" id="radio-wc" name="stats-tabs-group" style="display: none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imran Khan - The Journey of a Leader</title>
+    <!-- Google Fonts for premium typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS VARIABLES FOR COLORS */
+        :root {
+            --bg-dark: #070b0e;
+            --bg-card: #0c131a;
+            --primary-green: #388e3c;
+            --accent-green: #2e7d32;
+            --text-white: #ffffff;
+            --text-gray: #a0aec0;
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Poppins', sans-serif;
+        }
 
-                    <style>
-                        /* Grid Styles matching the uploaded picture */
-                        .stats-box-content {
-                            padding: 0;
-                            display: flex;
-                            flex-direction: column;
-                        }
-                        .stats-tabs {
-                            display: flex;
-                            gap: 12px;
-                            margin-bottom: 20px;
-                        }
-                        .stat-tag-btn {
-                            background-color: transparent;
-                            border: 1px solid rgba(255, 255, 255, 0.08);
-                            color: var(--text-gray);
-                            padding: 10px 22px;
-                            border-radius: 8px;
-                            font-size: 0.85rem;
-                            font-weight: 600;
-                            cursor: pointer;
-                            transition: all 0.3s ease;
-                            user-select: none;
-                        }
-                        .stat-tag-btn:hover {
-                            border-color: rgba(56, 142, 60, 0.5);
-                        }
+        /* RESET & BASE STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-                        /* Grid Container of Cards */
-                        .stats-cards-container {
-                            display: grid;
-                            grid-template-columns: repeat(2, 1fr);
-                            gap: 15px;
-                        }
-                        .stat-pic-card {
-                            background-color: #11161d; /* Matches the dark-grey background of the cards in the picture */
-                            border: 1px solid rgba(255, 255, 255, 0.03);
-                            border-radius: 10px;
-                            padding: 20px;
-                            display: flex;
-                            flex-direction: column;
-                            gap: 10px;
-                        }
-                        .stat-pic-card-header {
-                            display: flex;
-                            align-items: center;
-                            gap: 10px;
-                            color: var(--text-gray);
-                            font-size: 0.75rem;
-                            font-weight: 700;
-                            letter-spacing: 1px;
-                        }
-                        .stat-pic-card-header i {
-                            color: var(--primary-green); /* Matches the green icons in the picture */
-                            font-size: 1.1rem;
-                        }
-                        .stat-pic-card-number {
-                            font-size: 2.2rem;
-                            font-weight: bold;
-                            color: var(--text-white);
-                            line-height: 1.1;
-                        }
-                        .stat-pic-progress {
-                            width: 100%;
-                            height: 5px; /* Matches the green progress bar thickness */
-                            background: #1a222d; /* Dark background under the green bar */
-                            border-radius: 3px;
-                            overflow: hidden;
-                        }
-                        .stat-pic-progress-fill {
-                            height: 100%;
-                            background-color: var(--primary-green); /* Matches the vibrant green progress bar */
-                            border-radius: 3px;
-                        }
-                        .stat-pic-card-footer {
-                            font-size: 0.75rem;
-                            color: #4a5568;
-                            text-transform: capitalize;
-                        }
+        /* Prevent page from sliding horizontally on mobile */
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+            scroll-behavior: smooth; /* Smooth scroll support */
+            margin: 0;
+            padding: 0;
+        }
 
-                        /* Tab Visibility Trigger */
-                        .stats-data-panel {
-                            display: none;
-                        }
-                        #radio-test:checked ~ .stat-box-content .test-btn,
-                        #radio-odi:checked ~ .stat-box-content .odi-btn,
-                        #radio-wc:checked ~ .stat-box-content .wc-btn {
-                            background-color: var(--primary-green) !important;
-                            border-color: var(--primary-green) !important;
-                            color: var(--text-white) !important;
-                        }
-                        #radio-test:checked ~ .stat-box-content #panel-test,
-                        #radio-odi:checked ~ .stat-box-content #panel-odi,
-                        #radio-wc:checked ~ .stat-box-content #panel-wc {
-                            display: block;
-                            animation: fadeInStatsGrid 0.4s ease-in-out;
-                        }
-                        @keyframes fadeInStatsGrid {
-                            from { opacity: 0; transform: translateY(5px); }
-                            to { opacity: 1; transform: translateY(0); }
-                        }
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            line-height: 1.6;
+        }
 
-                        @media (max-width: 480px) {
-                            .stats-cards-container {
-                                grid-template-columns: 1fr !important;
-                            }
-                        }
-                    </style>
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-                    <div class="stat-box-content">
-                        <!-- Navigation Tabs (Pill style like image) -->
-                        <div class="stats-tabs">
-                            <label for="radio-test" class="stat-tag-btn test-btn">Test Career</label>
-                            <label for="radio-odi" class="stat-tag-btn odi-btn">ODI Career</label>
-                            <label for="radio-wc" class="stat-tag-btn wc-btn">1992 World Cup</label>
-                        </div>
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
 
-                        <!-- TEST CAREER STATS PANEL (6 Cards) -->
-                        <div id="panel-test" class="stats-data-panel">
-                            <div class="stats-cards-container">
-                                <div class="stat-pic-card">
-                                    <div class="stat-pic-card-header"><i class="fa-solid fa-calendar-days"></i> <span>MATCHES</span></div>
-                                    <div class="stat-pic-card-number">88</div>
-                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 80%;"></div></div>
-                                    <div class="stat-pic-card-footer">Test Matches</div>
-                                </div>
-                                <div class="stat-pic-card">
-                                    <div class="stat-pic-card-header"><i class="fa-solid fa-baseball-bat-ball"></i> <span>RUNS SCORED</span></div>
-                                    <div class="stat-pic-card-number">3,807</div>
-                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 85%;"></div></div>
-                                    <div class="stat-pic-card-footer">Total Runs</div>
-                                </div>
-                                <div class="stat-pic-card">
-                                    <div class="stat-pic-card-header"><i class="fa-solid fa-chart-simple"></i> <span>BATTING AVERAGE</span></div>
-                                    <div class="stat-pic-card-number">37.69</div>
-                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 65%;"></div></div>
-                                    <div class="stat-pic-card-footer">Average</div>
-                                </div>
-                                <div class="stat-pic-card">
-                                    <div class="stat-pic-card-header"><i class="fa-solid fa-baseball"></i> <span>WICKETS TAKEN</span></div>
-                                    <div class="stat-pic-card-number">362</div>
-                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 90%;"></div></div>
-                                    <div class="stat-pic-card-footer">Total Wickets</div>
-                                </div>
-                                <div class="stat-pic-card">
-                                    <div class="stat-pic-card-header"><i class="fa-solid fa-chart-line"></i> <span>BOWLING AVERAGE</span></div>
-                                    <div class="stat-pic-card-number">22.81</div>
-                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 85%;"></div></div>
-                                    <div class="stat-pic-card-footer">Average</div>
-                                </div>
-                                <div class="stat-pic-card">
-                                    <div class="stat-pic-card-header"><i class="fa-solid fa-trophy"></i> <span>5-WICKET INNINGS</span></div>
-                                    <div class="stat-pic-card-number">23</div>
-                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 70%;"></div></div>
-                                    <div class="stat-pic-card-footer">Hauls</div>
-                                </div>
-                            </div>
-                        </div>
+        /* UTILITY CLASSES */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-                        <!-- ODI CAREER STATS PANEL (6 Cards) -->
-                        <div id="panel-odi" class="stats-data-panel">
-                            <div class="stats-cards-container">
-                                <div class="stat-pic-card">
-                                    <div class="stat-pic-card-header"><i class="fa-solid fa-calendar-days"></i> <span>MATCHES</span></div>
-                                    <div class="stat-pic-card-number">175</div>
-                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 85%;"></div></div>
-                                    <div class="stat-pic-card-footer">ODI Matches</div>
-                                </div>
-                                <div class="stat-pic-card">
-                                    <div class="stat-pic-card-header"><i class="fa-solid fa-baseball-bat-ball"></i> <span>RUNS SCORED</span></div>
-                                    <div class="stat-pic-card-number">3,709</div>
-                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 82%;"></div></div>
-                                    <div class="stat-pic-card-footer">Total Runs</div>
-                                </div>
-                                <div class="stat-pic-card">
-                                    <div class="stat-pic-card-header"><i class="fa-solid fa-chart-simple"></i> <span>BATTING AVERAGE</span></div>
-                                    <div class="stat-pic-card-number">33.41</div>
-                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 60%;"></div></div>
-                                    <div class="stat-pic-card-footer">Average</div>
-                                </div>
-                                <div class="stat-pic-card">
-                                    <div class="stat-pic-card-header"><i class="fa-solid fa-baseball"></i> <span>WICKETS TAKEN</span></div>
-                                    <div class="stat-pic-card-number">182</div>
-                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 75%;"></div></div>
-                                    <div class="stat-pic-card-footer">Total Wickets</div>
-                                </div>
-                                <div class="stat-pic-card">
-                                    <div class="stat-pic-card-header"><i class="fa-solid fa-chart-line"></i> <span>BOWLING AVERAGE</span></div>
-                                    <div class="stat-pic-card-number">28.96</div>
-                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 70%;"></div></div>
-                                    <div class="stat-pic-card-footer">Average</div>
-                                </div>
-                                <div class="stat-pic-card">
-                                    <div class="stat-pic-card-header"><i class="fa-solid fa-trophy"></i> <span>HALF-CENTURIES</span></div>
-                                    <div class="stat-pic-card-number">19</div>
-                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 65%;"></div></div>
-                                    <div class="stat-pic-card-footer">50s Scored</div>
-                                </div>
-                            </div>
-                        </div>
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-green);
+            color: var(--text-white);
+            padding: 10px 24px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-                        <!-- 1992 WORLD CUP STATS PANEL (6 Cards) -->
-                        <div id="panel-wc" class="stats-data-panel">
-                            <div class="stats-cards-container">
-                                <div class="stat-pic-card">
-                                    <div class="stat-pic-card-header"><i class="fa-solid fa-calendar-days"></i> <span>WORLD CUP YEAR</span></div>
-                                    <div class="stat-pic-card-number">1992</div>
-                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 100%;"></div></div>
-                                    <div class="stat-pic-card-footer">Tournament Year</div>
-                                </div>
-                                <div class="stat-pic-card">
-                                    <div class="stat-pic-card-header"><i class="fa-solid fa-medal"></i> <span>FINAL POSITION</span></div>
-                                    <div class="stat-pic-card-number" style="font-size: 1.6rem; padding: 5px 0;">Champions</div>
-                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 100%;"></div></div>
-                                    <div class="stat-pic-card-footer">World Champions</div>
-                                </div>
-                                <div class="stat-pic-card">
-                                    <div class="stat-pic-card-header"><i class="fa-solid fa-baseball-bat-ball"></i> <span>FINAL SCORER</span></div>
-                                    <div class="stat-pic-card-number">72</div>
-                                    <div class="stat-pic-progress"><div class="stat-pic-progress-fill" style="width: 90%;"></div></div>
-                                    <div class="stat-pic-card-footer">Runs in Final</div>
-                                </div>
+        .btn:hover {
+            background-color: var(--accent-green);
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background-color: rgba(7, 11, 14, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            position: relative;
+        }
+
+        /* Elegant Logo with Solid Green Line Underneath & Green 804 */
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: bold;
+            line-height: 1.1;
+            border-bottom: 2px solid var(--primary-green); /* Stylish Line Under Logo */
+            padding-bottom: 6px;
+            display: inline-block;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 0.85rem;
+            color: #81c784; /* Green 804 */
+            letter-spacing: 4px;
+            margin-top: 4px;
+            font-family: var(--font-body);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        /* Hamburger Menu Icon (CSS Only Toggle) */
+        #menu-toggle {
+            display: none;
+        }
+
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+            font-size: 1.6rem;
+            color: var(--text-white);
+            z-index: 1002;
+            transition: color 0.3s;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px; /* Space between icon and text */
+        }
+
+        .nav-links a i {
+            color: #81c784; /* Beautiful green icon color */
+            font-size: 0.95rem;
+        }
+
+        .nav-links .donate-btn i {
+            color: var(--text-white); /* Keep the button icon white */
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-green);
+        }
+
+        .donate-btn {
+            background-color: var(--primary-green);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        /* MOBILE RESPONSIVE HAMBURGER NAVIGATION (CSS ONLY) */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: row; /* Keep in a row so hamburger stays in the absolute right corner */
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+            }
+
+            .menu-icon {
+                display: block; /* Show menu icon on mobile right corner */
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%; /* Hidden off-screen on the right */
+                width: 280px; /* Sidebar width */
+                height: 100vh;
+                background-color: rgba(12, 19, 26, 0.98);
+                backdrop-filter: blur(15px);
+                -webkit-backdrop-filter: blur(15px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start; /* Align text on left inside menu */
+                gap: 25px;
+                transition: right 0.4s cubic-bezier(0.1, 0.8, 0.3, 1);
+                box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+                z-index: 1001;
+                padding: 60px 40px;
+            }
+
+            /* Slide-in menu when checkbox is checked */
+            #menu-toggle:checked ~ .nav-links {
+                right: 0;
+            }
+
+            /* Switch from bars to close icon (x) using FontAwesome content when checked */
+            #menu-toggle:checked ~ .menu-icon i::before {
+                content: "\f00d"; /* FontAwesome Close Icon */
+            }
+
+            /* Stack all grids properly so they don't squish sideways on mobile screens */
+            .hero-grid, 
+            .info-grid, 
+            .info-grid.reverse, 
+            .highlights-stats-grid,
+            .roles-grid,
+            .achievements-grid {
+                grid-template-columns: 1fr !important;
+                direction: ltr !important;
+            }
+
+            .hero-content, .info-content {
+                text-align: center;
+            }
+
+            .hero-image img, .info-image img {
+                max-height: 350px;
+                width: 100%;
+                object-fit: cover;
+                margin: 0 auto;
+            }
+
+            .info-grid.reverse .info-content,
+            .info-grid.reverse .info-image {
+                direction: ltr !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .roles-grid, .achievements-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 80px 0;
+            background: radial-gradient(circle at 70% 30%, rgba(56, 142, 60, 0.1) 0%, rgba(7, 11, 14, 1) 70%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-image img {
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            max-height: 500px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        .hero-content h2 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero-content p {
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        /* JOURNEY ROLES SECTION */
+        .journey-overview {
+            padding: 80px 0;
+            text-align: center;
+            background-color: var(--bg-card);
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-green);
+            margin: 10px auto 0 auto;
+        }
+
+        .section-subtitle {
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto 50px auto;
+            font-size: 0.95rem;
+        }
+
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .role-card {
+            background-color: var(--bg-dark);
+            padding: 30px 20px;
+            border-radius: 8px;
+            transition: transform 0.3s, border 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .role-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-green);
+        }
+
+        .role-icon {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+        }
+
+        .role-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .role-card p {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        /* SECTION TEMPLATE (Two-Column Layout) */
+        .info-section {
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .info-grid.reverse {
+            direction: rtl;
+        }
+
+        .info-grid.reverse .info-content {
+            direction: ltr;
+        }
+
+        .info-grid.reverse .info-image {
+            direction: ltr;
+        }
+
+        .info-image img {
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .info-content h2 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .info-content p {
+            color: var(--text-gray);
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        /* CLASSIC GREEN THEME - CRICKET STYLES */
+        .cricket-career-wrapper {
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: radial-gradient(circle at 10% 50%, rgba(56, 142, 60, 0.03) 0%, rgba(7, 11, 14, 1) 80%);
+        }
+        
+        .cricket-history-content {
+            margin-bottom: 50px;
+            text-align: left;
+        }
+        .cricket-history-content h2 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--text-white);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .cricket-history-content .heading-subtitle {
+            font-size: 0.8rem;
+            color: var(--primary-green);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+            font-weight: 600;
+            display: block;
+        }
+        .cricket-history-content p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .highlights-stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .highlights-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .highlights-title-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .highlights-title-bar h3 {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            color: var(--text-white);
+            letter-spacing: 1px;
+        }
+        .view-all-link {
+            font-size: 0.85rem;
+            color: var(--primary-green);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+        .view-all-link:hover {
+            color: var(--text-white);
+        }
+        
+        .milestone-card {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(56, 142, 60, 0.15); 
+            border-radius: 12px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        .milestone-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary-green);
+            box-shadow: 0 10px 25px rgba(56, 142, 60, 0.1);
+        }
+        .card-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .format-badge {
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+        }
+        .format-badge.test-badge {
+            background: rgba(56, 142, 60, 0.12);
+            color: #81c784; 
+        }
+        .format-badge.odi-badge {
+            background: rgba(46, 125, 50, 0.15);
+            color: #a5d6a7; 
+        }
+        .medal-icon {
+            color: var(--primary-green);
+            font-size: 1.2rem;
+        }
+        .milestone-number {
+            font-size: 3.2rem;
+            font-weight: bold;
+            color: var(--text-white);
+            line-height: 1;
+            font-family: var(--font-heading);
+        }
+        .milestone-bold-lbl {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary-green); 
+        }
+        .milestone-desc {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+        .milestone-footer-lbl {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #4a5568;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        /* INTERACTIVE BOX ROW-BASED TABS */
+        .statistics-column {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(56, 142, 60, 0.15);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        .stat-box-content {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .stat-icon-box {
+            width: 48px;
+            height: 48px;
+            background-color: rgba(56, 142, 60, 0.1); 
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-green);
+            font-size: 1.3rem;
+            border: 1px solid rgba(56, 142, 60, 0.15);
+        }
+        .stat-box-content h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--text-white);
+            margin-top: 5px;
+        }
+        .stat-box-desc {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+        
+        .stat-toggles {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 10px 0;
+        }
+        
+        .stat-tag-btn {
+            background: rgba(56, 142, 60, 0.03);
+            border: 1px solid rgba(56, 142, 60, 0.2);
+            color: #81c784;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+        .stat-tag-btn:hover {
+            border-color: #a2fc32;
+        }
+
+        .stats-data-panel {
+            display: none;
+            margin-top: 10px;
+        }
+        
+        /* CSS-ONLY TRIGGER LOGIC FOR ROW-BASED TABS */
+        #radio-test:checked ~ .stat-box-content .test-btn,
+        #radio-odi:checked ~ .stat-box-content .odi-btn,
+        #radio-wc:checked ~ .stat-box-content .wc-btn {
+            background: var(--primary-green);
+            border-color: var(--primary-green);
+            color: var(--text-white);
+        }
+
+        #radio-test:checked ~ .stat-box-content #panel-test,
+        #radio-odi:checked ~ .stat-box-content #panel-odi,
+        #radio-wc:checked ~ .stat-box-content #panel-wc {
+            display: block;
+            animation: fadeInStats 0.4s ease-in-out;
+        }
+
+        @keyframes fadeInStats {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .stat-data-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.9rem;
+        }
+        .stat-data-row:last-child {
+            border-bottom: none;
+        }
+        .stat-data-lbl {
+            color: var(--text-gray);
+        }
+        .stat-data-val {
+            color: var(--text-white);
+            font-weight: bold;
+        }
+
+        .stat-footer-bar {
+            background-color: rgba(0, 0, 0, 0.15);
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: auto;
+        }
+        .footer-bar-text {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+        .explore-stats-btn {
+            background-color: var(--primary-green);
+            color: var(--text-white);
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(56, 142, 60, 0.15);
+        }
+        .explore-stats-btn:hover {
+            background-color: var(--accent-green);
+            box-shadow: 0 4px 20px rgba(56, 142, 60, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* CHRONOLOGICAL PERFORMANCE GRAPH (SVG LINE GRAPH) */
+        .trend-graph-card {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(56, 142, 60, 0.15);
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            max-width: 100%;
+            overflow: hidden; /* Fixes sliding issue */
+        }
+        .graph-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .graph-header h4 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: var(--text-white);
+        }
+        .graph-subtitle {
+            font-size: 0.75rem;
+            color: var(--primary-green);
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+        .svg-container {
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+        }
+        .performance-chart {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            display: block;
+        }
+
+        /* ACHIEVEMENTS SECTION */
+        .achievements {
+            padding: 80px 0;
+            text-align: center;
+            background-color: var(--bg-card);
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .achievement-card {
+            background-color: var(--bg-dark);
+            padding: 25px;
+            border-radius: 8px;
+            border-top: 4px solid var(--primary-green);
+        }
+
+        .achievement-card i {
+            font-size: 2rem;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+        }
+
+        .achievement-card h4 {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+        }
+
+        /* STAY UPDATED / NEWSLETTER */
+        .newsletter {
+            background-color: var(--primary-green);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .newsletter p {
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .form-group {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-group input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+            font-family: var(--font-body);
+        }
+
+        .form-group button {
+            background-color: var(--b
