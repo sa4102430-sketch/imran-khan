@@ -1546,12 +1546,30 @@ justify-content: center !important;
     <!-- JavaScript to Handle Hamburger Menu Drawer Toggle & Overlay -->
 
 <!-- Complete Unified Upgrade Script -->
-    <!-- Separate Mobile Debugger (Must be placed in its own script block) -->
+<!-- Upgraded Diagnostic Mobile Debugger -->
     <script>
         window.onerror = function(message, source, lineno, colno, error) {
-            alert("JS ERROR DETECTED!\n\nMessage: " + message + "\nLine: " + lineno);
+            alert("JS ERROR: " + message + " on line " + lineno);
             return false;
         };
+
+        // Page load hote hi HTML elements ki report check karega
+        window.addEventListener('DOMContentLoaded', () => {
+            const checkMenu = document.getElementById('mobile-menu') ? "✅ FOUND" : "❌ MISSING";
+            const checkNav = document.getElementById('nav-menu') ? "✅ FOUND" : "❌ MISSING";
+            const checkBtn = document.getElementById('go-to-categories') ? "✅ FOUND" : "❌ MISSING";
+            const checkViewHome = document.getElementById('view-home') ? "✅ FOUND" : "❌ MISSING";
+            const checkViewCats = document.getElementById('view-categories') ? "✅ FOUND" : "❌ MISSING";
+
+            alert(
+                "DIAGNOSTIC REPORT:\n\n" +
+                "1. 3-Lines Toggle (mobile-menu): " + checkMenu + "\n" +
+                "2. Nav Links Container (nav-menu): " + checkNav + "\n" +
+                "3. View Gallery Button (go-to-categories): " + checkBtn + "\n" +
+                "4. Gallery Home View (view-home): " + checkViewHome + "\n" +
+                "5. Gallery Categories View (view-categories): " + checkViewCats
+            );
+        });
     </script>
         // Mobile Debugger (Alerts errors directly on your screen)
         window.onerror = function(message, source, lineno, colno, error) {
