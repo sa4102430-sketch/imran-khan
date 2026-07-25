@@ -1610,18 +1610,97 @@ justify-content: center !important;
         if (btnGoToCategories) {
             btnGoToCategories.addEventListener('click', () => {
                 switchView(viewHome, viewCategories);
+<!-- Upgraded Fullscreen Interactive Script -->
+    <script>
+        // --- 1. Variable Declarations ---
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+        const overlayMask = document.getElementById('overlay-mask');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        // Gallery Elements
+        const gallerySection = document.querySelector('.gallery-section');
+        const viewHome = document.getElementById('view-home');
+        const viewCategories = document.getElementById('view-categories');
+        const viewGrid = document.getElementById('view-grid');
+
+        const btnGoToCategories = document.getElementById('go-to-categories');
+        const btnBackToHome = document.getElementById('back-to-home');
+        const btnBackToCategories = document.getElementById('back-to-categories');
+
+        const categoryRows = document.querySelectorAll('.category-row');
+        const dynamicTitle = document.getElementById('dynamic-grid-title');
+        const dynamicDesc = document.getElementById('dynamic-grid-desc');
+        const photoGridContainer = document.getElementById('photo-grid-container');
+
+        // --- 2. Dynamic Photos Database ---
+        const photosDatabase = {
+            bachpan: [
+                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "Early childhood years" },
+                { src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400", title: "With family in Lahore" },
+                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "At Cathedral School" }
+            ],
+            jawani: [
+                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "Oxford Student Days" },
+                { src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400", title: "College Sports Star" },
+                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "Early Cricket Days" }
+            ],
+            cricket: [
+                { src: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=400", title: "Lifting 1992 World Cup" },
+                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "Fierce Bowling Spell" },
+                { src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400", title: "With Cornered Tigers" }
+            ],
+            political: [
+                { src: "https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&q=80&w=400", title: "UN General Assembly speech" },
+                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "Historic Jalsa at Minar-e-Pakistan" },
+                { src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400", title: "Welfare Ehsaas Launch" }
+            ]
+        };
+
+        // --- 3. View Switcher Animation Helper (Handles Fullscreen State) ---
+        function switchView(fromView, toView, makeFullscreen) {
+            fromView.style.opacity = '0';
+            fromView.style.transform = 'translateY(12px)';
+            setTimeout(() => {
+                fromView.style.display = 'none';
+                toView.style.display = 'block';
+                toView.style.opacity = '0';
+                toView.style.transform = 'translateY(12px)';
+                
+                // Toggle Fullscreen state and lock background scroll
+                if (gallerySection) {
+                    if (makeFullscreen) {
+                        gallerySection.classList.add('fullscreen');
+                        document.body.style.overflow = 'hidden'; // Locks page scroll
+                    } else {
+                        gallerySection.classList.remove('fullscreen');
+                        document.body.style.overflow = ''; // Restores page scroll
+                    }
+                }
+
+                setTimeout(() => {
+                    toView.style.opacity = '1';
+                    toView.style.transform = 'translateY(0)';
+                }, 50);
+            }, 250);
+        }
+
+        // --- 4. Interactive Navigation Controllers ---
+        if (btnGoToCategories) {
+            btnGoToCategories.addEventListener('click', () => {
+                switchView(viewHome, viewCategories, true); // Opens in Fullscreen
             });
         }
 
         if (btnBackToHome) {
             btnBackToHome.addEventListener('click', () => {
-                switchView(viewCategories, viewHome);
+                switchView(viewCategories, viewHome, false); // Exits Fullscreen
             });
         }
 
         if (btnBackToCategories) {
             btnBackToCategories.addEventListener('click', () => {
-                switchView(viewGrid, viewCategories);
+                switchView(viewGrid, viewCategories, true); // Stays in Fullscreen
             });
         }
 
@@ -1652,7 +1731,7 @@ justify-content: center !important;
                 });
 
                 // Transition screen
-                switchView(viewCategories, viewGrid);
+                switchView(viewCategories, viewGrid, true);
             });
         });
 
