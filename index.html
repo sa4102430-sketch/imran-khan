@@ -1745,28 +1745,7 @@ justify-content: center !important;
                 // Transition screen
                 switchView(viewCategories, viewGrid, true);
             });
-        });
 
-        // --- 6. Mobile Menu & Navigation Logic ---
-        if (mobileMenu && navMenu) {
-            function toggleMenu() {
-                mobileMenu.classList.toggle('open');
-                navMenu.classList.toggle('active');
-                
-                if (overlayMask) {
-                    if (navMenu.classList.contains('active')) {
-                        overlayMask.style.display = 'block';
-                    } else {
-                        overlayMask.style.display = 'none';
-                    }
-                }
-            }
-
-            mobileMenu.addEventListener('click', toggleMenu);
-            if (overlayMask) {
-                overlayMask.addEventListener('click', toggleMenu);
-<!-- Upgraded Fullscreen Interactive Script -->
-    <script>
         // --- 1. Variable Declarations ---
         const mobileMenu = document.getElementById('mobile-menu');
         const navMenu = document.getElementById('nav-menu');
