@@ -1447,24 +1447,125 @@ justify-content: center !important;
     </footer>
 
     <!-- JavaScript to Handle Hamburger Menu Drawer Toggle & Overlay -->
-<!-- Complete Error-Free Script (Paste at the very bottom) -->
+
+<!-- Complete Unified Upgrade Script -->
     <script>
-        // --- 1. Variable Declarations (Declared strictly once to prevent crashes) ---
+        // --- 1. Variable Declarations ---
         const mobileMenu = document.getElementById('mobile-menu');
         const navMenu = document.getElementById('nav-menu');
         const overlayMask = document.getElementById('overlay-mask');
         const navLinks = document.querySelectorAll('.nav-links a');
-        
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        const galleryItems = document.querySelectorAll('.gallery-item');
 
-        // --- 2. Mobile Menu Open/Close Logic (3-Lines Click) ---
+        // Gallery Elements
+        const viewHome = document.getElementById('view-home');
+        const viewCategories = document.getElementById('view-categories');
+        const viewGrid = document.getElementById('view-grid');
+
+        const btnGoToCategories = document.getElementById('go-to-categories');
+        const btnBackToHome = document.getElementById('back-to-home');
+        const btnBackToCategories = document.getElementById('back-to-categories');
+
+        const categoryRows = document.querySelectorAll('.category-row');
+        const dynamicTitle = document.getElementById('dynamic-grid-title');
+        const dynamicDesc = document.getElementById('dynamic-grid-desc');
+        const photoGridContainer = document.getElementById('photo-grid-container');
+
+        // --- 2. Dynamic Photos Database (Add unlimited photos to categories here) ---
+        const photosDatabase = {
+            bachpan: [
+                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "Early childhood years" },
+                { src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400", title: "With family in Lahore" },
+                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "At Cathedral School" }
+            ],
+            jawani: [
+                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "Oxford Student Days" },
+                { src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400", title: "College Sports Star" },
+                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "Early Cricket Days" }
+            ],
+            cricket: [
+                { src: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=400", title: "Lifting 1992 World Cup" },
+                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "Fierce Bowling Spell" },
+                { src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400", title: "With Cornered Tigers" }
+            ],
+            political: [
+                { src: "https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&q=80&w=400", title: "UN General Assembly speech" },
+                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "Historic Jalsa at Minar-e-Pakistan" },
+                { src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400", title: "Welfare Ehsaas Launch" }
+            ]
+        };
+
+        // --- 3. View Switcher Animation Helper ---
+        function switchView(fromView, toView) {
+            fromView.style.opacity = '0';
+            fromView.style.transform = 'translateY(12px)';
+            setTimeout(() => {
+                fromView.style.display = 'none';
+                toView.style.display = 'block';
+                toView.style.opacity = '0';
+                toView.style.transform = 'translateY(12px)';
+                setTimeout(() => {
+                    toView.style.opacity = '1';
+                    toView.style.transform = 'translateY(0)';
+                }, 50);
+            }, 250);
+        }
+
+        // --- 4. Interactive Navigation Controllers ---
+        if (btnGoToCategories) {
+            btnGoToCategories.addEventListener('click', () => {
+                switchView(viewHome, viewCategories);
+            });
+        }
+
+        if (btnBackToHome) {
+            btnBackToHome.addEventListener('click', () => {
+                switchView(viewCategories, viewHome);
+            });
+        }
+
+        if (btnBackToCategories) {
+            btnBackToCategories.addEventListener('click', () => {
+                switchView(viewGrid, viewCategories);
+            });
+        }
+
+        // --- 5. Category Selection & Dynamic Grid Population ---
+        categoryRows.forEach(row => {
+            row.addEventListener('click', () => {
+                const category = row.getAttribute('data-category');
+                const catName = row.querySelector('.category-name').textContent;
+                
+                // Update specific page titles dynamically
+                dynamicTitle.textContent = catName;
+                dynamicDesc.textContent = `Historic moments from Imran Khan's iconic ${catName.toLowerCase()} journey.`;
+
+                // Clean and generate photo grid content
+                photoGridContainer.innerHTML = '';
+                const photos = photosDatabase[category] || [];
+                
+                photos.forEach(photo => {
+                    const photoItem = document.createElement('div');
+                    photoItem.className = 'grid-photo-item';
+                    photoItem.innerHTML = `
+                        <img src="${photo.src}" alt="${photo.title}">
+                        <div class="gallery-overlay">
+                            <span>${photo.title}</span>
+                        </div>
+                    `;
+                    photoGridContainer.appendChild(photoItem);
+                });
+
+                // Transition screen
+                switchView(viewCategories, viewGrid);
+            });
+        });
+
+        // --- 6. Mobile Menu & Navigation Logic ---
         if (mobileMenu && navMenu) {
             function toggleMenu() {
                 mobileMenu.classList.toggle('open');
                 navMenu.classList.toggle('active');
                 
-                // Toggle black background overlay mask safely
                 if (overlayMask) {
                     if (navMenu.classList.contains('active')) {
                         overlayMask.style.display = 'block';
@@ -1480,25 +1581,31 @@ justify-content: center !important;
             }
         }
 
-        // --- 3. Smooth Scrolling & Menu Auto-Closing Logic ---
+        // --- 7. Smooth Scrolling & Menu Auto-Closing Logic ---
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 const targetId = link.getAttribute('href');
 
-                // Check if it's a valid local anchor link
                 if (targetId && targetId.startsWith('#')) {
-                    e.preventDefault(); // Stop instant jump
+                    e.preventDefault();
 
-                    // Close the mobile menu smoothly
+                    // If user was inside deep gallery view, reset it back to home preview quietly
+                    if (viewHome) {
+                        viewHome.style.display = 'block';
+                        viewHome.style.opacity = '1';
+                        viewHome.style.transform = 'translateY(0)';
+                    }
+                    if (viewCategories) viewCategories.style.display = 'none';
+                    if (viewGrid) viewGrid.style.display = 'none';
+
+                    // Close menu
                     if (mobileMenu) mobileMenu.classList.remove('open');
                     if (navMenu) navMenu.classList.remove('active');
                     if (overlayMask) overlayMask.style.display = 'none';
 
-                    // Update active link color state
                     navLinks.forEach(item => item.style.color = 'var(--text-gray)');
                     link.style.color = 'var(--white)';
 
-                    // Smoothly scroll to the target section
                     const targetSection = document.querySelector(targetId);
                     if (targetSection) {
                         setTimeout(() => {
@@ -1506,41 +1613,11 @@ justify-content: center !important;
                                 behavior: 'smooth',
                                 block: 'start'
                             });
-                        }, 150); // Small delay to let menu transition close first
+                        }, 150);
                     }
                 }
             });
         });
-
-        // --- 4. Gallery Tab Filtering Logic ---
-        if (tabBtns.length > 0 && galleryItems.length > 0) {
-            tabBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // Update active button state
-                    tabBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-
-                    const filterValue = btn.getAttribute('data-filter');
-
-                    galleryItems.forEach(item => {
-                        item.style.transition = 'all 0.3s ease';
-                        if (filterValue === 'all' || item.classList.contains(filterValue)) {
-                            item.style.display = 'block';
-                            setTimeout(() => {
-                                item.style.opacity = '1';
-                                item.style.transform = 'scale(1)';
-                            }, 50);
-                        } else {
-                            item.style.opacity = '0';
-                            item.style.transform = 'scale(0.8)';
-                            setTimeout(() => {
-                                item.style.display = 'none';
-                            }, 300);
-                        }
-                    });
-                });
-            });
-        }
     </script>
 </body>
 </html>
