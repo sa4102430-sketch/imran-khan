@@ -2059,57 +2059,7 @@ justify-content: center !important;
                     }
                 }
             }
-
-            mobileMenu.addEventListener('click', toggleMenu);
-            if (overlayMask) {
-                overlayMask.addEventListener('click', toggleMenu);
-            }
-        }
-
-        // --- 7. Smooth Scrolling & Menu Auto-Closing Logic (Safe from '#' Error) ---
-        if (navLinks.length > 0) {
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    const targetId = link.getAttribute('href');
-
-                    // Safe check to prevent document.querySelector('#') syntax error
-                    if (targetId && targetId.startsWith('#') && targetId !== '#') {
-                        e.preventDefault();
-
-                        // Reset gallery views safely if active
-                        if (viewHome) {
-                            viewHome.style.display = 'block';
-                            viewHome.style.opacity = '1';
-                            viewHome.style.transform = 'translateY(0)';
-                        }
-                        if (viewCategories) viewCategories.style.display = 'none';
-                        if (viewGrid) viewGrid.style.display = 'none';
-
-                        // Close menu safely
-                        if (mobileMenu) mobileMenu.classList.remove('open');
-                        if (navMenu) navMenu.classList.remove('active');
-                        if (overlayMask) overlayMask.style.display = 'none';
-
-                        navLinks.forEach(item => item.style.color = 'var(--text-gray)');
-                        link.style.color = 'var(--white)';
-
-                        try {
-                            const targetSection = document.querySelector(targetId);
-                            if (targetSection) {
-                                setTimeout(() => {
-                                    targetSection.scrollIntoView({
-                                        behavior: 'smooth',
-                                        block: 'start'
-                                    });
-                                }, 150);
-                            }
-                        } catch (err) {
-                            console.log("Selector error caught safely:", err);
-                        }
-                    }
-                });
-            });
-        }
-    </script>
+</script>
+         
 </body>
 </html>
