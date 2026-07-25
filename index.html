@@ -1547,6 +1547,11 @@ justify-content: center !important;
 
 <!-- Complete Unified Upgrade Script -->
     <script>
+        // Mobile Debugger (Alerts errors directly on your screen)
+        window.onerror = function(message, source, lineno, colno, error) {
+            alert("JS Error: " + message + " on line " + lineno);
+            return false;
+        };
         // --- 1. Variable Declarations ---
         const mobileMenu = document.getElementById('mobile-menu');
         const navMenu = document.getElementById('nav-menu');
