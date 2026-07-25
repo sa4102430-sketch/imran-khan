@@ -1278,68 +1278,100 @@ justify-content: center !important;
             </div>
         </div>
     </section>
-<!-- Photo Gallery Section -->
+<!-- New Upgraded Premium Photo Gallery Section (With Sub-categories) -->
     <section class="gallery-section" id="gallery">
-        <h2 class="section-title">Photo Gallery</h2>
         
-        <div class="premium-divider">
-            <span class="line left"></span>
-            <span class="flower">✿</span>
-            <span class="line right"></span>
+        <!-- ================= SCREEN 1: HOME PREVIEW ================= -->
+        <div class="gallery-view" id="view-home">
+            <h2 class="section-title">PHOTO GALLERY</h2>
+            <div class="premium-divider">
+                <span class="line left"></span>
+                <span class="flower">✿</span>
+                <span class="line right"></span>
+            </div>
+            <p class="section-desc">Explore the memorable life phases of Imran Khan through our beautifully curated collection of historical photographs.</p>
+            <div style="text-align: center;">
+                <button class="btn-primary" id="go-to-categories" style="display: inline-flex; align-items: center; gap: 8px;">
+                    View Gallery <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
         </div>
-        
-        <p class="section-desc">Explore the memorable life phases of Imran Khan through our beautifully curated collection of historical photographs.</p>
 
-        <!-- Gallery Tabs -->
-        <div class="gallery-tabs">
-            <button class="tab-btn active" data-filter="all">All Photos</button>
-            <button class="tab-btn" data-filter="bachpan">Bachpan</button>
-            <button class="tab-btn" data-filter="jawani">Jawani</button>
-            <button class="tab-btn" data-filter="cricket">Cricket Era</button>
-            <button class="tab-btn" data-filter="politics">Political Era</button>
+        <!-- ================= SCREEN 2: SUB-CATEGORIES MENU ================= -->
+        <div class="gallery-view" id="view-categories" style="display: none;">
+            <div class="gallery-header">
+                <button class="gallery-back-btn" id="back-to-home"><i class="fa-solid fa-arrow-left"></i></button>
+                <h2 class="section-title">PHOTO GALLERY</h2>
+            </div>
+            <div class="premium-divider">
+                <span class="line left"></span>
+                <span class="flower">✿</span>
+                <span class="line right"></span>
+            </div>
+            <p class="section-desc">Select a category to explore photos from that era.</p>
+
+            <div class="categories-list">
+                <!-- Bachpan Card -->
+                <div class="category-row" data-category="bachpan">
+                    <div class="category-left">
+                        <!-- Yahan Khan ki bachpan ki circle image lagayein -->
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150" alt="Bachpan">
+                        <span class="category-name">Bachpan</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right category-arrow"></i>
+                </div>
+
+                <!-- Jawani Card -->
+                <div class="category-row" data-category="jawani">
+                    <div class="category-left">
+                        <!-- Yahan Khan ki jawani ki circle image lagayein -->
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150" alt="Jawani">
+                        <span class="category-name">Jawani</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right category-arrow"></i>
+                </div>
+
+                <!-- Cricket Era Card -->
+                <div class="category-row" data-category="cricket">
+                    <div class="category-left">
+                        <!-- Yahan Khan ki cricket ki circle image lagayein -->
+                        <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=150" alt="Cricket">
+                        <span class="category-name">Cricket Era</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right category-arrow"></i>
+                </div>
+
+                <!-- Political Era Card -->
+                <div class="category-row" data-category="political">
+                    <div class="category-left">
+                        <!-- Yahan Khan ki politics ki circle image lagayein -->
+                        <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&q=80&w=150" alt="Political">
+                        <span class="category-name">Political Era</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right category-arrow"></i>
+                </div>
+            </div>
         </div>
 
-        <!-- Gallery Grid -->
-        <div class="gallery-grid">
-            <!-- Bachpan Photo 1 -->
-            <div class="gallery-item bachpan">
-                <!-- Replace with Khan's Bachpan Image link -->
-                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400" alt="Bachpan Pic">
-                <div class="gallery-overlay">
-                    <span>Childhood Memories</span>
-                </div>
+        <!-- ================= SCREEN 3: SPECIFIC ERA PHOTOS GRID ================= -->
+        <div class="gallery-view" id="view-grid" style="display: none;">
+            <div class="gallery-header">
+                <button class="gallery-back-btn" id="back-to-categories"><i class="fa-solid fa-arrow-left"></i></button>
+                <h2 class="section-title" id="dynamic-grid-title" style="text-transform: uppercase;">CRICKET ERA</h2>
             </div>
+            <div class="premium-divider">
+                <span class="line left"></span>
+                <span class="flower">✿</span>
+                <span class="line right"></span>
+            </div>
+            <p class="section-desc" id="dynamic-grid-desc">Historic moments from Imran Khan's iconic cricket journey.</p>
 
-            <!-- Jawani Photo 1 -->
-            <div class="gallery-item jawani">
-                <!-- Replace with Khan's Jawani Image link -->
-                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400" alt="Oxford Days">
-                <div class="gallery-overlay">
-                    <span>Oxford University Student</span>
-                </div>
-            </div>
-
-            <!-- Cricket Photo 1 -->
-            <div class="gallery-item cricket">
-                <!-- Replace with Cricket Image link -->
-                <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=400" alt="World Cup Match">
-                <div class="gallery-overlay">
-                    <span>Legendary All-Rounder</span>
-                </div>
-            </div>
-
-            <!-- Politics Photo 1 -->
-            <div class="gallery-item politics">
-                <!-- Replace with Politics Image link -->
-                <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&q=80&w=400" alt="Political Rally">
-                <div class="gallery-overlay">
-                    <span>Prime Minister Oath</span>
-                </div>
-            </div>
-            
-            <!-- (Aap mazeed gallery items isi tarah add kar sakte hain, bas unhe unki class 'bachpan', 'jawani', 'cricket', 'politics' ke mutabiq categorize karein) -->
+            <!-- Dynamic grid populated via JavaScript -->
+            <div class="dynamic-photo-grid" id="photo-grid-container"></div>
         </div>
+
     </section>
+
     <!-- Achievements Grid Section -->
     <section class="achievements-section" id="achievements">
         <h2 class="section-title">Achievements</h2>
