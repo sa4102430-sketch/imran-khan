@@ -1754,46 +1754,372 @@ justify-content: center !important;
             mobileMenu.addEventListener('click', toggleMenu);
             if (overlayMask) {
                 overlayMask.addEventListener('click', toggleMenu);
+<!-- Upgraded Fullscreen Interactive Script -->
+    <script>
+        // --- 1. Variable Declarations ---
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+        const overlayMask = document.getElementById('overlay-mask');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        // Gallery Elements
+        const gallerySection = document.querySelector('.gallery-section');
+        const viewHome = document.getElementById('view-home');
+        const viewCategories = document.getElementById('view-categories');
+        const viewGrid = document.getElementById('view-grid');
+
+        const btnGoToCategories = document.getElementById('go-to-categories');
+        const btnBackToHome = document.getElementById('back-to-home');
+        const btnBackToCategories = document.getElementById('back-to-categories');
+
+        const categoryRows = document.querySelectorAll('.category-row');
+        const dynamicTitle = document.getElementById('dynamic-grid-title');
+        const dynamicDesc = document.getElementById('dynamic-grid-desc');
+        const photoGridContainer = document.getElementById('photo-grid-container');
+
+        // --- 2. Dynamic Photos Database ---
+        const photosDatabase = {
+            bachpan: [
+                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "Early childhood years" },
+                { src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400", title: "With family in Lahore" },
+                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "At Cathedral School" }
+            ],
+            jawani: [
+                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "Oxford Student Days" },
+                { src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400", title: "College Sports Star" },
+                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "Early Cricket Days" }
+            ],
+            cricket: [
+                { src: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=400", title: "Lifting 1992 World Cup" },
+                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "Fierce Bowling Spell" },
+                { src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400", title: "With Cornered Tigers" }
+            ],
+            political: [
+                { src: "https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&q=80&w=400", title: "UN General Assembly speech" },
+                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "Historic Jalsa at Minar-e-Pakistan" },
+                { src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400", title: "Welfare Ehsaas Launch" }
+            ]
+        };
+
+        // --- 3. View Switcher Animation Helper (Handles Fullscreen State) ---
+        function switchView(fromView, toView, makeFullscreen) {
+            // Null check to prevent fatal crashes if any element is missing in HTML
+            if (!fromView || !toView) return; 
+
+            fromView.style.opacity = '0';
+            fromView.style.transform = 'translateY(12px)';
+            setTimeout(() => {
+                fromView.style.display = 'none';
+                toView.style.display = 'block';
+                toView.style.opacity = '0';
+                toView.style.transform = 'translateY(12px)';
+                
+                // Toggle Fullscreen state safely
+                if (gallerySection) {
+                    if (makeFullscreen) {
+                        gallerySection.classList.add('fullscreen');
+                        document.body.style.overflow = 'hidden'; 
+                    } else {
+                        gallerySection.classList.remove('fullscreen');
+                        document.body.style.overflow = ''; 
+                    }
+                }
+
+                setTimeout(() => {
+                    toView.style.opacity = '1';
+                    toView.style.transform = 'translateY(0)';
+                }, 50);
+            }, 250);
+        }
+
+        // --- 4. Interactive Navigation Controllers (With Safety Checks) ---
+        if (btnGoToCategories && viewHome && viewCategories) {
+            btnGoToCategories.addEventListener('click', () => {
+                switchView(viewHome, viewCategories, true);
+            });
+        }
+
+        if (btnBackToHome && viewCategories && viewHome) {
+            btnBackToHome.addEventListener('click', () => {
+                switchView(viewCategories, viewHome, false);
+            });
+        }
+
+        if (btnBackToCategories && viewGrid && viewCategories) {
+            btnBackToCategories.addEventListener('click', () => {
+                switchView(viewGrid, viewCategories, true);
+            });
+        }
+
+        // --- 5. Category Selection & Dynamic Grid Population ---
+        if (categoryRows.length > 0) {
+            categoryRows.forEach(row => {
+                row.addEventListener('click', () => {
+                    const category = row.getAttribute('data-category');
+                    const catNameElement = row.querySelector('.category-name');
+                    if (!catNameElement) return;
+
+                    const catName = catNameElement.textContent;
+                    
+                    // Update dynamic titles safely
+                    if (dynamicTitle) dynamicTitle.textContent = catName;
+                    if (dynamicDesc) dynamicDesc.textContent = `Historic moments from Imran Khan's iconic ${catName.toLowerCase()} journey.`;
+
+                    // Generate photo grid content safely
+                    if (photoGridContainer) {
+                        photoGridContainer.innerHTML = '';
+                        const photos = photosDatabase[category] || [];
+                        
+                        photos.forEach(photo => {
+                            const photoItem = document.createElement('div');
+                            photoItem.className = 'grid-photo-item';
+                            photoItem.innerHTML = `
+                                <img src="${photo.src}" alt="${photo.title}">
+                                <div class="gallery-overlay">
+                                    <span>${photo.title}</span>
+                                </div>
+                            `;
+                            photoGridContainer.appendChild(photoItem);
+                        });
+                    }
+
+                    // Transition screen safely
+                    if (viewCategories && viewGrid) {
+                        switchView(viewCategories, viewGrid, true);
+                    }
+                });
+            });
+        }
+
+        // --- 6. Mobile Menu & Navigation Logic ---
+        if (mobileMenu && navMenu) {
+            function toggleMenu() {
+                mobileMenu.classList.toggle('open');
+                navMenu.classList.toggle('active');
+                
+                if (overlayMask) {
+                    if (navMenu.classList.contains('active')) {
+                        overlayMask.style.display = 'block';
+                    } else {
+                        overlayMask.style.display = 'none';
+                    }
+                }
+            }
+
+            mobileMenu.addEventListener('click', toggleMenu);
+            if (overlayMask) {
+                overlayMask.addEventListener('click', toggleMenu);
             }
         }
 
-        // --- 7. Smooth Scrolling & Menu Auto-Closing Logic ---
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                const targetId = link.getAttribute('href');
+        // --- 7. Smooth Scrolling & Menu Auto-Closing Logic (Safe from '#' Error) ---
+        if (navLinks.length > 0) {
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const targetId = link.getAttribute('href');
 
-                if (targetId && targetId.startsWith('#')) {
-                    e.preventDefault();
+<!-- Upgraded Fullscreen Interactive Script -->
+    <script>
+        // --- 1. Variable Declarations ---
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+        const overlayMask = document.getElementById('overlay-mask');
+        const navLinks = document.querySelectorAll('.nav-links a');
 
-                    // If user was inside deep gallery view, reset it back to home preview quietly
-                    if (viewHome) {
-                        viewHome.style.display = 'block';
-                        viewHome.style.opacity = '1';
-                        viewHome.style.transform = 'translateY(0)';
-                    }
-                    if (viewCategories) viewCategories.style.display = 'none';
-                    if (viewGrid) viewGrid.style.display = 'none';
+        // Gallery Elements
+        const gallerySection = document.querySelector('.gallery-section');
+        const viewHome = document.getElementById('view-home');
+        const viewCategories = document.getElementById('view-categories');
+        const viewGrid = document.getElementById('view-grid');
 
-                    // Close menu
-                    if (mobileMenu) mobileMenu.classList.remove('open');
-                    if (navMenu) navMenu.classList.remove('active');
-                    if (overlayMask) overlayMask.style.display = 'none';
+        const btnGoToCategories = document.getElementById('go-to-categories');
+        const btnBackToHome = document.getElementById('back-to-home');
+        const btnBackToCategories = document.getElementById('back-to-categories');
 
-                    navLinks.forEach(item => item.style.color = 'var(--text-gray)');
-                    link.style.color = 'var(--white)';
+        const categoryRows = document.querySelectorAll('.category-row');
+        const dynamicTitle = document.getElementById('dynamic-grid-title');
+        const dynamicDesc = document.getElementById('dynamic-grid-desc');
+        const photoGridContainer = document.getElementById('photo-grid-container');
 
-                    const targetSection = document.querySelector(targetId);
-                    if (targetSection) {
-                        setTimeout(() => {
-                            targetSection.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
-                        }, 150);
+        // --- 2. Dynamic Photos Database ---
+        const photosDatabase = {
+            bachpan: [
+                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "Early childhood years" },
+                { src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400", title: "With family in Lahore" },
+                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "At Cathedral School" }
+            ],
+            jawani: [
+                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "Oxford Student Days" },
+                { src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400", title: "College Sports Star" },
+                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "Early Cricket Days" }
+            ],
+            cricket: [
+                { src: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=400", title: "Lifting 1992 World Cup" },
+                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "Fierce Bowling Spell" },
+                { src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400", title: "With Cornered Tigers" }
+            ],
+            political: [
+                { src: "https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&q=80&w=400", title: "UN General Assembly speech" },
+                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "Historic Jalsa at Minar-e-Pakistan" },
+                { src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400", title: "Welfare Ehsaas Launch" }
+            ]
+        };
+
+        // --- 3. View Switcher Animation Helper (Handles Fullscreen State) ---
+        function switchView(fromView, toView, makeFullscreen) {
+            // Null check to prevent fatal crashes if any element is missing in HTML
+            if (!fromView || !toView) return; 
+
+            fromView.style.opacity = '0';
+            fromView.style.transform = 'translateY(12px)';
+            setTimeout(() => {
+                fromView.style.display = 'none';
+                toView.style.display = 'block';
+                toView.style.opacity = '0';
+                toView.style.transform = 'translateY(12px)';
+                
+                // Toggle Fullscreen state safely
+                if (gallerySection) {
+                    if (makeFullscreen) {
+                        gallerySection.classList.add('fullscreen');
+                        document.body.style.overflow = 'hidden'; 
+                    } else {
+                        gallerySection.classList.remove('fullscreen');
+                        document.body.style.overflow = ''; 
                     }
                 }
+
+                setTimeout(() => {
+                    toView.style.opacity = '1';
+                    toView.style.transform = 'translateY(0)';
+                }, 50);
+            }, 250);
+        }
+
+        // --- 4. Interactive Navigation Controllers (With Safety Checks) ---
+        if (btnGoToCategories && viewHome && viewCategories) {
+            btnGoToCategories.addEventListener('click', () => {
+                switchView(viewHome, viewCategories, true);
             });
-        });
+        }
+
+        if (btnBackToHome && viewCategories && viewHome) {
+            btnBackToHome.addEventListener('click', () => {
+                switchView(viewCategories, viewHome, false);
+            });
+        }
+
+        if (btnBackToCategories && viewGrid && viewCategories) {
+            btnBackToCategories.addEventListener('click', () => {
+                switchView(viewGrid, viewCategories, true);
+            });
+        }
+
+        // --- 5. Category Selection & Dynamic Grid Population ---
+        if (categoryRows.length > 0) {
+            categoryRows.forEach(row => {
+                row.addEventListener('click', () => {
+                    const category = row.getAttribute('data-category');
+                    const catNameElement = row.querySelector('.category-name');
+                    if (!catNameElement) return;
+
+                    const catName = catNameElement.textContent;
+                    
+                    // Update dynamic titles safely
+                    if (dynamicTitle) dynamicTitle.textContent = catName;
+                    if (dynamicDesc) dynamicDesc.textContent = `Historic moments from Imran Khan's iconic ${catName.toLowerCase()} journey.`;
+
+                    // Generate photo grid content safely
+                    if (photoGridContainer) {
+                        photoGridContainer.innerHTML = '';
+                        const photos = photosDatabase[category] || [];
+                        
+                        photos.forEach(photo => {
+                            const photoItem = document.createElement('div');
+                            photoItem.className = 'grid-photo-item';
+                            photoItem.innerHTML = `
+                                <img src="${photo.src}" alt="${photo.title}">
+                                <div class="gallery-overlay">
+                                    <span>${photo.title}</span>
+                                </div>
+                            `;
+                            photoGridContainer.appendChild(photoItem);
+                        });
+                    }
+
+                    // Transition screen safely
+                    if (viewCategories && viewGrid) {
+                        switchView(viewCategories, viewGrid, true);
+                    }
+                });
+            });
+        }
+
+        // --- 6. Mobile Menu & Navigation Logic ---
+        if (mobileMenu && navMenu) {
+            function toggleMenu() {
+                mobileMenu.classList.toggle('open');
+                navMenu.classList.toggle('active');
+                
+                if (overlayMask) {
+                    if (navMenu.classList.contains('active')) {
+                        overlayMask.style.display = 'block';
+                    } else {
+                        overlayMask.style.display = 'none';
+                    }
+                }
+            }
+
+            mobileMenu.addEventListener('click', toggleMenu);
+            if (overlayMask) {
+                overlayMask.addEventListener('click', toggleMenu);
+            }
+        }
+
+        // --- 7. Smooth Scrolling & Menu Auto-Closing Logic (Safe from '#' Error) ---
+        if (navLinks.length > 0) {
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const targetId = link.getAttribute('href');
+
+                    // Safe check to prevent document.querySelector('#') syntax error
+                    if (targetId && targetId.startsWith('#') && targetId !== '#') {
+                        e.preventDefault();
+
+                        // Reset gallery views safely if active
+                        if (viewHome) {
+                            viewHome.style.display = 'block';
+                            viewHome.style.opacity = '1';
+                            viewHome.style.transform = 'translateY(0)';
+                        }
+                        if (viewCategories) viewCategories.style.display = 'none';
+                        if (viewGrid) viewGrid.style.display = 'none';
+
+                        // Close menu safely
+                        if (mobileMenu) mobileMenu.classList.remove('open');
+                        if (navMenu) navMenu.classList.remove('active');
+                        if (overlayMask) overlayMask.style.display = 'none';
+
+                        navLinks.forEach(item => item.style.color = 'var(--text-gray)');
+                        link.style.color = 'var(--white)';
+
+                        try {
+                            const targetSection = document.querySelector(targetId);
+                            if (targetSection) {
+                                setTimeout(() => {
+                                    targetSection.scrollIntoView({
+                                        behavior: 'smooth',
+                                        block: 'start'
+                                    });
+                                }, 150);
+                            }
+                        } catch (err) {
+                            console.log("Selector error caught safely:", err);
+                        }
+                    }
+                });
+            });
+        }
     </script>
 </body>
 </html>
