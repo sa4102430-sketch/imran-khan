@@ -1978,88 +1978,9 @@ justify-content: center !important;
                         document.body.style.overflow = ''; 
                     }
                 }
+</style>
 
-                setTimeout(() => {
-                    toView.style.opacity = '1';
-                    toView.style.transform = 'translateY(0)';
-                }, 50);
-            }, 250);
-        }
 
-        // --- 4. Interactive Navigation Controllers (With Safety Checks) ---
-        if (btnGoToCategories && viewHome && viewCategories) {
-            btnGoToCategories.addEventListener('click', () => {
-                switchView(viewHome, viewCategories, true);
-            });
-        }
-
-        if (btnBackToHome && viewCategories && viewHome) {
-            btnBackToHome.addEventListener('click', () => {
-                switchView(viewCategories, viewHome, false);
-            });
-        }
-
-        if (btnBackToCategories && viewGrid && viewCategories) {
-            btnBackToCategories.addEventListener('click', () => {
-                switchView(viewGrid, viewCategories, true);
-            });
-        }
-
-        // --- 5. Category Selection & Dynamic Grid Population ---
-        if (categoryRows.length > 0) {
-            categoryRows.forEach(row => {
-                row.addEventListener('click', () => {
-                    const category = row.getAttribute('data-category');
-                    const catNameElement = row.querySelector('.category-name');
-                    if (!catNameElement) return;
-
-                    const catName = catNameElement.textContent;
-                    
-                    // Update dynamic titles safely
-                    if (dynamicTitle) dynamicTitle.textContent = catName;
-                    if (dynamicDesc) dynamicDesc.textContent = `Historic moments from Imran Khan's iconic ${catName.toLowerCase()} journey.`;
-
-                    // Generate photo grid content safely
-                    if (photoGridContainer) {
-                        photoGridContainer.innerHTML = '';
-                        const photos = photosDatabase[category] || [];
-                        
-                        photos.forEach(photo => {
-                            const photoItem = document.createElement('div');
-                            photoItem.className = 'grid-photo-item';
-                            photoItem.innerHTML = `
-                                <img src="${photo.src}" alt="${photo.title}">
-                                <div class="gallery-overlay">
-                                    <span>${photo.title}</span>
-                                </div>
-                            `;
-                            photoGridContainer.appendChild(photoItem);
-                        });
-                    }
-
-                    // Transition screen safely
-                    if (viewCategories && viewGrid) {
-                        switchView(viewCategories, viewGrid, true);
-                    }
-                });
-            });
-        }
-
-        // --- 6. Mobile Menu & Navigation Logic ---
-        if (mobileMenu && navMenu) {
-            function toggleMenu() {
-                mobileMenu.classList.toggle('open');
-                navMenu.classList.toggle('active');
-                
-                if (overlayMask) {
-                    if (navMenu.classList.contains('active')) {
-                        overlayMask.style.display = 'block';
-                    } else {
-                        overlayMask.style.display = 'none';
-                    }
-                }
-            }
-</script>
          
 </body>
 </html>
