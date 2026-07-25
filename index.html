@@ -1313,76 +1313,100 @@ justify-content: center !important;
     </footer>
 
     <!-- JavaScript to Handle Hamburger Menu Drawer Toggle & Overlay -->
+<!-- Complete Error-Free Script (Paste at the very bottom) -->
     <script>
+        // --- 1. Variable Declarations (Declared strictly once to prevent crashes) ---
         const mobileMenu = document.getElementById('mobile-menu');
         const navMenu = document.getElementById('nav-menu');
         const overlayMask = document.getElementById('overlay-mask');
-
-        function toggleMenu() {
-            mobileMenu.classList.toggle('open');
-            navMenu.classList.toggle('active');
-            
-            // Toggle overlay show/hide
-            if (navMenu.classList.contains('active')) {
-                overlayMask.style.display = 'block';
-            } else {
-                overlayMask.style.display = 'none';
-            }
-        }
-
-        mobileMenu.addEventListener('click', toggleMenu);
-        overlayMask.addEventListener('click', toggleMenu);
-
-        // Close menu automatically on clicking any navigation link
         const navLinks = document.querySelectorAll('.nav-links a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
-                navMenu.classList.remove('active');
-                overlayMask.style.display = 'none';
-                
-                // Set active typography color state
-                navLinks.forEach(item => item.style.color = 'var(--text-gray)');
-                link.style.color = 'var(--white)';
-            });
-        });
-        navLinks.forEach(item => item.style.color = 'var(--text-gray)');
-                link.style.color = 'var(--white)';
-            });
-        });
-
-        // --- Gallery Filtering Logic ---
+        
         const tabBtns = document.querySelectorAll('.tab-btn');
         const galleryItems = document.querySelectorAll('.gallery-item');
 
-        tabBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all buttons
-                tabBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                const filterValue = btn.getAttribute('data-filter');
-
-                galleryItems.forEach(item => {
-                    item.style.transition = 'all 0.3s ease';
-                    if (filterValue === 'all' || item.classList.contains(filterValue)) {
-                        item.style.display = 'block';
-                        setTimeout(() => {
-                            item.style.opacity = '1';
-                            item.style.transform = 'scale(1)';
-                        }, 50);
+        // --- 2. Mobile Menu Open/Close Logic (3-Lines Click) ---
+        if (mobileMenu && navMenu) {
+            function toggleMenu() {
+                mobileMenu.classList.toggle('open');
+                navMenu.classList.toggle('active');
+                
+                // Toggle black background overlay mask safely
+                if (overlayMask) {
+                    if (navMenu.classList.contains('active')) {
+                        overlayMask.style.display = 'block';
                     } else {
-                        item.style.opacity = '0';
-                        item.style.transform = 'scale(0.8)';
-                        setTimeout(() => {
-                            item.style.display = 'none';
-                        }, 300);
+                        overlayMask.style.display = 'none';
                     }
-                });
+                }
+            }
+
+            mobileMenu.addEventListener('click', toggleMenu);
+            if (overlayMask) {
+                overlayMask.addEventListener('click', toggleMenu);
+            }
+        }
+
+        // --- 3. Smooth Scrolling & Menu Auto-Closing Logic ---
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const targetId = link.getAttribute('href');
+
+                // Check if it's a valid local anchor link
+                if (targetId && targetId.startsWith('#')) {
+                    e.preventDefault(); // Stop instant jump
+
+                    // Close the mobile menu smoothly
+                    if (mobileMenu) mobileMenu.classList.remove('open');
+                    if (navMenu) navMenu.classList.remove('active');
+                    if (overlayMask) overlayMask.style.display = 'none';
+
+                    // Update active link color state
+                    navLinks.forEach(item => item.style.color = 'var(--text-gray)');
+                    link.style.color = 'var(--white)';
+
+                    // Smoothly scroll to the target section
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        setTimeout(() => {
+                            targetSection.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }, 150); // Small delay to let menu transition close first
+                    }
+                }
             });
         });
 
-    </script>
+        // --- 4. Gallery Tab Filtering Logic ---
+        if (tabBtns.length > 0 && galleryItems.length > 0) {
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active button state
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    galleryItems.forEach(item => {
+                        item.style.transition = 'all 0.3s ease';
+                        if (filterValue === 'all' || item.classList.contains(filterValue)) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'scale(1)';
+                            }, 50);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'scale(0.8)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        }
     </script>
 </body>
 </html>
