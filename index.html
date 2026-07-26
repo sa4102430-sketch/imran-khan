@@ -825,6 +825,26 @@
             margin-right: 5px;
         }
 
+        .tribute-delete-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            color: #ef4444; /* Premium red */
+            padding: 5px 12px;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .tribute-delete-btn:hover {
+            background-color: rgba(239, 68, 68, 0.1);
+            border-color: #ef4444;
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.2);
+        }
+
         .tribute-form-container {
             max-width: 550px;
             margin: 0 auto 60px auto; /* Form now placed on top cleanly */
@@ -864,10 +884,30 @@
             border-radius: 4px;
             outline: none;
             font-size: 0.9rem;
+            transition: border-color 0.3s;
         }
 
         .form-group input:focus, .form-group textarea:focus {
             border-color: var(--parrot-green);
+            box-shadow: 0 0 10px rgba(27, 242, 91, 0.2);
+        }
+
+        .form-group button {
+            background-color: var(--parrot-green);
+            color: var(--bg-dark);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-group button:hover {
+            background-color: var(--white);
+            color: var(--bg-dark);
         }
 
         /* Toast Success Notification (Instead of Cheap Popups) */
@@ -1257,7 +1297,7 @@
         </div>
     </section>
 
-    <!-- New Upgraded Premium Photo Gallery Section -->
+    <!-- New Upgraded Premium Photo Gallery Section (With Sub-categories Complete) -->
     <section class="gallery-section" id="gallery">
         
         <!-- ================= SCREEN 1: HOME PREVIEW ================= -->
@@ -1358,7 +1398,7 @@
             </div>
             <p class="section-desc">The official verified cricketing records of Imran Khan's international career.</p>
 
-            <!-- Premium Stats Cards inserted inside the Page! -->
+            <!-- Premium Stats Cards -->
             <div class="stats-premium-container">
                 <!-- Test Career Card -->
                 <div class="stats-card">
@@ -1422,9 +1462,42 @@
             </div>
         </div>
 
+        <!-- ================= SCREEN 5: ACHIEVEMENTS & INITIATIVES VIEW ================= -->
+        <div class="gallery-view" id="view-achievements" style="display: none;">
+            <div class="gallery-header">
+                <button class="gallery-back-btn" id="back-achievements-to-home"><i class="fa-solid fa-arrow-left"></i></button>
+                <h2 class="section-title">ACHIEVEMENTS</h2>
+            </div>
+            <div class="premium-divider">
+                <span class="line left"></span>
+                <span class="flower">✿</span>
+                <span class="line right"></span>
+            </div>
+            <p class="section-desc">Key social, environmental, and welfare reforms initiated to support the common people of Pakistan.</p>
+
+            <div class="achievements-grid">
+                <div class="achievement-item">
+                    <i class="fa-solid fa-leaf"></i>
+                    <h4>Ten Billion Tree Tsunami</h4>
+                </div>
+                <div class="achievement-item">
+                    <i class="fa-solid fa-file-medical"></i>
+                    <h4>Universal Sehat Card</h4>
+                </div>
+                <div class="achievement-item">
+                    <i class="fa-solid fa-hand-holding-hand"></i>
+                    <h4>Ehsaas Welfare Project</h4>
+                </div>
+                <div class="achievement-item">
+                    <i class="fa-solid fa-hospital-user"></i>
+                    <h4>Cancer Hospital Networks</h4>
+                </div>
+            </div>
+        </div>
+
     </section>
 
-    <!-- Achievements & Initiatives Section -->
+    <!-- Achievements Section on Home (Cleaned Up) -->
     <section class="achievements-section" id="achievements">
         <h2 class="section-title">Achievements</h2>
         
@@ -1436,27 +1509,15 @@
         
         <p class="section-desc">Key social, environmental, and welfare reforms initiated to support the common people of Pakistan.</p>
         
-        <div class="achievements-grid">
-            <div class="achievement-item">
-                <i class="fa-solid fa-leaf"></i>
-                <h4>Ten Billion Tree Tsunami</h4>
-            </div>
-            <div class="achievement-item">
-                <i class="fa-solid fa-file-medical"></i>
-                <h4>Universal Sehat Card</h4>
-            </div>
-            <div class="achievement-item">
-                <i class="fa-solid fa-hand-holding-hand"></i>
-                <h4>Ehsaas Welfare Project</h4>
-            </div>
-            <div class="achievement-item">
-                <i class="fa-solid fa-hospital-user"></i>
-                <h4>Cancer Hospital Networks</h4>
-            </div>
+        <!-- Explore Achievements Button Component -->
+        <div style="text-align: center; margin-top: 35px;">
+            <button class="btn-primary" id="open-achievements-sub" style="display: inline-flex; align-items: center; gap: 8px;">
+                Explore More <i class="fa-solid fa-arrow-right"></i>
+            </button>
         </div>
     </section>
 
-    <!-- Premium Reviews & Tributes Section (With dynamic submitted reviews only) -->
+    <!-- Premium Reviews & Tributes Section (With Persistent User Submissions Only) -->
     <section class="tributes-section" id="tributes">
         <h2 class="section-title">Reviews & Tributes</h2>
         <div class="premium-divider">
@@ -1488,7 +1549,7 @@
             </form>
         </div>
 
-        <!-- Clean empty grid ready for dynamic tributes below -->
+        <!-- Clean empty grid ready for dynamic & persistent tributes below -->
         <div class="tributes-grid" id="tributes-container"></div>
     </section>
 
@@ -1520,10 +1581,10 @@
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2026 Imran Khan - All Rights Reserved.</p>
-            <!-- Premium Saad Ali Signature -->
+            <p>&copy; 2026 Imran Khan - all rights reserved.</p>
+            <!-- Premium Saad Ali Signature (Slightly highlighted) -->
             <div class="developer-signature">
-                Developed with passion by <span class="dev-name">Saad Ali</span>
+                Developed by <span class="dev-name">Saad Ali</span>
             </div>
         </div>
     </footer>
@@ -1542,6 +1603,7 @@
         const viewCategories = document.getElementById('view-categories');
         const viewGrid = document.getElementById('view-grid');
         const viewStats = document.getElementById('view-stats');
+        const viewAchievements = document.getElementById('view-achievements');
 
         const btnGoToCategories = document.getElementById('go-to-categories');
         const btnBackToHome = document.getElementById('back-to-home');
@@ -1551,6 +1613,10 @@
         const btnOpenCricketStats = document.getElementById('open-cricket-stats');
         const btnBackStatsToHome = document.getElementById('back-stats-to-home');
         const btnGoToCricketGallery = document.getElementById('go-to-cricket-gallery');
+
+        // Achievements Navigation Buttons
+        const btnOpenAchievementsSub = document.getElementById('open-achievements-sub');
+        const btnBackAchievementsToHome = document.getElementById('back-achievements-to-home');
 
         const categoryRows = document.querySelectorAll('.category-row');
         const dynamicTitle = document.getElementById('dynamic-grid-title');
@@ -1657,7 +1723,6 @@
         // --- 5. New Cricket Stats Views Controller ---
         const handleOpenCricketStats = () => {
             if (viewHome && viewStats) {
-                // Scroll straight to the gallery section cleanly first
                 const targetGallery = document.getElementById('gallery');
                 if (targetGallery) {
                     targetGallery.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1688,19 +1753,49 @@
             });
         }
 
-        // --- 6. View Cricket Gallery Trigger Controller ---
+        // --- 6. Achievements Sub-view Controllers ---
+        const handleOpenAchievements = () => {
+            if (viewHome && viewAchievements) {
+                const targetGallery = document.getElementById('gallery');
+                if (targetGallery) {
+                    targetGallery.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                switchView(viewHome, viewAchievements, true);
+            }
+        };
+
+        if (btnOpenAchievementsSub) {
+            btnOpenAchievementsSub.addEventListener('click', handleOpenAchievements);
+            btnOpenAchievementsSub.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                handleOpenAchievements();
+            });
+        }
+
+        const handleBackAchievementsToHome = () => {
+            if (viewAchievements && viewHome) {
+                switchView(viewAchievements, viewHome, false);
+            }
+        };
+
+        if (btnBackAchievementsToHome) {
+            btnBackAchievementsToHome.addEventListener('click', handleBackAchievementsToHome);
+            btnBackAchievementsToHome.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                handleBackAchievementsToHome();
+            });
+        }
+
+        // --- 7. View Cricket Gallery Trigger Controller ---
         const handleCricketGalleryNav = () => {
             if (viewHome && viewCategories) {
-                // Scroll straight to the gallery section cleanly first
                 const targetGallery = document.getElementById('gallery');
                 if (targetGallery) {
                     targetGallery.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
                 
-                // Open Categories View
                 switchView(viewHome, viewCategories, true);
                 
-                // Automatically click Cricket Row inside categories list with a tiny delay
                 setTimeout(() => {
                     const cricketRow = document.querySelector('.category-row[data-category="cricket"]');
                     if (cricketRow) cricketRow.click();
@@ -1716,7 +1811,7 @@
             });
         }
 
-        // --- 7. Category Selection & Dynamic Grid Population ---
+        // --- 8. Category Selection & Dynamic Grid Population ---
         if (categoryRows.length > 0) {
             categoryRows.forEach(row => {
                 const handleCategoryClick = () => {
@@ -1759,7 +1854,7 @@
             });
         }
 
-        // --- 8. Mobile Menu & Navigation Logic (With touchstart fallback) ---
+        // --- 9. Mobile Menu & Navigation Logic (With touchstart fallback) ---
         if (mobileMenu && navMenu) {
             function toggleMenu(e) {
                 if (e) e.preventDefault();
@@ -1784,7 +1879,7 @@
             }
         }
 
-        // --- 9. Smooth Scrolling & Menu Auto-Closing Logic ---
+        // --- 10. Smooth Scrolling & Menu Auto-Closing Logic ---
         if (navLinks.length > 0) {
             navLinks.forEach(link => {
                 const handleLinkClick = (e) => {
@@ -1801,6 +1896,7 @@
                         if (viewCategories) viewCategories.style.display = 'none';
                         if (viewGrid) viewGrid.style.display = 'none';
                         if (viewStats) viewStats.style.display = 'none';
+                        if (viewAchievements) viewAchievements.style.display = 'none';
 
                         if (mobileMenu) mobileMenu.classList.remove('open');
                         if (navMenu) navMenu.classList.remove('active');
@@ -1832,12 +1928,12 @@
             });
         }
 
-        // --- 10. Interactive Tribute Form Submission (With Premium Toast Notification & Auto-Reply) ---
+        // --- 11. Persistent Tribute Form Submission & Deletion Logic (With Premium Toast Notification & LocalStorage) ---
         const tributeForm = document.getElementById('tribute-form');
         const tributesContainer = document.getElementById('tributes-container');
 
         // Dynamic Toast Notification Trigger (Instead of cheap browser popups)
-        function showPremiumToast(name) {
+        function showPremiumToast(title, message) {
             let toast = document.getElementById('success-toast');
             if (!toast) {
                 toast = document.createElement('div');
@@ -1849,8 +1945,8 @@
             toast.innerHTML = `
                 <div class="toast-icon"><i class="fa-solid fa-circle-check"></i></div>
                 <div class="toast-body">
-                    <h5>JazakAllah, ${name}!</h5>
-                    <p>Thank you for your beautiful tribute. 🙏💚</p>
+                    <h5>${title}</h5>
+                    <p>${message}</p>
                 </div>
             `;
             
@@ -1863,7 +1959,47 @@
             }, 4200); // Auto-dismisses smoothly after 4 seconds
         }
 
+        // Load reviews from localStorage on load
+        let savedTributes = JSON.parse(localStorage.getItem('user_tributes')) || [];
+
+        function renderTributes() {
+            if (!tributesContainer) return;
+            tributesContainer.innerHTML = '';
+            
+            savedTributes.forEach((tribute, index) => {
+                const card = document.createElement('div');
+                card.className = 'tribute-card';
+                card.innerHTML = `
+                    <p class="tribute-quote">"${tribute.message}"</p>
+                    <h4 class="tribute-author">${tribute.name}</h4>
+                    <p class="tribute-role">${tribute.role}</p>
+                    <p class="tribute-date"><i class="fa-regular fa-clock"></i> ${tribute.date}</p>
+                    <div class="tribute-reply">
+                        <p><i class="fa-solid fa-reply"></i> <strong>Official Reply:</strong> Thank you for your beautiful tribute! Your support keeps the movement strong. 🙏💚</p>
+                    </div>
+                    <!-- Delete Button for user to delete their review -->
+                    <button class="tribute-delete-btn" onclick="deleteTribute(${index})">
+                        <i class="fa-solid fa-trash"></i> Delete
+                    </button>
+                `;
+                tributesContainer.appendChild(card);
+            });
+        }
+
+        // Global Delete function
+        window.deleteTribute = function(index) {
+            if (confirm("Are you sure you want to delete this tribute?")) {
+                savedTributes.splice(index, 1);
+                localStorage.setItem('user_tributes', JSON.stringify(savedTributes));
+                renderTributes();
+                showPremiumToast("Tribute Deleted", "Your tribute was removed successfully. 👋");
+            }
+        };
+
         if (tributeForm && tributesContainer) {
+            // Render on page load
+            renderTributes();
+
             tributeForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 
@@ -1877,25 +2013,17 @@
                                    ' at ' + 
                                    now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
 
-                // Create a new premium card element with automatic reply & emoji
-                const card = document.createElement('div');
-                card.className = 'tribute-card';
-                card.innerHTML = `
-                    <p class="tribute-quote">"${message}"</p>
-                    <h4 class="tribute-author">${name}</h4>
-                    <p class="tribute-role">${role}</p>
-                    <p class="tribute-date"><i class="fa-regular fa-clock"></i> ${dateTimeStr}</p>
-                    <div class="tribute-reply">
-                        <p><i class="fa-solid fa-reply"></i> <strong>Official Reply:</strong> Thank you for your beautiful tribute! Your support keeps the movement strong. 🙏💚</p>
-                    </div>
-                `;
-
-                // Prepend and animate dynamically
-                tributesContainer.prepend(card);
+                // Save to local database
+                const newTribute = { name, role, message, date: dateTimeStr };
+                savedTributes.unshift(newTribute);
+                localStorage.setItem('user_tributes', JSON.stringify(savedTributes));
+                
+                // Render UI
+                renderTributes();
                 tributeForm.reset();
                 
                 // Trigger the beautiful slide-in toast notification instead of browser alert
-                showPremiumToast(name);
+                showPremiumToast("JazakAllah, " + name + "!", "Thank you for your beautiful tribute. 🙏💚");
             });
         }
     </script>
