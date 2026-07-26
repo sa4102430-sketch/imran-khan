@@ -24,7 +24,7 @@
             background-color: #060907;
             color: #ffffff;
             font-family: 'Poppins', sans-serif;
-            line-height: 1.8;
+            line-height: 1.7;
         }
 
         :root {
@@ -163,7 +163,7 @@
             width: 100%;
         }
 
-        /* Donate Button styling */
+        /* Donate/Movement Button styling */
         .btn-donate {
             background-color: transparent;
             color: var(--white) !important;
@@ -215,7 +215,7 @@
             z-index: 998;
         }
 
-        /* Hero Section Styling */
+        /* Hero Section Styling (Matches Mockup Perfectly) */
         .hero {
             display: flex;
             align-items: center;
@@ -242,24 +242,29 @@
 
         .hero-content {
             flex: 1.2;
+            text-align: center; /* Centered layout matching your mockup */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .hero-title {
             font-family: var(--font-headings);
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             font-weight: 900;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             line-height: 1.1;
+            color: var(--white);
         }
 
         .hero-subtitle {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: var(--parrot-green);
             font-weight: 600;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             text-transform: uppercase;
             text-shadow: 0 0 10px rgba(27, 242, 91, 0.3);
-            margin-bottom: 5px !important; /* Visual spacing aligned with the divider */
+            margin-bottom: 5px !important; 
         }
 
         .hero .premium-divider {
@@ -274,31 +279,7 @@
             color: var(--text-gray);
             font-size: 0.95rem;
             margin-bottom: 30px;
-            max-width: 550px;
-        }
-
-        .btn-primary {
-            display: inline-block;
-            background-color: var(--parrot-green);
-            color: #060907;
-            padding: 12px 30px;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            border: none;
-            box-shadow: 0 4px 15px rgba(27, 242, 91, 0.3);
-            text-decoration: none;
-            text-align: center;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--white);
-            color: #060907;
-            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.4);
-            transform: translateY(-2px);
+            max-width: 560px;
         }
 
         /* Overview Section */
@@ -890,14 +871,15 @@
             <a href="#political-journey"><i class="fa-solid fa-landmark"></i> Politics</a>
             <a href="#gallery"><i class="fa-solid fa-images"></i> Gallery</a>
             <a href="#achievements"><i class="fa-solid fa-award"></i> Achievements</a>
-            <a href="#donate" class="btn-donate"><i class="fa-solid fa-heart-pulse"></i> Donate</a>
+            <!-- Donate button replaced with Join Movement -->
+            <a href="#political-journey" class="btn-donate"><i class="fa-solid fa-flag"></i> Join Movement</a>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-image">
-            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=450" alt="Imran Khan Portrait">
+            <img src="https://images.unsplash.com/photo-1610018556010-6a11691bc905?auto=format&fit=crop&q=80&w=450" alt="Imran Khan Portrait UNGA">
         </div>
         <div class="hero-content">
             <h1 class="hero-title">IMRAN KHAN</h1>
@@ -964,7 +946,7 @@
             </div>
             
             <p>Imran Khan Niazi was born on October 5, 1952, in Lahore into an affluent and highly educated Pashtun family of the Niazi clan. His father, Ikramullah Khan Niazi, was a prominent civil engineer, and his mother, Shaukat Khanum, descended from a noble Sufi family. Growing up as the only brother among four highly educated sisters in an upper-middle-class Lahore household, his early life was shaped by strong familial bonds and moral values.</p>
-            <p>He was enrolled at Lahore’s elite Cathedral School and subsequently the prestigious Aitchison College, where his raw athletic capabilities made him a natural superstar in swimming, hockey, and cricket. At a very young age, his dedication to perfection was evident to his peers and coaches alike.</p>
+            <p>He was enrolled at Lahore’s elite Cathedral School and subsequently the prestigious Aitchison College, where his raw athletic capabilities made him a natural superstar in sports. At a very young age, his dedication to perfection was evident to his peers and coaches alike.</p>
             <p>To further his academic pursuits, Imran moved to the United Kingdom, attending the Royal Grammar School Worcester. In 1972, he joined Keble College, Oxford, to read Philosophy, Politics, and Economics (PPE). Graduating in 1975, his years at Oxford played a monumental role in shaping his international worldview and refined his understanding of governance and socio-political systems, preparing him for the legendary struggles ahead.</p>
             
             <!-- Dedicated Early Life Image Placeholder -->
@@ -1057,6 +1039,13 @@
             <!-- Dedicated Cricket Image Placeholder -->
             <div class="section-image-container">
                 <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=700" alt="Imran Khan Holding 1992 World Cup Trophy">
+            </div>
+
+            <!-- New View Cricket Gallery Button Component -->
+            <div style="text-align: center; margin-top: 35px;">
+                <button class="btn-primary" id="go-to-cricket-gallery" style="display: inline-flex; align-items: center; gap: 8px;">
+                    View Cricket Gallery <i class="fa-solid fa-arrow-right"></i>
+                </button>
             </div>
         </div>
     </section>
@@ -1264,6 +1253,7 @@
         const btnGoToCategories = document.getElementById('go-to-categories');
         const btnBackToHome = document.getElementById('back-to-home');
         const btnBackToCategories = document.getElementById('back-to-categories');
+        const btnGoToCricketGallery = document.getElementById('go-to-cricket-gallery');
 
         const categoryRows = document.querySelectorAll('.category-row');
         const dynamicTitle = document.getElementById('dynamic-grid-title');
@@ -1366,7 +1356,35 @@
             });
         }
 
-        // --- 5. Category Selection & Dynamic Grid Population ---
+        // --- 5. View Cricket Gallery Trigger Controller ---
+        const handleCricketGalleryNav = () => {
+            if (viewHome && viewCategories) {
+                // Scroll straight to the gallery section cleanly first
+                const targetGallery = document.getElementById('gallery');
+                if (targetGallery) {
+                    targetGallery.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                
+                // Open Categories View
+                switchView(viewHome, viewCategories, true);
+                
+                // Automatically click Cricket Row inside categories list with a tiny delay
+                setTimeout(() => {
+                    const cricketRow = document.querySelector('.category-row[data-category="cricket"]');
+                    if (cricketRow) cricketRow.click();
+                }, 300);
+            }
+        };
+
+        if (btnGoToCricketGallery) {
+            btnGoToCricketGallery.addEventListener('click', handleCricketGalleryNav);
+            btnGoToCricketGallery.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                handleCricketGalleryNav();
+            });
+        }
+
+        // --- 6. Category Selection & Dynamic Grid Population ---
         if (categoryRows.length > 0) {
             categoryRows.forEach(row => {
                 const handleCategoryClick = () => {
@@ -1409,7 +1427,7 @@
             });
         }
 
-        // --- 6. Mobile Menu & Navigation Logic (With touchstart fallback) ---
+        // --- 7. Mobile Menu & Navigation Logic (With touchstart fallback) ---
         if (mobileMenu && navMenu) {
             function toggleMenu(e) {
                 if (e) e.preventDefault();
@@ -1434,7 +1452,7 @@
             }
         }
 
-        // --- 7. Smooth Scrolling & Menu Auto-Closing Logic ---
+        // --- 8. Smooth Scrolling & Menu Auto-Closing Logic ---
         if (navLinks.length > 0) {
             navLinks.forEach(link => {
                 const handleLinkClick = (e) => {
