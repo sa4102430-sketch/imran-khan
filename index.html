@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* General Reset to Prevent Stretched Screen / Scroll Bugs */
+        /* General Reset & Variables */
         * {
             margin: 0;
             padding: 0;
@@ -20,7 +20,7 @@
 
         html, body {
             width: 100%;
-            overflow-x: hidden; /* Prevents side-scrolling entirely */
+            overflow-x: hidden; /* Prevents horizontal scroll leaks */
             background-color: #060907;
             color: #ffffff;
             font-family: 'Poppins', sans-serif;
@@ -30,11 +30,12 @@
         :root {
             --bg-dark: #060907;
             --bg-card: #0c110e;
-            --parrot-green: #1bf25b; /* Parrot Green Accent */
+            --parrot-green: #1bf25b; /* Glowing Parrot Green */
             --white: #ffffff;
             --text-gray: #9ca3af;
             --border-color: rgba(27, 242, 91, 0.15);
             --font-headings: 'Cinzel', serif;
+            --font-body: 'Poppins', sans-serif;
         }
 
         /* Custom Scrollbar */
@@ -214,7 +215,7 @@
             z-index: 998;
         }
 
-        /* Hero Section */
+        /* Hero Section Styling */
         .hero {
             display: flex;
             align-items: center;
@@ -256,8 +257,17 @@
             color: var(--parrot-green);
             font-weight: 600;
             letter-spacing: 3px;
-            margin-bottom: 20px;
             text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(27, 242, 91, 0.3);
+            margin-bottom: 5px !important; /* Visual spacing aligned with the divider */
+        }
+
+        .hero .premium-divider {
+            margin-top: 0px !important;
+            margin-bottom: 20px !important;
+            justify-content: center !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
         }
 
         .hero-text {
@@ -387,43 +397,6 @@
             text-justify: inter-word;
         }
 
-        /* Stats Box in Cricket Section */
-        .stats-box {
-            display: flex;
-            border: 1px solid var(--border-color);
-            background-color: rgba(255, 255, 255, 0.02);
-            padding: 20px;
-            margin: 30px auto;
-            border-radius: 6px;
-            max-width: 600px;
-        }
-
-        .stat-item {
-            flex: 1;
-            text-align: center;
-            border-right: 1px solid var(--border-color);
-        }
-
-        .stat-item:last-child {
-            border-right: none;
-        }
-
-        .stat-number {
-            font-family: var(--font-headings);
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--parrot-green);
-            text-shadow: 0 0 8px rgba(27, 242, 91, 0.3);
-        }
-
-        .stat-label {
-            font-size: 0.75rem;
-            color: var(--text-gray);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 5px;
-        }
-
         /* Dedicated Image Container with Parrot Green Borders */
         .section-image-container {
             width: 100%;
@@ -447,284 +420,7 @@
             box-shadow: 0 0 35px rgba(27, 242, 91, 0.45);
         }
 
-        /* Achievements Section */
-        .achievements-section {
-            padding: 95px 8%;
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
-            background-color: var(--bg-card);
-            width: 100%;
-        }
-
-        .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-            gap: 25px;
-            margin-top: 45px;
-        }
-
-        .achievement-item {
-            padding: 35px 20px;
-            background: rgba(255,255,255,0.01);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            transition: all 0.3s;
-        }
-
-        .achievement-item:hover {
-            border-color: var(--parrot-green);
-            background: rgba(27, 242, 91, 0.02);
-            transform: translateY(-5px);
-        }
-
-        .achievement-item i {
-            font-size: 2.2rem;
-            color: var(--parrot-green);
-            margin-bottom: 18px;
-        }
-
-        .achievement-item h4 {
-            font-family: var(--font-headings);
-            font-size: 1.1rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-
-        /* Newsletter (Stay Updated) Section */
-        .newsletter {
-            background: linear-gradient(135deg, #0b150e 0%, #040805 100%);
-            padding: 85px 8%;
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
-            width: 100%;
-        }
-
-        .newsletter h2 {
-            font-family: var(--font-headings);
-            font-size: 2.2rem;
-            letter-spacing: 2px;
-            margin-bottom: 5px;
-        }
-
-        .newsletter p {
-            font-size: 0.95rem;
-            color: var(--text-gray);
-            margin-bottom: 30px;
-        }
-
-        .newsletter-form {
-            display: flex;
-            justify-content: center;
-            max-width: 500px;
-            margin: 0 auto;
-            gap: 12px;
-            width: 100%;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: 12px 20px;
-            border: 1px solid rgba(27, 242, 91, 0.3);
-            background-color: rgba(0, 0, 0, 0.4);
-            color: var(--white);
-            border-radius: 4px;
-            outline: none;
-            font-size: 0.9rem;
-        }
-
-        .newsletter-form input:focus {
-            border-color: var(--parrot-green);
-        }
-
-        .newsletter-form button {
-            background-color: var(--parrot-green);
-            color: var(--bg-dark);
-            border: none;
-            padding: 12px 30px;
-            border-radius: 4px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .newsletter-form button:hover {
-            background-color: var(--white);
-        }
-
-        /* Footer */
-        footer {
-            padding: 80px 8% 30px 8%;
-            background-color: #030504;
-            width: 100%;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-col h3 {
-            font-family: var(--font-headings);
-            font-size: 1.15rem;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-        }
-
-        .footer-col p {
-            color: var(--text-gray);
-            font-size: 0.85rem;
-            line-height: 1.8;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: var(--text-gray);
-            font-size: 0.85rem;
-            transition: color 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-        }
-
-        .footer-links a:hover {
-            color: var(--parrot-green);
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .social-icons a {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border-color);
-            transition: all 0.3s;
-            color: var(--white);
-            text-decoration: none;
-        }
-
-        .social-icons a:hover {
-            background-color: var(--parrot-green);
-            color: #060907;
-            transform: translateY(-3px);
-            box-shadow: 0 0 10px rgba(27, 242, 91, 0.4);
-        }
-
-        .copyright {
-            text-align: center;
-            color: rgba(255, 255, 255, 0.2);
-            font-size: 0.8rem;
-            padding-top: 25px;
-            border-top: 1px solid var(--border-color);
-        }
-
-        /* Tablet Layout adjustments */
-        @media (max-width: 1024px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                gap: 40px;
-                padding: 60px 5%;
-            }
-            .hero-content {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-
-        /* Mobile Responsive View Styling - Completely Fixed Sidebar Overflow */
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 15px 5%;
-            }
-
-            .menu-toggle {
-                display: flex; /* Toggle visible on mobile */
-            }
-
-            /* Highly Secure Drawer: Starts completely hidden and off-screen */
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%; /* offscreen */
-                width: 280px;
-                height: 100vh;
-                background-color: #080c09;
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 100px 35px;
-                gap: 24px;
-                transition: right 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-                border-left: 2px solid var(--parrot-green);
-                box-shadow: -10px 0 35px rgba(0, 0, 0, 0.9);
-                z-index: 999;
-                visibility: hidden; /* prevents layout space leakage */
-            }
-
-            .nav-links.active {
-                right: 0;
-                visibility: visible;
-            }
-
-            .nav-links a {
-                font-size: 1rem;
-                width: 100%;
-                border-bottom: 1px solid rgba(27, 242, 91, 0.1);
-                padding-bottom: 12px;
-            }
-
-            .nav-links a::after { display: none; } /* Disable underline slide effect for mobile */
-            
-            .btn-donate {
-                width: 100%;
-                text-align: center;
-                margin-top: 15px;
-            }
-
-            /* Animation states for Hamburger Toggle */
-            .menu-toggle.open span:nth-child(1) {
-                transform: rotate(45deg) translate(6px, 6px);
-            }
-            .menu-toggle.open span:nth-child(2) {
-                opacity: 0;
-            }
-            .menu-toggle.open span:nth-child(3) {
-                transform: rotate(-45deg) translate(6px, -6px);
-            }
-        }
-        /* Hamburger Line Transitions */
-            .menu-toggle.open span:nth-child(1) {
-                transform: rotate(45deg) translate(6px, 6px);
-            }
-            .menu-toggle.open span:nth-child(2) {
-                opacity: 0;
-            }
-            .menu-toggle.open span:nth-child(3) {
-                transform: rotate(-45deg) translate(6px, -6px);
-            }
-        }
-
-        /* --- Premium Stats Section Styling --- */
+        /* Premium Stats Section Styling */
         .stats-premium-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -752,6 +448,7 @@
             background: rgba(27, 242, 91, 0.02);
         }
 
+        /* World Cup Card Glowing Highlight */
         .stats-card.highlighted {
             border-color: var(--parrot-green);
             background: rgba(27, 242, 91, 0.03);
@@ -825,254 +522,7 @@
             margin-top: 5px;
         }
 
-    /* ... Jo code aapne pehle paste kiya tha ... */
-    }
-}
-
-/* --- YAHAN NAYA SPACING CODE PASTE KAREIN --- */
-.hero-subtitle {
-    margin-bottom: 5px !important;
-}
-.hero .premium-divider {
-    margin-top: 0px !important;
-    margin-bottom: 20px !important;
-    justify-content: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-
-justify-content: center !important;
-            margin-left: auto !important;
-            margin-right: auto !important;
-        }
-
         /* --- Premium Filterable Gallery Section --- */
-        .gallery-section {
-            padding: 90px 8%;
-            text-align: center;
-            background-color: var(--bg-dark);
-            border-bottom: 1px solid var(--border-color);
-            width: 100%;
-        }
-
-        .gallery-tabs {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 40px;
-        }
-
-        .tab-btn {
-            background: transparent;
-            color: var(--text-gray);
-            border: 1px solid var(--border-color);
-            padding: 10px 22px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: var(--font-body);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .tab-btn:hover, .tab-btn.active {
-            background-color: var(--parrot-green);
-            color: var(--bg-dark);
-            border-color: var(--parrot-green);
-            box-shadow: 0 0 15px rgba(27, 242, 91, 0.4);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-            width: 100%;
-            min-height: 400px;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            height: 250px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            transition: all 0.4s ease;
-        }
-
-        .gallery-item img {
-            width: 100%;
-/* --- Premium Filterable Gallery Section --- */
-        .gallery-section {
-            padding: 95px 8%;
-            background-color: var(--bg-dark);
-            border-bottom: 1px solid var(--border-color);
-            width: 100%;
-            min-height: 550px;
-            position: relative;
-        }
-
-        .gallery-view {
-            transition: opacity 0.4s ease, transform 0.4s ease;
-            width: 100%;
-        }
-
-        /* Mockup Header & Back Arrow Styling */
-        .gallery-header {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            margin-bottom: 20px;
-        }
-
-        .gallery-back-btn {
-            position: absolute;
-            left: 0;
-            background: transparent;
-            border: 1px solid var(--border-color);
-            color: var(--parrot-green);
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-        }
-
-        .gallery-back-btn:hover {
-            background-color: var(--parrot-green);
-            color: var(--bg-dark);
-            box-shadow: 0 0 15px var(--parrot-green);
-        }
-
-        /* Mockup Category List (Screen 2) */
-        .categories-list {
-            max-width: 460px;
-            margin: 40px auto 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .category-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border: 1px solid var(--border-color);
-            background-color: rgba(255, 255, 255, 0.01);
-            padding: 15px 25px;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .category-row:hover {
-            border-color: var(--parrot-green);
-            background-color: rgba(27, 242, 91, 0.02);
-            box-shadow: 0 0 15px rgba(27, 242, 91, 0.15);
-            transform: scale(1.02);
-        }
-
-        .category-left {
-            display: flex;
-/* --- Premium Filterable Gallery Section --- */
-        .gallery-section {
-            padding: 95px 8%;
-            background-color: var(--bg-dark);
-            border-bottom: 1px solid var(--border-color);
-            width: 100%;
-            min-height: 550px;
-            position: relative;
-        }
-
-        /* FULLSCREEN STATE - Covers Achievements, Footer & lock scroll */
-        .gallery-section.fullscreen {
-            position: fixed !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100vw !important;
-            height: 100vh !important;
-            z-index: 9999 !important; /* Above everything */
-            overflow-y: auto !important;
-            background-color: #060907 !important;
-            padding: 60px 8% !important;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.98); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        .gallery-view {
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            width: 100%;
-        }
-
-        /* Mockup Header & Back Arrow Styling */
-        .gallery-header {
-            position: relative;
-            display: flex !important;
-            justify-content: center !important;
-            align-items: center !important;
-            width: 100% !important;
-            margin-bottom: 25px !important;
-        }
-
-        .gallery-back-btn {
-            position: absolute !important;
-            left: 0 !important;
-            background: transparent !important;
-            border: 1px solid var(--border-color) !important;
-            color: var(--parrot-green) !important;
-            width: 45px !important;
-            height: 45px !important;
-            border-radius: 50% !important;
-            display: flex !important;
-            justify-content: center !important;
-            align-items: center !important;
-            cursor: pointer !important;
-            font-size: 1.1rem !important;
-            transition: all 0.3s ease !important;
-        }
-
-        .gallery-back-btn:hover {
-            background-color: var(--parrot-green) !important;
-            color: var(--bg-dark) !important;
-            box-shadow: 0 0 15px var(--parrot-green) !important;
-        }
-
-        /* Mockup Category List (Screen 2 Layout Fixes) */
-        .categories-list {
-            max-width: 460px !important;
-            margin: 40px auto 0 auto !important;
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 15px !important;
-            width: 100% !important;
-        }
-
-        .category-row {
-            display: flex !important;
-            justify-content: space-between !important;
-            align-items: center !important;
-            border: 1px solid var(--border-color) !important;
-            background-color: rgba(255, 255, 255, 0.02) !important;
-            padding: 15px 25px !important;
-            border-radius: 12px !important;
-            cursor: pointer !important;
-            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
-            width: 100% !important;
-        }
-/* --- Premium Filterable Gallery Section --- */
         .gallery-section {
             padding: 95px 8%;
             background-color: var(--bg-dark);
@@ -1242,7 +692,7 @@ justify-content: center !important;
             box-shadow: 0 0 20px rgba(27, 242, 91, 0.3) !important;
         }
 
-        /* ================= MOBILE RESPONSIVE STYLES (RESTORED) ================= */
+        /* ================= MOBILE RESPONSIVE STYLES ================= */
         @media (max-width: 768px) {
             .navbar {
                 padding: 15px 5% !important;
@@ -1300,8 +750,118 @@ justify-content: center !important;
             .menu-toggle.open span:nth-child(3) {
                 transform: rotate(-45deg) translate(6px, -6px) !important;
             }
-            }
-            </style>
+        }
+
+        /* Achievements Section */
+        .achievements-section {
+            background-color: var(--bg-card);
+            padding: 100px 8%;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            width: 100%;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 25px;
+            margin-top: 45px;
+        }
+
+        .achievement-item {
+            padding: 35px 20px;
+            background: rgba(255,255,255,0.01);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        .achievement-item:hover {
+            border-color: var(--parrot-green);
+            background: rgba(27, 242, 91, 0.02);
+            transform: translateY(-5px);
+        }
+
+        .achievement-item i {
+            font-size: 2.3rem;
+            color: var(--parrot-green);
+            margin-bottom: 18px;
+            text-shadow: 0 0 8px rgba(27, 242, 91, 0.4);
+        }
+
+        .achievement-item h4 {
+            font-family: var(--font-headings);
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* Newsletter (Stay Updated) Section */
+        .newsletter {
+            background: linear-gradient(135deg, #0b150e 0%, #040805 100%);
+            padding: 80px 8%;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            width: 100%;
+        }
+
+        .newsletter h2 {
+            font-family: var(--font-headings);
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .newsletter p {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 20px;
+            border: 1px solid rgba(27, 242, 91, 0.3);
+            background-color: rgba(0, 0, 0, 0.4);
+            color: var(--white);
+            border-radius: 4px;
+            outline: none;
+            font-size: 0.9rem;
+            transition: border-color 0.3s;
+        }
+
+        .newsletter-form input:focus {
+            border-color: var(--parrot-green);
+            box-shadow: 0 0 10px rgba(27, 242, 91, 0.2);
+        }
+
+        .newsletter-form button {
+            background-color: var(--parrot-green);
+            color: var(--bg-dark);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background-color: var(--white);
+            color: var(--bg-dark);
+        }
+    </style>
 </head>
 <body>
 
@@ -1315,21 +875,21 @@ justify-content: center !important;
             <span class="num-804">804</span>
         </div>
         
-        <!-- Hamburger Menu Trigger (3 lines) -->
+        <!-- Toggle Menu Icon -->
         <div class="menu-toggle" id="mobile-menu">
             <span></span>
             <span></span>
             <span></span>
         </div>
 
-        <!-- Links with icons -->
+        <!-- Links with beautiful Font Awesome Icons -->
         <nav class="nav-links" id="nav-menu">
             <a href="#home"><i class="fa-solid fa-house"></i> Home</a>
             <a href="#early-life"><i class="fa-solid fa-book-open-reader"></i> Early Life</a>
             <a href="#cricket-career"><i class="fa-solid fa-trophy"></i> Cricket Journey</a>
             <a href="#political-journey"><i class="fa-solid fa-landmark"></i> Politics</a>
-            <a href="#achievements"><i class="fa-solid fa-award"></i> Achievements</a>
             <a href="#gallery"><i class="fa-solid fa-images"></i> Gallery</a>
+            <a href="#achievements"><i class="fa-solid fa-award"></i> Achievements</a>
             <a href="#donate" class="btn-donate"><i class="fa-solid fa-heart-pulse"></i> Donate</a>
         </nav>
     </header>
@@ -1337,13 +897,13 @@ justify-content: center !important;
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-image">
-            <!-- Main Display Picture (Imran Khan Portrait) -->
-            <img src="imran01.jpg" alt="Imran Khan Portrait">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=450" alt="Imran Khan Portrait">
         </div>
         <div class="hero-content">
             <h1 class="hero-title">IMRAN KHAN</h1>
             <p class="hero-subtitle">The Journey of a Leader</p>
             
+            <!-- Beautiful flower divider under main title -->
             <div class="premium-divider" style="margin-left: 0; justify-content: flex-start; max-width: 250px;">
                 <span class="line left"></span>
                 <span class="flower">✿</span>
@@ -1359,6 +919,7 @@ justify-content: center !important;
     <section class="section-center">
         <h2 class="section-title">A Journey Like No Other</h2>
         
+        <!-- Premium Divider with Side Lines -->
         <div class="premium-divider">
             <span class="line left"></span>
             <span class="flower">✿</span>
@@ -1408,13 +969,12 @@ justify-content: center !important;
             
             <!-- Dedicated Early Life Image Placeholder -->
             <div class="section-image-container">
-                <!-- Replace with Young Imran Khan Image Link -->
-                <img src="imran02.jpg" alt="Young Imran Khan at Oxford">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=700" alt="Young Imran Khan at Oxford">
             </div>
         </div>
     </section>
 
-    <!-- Cricket Career Section (Highly Detailed) -->
+    <!-- Cricket Career Section (Highly Detailed & Stats) -->
     <section class="history-section bg-alternate" id="cricket-career">
         <div class="history-content">
             <h2 class="label">CRICKET JOURNEY</h2>
@@ -1430,74 +990,73 @@ justify-content: center !important;
             <p>The pinnacle of his sporting career was the 1992 Cricket World Cup in Australia. At age 39, coming out of retirement on public demand, he led a struggling Pakistan team through a historic comeback. Famously calling his team "Cornered Tigers," Imran rallied his players to lift the crystal trophy at the Melbourne Cricket Ground on March 25, 1992, forever cementing his legacy as one of cricket's greatest all-rounders and leaders.</p>
             
             <!-- Premium Stats Grid Component (Test, ODI, WC92) -->
-<div class="stats-premium-container">
-    
-    <!-- Test Career Card -->
-    <div class="stats-card">
-        <h4 class="card-header">Test Career</h4>
-        <div class="card-divider"></div>
-        <div class="stats-grid">
-            <div class="stat-block">
-                <span class="stat-val">88</span>
-                <span class="stat-lbl">Matches</span>
-            </div>
-            <div class="stat-block">
-                <span class="stat-val">362</span>
-                <span class="stat-lbl">Wickets</span>
-            </div>
-            <div class="stat-block">
-                <span class="stat-val">3,807</span>
-                <span class="stat-lbl">Runs</span>
-            </div>
-        </div>
-    </div>
+            <div class="stats-premium-container">
+                
+                <!-- Test Career Card -->
+                <div class="stats-card">
+                    <h4 class="card-header">Test Career</h4>
+                    <div class="card-divider"></div>
+                    <div class="stats-grid">
+                        <div class="stat-block">
+                            <span class="stat-val">88</span>
+                            <span class="stat-lbl">Matches</span>
+                        </div>
+                        <div class="stat-block">
+                            <span class="stat-val">362</span>
+                            <span class="stat-lbl">Wickets</span>
+                        </div>
+                        <div class="stat-block">
+                            <span class="stat-val">3,807</span>
+                            <span class="stat-lbl">Runs</span>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- ODI Career Card -->
-    <div class="stats-card">
-        <h4 class="card-header">ODI Career</h4>
-        <div class="card-divider"></div>
-        <div class="stats-grid">
-            <div class="stat-block">
-                <span class="stat-val">175</span>
-                <span class="stat-lbl">Matches</span>
-            </div>
-            <div class="stat-block">
-                <span class="stat-val">182</span>
-                <span class="stat-lbl">Wickets</span>
-            </div>
-            <div class="stat-block">
-                <span class="stat-val">3,709</span>
-                <span class="stat-lbl">Runs</span>
-            </div>
-        </div>
-    </div>
+                <!-- ODI Career Card -->
+                <div class="stats-card">
+                    <h4 class="card-header">ODI Career</h4>
+                    <div class="card-divider"></div>
+                    <div class="stats-grid">
+                        <div class="stat-block">
+                            <span class="stat-val">175</span>
+                            <span class="stat-lbl">Matches</span>
+                        </div>
+                        <div class="stat-block">
+                            <span class="stat-val">182</span>
+                            <span class="stat-lbl">Wickets</span>
+                        </div>
+                        <div class="stat-block">
+                            <span class="stat-val">3,709</span>
+                            <span class="stat-lbl">Runs</span>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- World Cup '92 Highlighted Card -->
-    <div class="stats-card highlighted">
-        <h4 class="card-header"><i class="fa-solid fa-trophy"></i> WC '92 Glory</h4>
-        <div class="card-divider"></div>
-        <div class="stats-grid">
-            <div class="stat-block">
-                <span class="stat-val">8</span>
-                <span class="stat-lbl">Matches</span>
-            </div>
-            <div class="stat-block">
-                <span class="stat-val">7</span>
-                <span class="stat-lbl">Wickets</span>
-            </div>
-            <div class="stat-block">
-                <span class="stat-val">185</span>
-                <span class="stat-lbl">Runs</span>
-            </div>
-        </div>
-    </div>
+                <!-- World Cup '92 Highlighted Card -->
+                <div class="stats-card highlighted">
+                    <h4 class="card-header"><i class="fa-solid fa-trophy"></i> WC '92 Glory</h4>
+                    <div class="card-divider"></div>
+                    <div class="stats-grid">
+                        <div class="stat-block">
+                            <span class="stat-val">8</span>
+                            <span class="stat-lbl">Matches</span>
+                        </div>
+                        <div class="stat-block">
+                            <span class="stat-val">7</span>
+                            <span class="stat-lbl">Wickets</span>
+                        </div>
+                        <div class="stat-block">
+                            <span class="stat-val">185</span>
+                            <span class="stat-lbl">Runs</span>
+                        </div>
+                    </div>
+                </div>
 
-</div>
+            </div>
 
             <!-- Dedicated Cricket Image Placeholder -->
             <div class="section-image-container">
-                <!-- Replace with 1992 World Cup Victory Image Link -->
-                <img src="imran03.jpg" alt="Imran Khan Holding 1992 World Cup Trophy">
+                <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=700" alt="Imran Khan Holding 1992 World Cup Trophy">
             </div>
         </div>
     </section>
@@ -1513,18 +1072,18 @@ justify-content: center !important;
                 <span class="line right"></span>
             </div>
             
-            <p>Deeply disturbed by the rising corruption and institutional decline in Pakistan, Imran Khan officially founded the Pakistan Tehreek-e-Insaf (PTI) on April 25, 1996. For the first fifteen years, his party struggled to gain traction, and Imran faced constant mockery from established political dynasties. Undeterred, he spent decades traversing the nation, connecting with the youth and advocating for accountability, rule of law, and a sovereign foreign policy.</p>
+            <p>Deeply disturbed by the rising corruption and institutional decline in Pakistan, Imran Khan officially founded the Pakistan Tehreek-e-Insaf (PTI) on April 25, 1996. For the first fifteen years, his party struggled to gain traction, and Imran faced constant mockery from established political dynasties. Undeterred, he spent decades travelling across the country, connecting with the youth and advocating for accountability, rule of law, and a sovereign foreign policy.</p>
             <p>His tireless mobilization of the public culminated on October 30, 2011, when PTI held a historic rally at Minar-e-Pakistan, Lahore, drawing hundreds of thousands of passionate supporters. This massive political wave transformed the electoral landscape of Pakistan. In the 2013 elections, PTI became a dominant political player, forming a reform-centric provincial government in Khyber Pakhtunkhwa (KP).</p>
             <p>On August 18, 2018, Imran Khan was sworn in as the 22nd Prime Minister of Pakistan. His administration launched revolutionary welfare programs, including the "Sehat Card" (providing universal health insurance to millions), the "Ehsaas Program" (the largest poverty-alleviation network in the country's history), and the "Ten Billion Tree Tsunami" for climate action. His uncompromising stance on corruption, social justice, and national sovereignty continues to define his historical political journey.</p>
             
             <!-- Dedicated Politics Image Placeholder -->
             <div class="section-image-container">
-                <!-- Replace with Political Jalsa Image Link -->
-                <img src="imran04.jpg" alt="Imran Khan Addressing a Massive Political Jalsa">
+                <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&q=80&w=700" alt="Imran Khan Addressing a Massive Political Jalsa">
             </div>
         </div>
     </section>
-<!-- New Upgraded Premium Photo Gallery Section (With Sub-categories Complete) -->
+
+    <!-- New Upgraded Premium Photo Gallery Section (With Sub-categories Complete) -->
     <section class="gallery-section" id="gallery">
         
         <!-- ================= SCREEN 1: HOME PREVIEW ================= -->
@@ -1614,99 +1173,7 @@ justify-content: center !important;
 
     </section>
 
-<!-- Advanced Diagnostic Mobile Debugger -->
-    <script>
-        window.onerror = function(message, source, lineno, colno, error) {
-            alert("JS ERROR: " + message + " on line " + lineno);
-            return false;
-        };
-
-        window.addEventListener('DOMContentLoaded', () => {
-            const menuElements = document.querySelectorAll('#mobile-menu');
-            const navElements = document.querySelectorAll('#nav-menu');
-            const headers = document.querySelectorAll('header');
-            const bodies = document.querySelectorAll('body');
-
-            alert(
-                "ADVANCED DIAGNOSTIC REPORT:\n\n" +
-                "1. Total Body Tags: " + bodies.length + " (Should be 1)\n" +
-                "2. Total Header Tags: " + headers.length + " (Should be 1)\n" +
-                "3. Mobile Menu Elements: " + menuElements.length + " (Should be 1)\n" +
-                "4. Nav Menu Elements: " + navElements.length + " (Should be 1)\n" +
-                "5. View Gallery Button: " + (document.getElementById('go-to-categories') ? "✅ FOUND" : "❌ MISSING")
-            );
-        });
-    </script>
-            <div class="premium-divider">
-                <span class="line left"></span>
-                <span class="flower">✿</span>
-                <span class="line right"></span>
-            </div>
-            <p class="section-desc">Select a category to explore photos from that era.</p>
-
-            <div class="categories-list">
-                <!-- Bachpan Card -->
-                <div class="category-row" data-category="bachpan">
-                    <div class="category-left">
-                        <!-- Yahan Khan ki bachpan ki circle image lagayein -->
-                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150" alt="Bachpan">
-                        <span class="category-name">Bachpan</span>
-                    </div>
-                    <i class="fa-solid fa-arrow-right category-arrow"></i>
-                </div>
-
-                <!-- Jawani Card -->
-                <div class="category-row" data-category="jawani">
-                    <div class="category-left">
-                        <!-- Yahan Khan ki jawani ki circle image lagayein -->
-                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150" alt="Jawani">
-                        <span class="category-name">Jawani</span>
-                    </div>
-                    <i class="fa-solid fa-arrow-right category-arrow"></i>
-                </div>
-
-                <!-- Cricket Era Card -->
-                <div class="category-row" data-category="cricket">
-                    <div class="category-left">
-                        <!-- Yahan Khan ki cricket ki circle image lagayein -->
-                        <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=150" alt="Cricket">
-                        <span class="category-name">Cricket Era</span>
-                    </div>
-                    <i class="fa-solid fa-arrow-right category-arrow"></i>
-                </div>
-
-                <!-- Political Era Card -->
-                <div class="category-row" data-category="political">
-                    <div class="category-left">
-                        <!-- Yahan Khan ki politics ki circle image lagayein -->
-                        <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&q=80&w=150" alt="Political">
-                        <span class="category-name">Political Era</span>
-                    </div>
-                    <i class="fa-solid fa-arrow-right category-arrow"></i>
-                </div>
-            </div>
-        </div>
-
-        <!-- ================= SCREEN 3: SPECIFIC ERA PHOTOS GRID ================= -->
-        <div class="gallery-view" id="view-grid" style="display: none;">
-            <div class="gallery-header">
-                <button class="gallery-back-btn" id="back-to-categories"><i class="fa-solid fa-arrow-left"></i></button>
-                <h2 class="section-title" id="dynamic-grid-title" style="text-transform: uppercase;">CRICKET ERA</h2>
-            </div>
-            <div class="premium-divider">
-                <span class="line left"></span>
-                <span class="flower">✿</span>
-                <span class="line right"></span>
-            </div>
-            <p class="section-desc" id="dynamic-grid-desc">Historic moments from Imran Khan's iconic cricket journey.</p>
-
-            <!-- Dynamic grid populated via JavaScript -->
-            <div class="dynamic-photo-grid" id="photo-grid-container"></div>
-        </div>
-
-    </section>
-
-    <!-- Achievements Grid Section -->
+    <!-- Achievements & Initiatives Section -->
     <section class="achievements-section" id="achievements">
         <h2 class="section-title">Achievements</h2>
         
@@ -1738,7 +1205,7 @@ justify-content: center !important;
         </div>
     </section>
 
-    <!-- Newsletter (Stay Updated) -->
+    <!-- Newsletter -->
     <section class="newsletter">
         <h2>STAY UPDATED</h2>
         <p>Subscribe to our newsletter to receive the latest updates and articles regarding Imran Khan.</p>
@@ -1752,7 +1219,7 @@ justify-content: center !important;
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
-                <h3 style="font-family: var(--font-headings);">IMRAN KHAN <br><span style="color:var(--parrot-green); font-size:1.15rem; font-weight:bold; text-shadow:0 0 10px rgba(27, 242, 91, 0.4);">804</span></h3>
+                <h3>IMRAN KHAN <br><span style="color:var(--parrot-green); font-size:1.15rem; font-weight:bold; text-shadow:0 0 10px rgba(27, 242, 91, 0.4);">804</span></h3>
                 <p style="margin-top: 15px;">An authentic digital archive dedicated to presenting the life legacy, humanitarian projects, and vision of Imran Khan.</p>
             </div>
             <div class="footer-col">
@@ -1776,39 +1243,11 @@ justify-content: center !important;
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2026 Imran Khan -All rights reserved.    Created by Saad Ali.</p>
+            <p>&copy; 2026 Imran Khan - The Journey of 804. Created with elegance.</p>
         </div>
     </footer>
 
-    <!-- JavaScript to Handle Hamburger Menu Drawer Toggle & Overlay -->
-
-<!-- Complete Unified Upgrade Script -->
-<!-- Upgraded Diagnostic Mobile Debugger -->
-    <script>
-        window.onerror = function(message, source, lineno, colno, error) {
-            alert("JS ERROR: " + message + " on line " + lineno);
-            return false;
-        };
-
-        // Page load hote hi HTML elements ki report check karega
-        window.addEventListener('DOMContentLoaded', () => {
-            const checkMenu = document.getElementById('mobile-menu') ? "✅ FOUND" : "❌ MISSING";
-            const checkNav = document.getElementById('nav-menu') ? "✅ FOUND" : "❌ MISSING";
-            const checkBtn = document.getElementById('go-to-categories') ? "✅ FOUND" : "❌ MISSING";
-            const checkViewHome = document.getElementById('view-home') ? "✅ FOUND" : "❌ MISSING";
-            const checkViewCats = document.getElementById('view-categories') ? "✅ FOUND" : "❌ MISSING";
-
-            alert(
-                "DIAGNOSTIC REPORT:\n\n" +
-                "1. 3-Lines Toggle (mobile-menu): " + checkMenu + "\n" +
-                "2. Nav Links Container (nav-menu): " + checkNav + "\n" +
-                "3. View Gallery Button (go-to-categories): " + checkBtn + "\n" +
-                "4. Gallery Home View (view-home): " + checkViewHome + "\n" +
-                "5. Gallery Categories View (view-categories): " + checkViewCats
-            );
-        });
-    </script>
-   <!-- Upgraded Fullscreen Interactive Script with Touch Controls -->
+    <!-- Upgraded Fullscreen Interactive Script with Touch Controls -->
     <script>
         // --- 1. Variable Declarations ---
         const mobileMenu = document.getElementById('mobile-menu');
@@ -2041,6 +1480,6 @@ justify-content: center !important;
                 });
             });
         }
-    </script>     
+    </script>
 </body>
 </html>
