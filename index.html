@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* General Reset & Variables */
+        /* CSS Reset & Variable Declarations */
         * {
             margin: 0;
             padding: 0;
@@ -20,7 +20,7 @@
 
         html, body {
             width: 100%;
-            overflow-x: hidden; /* Prevents horizontal scroll leaks */
+            overflow-x: hidden; /* Anti-stretch protection */
             background-color: #060907;
             color: #ffffff;
             font-family: 'Poppins', sans-serif;
@@ -30,7 +30,7 @@
         :root {
             --bg-dark: #060907;
             --bg-card: #0c110e;
-            --parrot-green: #1bf25b; /* Glowing Parrot Green */
+            --parrot-green: #1bf25b; /* Parrot/Neon Green Glow */
             --white: #ffffff;
             --text-gray: #9ca3af;
             --border-color: rgba(27, 242, 91, 0.15);
@@ -38,7 +38,7 @@
             --font-body: 'Poppins', sans-serif;
         }
 
-        /* Custom Scrollbar */
+        /* Custom Scrollbar styling */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -50,7 +50,7 @@
             border-radius: 4px;
         }
 
-        /* Premium Heading Divider (Flower with fading side lines) */
+        /* Premium Heading Divider (Centered Flower and horizontal lines) */
         .premium-divider {
             display: flex;
             align-items: center;
@@ -97,7 +97,7 @@
             width: 100%;
         }
 
-        /* Logo Design */
+        /* Brand Logo */
         .logo {
             font-family: var(--font-headings);
             font-weight: 900;
@@ -117,7 +117,7 @@
             text-shadow: 0 0 8px rgba(27, 242, 91, 0.4);
         }
 
-        /* Desktop Navigation Links */
+        /* Desktop Nav Menu Links */
         .nav-links {
             display: flex;
             align-items: center;
@@ -163,7 +163,7 @@
             width: 100%;
         }
 
-        /* Donate/Movement Button styling */
+        /* Action Menu Button (Join Us) */
         .btn-donate {
             background-color: transparent;
             color: var(--white) !important;
@@ -184,7 +184,7 @@
 
         .btn-donate::after { display: none !important; }
 
-        /* 3-Lines Hamburger Menu Button */
+        /* 3-Lines Mobile Menu Toggle */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -202,7 +202,7 @@
             transition: all 0.3s ease;
         }
 
-        /* Screen Dark Overlay when menu is open */
+        /* Screen Dark Overlay Mask when menu active */
         .menu-overlay {
             display: none;
             position: fixed;
@@ -215,34 +215,36 @@
             z-index: 998;
         }
 
-        /* Hero Section Styling (Matches Mockup Perfectly) */
+        /* Hero Section (Centering details perfectly matching mockup) */
         .hero {
             display: flex;
+            flex-direction: column; /* Centered column layout on mobile/desktop */
             align-items: center;
+            justify-content: center;
             min-height: 85vh;
             padding: 50px 8%;
-            gap: 50px;
+            gap: 40px;
             width: 100%;
+            text-align: center;
         }
 
         .hero-image {
-            flex: 1;
+            width: 100%;
             display: flex;
             justify-content: center;
         }
 
         .hero-image img {
             width: 100%;
-            max-width: 420px;
+            max-width: 440px;
             height: auto;
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(27, 242, 91, 0.15);
+            box-shadow: 0 15px 35px rgba(27, 242, 91, 0.15); /* Curved green glow matching mockup */
             border: 1px solid var(--border-color);
         }
 
         .hero-content {
-            flex: 1.2;
-            text-align: center; /* Centered layout matching your mockup */
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -250,7 +252,7 @@
 
         .hero-title {
             font-family: var(--font-headings);
-            font-size: 3.8rem;
+            font-size: 3.5rem;
             font-weight: 900;
             letter-spacing: 2px;
             line-height: 1.1;
@@ -280,6 +282,30 @@
             font-size: 0.95rem;
             margin-bottom: 30px;
             max-width: 560px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--parrot-green);
+            color: #060907;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 15px rgba(27, 242, 91, 0.3);
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--white);
+            color: #060907;
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
         }
 
         /* Overview Section */
@@ -345,7 +371,7 @@
             line-height: 1.6;
         }
 
-        /* Detailed History Sections (Full Detail Layout) */
+        /* Detailed History Sections */
         .history-section {
             padding: 90px 8%;
             border-bottom: 1px solid var(--border-color);
@@ -378,7 +404,7 @@
             text-justify: inter-word;
         }
 
-        /* Dedicated Image Container with Parrot Green Borders */
+        /* Dedicated Image Container with Borders */
         .section-image-container {
             width: 100%;
             display: flex;
@@ -401,7 +427,7 @@
             box-shadow: 0 0 35px rgba(27, 242, 91, 0.45);
         }
 
-        /* Premium Stats Section Styling */
+        /* Premium Stats Component Styling */
         .stats-premium-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -429,7 +455,7 @@
             background: rgba(27, 242, 91, 0.02);
         }
 
-        /* World Cup Card Glowing Highlight */
+        /* World Cup Card Highlight */
         .stats-card.highlighted {
             border-color: var(--parrot-green);
             background: rgba(27, 242, 91, 0.03);
@@ -513,17 +539,18 @@
             position: relative;
         }
 
-        /* FULLSCREEN STATE - Covers Achievements, Footer & lock scroll */
+        /* FULLSCREEN STATE - Covers everything, even Achievements & Footer */
         .gallery-section.fullscreen {
             position: fixed !important;
             top: 0 !important;
             left: 0 !important;
             width: 100vw !important;
             height: 100vh !important;
-            z-index: 9999 !important; /* Above everything */
+            z-index: 10000 !important; /* Higher than navbar and other elements */
             overflow-y: auto !important;
             background-color: #060907 !important;
             padding: 60px 8% !important;
+            border-left: none !important; /* No green line on side walls */
             animation: fadeIn 0.3s ease;
         }
 
@@ -537,7 +564,7 @@
             width: 100%;
         }
 
-        /* Mockup Header & Back Arrow Styling */
+        /* Mockup Header & Back Arrow Styling (Overlap Fix) */
         .gallery-header {
             position: relative;
             display: flex !important;
@@ -545,6 +572,13 @@
             align-items: center !important;
             width: 100% !important;
             margin-bottom: 25px !important;
+        }
+
+        .gallery-header h2 {
+            padding-left: 60px !important; /* Prevents back button overlapping text! */
+            padding-right: 60px !important;
+            text-align: center;
+            width: 100%;
         }
 
         .gallery-back-btn {
@@ -562,6 +596,7 @@
             cursor: pointer !important;
             font-size: 1.1rem !important;
             transition: all 0.3s ease !important;
+            z-index: 1001;
         }
 
         .gallery-back-btn:hover {
@@ -652,16 +687,16 @@
             border-radius: 10px !important;
             overflow: hidden !important;
             height: 250px !important;
-            border: 1.5px solid var(--border-color) !important;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.4) !important;
-            transition: all 0.4s ease !important;
+            border: 1.5px solid var(--border-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            transition: all 0.4s ease;
         }
 
         .grid-photo-item img {
             width: 100% !important;
             height: 100% !important;
             object-fit: cover !important;
-            transition: transform 0.5s ease !important;
+            transition: transform 0.5s ease;
         }
 
         .grid-photo-item:hover img {
@@ -671,6 +706,111 @@
         .grid-photo-item:hover {
             border-color: var(--parrot-green) !important;
             box-shadow: 0 0 20px rgba(27, 242, 91, 0.3) !important;
+        }
+
+        /* Interactive Tributes Section */
+        .tributes-section {
+            padding: 90px 8%;
+            background-color: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            width: 100%;
+            text-align: center;
+        }
+
+        .tributes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .tribute-card {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px 20px;
+            text-align: left;
+            transition: all 0.3s;
+            animation: cardFadeIn 0.5s ease;
+        }
+
+        @keyframes cardFadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tribute-card:hover {
+            border-color: var(--parrot-green);
+            background: rgba(27, 242, 91, 0.02);
+            transform: translateY(-5px);
+        }
+
+        .tribute-quote {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .tribute-author {
+            font-family: var(--font-headings);
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--parrot-green);
+        }
+
+        .tribute-role {
+            font-size: 0.75rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+
+        .tribute-form-container {
+            max-width: 550px;
+            margin: 60px auto 0 auto;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.01);
+            text-align: left;
+        }
+
+        .tribute-form-container h3 {
+            font-family: var(--font-headings);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            background-color: rgba(0,0,0,0.3);
+            color: var(--white);
+            border-radius: 4px;
+            outline: none;
+            font-size: 0.9rem;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--parrot-green);
         }
 
         /* ================= MOBILE RESPONSIVE STYLES ================= */
@@ -687,13 +827,13 @@
                 position: fixed !important;
                 top: 0 !important;
                 right: -100% !important;
-                width: 280px !important;
+                width: 260px !important; /* Premium smaller width drawer */
                 height: 100vh !important;
                 background-color: #080c09 !important;
                 flex-direction: column !important;
                 align-items: flex-start !important;
-                padding: 100px 35px !important;
-                gap: 24px !important;
+                padding: 100px 30px !important;
+                gap: 20px !important; /* Slightly smaller gap */
                 transition: right 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
                 border-left: 2px solid var(--parrot-green) !important;
                 box-shadow: -10px 0 35px rgba(0, 0, 0, 0.9) !important;
@@ -707,10 +847,10 @@
             }
 
             .nav-links a {
-                font-size: 1rem !important;
+                font-size: 0.9rem !important; /* Premium smaller font size */
                 width: 100% !important;
-                border-bottom: 1px solid rgba(27, 242, 91, 0.1) !important;
-                padding-bottom: 12px !important;
+                border-bottom: 1px solid rgba(27, 242, 91, 0.08) !important;
+                padding-bottom: 10px !important;
             }
 
             .nav-links a::after { display: none !important; }
@@ -719,6 +859,7 @@
                 width: 100% !important;
                 text-align: center !important;
                 margin-top: 15px !important;
+                font-size: 0.85rem !important;
             }
 
             /* Hamburger Toggle line animations */
@@ -871,15 +1012,15 @@
             <a href="#political-journey"><i class="fa-solid fa-landmark"></i> Politics</a>
             <a href="#gallery"><i class="fa-solid fa-images"></i> Gallery</a>
             <a href="#achievements"><i class="fa-solid fa-award"></i> Achievements</a>
-            <!-- Donate button replaced with Join Movement -->
-            <a href="#political-journey" class="btn-donate"><i class="fa-solid fa-flag"></i> Join Movement</a>
+            <!-- Premium JOIN US Action Button (Flag Icon) -->
+            <a href="#political-journey" class="btn-donate"><i class="fa-solid fa-flag"></i> Join Us</a>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-image">
-            <img src="https://images.unsplash.com/photo-1610018556010-6a11691bc905?auto=format&fit=crop&q=80&w=450" alt="Imran Khan Portrait UNGA">
+            <img src="https://images.unsplash.com/photo-1610018556010-6a11691bc905?auto=format&fit=crop&q=80&w=600" alt="Imran Khan Portrait UNGA">
         </div>
         <div class="hero-content">
             <h1 class="hero-title">IMRAN KHAN</h1>
@@ -956,7 +1097,7 @@
         </div>
     </section>
 
-    <!-- Cricket Career Section (Highly Detailed & Stats) -->
+    <!-- Cricket Career Section (Highly Detailed) -->
     <section class="history-section bg-alternate" id="cricket-career">
         <div class="history-content">
             <h2 class="label">CRICKET JOURNEY</h2>
@@ -970,81 +1111,16 @@
             <p>Imran Khan made his international debut for Pakistan in 1971 against England at the age of 18. Initially classified as a medium-fast bowler with an unstable action, he spent years in absolute self-discipline, mastering his run-up, physical endurance, and delivery stride. By the late 1970s, he emerged as one of the fastest and most lethal bowlers in international cricket history, pioneering the art of reverse swing alongside devastating bouncers.</p>
             <p>In 1982, Imran was appointed the Captain of the national cricket team. He immediately revolutionized the selection process, basing it purely on merit and introducing fearless, aggressive tactics. He unified a fractured locker room, turning them into a cohesive fighting unit. Under his captaincy, Pakistan achieved its first-ever Test series victories in India and England, instilling massive national pride.</p>
             <p>The pinnacle of his sporting career was the 1992 Cricket World Cup in Australia. At age 39, coming out of retirement on public demand, he led a struggling Pakistan team through a historic comeback. Famously calling his team "Cornered Tigers," Imran rallied his players to lift the crystal trophy at the Melbourne Cricket Ground on March 25, 1992, forever cementing his legacy as one of cricket's greatest all-rounders and leaders.</p>
-            
-            <!-- Premium Stats Grid Component (Test, ODI, WC92) -->
-            <div class="stats-premium-container">
-                
-                <!-- Test Career Card -->
-                <div class="stats-card">
-                    <h4 class="card-header">Test Career</h4>
-                    <div class="card-divider"></div>
-                    <div class="stats-grid">
-                        <div class="stat-block">
-                            <span class="stat-val">88</span>
-                            <span class="stat-lbl">Matches</span>
-                        </div>
-                        <div class="stat-block">
-                            <span class="stat-val">362</span>
-                            <span class="stat-lbl">Wickets</span>
-                        </div>
-                        <div class="stat-block">
-                            <span class="stat-val">3,807</span>
-                            <span class="stat-lbl">Runs</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ODI Career Card -->
-                <div class="stats-card">
-                    <h4 class="card-header">ODI Career</h4>
-                    <div class="card-divider"></div>
-                    <div class="stats-grid">
-                        <div class="stat-block">
-                            <span class="stat-val">175</span>
-                            <span class="stat-lbl">Matches</span>
-                        </div>
-                        <div class="stat-block">
-                            <span class="stat-val">182</span>
-                            <span class="stat-lbl">Wickets</span>
-                        </div>
-                        <div class="stat-block">
-                            <span class="stat-val">3,709</span>
-                            <span class="stat-lbl">Runs</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- World Cup '92 Highlighted Card -->
-                <div class="stats-card highlighted">
-                    <h4 class="card-header"><i class="fa-solid fa-trophy"></i> WC '92 Glory</h4>
-                    <div class="card-divider"></div>
-                    <div class="stats-grid">
-                        <div class="stat-block">
-                            <span class="stat-val">8</span>
-                            <span class="stat-lbl">Matches</span>
-                        </div>
-                        <div class="stat-block">
-                            <span class="stat-val">7</span>
-                            <span class="stat-lbl">Wickets</span>
-                        </div>
-                        <div class="stat-block">
-                            <span class="stat-val">185</span>
-                            <span class="stat-lbl">Runs</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
 
             <!-- Dedicated Cricket Image Placeholder -->
             <div class="section-image-container">
                 <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=700" alt="Imran Khan Holding 1992 World Cup Trophy">
             </div>
 
-            <!-- New View Cricket Gallery Button Component -->
+            <!-- New Explorer More/Career Stats Button (Upgraded Component) -->
             <div style="text-align: center; margin-top: 35px;">
-                <button class="btn-primary" id="go-to-cricket-gallery" style="display: inline-flex; align-items: center; gap: 8px;">
-                    View Cricket Gallery <i class="fa-solid fa-arrow-right"></i>
+                <button class="btn-primary" id="open-cricket-stats" style="display: inline-flex; align-items: center; gap: 8px;">
+                    Explore More <i class="fa-solid fa-arrow-right"></i>
                 </button>
             </div>
         </div>
@@ -1091,7 +1167,7 @@
             </div>
         </div>
 
-        <!-- ================= SCREEN 2: SUB-CATEGORIES MENU ================= -->
+        <!-- ================= SCREEN 2: SUB-CATEGORIES MENU (With Mobile Drawer Overlap Fix) ================= -->
         <div class="gallery-view" id="view-categories" style="display: none;">
             <div class="gallery-header">
                 <button class="gallery-back-btn" id="back-to-home"><i class="fa-solid fa-arrow-left"></i></button>
@@ -1160,6 +1236,83 @@
             <div class="dynamic-photo-grid" id="photo-grid-container"></div>
         </div>
 
+        <!-- ================= SCREEN 4: CRICKET CAREER STATISTICS VIEW ================= -->
+        <div class="gallery-view" id="view-stats" style="display: none;">
+            <div class="gallery-header">
+                <button class="gallery-back-btn" id="back-stats-to-home"><i class="fa-solid fa-arrow-left"></i></button>
+                <h2 class="section-title">CAREER STATISTICS</h2>
+            </div>
+            <div class="premium-divider">
+                <span class="line left"></span>
+                <span class="flower">✿</span>
+                <span class="line right"></span>
+            </div>
+            <p class="section-desc">The official verified cricketing records of Imran Khan's international career.</p>
+
+            <!-- Premium Stats Cards inserted inside the Page! -->
+            <div class="stats-premium-container">
+                <!-- Test Career Card -->
+                <div class="stats-card">
+                    <h4 class="card-header">Test Career</h4>
+                    <div class="card-divider"></div>
+                    <div class="stats-grid">
+                        <div class="stat-block">
+                            <span class="stat-val">88</span>
+                            <span class="stat-lbl">Matches</span>
+                        </div>
+                        <div class="stat-block">
+                            <span class="stat-val">362</span>
+                            <span class="stat-lbl">Wickets</span>
+                        </div>
+                        <div class="stat-block">
+                            <span class="stat-val">3,807</span>
+                            <span class="stat-lbl">Runs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ODI Career Card -->
+                <div class="stats-card">
+                    <h4 class="card-header">ODI Career</h4>
+                    <div class="card-divider"></div>
+                    <div class="stats-grid">
+                        <div class="stat-block">
+                            <span class="stat-val">175</span>
+                            <span class="stat-lbl">Matches</span>
+                        </div>
+                        <div class="stat-block">
+                            <span class="stat-val">182</span>
+                            <span class="stat-lbl">Wickets</span>
+                        </div>
+                        <div class="stat-block">
+                            <span class="stat-val">3,709</span>
+                            <span class="stat-lbl">Runs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- World Cup '92 Highlighted Card -->
+                <div class="stats-card highlighted">
+                    <h4 class="card-header"><i class="fa-solid fa-trophy"></i> WC '92 Glory</h4>
+                    <div class="card-divider"></div>
+                    <div class="stats-grid">
+                        <div class="stat-block">
+                            <span class="stat-val">8</span>
+                            <span class="stat-lbl">Matches</span>
+                        </div>
+                        <div class="stat-block">
+                            <span class="stat-val">7</span>
+                            <span class="stat-lbl">Wickets</span>
+                        </div>
+                        <div class="stat-block">
+                            <span class="stat-val">185</span>
+                            <span class="stat-lbl">Runs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
 
     <!-- Achievements & Initiatives Section -->
@@ -1191,6 +1344,58 @@
                 <i class="fa-solid fa-hospital-user"></i>
                 <h4>Cancer Hospital Networks</h4>
             </div>
+        </div>
+    </section>
+
+    <!-- Premium Reviews & Tributes Section (Upgraded Component) -->
+    <section class="tributes-section" id="tributes">
+        <h2 class="section-title">Reviews & Tributes</h2>
+        <div class="premium-divider">
+            <span class="line left"></span>
+            <span class="flower">✿</span>
+            <span class="line right"></span>
+        </div>
+        <p class="section-desc">Hear what global leaders and followers say about Imran Khan, and leave your own tribute below.</p>
+
+        <!-- Grid of reviews -->
+        <div class="tributes-grid" id="tributes-container">
+            <div class="tribute-card">
+                <p class="tribute-quote">"Imran Khan is a man of absolute integrity and deep passion. His work for healthcare and education in Pakistan is unmatched."</p>
+                <h4 class="tribute-author">Dr. Jane Carter</h4>
+                <p class="tribute-role">International Health Analyst</p>
+            </div>
+            <div class="tribute-card">
+                <p class="tribute-quote">"A charismatic leader who successfully transitioned from a sporting giant to a global political statesman."</p>
+                <h4 class="tribute-author">Nelson Mandela Foundation</h4>
+                <p class="tribute-role">Official Tribute Archive</p>
+            </div>
+            <div class="tribute-card">
+                <p class="tribute-quote">"His vision for Riyasat-e-Madina and climate initiatives like the Ten Billion Tree Tsunami are landmarks for developing nations."</p>
+                <h4 class="tribute-author">Kofi Atta</h4>
+                <p class="tribute-role">Global Policy Research</p>
+            </div>
+        </div>
+
+        <!-- Add Tribute Form -->
+        <div class="tribute-form-container">
+            <h3>Leave a Tribute</h3>
+            <form id="tribute-form">
+                <div class="form-group">
+                    <label for="author-name">Your Name</label>
+                    <input type="text" id="author-name" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="author-role">Designation / Location</label>
+                    <input type="text" id="author-role" placeholder="e.g. Supporter from Lahore" required>
+                </div>
+                <div class="form-group">
+                    <label for="tribute-message">Your Tribute / Review</label>
+                    <textarea id="tribute-message" rows="4" placeholder="Write your premium tribute here..." required></textarea>
+                </div>
+                <div style="text-align: center;">
+                    <button type="submit" class="btn-primary" style="cursor: pointer; width: 100%;">Submit Tribute</button>
+                </div>
+            </form>
         </div>
     </section>
 
@@ -1249,10 +1454,15 @@
         const viewHome = document.getElementById('view-home');
         const viewCategories = document.getElementById('view-categories');
         const viewGrid = document.getElementById('view-grid');
+        const viewStats = document.getElementById('view-stats');
 
         const btnGoToCategories = document.getElementById('go-to-categories');
         const btnBackToHome = document.getElementById('back-to-home');
         const btnBackToCategories = document.getElementById('back-to-categories');
+        
+        // Upgraded Navigation Buttons
+        const btnOpenCricketStats = document.getElementById('open-cricket-stats');
+        const btnBackStatsToHome = document.getElementById('back-stats-to-home');
         const btnGoToCricketGallery = document.getElementById('go-to-cricket-gallery');
 
         const categoryRows = document.querySelectorAll('.category-row');
@@ -1296,6 +1506,7 @@
                 toView.style.opacity = '0';
                 toView.style.transform = 'translateY(12px)';
                 
+                // Toggle Fullscreen state safely
                 if (gallerySection) {
                     if (makeFullscreen) {
                         gallerySection.classList.add('fullscreen');
@@ -1356,7 +1567,41 @@
             });
         }
 
-        // --- 5. View Cricket Gallery Trigger Controller ---
+        // --- 5. New Cricket Stats Views Controller ---
+        const handleOpenCricketStats = () => {
+            if (viewHome && viewStats) {
+                // Scroll straight to the gallery section cleanly first
+                const targetGallery = document.getElementById('gallery');
+                if (targetGallery) {
+                    targetGallery.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                switchView(viewHome, viewStats, true);
+            }
+        };
+
+        if (btnOpenCricketStats) {
+            btnOpenCricketStats.addEventListener('click', handleOpenCricketStats);
+            btnOpenCricketStats.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                handleOpenCricketStats();
+            });
+        }
+
+        const handleBackStatsToHome = () => {
+            if (viewStats && viewHome) {
+                switchView(viewStats, viewHome, false);
+            }
+        };
+
+        if (btnBackStatsToHome) {
+            btnBackStatsToHome.addEventListener('click', handleBackStatsToHome);
+            btnBackStatsToHome.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                handleBackStatsToHome();
+            });
+        }
+
+        // --- 6. View Cricket Gallery Trigger Controller ---
         const handleCricketGalleryNav = () => {
             if (viewHome && viewCategories) {
                 // Scroll straight to the gallery section cleanly first
@@ -1384,7 +1629,7 @@
             });
         }
 
-        // --- 6. Category Selection & Dynamic Grid Population ---
+        // --- 7. Category Selection & Dynamic Grid Population ---
         if (categoryRows.length > 0) {
             categoryRows.forEach(row => {
                 const handleCategoryClick = () => {
@@ -1427,7 +1672,7 @@
             });
         }
 
-        // --- 7. Mobile Menu & Navigation Logic (With touchstart fallback) ---
+        // --- 8. Mobile Menu & Navigation Logic (With touchstart fallback) ---
         if (mobileMenu && navMenu) {
             function toggleMenu(e) {
                 if (e) e.preventDefault();
@@ -1452,7 +1697,7 @@
             }
         }
 
-        // --- 8. Smooth Scrolling & Menu Auto-Closing Logic ---
+        // --- 9. Smooth Scrolling & Menu Auto-Closing Logic ---
         if (navLinks.length > 0) {
             navLinks.forEach(link => {
                 const handleLinkClick = (e) => {
@@ -1468,6 +1713,7 @@
                         }
                         if (viewCategories) viewCategories.style.display = 'none';
                         if (viewGrid) viewGrid.style.display = 'none';
+                        if (viewStats) viewStats.style.display = 'none';
 
                         if (mobileMenu) mobileMenu.classList.remove('open');
                         if (navMenu) navMenu.classList.remove('active');
@@ -1496,6 +1742,34 @@
                 link.addEventListener('touchstart', (e) => {
                     handleLinkClick(e);
                 });
+            });
+        }
+
+        // --- 10. Interactive Tribute Form Submission ---
+        const tributeForm = document.getElementById('tribute-form');
+        const tributesContainer = document.getElementById('tributes-container');
+
+        if (tributeForm && tributesContainer) {
+            tributeForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const name = document.getElementById('author-name').value;
+                const role = document.getElementById('author-role').value;
+                const message = document.getElementById('tribute-message').value;
+
+                // Create a new premium card element
+                const card = document.createElement('div');
+                card.className = 'tribute-card';
+                card.innerHTML = `
+                    <p class="tribute-quote">"${message}"</p>
+                    <h4 class="tribute-author">${name}</h4>
+                    <p class="tribute-role">${role}</p>
+                `;
+
+                // Prepend and animate
+                tributesContainer.prepend(card);
+                tributeForm.reset();
+                alert("JazakAllah! Your tribute has been added successfully.");
             });
         }
     </script>
