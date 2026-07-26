@@ -1524,7 +1524,7 @@ justify-content: center !important;
             </div>
         </div>
     </section>
-<!-- New Upgraded Premium Photo Gallery Section (With Sub-categories) -->
+<!-- New Upgraded Premium Photo Gallery Section (With Sub-categories Complete) -->
     <section class="gallery-section" id="gallery">
         
         <!-- ================= SCREEN 1: HOME PREVIEW ================= -->
@@ -1542,6 +1542,77 @@ justify-content: center !important;
                 </button>
             </div>
         </div>
+
+        <!-- ================= SCREEN 2: SUB-CATEGORIES MENU ================= -->
+        <div class="gallery-view" id="view-categories" style="display: none;">
+            <div class="gallery-header">
+                <button class="gallery-back-btn" id="back-to-home"><i class="fa-solid fa-arrow-left"></i></button>
+                <h2 class="section-title">PHOTO GALLERY</h2>
+            </div>
+            <div class="premium-divider">
+                <span class="line left"></span>
+                <span class="flower">✿</span>
+                <span class="line right"></span>
+            </div>
+            <p class="section-desc">Select a category to explore photos from that era.</p>
+
+            <div class="categories-list">
+                <!-- Bachpan Card -->
+                <div class="category-row" data-category="bachpan">
+                    <div class="category-left">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150" alt="Bachpan">
+                        <span class="category-name">Bachpan</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right category-arrow"></i>
+                </div>
+
+                <!-- Jawani Card -->
+                <div class="category-row" data-category="jawani">
+                    <div class="category-left">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150" alt="Jawani">
+                        <span class="category-name">Jawani</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right category-arrow"></i>
+                </div>
+
+                <!-- Cricket Era Card -->
+                <div class="category-row" data-category="cricket">
+                    <div class="category-left">
+                        <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=150" alt="Cricket">
+                        <span class="category-name">Cricket Era</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right category-arrow"></i>
+                </div>
+
+                <!-- Political Era Card -->
+                <div class="category-row" data-category="political">
+                    <div class="category-left">
+                        <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&q=80&w=150" alt="Political">
+                        <span class="category-name">Political Era</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right category-arrow"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SCREEN 3: SPECIFIC ERA PHOTOS GRID ================= -->
+        <div class="gallery-view" id="view-grid" style="display: none;">
+            <div class="gallery-header">
+                <button class="gallery-back-btn" id="back-to-categories"><i class="fa-solid fa-arrow-left"></i></button>
+                <h2 class="section-title" id="dynamic-grid-title" style="text-transform: uppercase;">CRICKET ERA</h2>
+            </div>
+            <div class="premium-divider">
+                <span class="line left"></span>
+                <span class="flower">✿</span>
+                <span class="line right"></span>
+            </div>
+            <p class="section-desc" id="dynamic-grid-desc">Historic moments from Imran Khan's iconic cricket journey.</p>
+
+            <!-- Dynamic grid populated via JavaScript -->
+            <div class="dynamic-photo-grid" id="photo-grid-container"></div>
+        </div>
+
+    </section>
 
 <!-- Advanced Diagnostic Mobile Debugger -->
     <script>
