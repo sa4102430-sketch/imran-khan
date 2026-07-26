@@ -1543,12 +1543,29 @@ justify-content: center !important;
             </div>
         </div>
 
-        <!-- ================= SCREEN 2: SUB-CATEGORIES MENU ================= -->
-        <div class="gallery-view" id="view-categories" style="display: none;">
-            <div class="gallery-header">
-                <button class="gallery-back-btn" id="back-to-home"><i class="fa-solid fa-arrow-left"></i></button>
-                <h2 class="section-title">PHOTO GALLERY</h2>
-            </div>
+<!-- Advanced Diagnostic Mobile Debugger -->
+    <script>
+        window.onerror = function(message, source, lineno, colno, error) {
+            alert("JS ERROR: " + message + " on line " + lineno);
+            return false;
+        };
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const menuElements = document.querySelectorAll('#mobile-menu');
+            const navElements = document.querySelectorAll('#nav-menu');
+            const headers = document.querySelectorAll('header');
+            const bodies = document.querySelectorAll('body');
+
+            alert(
+                "ADVANCED DIAGNOSTIC REPORT:\n\n" +
+                "1. Total Body Tags: " + bodies.length + " (Should be 1)\n" +
+                "2. Total Header Tags: " + headers.length + " (Should be 1)\n" +
+                "3. Mobile Menu Elements: " + menuElements.length + " (Should be 1)\n" +
+                "4. Nav Menu Elements: " + navElements.length + " (Should be 1)\n" +
+                "5. View Gallery Button: " + (document.getElementById('go-to-categories') ? "✅ FOUND" : "❌ MISSING")
+            );
+        });
+    </script>
             <div class="premium-divider">
                 <span class="line left"></span>
                 <span class="flower">✿</span>
