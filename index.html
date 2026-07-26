@@ -50,7 +50,7 @@
             border-radius: 4px;
         }
 
-        /* Top Running Arabic Marquee Ticker */
+        /* Top Seamless Infinite Arabic Marquee Ticker */
         .top-marquee-bar {
             background-color: #030504;
             border-bottom: 1px solid var(--border-color);
@@ -58,24 +58,29 @@
             font-family: 'Cinzel', serif;
             font-size: 0.9rem;
             font-weight: bold;
-            padding: 10px 0;
+            padding: 12px 0;
             overflow: hidden;
             white-space: nowrap;
             position: relative;
             z-index: 1001;
             text-shadow: 0 0 8px rgba(27, 242, 91, 0.4);
-            direction: rtl; /* For perfect Arabic readability flow */
+            display: flex;
         }
 
-        .marquee-content {
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee-seamless 45s linear infinite; /* Premium Normal Speed */
+        }
+
+        .marquee-text {
+            padding-right: 50px;
             display: inline-block;
-            padding-right: 100%;
-            animation: marquee 25s linear infinite;
         }
 
-        @keyframes marquee {
-            0% { transform: translate(100%, 0); }
-            100% { transform: translate(-100%, 0); }
+        @keyframes marquee-seamless {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); } /* Rotates seamlessly at 50% duplication */
         }
 
         /* Premium Heading Divider (Centered Flower and horizontal lines) */
@@ -865,6 +870,46 @@
             border-color: var(--parrot-green);
         }
 
+        /* Toast Success Notification (Instead of Cheap Popups) */
+        .toast-notification {
+            position: fixed;
+            bottom: 30px;
+            right: -450px; /* Initially offscreen */
+            background-color: #0c110e;
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--parrot-green);
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(27, 242, 91, 0.25);
+            z-index: 10005;
+            transition: right 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .toast-notification.show {
+            right: 30px;
+        }
+
+        .toast-icon {
+            color: var(--parrot-green);
+            font-size: 1.5rem;
+            text-shadow: 0 0 8px rgba(27, 242, 91, 0.4);
+        }
+
+        .toast-body h5 {
+            font-family: var(--font-headings);
+            font-size: 1rem;
+            color: var(--white);
+            margin-bottom: 2px;
+        }
+
+        .toast-body p {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+        }
+
         /* ================= MOBILE RESPONSIVE STYLES ================= */
         @media (max-width: 768px) {
             .navbar {
@@ -899,10 +944,11 @@
             }
 
             .nav-links a {
-                font-size: 0.9rem !important; /* Premium smaller font size */
+                font-size: 0.8rem !important; /* Premium even smaller menu drawer font size */
                 width: 100% !important;
-                border-bottom: 1px solid rgba(27, 242, 91, 0.08) !important;
+                border-bottom: 1px solid rgba(27, 242, 91, 0.05) !important;
                 padding-bottom: 10px !important;
+                letter-spacing: 1.5px !important;
             }
 
             .nav-links a::after { display: none !important; }
@@ -911,7 +957,8 @@
                 width: 100% !important;
                 text-align: center !important;
                 margin-top: 15px !important;
-                font-size: 0.85rem !important;
+                font-size: 0.8rem !important;
+                border-radius: 30px !important; /* Elegant rounded Join Us button inside mobile drawer */
             }
 
             /* Hamburger Toggle line animations */
@@ -1004,129 +1051,48 @@
 
         .copyright {
             text-align: center !important;
-            color: rgba(255, 255, 255, 0.15) !important;
-            font-size: 0.75rem !important;
-            padding-top: 20px !important;
+            color: rgba(255, 255, 255, 0.2) !important;
+            font-size: 0.8rem !important;
+            padding-top: 25px !important;
             border-top: 1px solid var(--border-color) !important;
-        }
-
-        /* Achievements Section */
-        .achievements-section {
-            background-color: var(--bg-card);
-            padding: 100px 8%;
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
-            width: 100%;
-        }
-
-        .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-            gap: 25px;
-            margin-top: 45px;
-        }
-
-        .achievement-item {
-            padding: 35px 20px;
-            background: rgba(255,255,255,0.01);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            transition: all 0.3s;
-        }
-
-        .achievement-item:hover {
-            border-color: var(--parrot-green);
-            background: rgba(27, 242, 91, 0.02);
-            transform: translateY(-5px);
-        }
-
-        .achievement-item i {
-            font-size: 2.3rem;
-            color: var(--parrot-green);
-            margin-bottom: 18px;
-            text-shadow: 0 0 8px rgba(27, 242, 91, 0.4);
-        }
-
-        .achievement-item h4 {
-            font-family: var(--font-headings);
-            font-size: 1.1rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-
-        /* Newsletter (Stay Updated) Section */
-        .newsletter {
-            background: linear-gradient(135deg, #0b150e 0%, #040805 100%);
-            padding: 80px 8%;
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
-            width: 100%;
-        }
-
-        .newsletter h2 {
-            font-family: var(--font-headings);
-            font-size: 2.2rem;
-            letter-spacing: 2px;
-            margin-bottom: 5px;
-        }
-
-        .newsletter p {
-            font-size: 0.95rem;
-            color: var(--text-gray);
-            margin-bottom: 30px;
-        }
-
-        .newsletter-form {
             display: flex;
-            justify-content: center;
-            max-width: 500px;
-            margin: 0 auto;
-            gap: 12px;
-            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
         }
 
-        .newsletter-form input {
-            flex: 1;
-            padding: 12px 20px;
-            border: 1px solid rgba(27, 242, 91, 0.3);
-            background-color: rgba(0, 0, 0, 0.4);
-            color: var(--white);
-            border-radius: 4px;
-            outline: none;
-            font-size: 0.9rem;
-            transition: border-color 0.3s;
-        }
-
-        .newsletter-form input:focus {
-            border-color: var(--parrot-green);
-            box-shadow: 0 0 10px rgba(27, 242, 91, 0.2);
-        }
-
-        .newsletter-form button {
-            background-color: var(--parrot-green);
-            color: var(--bg-dark);
-            border: none;
-            padding: 12px 30px;
-            border-radius: 4px;
-            font-weight: 700;
-            text-transform: uppercase;
+        /* High-End Saad Ali Developer Signature Styling */
+        .developer-signature {
+            font-size: 0.8rem;
+            color: var(--text-gray);
             letter-spacing: 1px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+            text-transform: uppercase;
+            margin-top: 6px;
         }
 
-        .newsletter-form button:hover {
-            background-color: var(--white);
-            color: var(--bg-dark);
+        .developer-signature .dev-name {
+            color: var(--white);
+            font-family: var(--font-headings);
+            font-weight: bold;
+            position: relative;
+            padding-left: 5px;
+            text-shadow: 0 0 10px rgba(27, 242, 91, 0.45);
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .developer-signature .dev-name:hover {
+            color: var(--parrot-green) !important;
+            text-shadow: 0 0 15px var(--parrot-green) !important;
         }
     </style>
 </head>
 <body>
 
-    <!-- Sleek Running Arabic Marquee Ticker -->
+    <!-- Sleek Running Arabic Marquee Ticker (Seamless Infinite Loop) -->
     <div class="top-marquee-bar">
-        <div class="marquee-content">
-            إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ
+        <div class="marquee-track">
+            <div class="marquee-text">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ</div>
+            <div class="marquee-text">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ</div>
         </div>
     </div>
 
@@ -1291,7 +1257,7 @@
         </div>
     </section>
 
-    <!-- New Upgraded Premium Photo Gallery Section (With Sub-categories Complete) -->
+    <!-- New Upgraded Premium Photo Gallery Section -->
     <section class="gallery-section" id="gallery">
         
         <!-- ================= SCREEN 1: HOME PREVIEW ================= -->
@@ -1490,7 +1456,7 @@
         </div>
     </section>
 
-    <!-- Premium Reviews & Tributes Section (Upgraded Component with form on top) -->
+    <!-- Premium Reviews & Tributes Section (With dynamic submitted reviews only) -->
     <section class="tributes-section" id="tributes">
         <h2 class="section-title">Reviews & Tributes</h2>
         <div class="premium-divider">
@@ -1498,9 +1464,9 @@
             <span class="flower">✿</span>
             <span class="line right"></span>
         </div>
-        <p class="section-desc">Hear what global leaders and followers say about Imran Khan, and leave your own tribute below.</p>
+        <p class="section-desc">Leave your own premium tribute to Imran Khan below. Your tribute will appear in real-time below.</p>
 
-        <!-- Add Tribute Form on Top -->
+        <!-- Leave a Tribute Form on TOP cleanly -->
         <div class="tribute-form-container">
             <h3>Leave a Tribute</h3>
             <form id="tribute-form">
@@ -1522,49 +1488,11 @@
             </form>
         </div>
 
-        <!-- Grid of reviews showing below -->
-        <div class="tributes-grid" id="tributes-container">
-            <div class="tribute-card">
-                <p class="tribute-quote">"Imran Khan is a man of absolute integrity and deep passion. His work for healthcare and education in Pakistan is unmatched."</p>
-                <h4 class="tribute-author">Dr. Jane Carter</h4>
-                <p class="tribute-role">International Health Analyst</p>
-                <p class="tribute-date"><i class="fa-regular fa-clock"></i> Oct 12, 2024 at 10:15 AM</p>
-                <div class="tribute-reply">
-                    <p><i class="fa-solid fa-reply"></i> <strong>Official Reply:</strong> Thank you for your beautiful tribute! Your support keeps the movement strong. 🙏💚</p>
-                </div>
-            </div>
-            <div class="tribute-card">
-                <p class="tribute-quote">"A charismatic leader who successfully transitioned from a sporting giant to a global political statesman."</p>
-                <h4 class="tribute-author">Nelson Mandela Foundation</h4>
-                <p class="tribute-role">Official Tribute Archive</p>
-                <p class="tribute-date"><i class="fa-regular fa-clock"></i> Nov 05, 2024 at 02:30 PM</p>
-                <div class="tribute-reply">
-                    <p><i class="fa-solid fa-reply"></i> <strong>Official Reply:</strong> We are deeply honored by this recognition. Thank you! 🙏💚</p>
-                </div>
-            </div>
-            <div class="tribute-card">
-                <p class="tribute-quote">"His vision for Riyasat-e-Madina and climate initiatives like the Ten Billion Tree Tsunami are landmarks for developing nations."</p>
-                <h4 class="tribute-author">Kofi Atta</h4>
-                <p class="tribute-role">Global Policy Research</p>
-                <p class="tribute-date"><i class="fa-regular fa-clock"></i> Dec 28, 2024 at 04:45 PM</p>
-                <div class="tribute-reply">
-                    <p><i class="fa-solid fa-reply"></i> <strong>Official Reply:</strong> Thank you for acknowledging these vital climate initiatives! 🙏💚</p>
-                </div>
-            </div>
-        </div>
+        <!-- Clean empty grid ready for dynamic tributes below -->
+        <div class="tributes-grid" id="tributes-container"></div>
     </section>
 
-    <!-- Newsletter -->
-    <section class="newsletter">
-        <h2>STAY UPDATED</h2>
-        <p>Subscribe to our newsletter to receive the latest updates and articles regarding Imran Khan.</p>
-        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('JazakAllah! Subscribed successfully.');">
-            <input type="email" placeholder="Enter your email address" required>
-            <button type="submit">Subscribe</button>
-        </form>
-    </section>
-
-    <!-- Footer -->
+    <!-- Footer (Premium & Compact) -->
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
@@ -1592,7 +1520,11 @@
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2026 Imran Khan - The Journey of 804. Created with elegance.</p>
+            <p>&copy; 2026 Imran Khan - All Rights Reserved.</p>
+            <!-- Premium Saad Ali Signature -->
+            <div class="developer-signature">
+                Developed with passion by <span class="dev-name">Saad Ali</span>
+            </div>
         </div>
     </footer>
 
@@ -1615,7 +1547,7 @@
         const btnBackToHome = document.getElementById('back-to-home');
         const btnBackToCategories = document.getElementById('back-to-categories');
         
-        // Upgraded Navigation Buttons
+        // Navigation Buttons
         const btnOpenCricketStats = document.getElementById('open-cricket-stats');
         const btnBackStatsToHome = document.getElementById('back-stats-to-home');
         const btnGoToCricketGallery = document.getElementById('go-to-cricket-gallery');
@@ -1900,9 +1832,36 @@
             });
         }
 
-        // --- 10. Interactive Tribute Form Submission ---
+        // --- 10. Interactive Tribute Form Submission (With Premium Toast Notification & Auto-Reply) ---
         const tributeForm = document.getElementById('tribute-form');
         const tributesContainer = document.getElementById('tributes-container');
+
+        // Dynamic Toast Notification Trigger (Instead of cheap browser popups)
+        function showPremiumToast(name) {
+            let toast = document.getElementById('success-toast');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'success-toast';
+                toast.className = 'toast-notification';
+                document.body.appendChild(toast);
+            }
+            
+            toast.innerHTML = `
+                <div class="toast-icon"><i class="fa-solid fa-circle-check"></i></div>
+                <div class="toast-body">
+                    <h5>JazakAllah, ${name}!</h5>
+                    <p>Thank you for your beautiful tribute. 🙏💚</p>
+                </div>
+            `;
+            
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 100);
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 4200); // Auto-dismisses smoothly after 4 seconds
+        }
 
         if (tributeForm && tributesContainer) {
             tributeForm.addEventListener('submit', (e) => {
@@ -1918,7 +1877,7 @@
                                    ' at ' + 
                                    now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
 
-                // Create a new premium card element
+                // Create a new premium card element with automatic reply & emoji
                 const card = document.createElement('div');
                 card.className = 'tribute-card';
                 card.innerHTML = `
@@ -1934,7 +1893,9 @@
                 // Prepend and animate dynamically
                 tributesContainer.prepend(card);
                 tributeForm.reset();
-                alert("JazakAllah! Your tribute has been added successfully.");
+                
+                // Trigger the beautiful slide-in toast notification instead of browser alert
+                showPremiumToast(name);
             });
         }
     </script>
