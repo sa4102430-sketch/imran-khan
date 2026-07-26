@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* CSS Reset & Variable Declarations */
+        /* General Reset & Variable Declarations */
         * {
             margin: 0;
             padding: 0;
@@ -48,6 +48,34 @@
         ::-webkit-scrollbar-thumb {
             background: var(--parrot-green);
             border-radius: 4px;
+        }
+
+        /* Top Running Arabic Marquee Ticker */
+        .top-marquee-bar {
+            background-color: #030504;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--parrot-green);
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            font-weight: bold;
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            z-index: 1001;
+            text-shadow: 0 0 8px rgba(27, 242, 91, 0.4);
+            direction: rtl; /* For perfect Arabic readability flow */
+        }
+
+        .marquee-content {
+            display: inline-block;
+            padding-right: 100%;
+            animation: marquee 25s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate(100%, 0); }
+            100% { transform: translate(-100%, 0); }
         }
 
         /* Premium Heading Divider (Centered Flower and horizontal lines) */
@@ -427,7 +455,7 @@
             box-shadow: 0 0 35px rgba(27, 242, 91, 0.45);
         }
 
-        /* Premium Stats Component Styling */
+        /* Premium Stats Section Styling */
         .stats-premium-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -539,14 +567,14 @@
             position: relative;
         }
 
-        /* FULLSCREEN STATE - Covers everything, even Achievements & Footer */
+        /* FULLSCREEN STATE - Covers Achievements, Footer & lock scroll */
         .gallery-section.fullscreen {
             position: fixed !important;
             top: 0 !important;
             left: 0 !important;
             width: 100vw !important;
             height: 100vh !important;
-            z-index: 10000 !important; /* Higher than navbar and other elements */
+            z-index: 10000 !important; /* Above everything */
             overflow-y: auto !important;
             background-color: #060907 !important;
             padding: 60px 8% !important;
@@ -687,16 +715,16 @@
             border-radius: 10px !important;
             overflow: hidden !important;
             height: 250px !important;
-            border: 1.5px solid var(--border-color);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-            transition: all 0.4s ease;
+            border: 1.5px solid var(--border-color) !important;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4) !important;
+            transition: all 0.4s ease !important;
         }
 
         .grid-photo-item img {
             width: 100% !important;
             height: 100% !important;
             object-fit: cover !important;
-            transition: transform 0.5s ease;
+            transition: transform 0.5s ease !important;
         }
 
         .grid-photo-item:hover img {
@@ -768,9 +796,33 @@
             margin-top: 2px;
         }
 
+        .tribute-date {
+            font-size: 0.72rem;
+            color: var(--text-gray);
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .tribute-reply {
+            margin-top: 15px;
+            padding: 10px 15px;
+            background-color: rgba(27, 242, 91, 0.03);
+            border-left: 2px solid var(--parrot-green);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: #d1ded5;
+        }
+
+        .tribute-reply i {
+            color: var(--parrot-green);
+            margin-right: 5px;
+        }
+
         .tribute-form-container {
             max-width: 550px;
-            margin: 60px auto 0 auto;
+            margin: 0 auto 60px auto; /* Form now placed on top cleanly */
             border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 30px;
@@ -833,7 +885,7 @@
                 flex-direction: column !important;
                 align-items: flex-start !important;
                 padding: 100px 30px !important;
-                gap: 20px !important; /* Slightly smaller gap */
+                gap: 20px !important; /* Premium tighter spacing */
                 transition: right 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
                 border-left: 2px solid var(--parrot-green) !important;
                 box-shadow: -10px 0 35px rgba(0, 0, 0, 0.9) !important;
@@ -872,6 +924,90 @@
             .menu-toggle.open span:nth-child(3) {
                 transform: rotate(-45deg) translate(6px, -6px) !important;
             }
+        }
+
+        /* Premium Compact Footer Redesign */
+        footer {
+            padding: 60px 8% 20px 8% !important; /* Tightened padding */
+            background-color: #030504 !important;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+            gap: 30px !important; /* Better compact spacing */
+            margin-bottom: 30px !important;
+        }
+
+        .footer-col h3 {
+            font-family: var(--font-headings) !important;
+            font-size: 1rem !important; /* Extremely sleek small size */
+            margin-bottom: 15px !important;
+            letter-spacing: 1px !important;
+            text-transform: uppercase !important;
+        }
+
+        .footer-col p {
+            color: var(--text-gray) !important;
+            font-size: 0.82rem !important; /* Muted smaller description */
+            line-height: 1.6 !important;
+        }
+
+        .footer-links {
+            list-style: none !important;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px !important;
+        }
+
+        .footer-links a {
+            color: var(--text-gray) !important;
+            font-size: 0.82rem !important; /* Remove purple/underlines completely */
+            text-decoration: none !important;
+            transition: color 0.3s !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+        }
+
+        .footer-links a:hover {
+            color: var(--parrot-green) !important;
+        }
+
+        .social-icons {
+            display: flex !important;
+            gap: 12px !important;
+            margin-top: 15px !important;
+        }
+
+        .social-icons a {
+            display: inline-flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            width: 35px !important; /* Compact clean circles */
+            height: 35px !important;
+            border-radius: 50% !important;
+            background-color: rgba(255, 255, 255, 0.02) !important;
+            border: 1px solid var(--border-color) !important;
+            transition: all 0.3s !important;
+            color: var(--white) !important;
+            text-decoration: none !important;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--parrot-green) !important;
+            color: var(--bg-dark) !important;
+            transform: translateY(-3px) !important;
+            box-shadow: 0 0 10px rgba(27, 242, 91, 0.4) !important;
+        }
+
+        .copyright {
+            text-align: center !important;
+            color: rgba(255, 255, 255, 0.15) !important;
+            font-size: 0.75rem !important;
+            padding-top: 20px !important;
+            border-top: 1px solid var(--border-color) !important;
         }
 
         /* Achievements Section */
@@ -986,6 +1122,13 @@
     </style>
 </head>
 <body>
+
+    <!-- Sleek Running Arabic Marquee Ticker -->
+    <div class="top-marquee-bar">
+        <div class="marquee-content">
+            إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ
+        </div>
+    </div>
 
     <!-- Overlay Mask for Menu Drawer -->
     <div class="menu-overlay" id="overlay-mask"></div>
@@ -1167,7 +1310,7 @@
             </div>
         </div>
 
-        <!-- ================= SCREEN 2: SUB-CATEGORIES MENU (With Mobile Drawer Overlap Fix) ================= -->
+        <!-- ================= SCREEN 2: SUB-CATEGORIES MENU ================= -->
         <div class="gallery-view" id="view-categories" style="display: none;">
             <div class="gallery-header">
                 <button class="gallery-back-btn" id="back-to-home"><i class="fa-solid fa-arrow-left"></i></button>
@@ -1347,7 +1490,7 @@
         </div>
     </section>
 
-    <!-- Premium Reviews & Tributes Section (Upgraded Component) -->
+    <!-- Premium Reviews & Tributes Section (Upgraded Component with form on top) -->
     <section class="tributes-section" id="tributes">
         <h2 class="section-title">Reviews & Tributes</h2>
         <div class="premium-divider">
@@ -1357,26 +1500,7 @@
         </div>
         <p class="section-desc">Hear what global leaders and followers say about Imran Khan, and leave your own tribute below.</p>
 
-        <!-- Grid of reviews -->
-        <div class="tributes-grid" id="tributes-container">
-            <div class="tribute-card">
-                <p class="tribute-quote">"Imran Khan is a man of absolute integrity and deep passion. His work for healthcare and education in Pakistan is unmatched."</p>
-                <h4 class="tribute-author">Dr. Jane Carter</h4>
-                <p class="tribute-role">International Health Analyst</p>
-            </div>
-            <div class="tribute-card">
-                <p class="tribute-quote">"A charismatic leader who successfully transitioned from a sporting giant to a global political statesman."</p>
-                <h4 class="tribute-author">Nelson Mandela Foundation</h4>
-                <p class="tribute-role">Official Tribute Archive</p>
-            </div>
-            <div class="tribute-card">
-                <p class="tribute-quote">"His vision for Riyasat-e-Madina and climate initiatives like the Ten Billion Tree Tsunami are landmarks for developing nations."</p>
-                <h4 class="tribute-author">Kofi Atta</h4>
-                <p class="tribute-role">Global Policy Research</p>
-            </div>
-        </div>
-
-        <!-- Add Tribute Form -->
+        <!-- Add Tribute Form on Top -->
         <div class="tribute-form-container">
             <h3>Leave a Tribute</h3>
             <form id="tribute-form">
@@ -1396,6 +1520,37 @@
                     <button type="submit" class="btn-primary" style="cursor: pointer; width: 100%;">Submit Tribute</button>
                 </div>
             </form>
+        </div>
+
+        <!-- Grid of reviews showing below -->
+        <div class="tributes-grid" id="tributes-container">
+            <div class="tribute-card">
+                <p class="tribute-quote">"Imran Khan is a man of absolute integrity and deep passion. His work for healthcare and education in Pakistan is unmatched."</p>
+                <h4 class="tribute-author">Dr. Jane Carter</h4>
+                <p class="tribute-role">International Health Analyst</p>
+                <p class="tribute-date"><i class="fa-regular fa-clock"></i> Oct 12, 2024 at 10:15 AM</p>
+                <div class="tribute-reply">
+                    <p><i class="fa-solid fa-reply"></i> <strong>Official Reply:</strong> Thank you for your beautiful tribute! Your support keeps the movement strong. 🙏💚</p>
+                </div>
+            </div>
+            <div class="tribute-card">
+                <p class="tribute-quote">"A charismatic leader who successfully transitioned from a sporting giant to a global political statesman."</p>
+                <h4 class="tribute-author">Nelson Mandela Foundation</h4>
+                <p class="tribute-role">Official Tribute Archive</p>
+                <p class="tribute-date"><i class="fa-regular fa-clock"></i> Nov 05, 2024 at 02:30 PM</p>
+                <div class="tribute-reply">
+                    <p><i class="fa-solid fa-reply"></i> <strong>Official Reply:</strong> We are deeply honored by this recognition. Thank you! 🙏💚</p>
+                </div>
+            </div>
+            <div class="tribute-card">
+                <p class="tribute-quote">"His vision for Riyasat-e-Madina and climate initiatives like the Ten Billion Tree Tsunami are landmarks for developing nations."</p>
+                <h4 class="tribute-author">Kofi Atta</h4>
+                <p class="tribute-role">Global Policy Research</p>
+                <p class="tribute-date"><i class="fa-regular fa-clock"></i> Dec 28, 2024 at 04:45 PM</p>
+                <div class="tribute-reply">
+                    <p><i class="fa-solid fa-reply"></i> <strong>Official Reply:</strong> Thank you for acknowledging these vital climate initiatives! 🙏💚</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1757,6 +1912,12 @@
                 const role = document.getElementById('author-role').value;
                 const message = document.getElementById('tribute-message').value;
 
+                // Calculate current Date & Time dynamically
+                const now = new Date();
+                const dateTimeStr = now.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' }) + 
+                                   ' at ' + 
+                                   now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+
                 // Create a new premium card element
                 const card = document.createElement('div');
                 card.className = 'tribute-card';
@@ -1764,9 +1925,13 @@
                     <p class="tribute-quote">"${message}"</p>
                     <h4 class="tribute-author">${name}</h4>
                     <p class="tribute-role">${role}</p>
+                    <p class="tribute-date"><i class="fa-regular fa-clock"></i> ${dateTimeStr}</p>
+                    <div class="tribute-reply">
+                        <p><i class="fa-solid fa-reply"></i> <strong>Official Reply:</strong> Thank you for your beautiful tribute! Your support keeps the movement strong. 🙏💚</p>
+                    </div>
                 `;
 
-                // Prepend and animate
+                // Prepend and animate dynamically
                 tributesContainer.prepend(card);
                 tributeForm.reset();
                 alert("JazakAllah! Your tribute has been added successfully.");
