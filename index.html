@@ -264,7 +264,7 @@
 
         .hero-title {
             font-family: var(--font-headings);
-            font-size: 2.8rem; /* Made smaller! */
+            font-size: 2.5rem !important; /* Made even smaller & compact! */
             font-weight: 900;
             letter-spacing: 2px;
             line-height: 1.1;
@@ -336,7 +336,7 @@
 
         .section-title {
             font-family: var(--font-headings);
-            font-size: 1.8rem; /* Made smaller! */
+            font-size: 1.55rem !important; /* Made compact and premium! */
             letter-spacing: 2px;
             text-align: left; /* Left-aligned! */
         }
@@ -409,7 +409,7 @@
 
         .history-content .label {
             font-family: var(--font-headings);
-            font-size: 1.8rem; /* Made smaller! */
+            font-size: 1.55rem !important; /* Made compact and premium! */
             letter-spacing: 2px;
             margin-bottom: 5px;
             color: var(--white);
@@ -446,10 +446,10 @@
             box-shadow: 0 0 35px rgba(27, 242, 91, 0.45);
         }
 
-        /* Premium Stats Section Styling */
+        /* Upgraded Stats Card Layout (Exact Mockup Layout Match) */
         .stats-premium-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
             gap: 25px;
             margin: 35px 0; /* Left-aligned! */
             width: 100%;
@@ -457,9 +457,9 @@
         }
 
         .stats-card {
-            background: rgba(255, 255, 255, 0.01);
-            border: 1px solid rgba(27, 242, 91, 0.12);
-            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.01) !important;
+            border: 1px solid var(--border-color) !important;
+            border-radius: 20px !important; /* Premium curves like the screenshot */
             padding: 25px 20px;
             text-align: left; /* Left-aligned! */
             transition: all 0.3s ease;
@@ -469,83 +469,125 @@
 
         .stats-card:hover {
             transform: translateY(-5px);
-            border-color: var(--parrot-green);
-            box-shadow: 0 5px 25px rgba(27, 242, 91, 0.1);
-            background: rgba(27, 242, 91, 0.02);
+            border-color: var(--parrot-green) !important;
+            box-shadow: 0 5px 25px rgba(27, 242, 91, 0.15) !important;
+            background: rgba(27, 242, 91, 0.02) !important;
         }
 
-        /* World Cup Card Highlight */
-        .stats-card.highlighted {
-            border-color: var(--parrot-green);
-            background: rgba(27, 242, 91, 0.03);
-            box-shadow: 0 0 15px rgba(27, 242, 91, 0.15);
-        }
-
-        .stats-card.highlighted:hover {
-            box-shadow: 0 0 25px rgba(27, 242, 91, 0.35);
-        }
-
-        .card-header {
-            font-family: var(--font-headings);
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: var(--white);
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
+        .stats-card-top {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: flex-start; /* Left-aligned! */
-            gap: 8px;
+            width: 100%;
+            margin-bottom: 20px;
         }
 
-        .stats-card.highlighted .card-header {
+        .stats-badge {
+            background-color: rgba(27, 242, 91, 0.08);
             color: var(--parrot-green);
-            text-shadow: 0 0 8px rgba(27, 242, 91, 0.3);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .card-divider {
-            height: 1.5px;
-            background: linear-gradient(to right, var(--parrot-green), transparent); /* Left fading divider */
-            margin: 15px 0; /* Left-aligned! */
-            width: 60%;
+        .stats-card-icon {
+            color: rgba(255, 255, 255, 0.35);
+            font-size: 1.2rem;
+        }
+
+        .stats-card.highlighted .stats-card-icon {
+            color: var(--parrot-green);
+            text-shadow: 0 0 8px rgba(27, 242, 91, 0.4);
+        }
+
+        .stats-main-number {
+            font-family: var(--font-body); /* Geometric and bold */
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .stats-card-subtitle {
+            font-size: 1.05rem;
+            color: var(--parrot-green);
+            font-weight: bold;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        .stats-card-desc {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            text-align: left;
+            margin-bottom: 25px;
+            line-height: 1.5;
         }
 
         .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 12px !important;
+            width: 100%;
+            margin-bottom: 12px;
         }
 
-        .stat-block {
+        .stat-grid-box {
+            background-color: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 12px 15px;
             display: flex;
             flex-direction: column;
-            align-items: flex-start; /* Left-aligned! */
-            border-right: 1px solid rgba(255, 255, 255, 0.08);
+            align-items: flex-start;
+            text-align: left;
         }
 
-        .stat-block:last-child {
-            border-right: none;
-        }
-
-        .stat-val {
-            font-family: var(--font-headings);
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--parrot-green);
-            text-shadow: 0 0 8px rgba(27, 242, 91, 0.25);
-            line-height: 1.2;
-        }
-
-        .stats-card.highlighted .stat-val {
-            color: var(--parrot-green);
-        }
-
-        .stat-lbl {
-            font-size: 0.72rem;
+        .box-label {
+            font-size: 0.65rem;
             color: var(--text-gray);
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-top: 5px;
+            margin-bottom: 4px;
+        }
+
+        .box-value {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--white);
+        }
+
+        .stats-card.highlighted .box-value {
+            color: var(--parrot-green);
+        }
+
+        .stat-grid-row-bottom {
+            background-color: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 12px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .bottom-label {
+            font-size: 0.65rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .bottom-value {
+            font-size: 0.95rem;
+            font-weight: bold;
+            color: var(--parrot-green);
         }
 
         /* --- Premium Filterable Gallery Section --- */
@@ -823,10 +865,11 @@
         }
 
         .tribute-quote {
-            font-size: 0.9rem;
-            color: var(--text-gray);
+            font-size: 0.95rem !important;
+            color: var(--white) !important; /* Highly highlighted/bright white */
             font-style: italic;
             margin-bottom: 20px;
+            font-weight: 500;
         }
 
         .tribute-author {
@@ -890,7 +933,7 @@
 
         .tribute-form-container {
             max-width: 550px;
-            margin: 0 0 60px 0; /* Left-aligned! */
+            margin: 0 0 60px 0; /* Form now placed on top cleanly */
             border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 30px;
@@ -993,6 +1036,73 @@
             color: var(--text-gray);
         }
 
+        /* Premium Custom Modal for Deletion Confirmation */
+        .custom-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            background-color: #0c110e;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            z-index: 10006;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+            max-width: 320px;
+            width: 90%;
+            text-align: center;
+            opacity: 0;
+            display: none;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .custom-modal.show {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+        .modal-content h5 {
+            font-family: var(--font-headings);
+            font-size: 1.1rem;
+            color: var(--white);
+            margin-bottom: 10px;
+            text-align: center !important;
+        }
+        .modal-content p {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin-bottom: 20px;
+            text-align: center !important;
+        }
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        .modal-btn {
+            padding: 8px 18px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+        .modal-btn.confirm {
+            background-color: #ef4444;
+            color: var(--white);
+        }
+        .modal-btn.confirm:hover {
+            background-color: #dc2626;
+        }
+        .modal-btn.cancel {
+            background-color: rgba(255,255,255,0.05);
+            color: var(--text-gray);
+            border: 1px solid var(--border-color);
+        }
+        .modal-btn.cancel:hover {
+            background-color: rgba(255,255,255,0.1);
+            color: var(--white);
+        }
+
         /* ================= MOBILE RESPONSIVE STYLES ================= */
         @media (max-width: 768px) {
             .navbar {
@@ -1009,7 +1119,8 @@
                 right: -100% !important;
                 width: 260px !important; /* Premium smaller width drawer */
                 height: 100vh !important;
-                background-color: #080c09 !important;
+                background-color: rgba(6, 9, 7, 0.98) !important; /* Pure glassmorphism with blur */
+                backdrop-filter: blur(20px) !important;
                 flex-direction: column !important;
                 align-items: flex-start !important;
                 padding: 100px 30px !important;
@@ -1027,11 +1138,18 @@
             }
 
             .nav-links a {
-                font-size: 0.8rem !important; /* Premium even smaller menu drawer font size */
+                font-size: 0.82rem !important; /* Premium even smaller menu drawer font size */
                 width: 100% !important;
                 border-bottom: 1px solid rgba(27, 242, 91, 0.05) !important;
-                padding-bottom: 10px !important;
+                padding-bottom: 12px !important;
                 letter-spacing: 1.5px !important;
+                color: var(--text-gray) !important;
+            }
+
+            .nav-links a:hover {
+                color: var(--white) !important;
+                border-bottom-color: var(--parrot-green) !important;
+                padding-left: 5px; /* Subtle elegant hover slide-in */
             }
 
             .nav-links a::after { display: none !important; }
@@ -1140,17 +1258,17 @@
         }
 
         .developer-signature .dev-name {
-            color: var(--white); /* Muted white, not glowing excessively */
+            color: var(--parrot-green); /* Changed to parrot green for a premium subtle highlight! */
             font-family: var(--font-headings);
             font-weight: bold;
             position: relative;
             padding-left: 5px;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.2); /* Subtle white highlight */
-            transition: color 0.3s ease;
+            text-shadow: 0 0 8px rgba(27, 242, 91, 0.3); /* Subtle green glow */
+            transition: text-shadow 0.3s ease;
         }
 
         .developer-signature .dev-name:hover {
-            color: var(--parrot-green) !important;
+            text-shadow: 0 0 15px var(--parrot-green);
         }
     </style>
 </head>
@@ -1166,6 +1284,18 @@
 
     <!-- Overlay Mask for Menu Drawer -->
     <div class="menu-overlay" id="overlay-mask"></div>
+
+    <!-- Premium Custom Modal for Deletion Confirmation -->
+    <div id="delete-confirm-modal" class="custom-modal" style="display: none;">
+        <div class="modal-content">
+            <h5>Remove Tribute?</h5>
+            <p>Are you sure you want to permanently delete this tribute from the server?</p>
+            <div class="modal-actions">
+                <button id="confirm-delete-btn" class="modal-btn confirm">Delete</button>
+                <button id="cancel-delete-btn" class="modal-btn cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Navigation Header -->
     <header class="navbar">
@@ -1293,7 +1423,7 @@
             </div>
 
             <!-- New Explorer More/Career Stats Button (Upgraded Component) -->
-            <div style="text-align: center; margin-top: 35px;">
+            <div style="text-align: left; margin-top: 35px;">
                 <button class="btn-primary" id="open-cricket-stats" style="display: inline-flex; align-items: center; gap: 8px;">
                     Explore More <i class="fa-solid fa-arrow-right"></i>
                 </button>
@@ -1335,7 +1465,7 @@
                 <span class="line right"></span>
             </div>
             <p class="section-desc">Explore the memorable life phases of Imran Khan through our beautifully curated collection of historical photographs.</p>
-            <div style="text-align: center;">
+            <div style="text-align: left;">
                 <button class="btn-primary" id="go-to-categories" style="display: inline-flex; align-items: center; gap: 8px;">
                     View Gallery <i class="fa-solid fa-arrow-right"></i>
                 </button>
@@ -1411,7 +1541,7 @@
             <div class="dynamic-photo-grid" id="photo-grid-container"></div>
         </div>
 
-        <!-- ================= SCREEN 4: CRICKET CAREER STATISTICS VIEW ================= -->
+        <!-- ================= SCREEN 4: CRICKET CAREER STATISTICS VIEW (Redesigned Mockup) ================= -->
         <div class="gallery-view" id="view-stats" style="display: none;">
             <div class="gallery-header">
                 <button class="gallery-back-btn" id="back-stats-to-home"><i class="fa-solid fa-arrow-left"></i></button>
@@ -1424,71 +1554,115 @@
             </div>
             <p class="section-desc">The official verified cricketing records of Imran Khan's international career.</p>
 
-            <!-- Premium Stats Cards -->
+            <!-- Premium Stats Cards (Redesigned matching Fakhar Zaman's Card Layout) -->
             <div class="stats-premium-container">
+                
                 <!-- Test Career Card -->
                 <div class="stats-card">
-                    <h4 class="card-header">Test Career</h4>
-                    <div class="card-divider"></div>
+                    <div class="stats-card-top">
+                        <span class="stats-badge">Test</span>
+                        <i class="fa-solid fa-medal stats-card-icon"></i>
+                    </div>
+                    <div class="stats-main-number">362</div>
+                    <div class="stats-card-subtitle">One of the Finest All-Rounders</div>
+                    <p class="stats-card-desc">Imran Khan remains one of the most prolific and fast bowlers in Test cricket history.</p>
+                    
                     <div class="stats-grid">
-                        <div class="stat-block">
-                            <span class="stat-val">88</span>
-                            <span class="stat-lbl">Matches</span>
+                        <div class="stat-grid-box">
+                            <span class="box-label">Matches</span>
+                            <span class="box-value">88</span>
                         </div>
-                        <div class="stat-block">
-                            <span class="stat-val">362</span>
-                            <span class="stat-lbl">Wickets</span>
+                        <div class="stat-grid-box">
+                            <span class="box-label">Total Runs</span>
+                            <span class="box-value">3,807</span>
                         </div>
-                        <div class="stat-block">
-                            <span class="stat-val">3,807</span>
-                            <span class="stat-lbl">Runs</span>
+                        <div class="stat-grid-box">
+                            <span class="box-label">Wickets</span>
+                            <span class="box-value">362</span>
                         </div>
+                        <div class="stat-grid-box">
+                            <span class="box-label">Bowl Avg</span>
+                            <span class="box-value">22.81</span>
+                        </div>
+                    </div>
+                    <div class="stat-grid-row-bottom">
+                        <span class="bottom-label">100s / 50s</span>
+                        <span class="bottom-value">6 / 18</span>
                     </div>
                 </div>
 
                 <!-- ODI Career Card -->
                 <div class="stats-card">
-                    <h4 class="card-header">ODI Career</h4>
-                    <div class="card-divider"></div>
+                    <div class="stats-card-top">
+                        <span class="stats-badge">ODI</span>
+                        <i class="fa-solid fa-baseball-bat-ball stats-card-icon"></i>
+                    </div>
+                    <div class="stats-main-number">3,709</div>
+                    <div class="stats-card-subtitle">Devastating All-Round Performance</div>
+                    <p class="stats-card-desc">A dominant force in white-ball cricket, performing exceptionally under extreme pressure.</p>
+                    
                     <div class="stats-grid">
-                        <div class="stat-block">
-                            <span class="stat-val">175</span>
-                            <span class="stat-lbl">Matches</span>
+                        <div class="stat-grid-box">
+                            <span class="box-label">Matches</span>
+                            <span class="box-value">175</span>
                         </div>
-                        <div class="stat-block">
-                            <span class="stat-val">182</span>
-                            <span class="stat-lbl">Wickets</span>
+                        <div class="stat-grid-box">
+                            <span class="box-label">Total Runs</span>
+                            <span class="box-value">3,709</span>
                         </div>
-                        <div class="stat-block">
-                            <span class="stat-val">3,709</span>
-                            <span class="stat-lbl">Runs</span>
+                        <div class="stat-grid-box">
+                            <span class="box-label">Wickets</span>
+                            <span class="box-value">182</span>
                         </div>
+                        <div class="stat-grid-box">
+                            <span class="box-label">High Score</span>
+                            <span class="box-value">102*</span>
+                        </div>
+                    </div>
+                    <div class="stat-grid-row-bottom">
+                        <span class="bottom-label">100s / 50s</span>
+                        <span class="bottom-value">1 / 19</span>
                     </div>
                 </div>
 
-                <!-- World Cup '92 Highlighted Card -->
+                <!-- World Cup '92 Card -->
                 <div class="stats-card highlighted">
-                    <h4 class="card-header"><i class="fa-solid fa-trophy"></i> WC '92 Glory</h4>
-                    <div class="card-divider"></div>
+                    <div class="stats-card-top">
+                        <span class="stats-badge">World Cup</span>
+                        <i class="fa-solid fa-trophy stats-card-icon"></i>
+                    </div>
+                    <div class="stats-main-number">1992</div>
+                    <div class="stats-card-subtitle">The Cornered Tigers Victory</div>
+                    <p class="stats-card-desc">Led from the front, scoring 72 runs in the final to lift Pakistan's first-ever Cricket World Cup.</p>
+                    
                     <div class="stats-grid">
-                        <div class="stat-block">
-                            <span class="stat-val">8</span>
-                            <span class="stat-lbl">Matches</span>
+                        <div class="stat-grid-box">
+                            <span class="box-label">Matches</span>
+                            <span class="box-value">8</span>
                         </div>
-                        <div class="stat-block">
-                            <span class="stat-val">7</span>
-                            <span class="stat-lbl">Wickets</span>
+                        <div class="stat-grid-box">
+                            <span class="box-label">Runs</span>
+                            <span class="box-value">185</span>
                         </div>
-                        <div class="stat-block">
-                            <span class="stat-val">185</span>
-                            <span class="stat-lbl">Runs</span>
+                        <div class="stat-grid-box">
+                            <span class="box-label">Wickets</span>
+                            <span class="box-value">7</span>
+                        </div>
+                        <div class="stat-grid-box">
+                            <span class="box-label">Final Score</span>
+                            <span class="box-value">72</span>
                         </div>
                     </div>
+                    <div class="stat-grid-row-bottom">
+                        <span class="bottom-label">Leadership</span>
+                        <span class="bottom-value">Champion Captain</span>
+                    </div>
                 </div>
+
             </div>
         </div>
 
-        <!-- ================= SCREEN 5: ACHIEVEMENTS & INITIATIVES VIEW ================= -->
+        <!-- ================= SCREEN 5: ACHIEVEMENTS & INITIATIVES VIEW (Redesigned Mockup) ================= -->
         <div class="gallery-view" id="view-achievements" style="display: none;">
             <div class="gallery-header">
                 <button class="gallery-back-btn" id="back-achievements-to-home"><i class="fa-solid fa-arrow-left"></i></button>
@@ -1620,7 +1794,7 @@
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2026 Imran Khan - all rights reserved.</p>
+            <p>&copy; 2026 Imran Khan - All rights reserved.</p>
             <!-- Premium Saad Ali Signature (Slightly highlighted) -->
             <div class="developer-signature">
                 Developed by <span class="dev-name">Saad Ali</span>
@@ -2025,15 +2199,52 @@
             });
         }
 
-        // Global Delete function
+        // Global Custom Delete modal setup instead of cheap popups
+        let tributeToDeleteIndex = null;
+
         window.deleteTribute = function(index) {
-            if (confirm("Are you sure you want to delete this tribute?")) {
-                savedTributes.splice(index, 1);
-                localStorage.setItem('user_tributes', JSON.stringify(savedTributes));
-                renderTributes();
-                showPremiumToast("Tribute Deleted", "Your tribute was removed successfully. 👋");
+            tributeToDeleteIndex = index;
+            const modal = document.getElementById('delete-confirm-modal');
+            if (modal) {
+                modal.style.display = 'block';
+                setTimeout(() => {
+                    modal.classList.add('show');
+                }, 50);
             }
         };
+
+        const confirmDeleteBtn = document.getElementById('confirm-delete-btn');
+        const cancelDeleteBtn = document.getElementById('cancel-delete-btn');
+        const deleteModal = document.getElementById('delete-confirm-modal');
+
+        if (confirmDeleteBtn && deleteModal) {
+            confirmDeleteBtn.addEventListener('click', () => {
+                if (tributeToDeleteIndex !== null) {
+                    savedTributes.splice(tributeToDeleteIndex, 1);
+                    localStorage.setItem('user_tributes', JSON.stringify(savedTributes));
+                    renderTributes();
+                    
+                    // Close modal smoothly
+                    deleteModal.classList.remove('show');
+                    setTimeout(() => {
+                        deleteModal.style.display = 'none';
+                    }, 300);
+                    
+                    showPremiumToast("Tribute Deleted", "Your tribute was removed successfully. 👋");
+                    tributeToDeleteIndex = null;
+                }
+            });
+        }
+
+        if (cancelDeleteBtn && deleteModal) {
+            cancelDeleteBtn.addEventListener('click', () => {
+                deleteModal.classList.remove('show');
+                setTimeout(() => {
+                    deleteModal.style.display = 'none';
+                }, 300);
+                tributeToDeleteIndex = null;
+            });
+        }
 
         if (tributeForm && tributesContainer) {
             // Render on page load
