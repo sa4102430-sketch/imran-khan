@@ -65,6 +65,7 @@
             z-index: 1001;
             text-shadow: 0 0 8px rgba(27, 242, 91, 0.4);
             display: flex;
+            direction: rtl;
         }
 
         .marquee-track {
@@ -264,7 +265,7 @@
 
         .hero-title {
             font-family: var(--font-headings);
-            font-size: 2.5rem !important; /* Made even smaller & compact! */
+            font-size: 2.5rem !important; /* Made compact and premium! */
             font-weight: 900;
             letter-spacing: 2px;
             line-height: 1.1;
@@ -300,13 +301,21 @@
             text-align: left; /* Left-aligned! */
         }
 
+        /* Right-Aligned Pill Button Container */
+        .btn-right-container {
+            display: flex;
+            justify-content: flex-end; /* Strictly Right-aligned action buttons! */
+            width: 100%;
+            margin-top: 35px;
+        }
+
         .btn-primary {
             display: inline-block;
             background-color: var(--parrot-green);
             color: #060907;
-            padding: 12px 30px;
-            border-radius: 4px;
-            font-size: 0.85rem;
+            padding: 10px 38px; /* Slightly wider width */
+            border-radius: 30px; /* Fully rounded pill/oval shape */
+            font-size: 0.78rem; /* Slightly smaller sleeker size */
             font-weight: 700;
             letter-spacing: 1.5px;
             text-transform: uppercase;
@@ -560,6 +569,20 @@
             font-size: 1.1rem;
             font-weight: bold;
             color: var(--white);
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        /* Value underline highlight matching mockup exactly */
+        .box-value::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 25px;
+            height: 2px;
+            background-color: var(--parrot-green);
+            box-shadow: 0 0 5px var(--parrot-green);
         }
 
         .stats-card.highlighted .box-value {
@@ -643,9 +666,11 @@
             width: 100%;
         }
 
+        /* Styled Back Button (Aligined Right!) */
         .gallery-back-btn {
             position: absolute !important;
-            left: 0 !important;
+            right: 0 !important; /* Right aligned navigation back button! */
+            left: auto !important;
             background: transparent !important;
             border: 1px solid var(--border-color) !important;
             color: var(--parrot-green) !important;
@@ -667,48 +692,48 @@
             box-shadow: 0 0 15px var(--parrot-green) !important;
         }
 
-        /* Mockup Category List (Screen 2 Layout Fixes) */
+        /* Mockup Category List (Screen 2 Horizontal Layout matching Mockup 1) */
         .categories-list {
-            max-width: 460px !important;
-            margin: 40px 0 0 0 !important; /* Left aligned margin! */
             display: flex !important;
-            flex-direction: column !important;
+            flex-direction: row !important; /* Horizontal layout! */
+            flex-wrap: wrap !important;
+            justify-content: flex-start !important; /* Left-aligned! */
             gap: 15px !important;
             width: 100% !important;
+            margin-top: 40px !important;
         }
 
         .category-row {
-            display: flex !important;
-            justify-content: space-between !important;
+            display: inline-flex !important;
             align-items: center !important;
+            gap: 15px !important;
             border: 1px solid var(--border-color) !important;
             background-color: rgba(255, 255, 255, 0.02) !important;
-            padding: 15px 25px !important;
-            border-radius: 12px !important;
+            padding: 8px 24px !important; /* Clean sleek pill padding */
+            border-radius: 30px !important; /* Fully rounded pill shape */
             cursor: pointer !important;
             transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
-            width: 100% !important;
+            position: relative;
         }
 
-        .category-row:hover {
+        .category-row:hover, .category-row.active {
             border-color: var(--parrot-green) !important;
             background-color: rgba(27, 242, 91, 0.05) !important;
             box-shadow: 0 0 15px rgba(27, 242, 91, 0.25) !important;
-            transform: scale(1.02) !important;
         }
 
         .category-left {
             display: flex !important;
             align-items: center !important;
-            gap: 20px !important;
+            gap: 15px !important;
         }
 
         .category-left img {
-            width: 55px !important;
-            height: 55px !important;
+            width: 40px !important; /* Sleek smaller circle avatar */
+            height: 40px !important;
             border-radius: 50% !important;
             object-fit: cover !important;
-            border: 1.5px solid var(--border-color) !important;
+            border: 1px solid var(--border-color) !important;
             transition: border-color 0.3s !important;
         }
 
@@ -718,21 +743,30 @@
 
         .category-name {
             font-family: var(--font-headings) !important;
-            font-size: 1.1rem !important;
+            font-size: 0.9rem !important; /* Sleek compact text */
             font-weight: 600 !important;
             letter-spacing: 1px !important;
             color: var(--white) !important;
             text-transform: uppercase !important;
+            position: relative;
+        }
+
+        /* Active category line accent below text */
+        .category-row:hover .category-name::after, 
+        .category-row.active .category-name::after {
+            content: '';
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: var(--parrot-green);
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            box-shadow: 0 0 5px var(--parrot-green);
         }
 
         .category-arrow {
-            color: var(--parrot-green) !important;
-            font-size: 1.2rem !important;
-            transition: transform 0.3s !important;
-        }
-
-        .category-row:hover .category-arrow {
-            transform: translateX(5px) !important;
+            display: none !important; /* Remove individual row arrows to match horizontal mockup */
         }
 
         /* Mockup Screen 3 Grid */
@@ -770,7 +804,7 @@
             box-shadow: 0 0 20px rgba(27, 242, 91, 0.3) !important;
         }
 
-        /* Upgraded Achievements Cards inside Screen 5 */
+        /* Upgraded Achievements Cards inside Screen 5 (Mockup Card Layout) */
         .achievements-grid {
             display: grid !important;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
@@ -787,7 +821,7 @@
             background-color: rgba(255, 255, 255, 0.01) !important;
             border: 1px solid var(--border-color) !important;
             padding: 25px 20px !important;
-            border-radius: 8px !important;
+            border-radius: 20px !important; /* Premium rounded curves matching stats card */
             transition: all 0.3s ease !important;
             text-align: left !important;
         }
@@ -803,7 +837,7 @@
             font-size: 2.2rem !important;
             color: var(--parrot-green) !important;
             text-shadow: 0 0 8px rgba(27, 242, 91, 0.4) !important;
-            margin-bottom: 0 !important; /* Overwrite old margin */
+            margin-bottom: 0 !important; 
         }
 
         .achievement-info {
@@ -866,7 +900,7 @@
 
         .tribute-quote {
             font-size: 0.95rem !important;
-            color: var(--white) !important; /* Highly highlighted/bright white */
+            color: var(--white) !important; /* Brighter highlighted quote text! */
             font-style: italic;
             margin-bottom: 20px;
             font-weight: 500;
@@ -1339,7 +1373,9 @@
             </div>
             
             <p class="hero-text">From a young cricket prodigy to an unbeatable world champion, a master philanthropist, and ultimately the Prime Minister of Pakistan. Experience a timeline built on absolute resilience, faith, and unmatched patriotism.</p>
-            <a href="#early-life" class="btn-primary">Explore Biography</a>
+            <div class="btn-right-container">
+                <a href="#early-life" class="btn-primary">Explore Biography</a>
+            </div>
         </div>
     </section>
 
@@ -1422,11 +1458,9 @@
                 <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=700" alt="Imran Khan Holding 1992 World Cup Trophy">
             </div>
 
-            <!-- New Explorer More/Career Stats Button (Upgraded Component) -->
-            <div style="text-align: left; margin-top: 35px;">
-                <button class="btn-primary" id="open-cricket-stats" style="display: inline-flex; align-items: center; gap: 8px;">
-                    Explore More <i class="fa-solid fa-arrow-right"></i>
-                </button>
+            <!-- Right-Aligned Explore More Button Component -->
+            <div class="btn-right-container">
+                <button class="btn-primary" id="open-cricket-stats">Explore More <i class="fa-solid fa-arrow-right"></i></button>
             </div>
         </div>
     </section>
@@ -1465,8 +1499,8 @@
                 <span class="line right"></span>
             </div>
             <p class="section-desc">Explore the memorable life phases of Imran Khan through our beautifully curated collection of historical photographs.</p>
-            <div style="text-align: left;">
-                <button class="btn-primary" id="go-to-categories" style="display: inline-flex; align-items: center; gap: 8px;">
+            <div class="btn-right-container">
+                <button class="btn-primary" id="go-to-categories">
                     View Gallery <i class="fa-solid fa-arrow-right"></i>
                 </button>
             </div>
@@ -1492,7 +1526,6 @@
                         <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150" alt="Bachpan">
                         <span class="category-name">Bachpan</span>
                     </div>
-                    <i class="fa-solid fa-arrow-right category-arrow"></i>
                 </div>
 
                 <!-- Jawani Card -->
@@ -1501,7 +1534,6 @@
                         <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150" alt="Jawani">
                         <span class="category-name">Jawani</span>
                     </div>
-                    <i class="fa-solid fa-arrow-right category-arrow"></i>
                 </div>
 
                 <!-- Cricket Era Card -->
@@ -1510,7 +1542,6 @@
                         <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=150" alt="Cricket">
                         <span class="category-name">Cricket Era</span>
                     </div>
-                    <i class="fa-solid fa-arrow-right category-arrow"></i>
                 </div>
 
                 <!-- Political Era Card -->
@@ -1519,7 +1550,6 @@
                         <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&q=80&w=150" alt="Political">
                         <span class="category-name">Political Era</span>
                     </div>
-                    <i class="fa-solid fa-arrow-right category-arrow"></i>
                 </div>
             </div>
         </div>
@@ -1541,7 +1571,7 @@
             <div class="dynamic-photo-grid" id="photo-grid-container"></div>
         </div>
 
-        <!-- ================= SCREEN 4: CRICKET CAREER STATISTICS VIEW (Redesigned Mockup) ================= -->
+        <!-- ================= SCREEN 4: CRICKET CAREER STATISTICS VIEW (Upgraded Mockup Design) ================= -->
         <div class="gallery-view" id="view-stats" style="display: none;">
             <div class="gallery-header">
                 <button class="gallery-back-btn" id="back-stats-to-home"><i class="fa-solid fa-arrow-left"></i></button>
@@ -1554,9 +1584,8 @@
             </div>
             <p class="section-desc">The official verified cricketing records of Imran Khan's international career.</p>
 
-            <!-- Premium Stats Cards (Redesigned matching Fakhar Zaman's Card Layout) -->
+            <!-- Premium Stats Cards (Mockup Layout Match) -->
             <div class="stats-premium-container">
-                
                 <!-- Test Career Card -->
                 <div class="stats-card">
                     <div class="stats-card-top">
@@ -1625,7 +1654,7 @@
                     </div>
                 </div>
 
-                <!-- World Cup '92 Card -->
+                <!-- World Cup '92 Highlighted Card -->
                 <div class="stats-card highlighted">
                     <div class="stats-card-top">
                         <span class="stats-badge">World Cup</span>
@@ -1658,11 +1687,10 @@
                         <span class="bottom-value">Champion Captain</span>
                     </div>
                 </div>
-
             </div>
         </div>
 
-        <!-- ================= SCREEN 5: ACHIEVEMENTS & INITIATIVES VIEW (Redesigned Mockup) ================= -->
+        <!-- ================= SCREEN 5: ACHIEVEMENTS & INITIATIVES VIEW ================= -->
         <div class="gallery-view" id="view-achievements" style="display: none;">
             <div class="gallery-header">
                 <button class="gallery-back-btn" id="back-achievements-to-home"><i class="fa-solid fa-arrow-left"></i></button>
@@ -1722,11 +1750,9 @@
         
         <p class="section-desc">Key social, environmental, and welfare reforms initiated to support the common people of Pakistan.</p>
         
-        <!-- Explore Achievements Button Component -->
-        <div style="text-align: left; margin-top: 35px;">
-            <button class="btn-primary" id="open-achievements-sub" style="display: inline-flex; align-items: center; gap: 8px;">
-                Explore More <i class="fa-solid fa-arrow-right"></i>
-            </button>
+        <!-- Right-Aligned Explore Achievements Button Component -->
+        <div class="btn-right-container">
+            <button class="btn-primary" id="open-achievements-sub">Explore More <i class="fa-solid fa-arrow-right"></i></button>
         </div>
     </section>
 
@@ -2011,7 +2037,10 @@
                 
                 setTimeout(() => {
                     const cricketRow = document.querySelector('.category-row[data-category="cricket"]');
-                    if (cricketRow) cricketRow.click();
+                    if (cricketRow) {
+                        cricketRow.classList.add('active'); // Add active pill visual style
+                        cricketRow.click();
+                    }
                 }, 300);
             }
         };
@@ -2036,6 +2065,10 @@
                     
                     if (dynamicTitle) dynamicTitle.textContent = catName;
                     if (dynamicDesc) dynamicDesc.textContent = `Historic moments from Imran Khan's iconic ${catName.toLowerCase()} journey.`;
+
+                    // Handle active class visually for horizontal pill rows
+                    categoryRows.forEach(r => r.classList.remove('active'));
+                    row.classList.add('active');
 
                     if (photoGridContainer) {
                         photoGridContainer.innerHTML = '';
