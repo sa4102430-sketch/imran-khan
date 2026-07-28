@@ -31,6 +31,7 @@
             --bg-dark: #060907;
             --bg-card: #0c110e;
             --parrot-green: #1bf25b; /* Parrot/Neon Green Glow */
+            --gold: #e5c158; /* Premium Metallic Gold */
             --white: #ffffff;
             --text-gray: #9ca3af;
             --border-color: rgba(27, 242, 91, 0.15);
@@ -455,7 +456,7 @@
             box-shadow: 0 0 35px rgba(27, 242, 91, 0.45);
         }
 
-        /* Upgraded Stats Card Layout (Exact Mockup Layout Match) */
+        /* Upgraded Gold-Green Stats Card Layout (Exact Mockup Layout Match) */
         .stats-premium-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
@@ -467,7 +468,7 @@
 
         .stats-card {
             background-color: rgba(255, 255, 255, 0.01) !important;
-            border: 1px solid var(--border-color) !important;
+            border: 1px solid rgba(229, 193, 88, 0.15) !important; /* Gold Border by default! */
             border-radius: 20px !important; /* Premium curves like the screenshot */
             padding: 25px 20px;
             text-align: left; /* Left-aligned! */
@@ -478,7 +479,7 @@
 
         .stats-card:hover {
             transform: translateY(-5px);
-            border-color: var(--parrot-green) !important;
+            border-color: var(--parrot-green) !important; /* Glows green! */
             box-shadow: 0 5px 25px rgba(27, 242, 91, 0.15) !important;
             background: rgba(27, 242, 91, 0.02) !important;
         }
@@ -503,7 +504,8 @@
         }
 
         .stats-card-icon {
-            color: rgba(255, 255, 255, 0.35);
+            color: var(--gold); /* Gold icon */
+            text-shadow: 0 0 8px rgba(229, 193, 88, 0.4);
             font-size: 1.2rem;
         }
 
@@ -516,7 +518,8 @@
             font-family: var(--font-body); /* Geometric and bold */
             font-size: 4rem;
             font-weight: 700;
-            color: var(--white);
+            color: var(--gold); /* Gold number */
+            text-shadow: 0 0 8px rgba(229, 193, 88, 0.3);
             line-height: 1;
             margin-bottom: 10px;
             text-align: left;
@@ -524,7 +527,7 @@
 
         .stats-card-subtitle {
             font-size: 1.05rem;
-            color: var(--parrot-green);
+            color: var(--white);
             font-weight: bold;
             text-align: left;
             margin-bottom: 10px;
@@ -661,7 +664,7 @@
         }
 
         .gallery-header h2 {
-            padding-left: 60px !important; /* Prevents back button overlapping text! */
+            padding-right: 60px !important; /* Prevents back button overlapping text! */
             text-align: left !important; /* Left aligned! */
             width: 100%;
         }
@@ -700,24 +703,26 @@
             justify-content: flex-start !important; /* Left-aligned! */
             gap: 15px !important;
             width: 100% !important;
-            margin-top: 40px !important;
+            margin: 40px auto 0 auto !important;
+            max-width: 950px !important;
         }
 
         .category-row {
             display: inline-flex !important;
             align-items: center !important;
-            gap: 15px !important;
-            border: 1px solid var(--border-color) !important;
-            background-color: rgba(255, 255, 255, 0.02) !important;
+            gap: 12px !important;
+            border: 1px solid var(--gold) !important; /* Gold border by default! */
+            background-color: rgba(255, 255, 255, 0.01) !important;
             padding: 8px 24px !important; /* Clean sleek pill padding */
             border-radius: 30px !important; /* Fully rounded pill shape */
             cursor: pointer !important;
             transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
-            position: relative;
+            min-width: 160px !important; /* Made wider! */
+            justify-content: center !important;
         }
 
         .category-row:hover, .category-row.active {
-            border-color: var(--parrot-green) !important;
+            border-color: var(--parrot-green) !important; /* Glows green! */
             background-color: rgba(27, 242, 91, 0.05) !important;
             box-shadow: 0 0 15px rgba(27, 242, 91, 0.25) !important;
         }
@@ -733,7 +738,7 @@
             height: 40px !important;
             border-radius: 50% !important;
             object-fit: cover !important;
-            border: 1px solid var(--border-color) !important;
+            border: 1px solid var(--gold) !important; /* Gold circular border! */
             transition: border-color 0.3s !important;
         }
 
@@ -746,23 +751,29 @@
             font-size: 0.9rem !important; /* Sleek compact text */
             font-weight: 600 !important;
             letter-spacing: 1px !important;
-            color: var(--white) !important;
+            color: var(--gold) !important; /* Gold text by default */
             text-transform: uppercase !important;
             position: relative;
         }
 
-        /* Active category line accent below text */
+        .category-row:hover .category-name,
+        .category-row.active .category-name {
+            color: var(--white) !important;
+        }
+
+        /* Gold Active category line accent below text */
         .category-row:hover .category-name::after, 
         .category-row.active .category-name::after {
             content: '';
             display: block;
             width: 25px;
             height: 2px;
-            background-color: var(--parrot-green);
+            background-color: var(--gold);
             position: absolute;
             bottom: -6px;
-            left: 0;
-            box-shadow: 0 0 5px var(--parrot-green);
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 5px var(--gold);
         }
 
         .category-arrow {
@@ -804,7 +815,7 @@
             box-shadow: 0 0 20px rgba(27, 242, 91, 0.3) !important;
         }
 
-        /* Upgraded Achievements Cards inside Screen 5 (Mockup Card Layout) */
+        /* Upgraded Achievements Cards (Matching Gold-Green Stats Card Mockup) */
         .achievements-grid {
             display: grid !important;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
@@ -819,7 +830,7 @@
             align-items: flex-start !important;
             gap: 20px !important;
             background-color: rgba(255, 255, 255, 0.01) !important;
-            border: 1px solid var(--border-color) !important;
+            border: 1px solid var(--gold) !important; /* Gold border like the stats card! */
             padding: 25px 20px !important;
             border-radius: 20px !important; /* Premium rounded curves matching stats card */
             transition: all 0.3s ease !important;
@@ -835,9 +846,14 @@
 
         .achievement-item i {
             font-size: 2.2rem !important;
+            color: var(--gold) !important; /* Gold icons! */
+            text-shadow: 0 0 8px rgba(229, 193, 88, 0.4) !important;
+            margin-bottom: 0 !important; 
+        }
+
+        .achievement-item:hover i {
             color: var(--parrot-green) !important;
             text-shadow: 0 0 8px rgba(27, 242, 91, 0.4) !important;
-            margin-bottom: 0 !important; 
         }
 
         .achievement-info {
@@ -1458,7 +1474,7 @@
                 <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=700" alt="Imran Khan Holding 1992 World Cup Trophy">
             </div>
 
-            <!-- Right-Aligned Explore More Button Component -->
+            <!-- New Explorer More/Career Stats Button (Upgraded Component) -->
             <div class="btn-right-container">
                 <button class="btn-primary" id="open-cricket-stats">Explore More <i class="fa-solid fa-arrow-right"></i></button>
             </div>
@@ -1520,23 +1536,23 @@
             <p class="section-desc">Select a category to explore photos from that era.</p>
 
             <div class="categories-list">
-                <!-- Bachpan Card -->
+                <!-- CHILDHOOD Card (Mockup 1 horizontal design) -->
                 <div class="category-row" data-category="bachpan">
                     <div class="category-left">
                         <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150" alt="Bachpan">
-                        <span class="category-name">Bachpan</span>
+                        <span class="category-name">CHILDHOOD</span>
                     </div>
                 </div>
 
-                <!-- Jawani Card -->
+                <!-- YOUTH Card (Mockup 1 horizontal design) -->
                 <div class="category-row" data-category="jawani">
                     <div class="category-left">
                         <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150" alt="Jawani">
-                        <span class="category-name">Jawani</span>
+                        <span class="category-name">YOUTH</span>
                     </div>
                 </div>
 
-                <!-- Cricket Era Card -->
+                <!-- CRICKET ERA Card (Mockup 1 horizontal design) -->
                 <div class="category-row" data-category="cricket">
                     <div class="category-left">
                         <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=150" alt="Cricket">
@@ -1544,7 +1560,7 @@
                     </div>
                 </div>
 
-                <!-- Political Era Card -->
+                <!-- POLITICAL ERA Card (Mockup 1 horizontal design) -->
                 <div class="category-row" data-category="political">
                     <div class="category-left">
                         <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&q=80&w=150" alt="Political">
@@ -1571,7 +1587,7 @@
             <div class="dynamic-photo-grid" id="photo-grid-container"></div>
         </div>
 
-        <!-- ================= SCREEN 4: CRICKET CAREER STATISTICS VIEW (Upgraded Mockup Design) ================= -->
+        <!-- ================= SCREEN 4: CRICKET CAREER STATISTICS VIEW (Redesigned Mockup) ================= -->
         <div class="gallery-view" id="view-stats" style="display: none;">
             <div class="gallery-header">
                 <button class="gallery-back-btn" id="back-stats-to-home"><i class="fa-solid fa-arrow-left"></i></button>
@@ -1654,7 +1670,7 @@
                     </div>
                 </div>
 
-                <!-- World Cup '92 Highlighted Card -->
+                <!-- World Cup '92 Card -->
                 <div class="stats-card highlighted">
                     <div class="stats-card-top">
                         <span class="stats-badge">World Cup</span>
@@ -1687,6 +1703,7 @@
                         <span class="bottom-value">Champion Captain</span>
                     </div>
                 </div>
+
             </div>
         </div>
 
@@ -1704,7 +1721,7 @@
             <p class="section-desc">Key social, environmental, and welfare reforms initiated to support the common people of Pakistan.</p>
 
             <div class="achievements-grid">
-                <!-- Premium Redesigned Wide Cards with Left alignment and details -->
+                <!-- Premium Redesigned Wide Cards (Gold-Green stats card theme) -->
                 <div class="achievement-item">
                     <i class="fa-solid fa-leaf"></i>
                     <div class="achievement-info">
