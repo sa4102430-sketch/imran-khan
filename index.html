@@ -31,9 +31,9 @@
             --bg-dark: #060907;
             --bg-card: #0c110e;
             --parrot-green: #1bf25b; /* Parrot/Neon Green Glow */
-            --gold: #e5c158; /* Premium Metallic Gold */
+            --gold: #dfb76c; /* Luxury Gold matching Mockup */
             --white: #ffffff;
-            --text-gray: #9ca3af;
+            --text-gray: #a6b1a9; /* Soft silver-gray */
             --border-color: rgba(27, 242, 91, 0.15);
             --font-headings: 'Cinzel', serif;
             --font-body: 'Poppins', sans-serif;
@@ -57,7 +57,7 @@
             border-bottom: 1px solid var(--border-color);
             color: var(--parrot-green);
             font-family: 'Cinzel', serif;
-            font-size: 0.9rem;
+            font-size: 0.8rem; /* Micro font size matching design */
             font-weight: bold;
             padding: 12px 0;
             overflow: hidden;
@@ -83,6 +83,26 @@
         @keyframes marquee-seamless {
             0% { transform: translate3d(0, 0, 0); }
             100% { transform: translate3d(-50%, 0, 0); } /* Rotates seamlessly at 50% duplication */
+        }
+
+        /* Micro-Typography Global Header & Paragraph Overrides */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-headings);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold) !important; /* All headings Gold across website */
+            text-shadow: 0 0 5px rgba(223, 183, 108, 0.1);
+        }
+
+        .section-title, .history-content .label, .logo {
+            font-size: 1.35rem !important; /* Compact premium heading size */
+        }
+
+        p, .hero-text, .section-desc, .tribute-quote {
+            font-family: var(--font-body);
+            font-size: 0.8rem !important; /* Micro body text size */
+            color: var(--text-gray) !important;
+            line-height: 1.6;
         }
 
         /* Premium Heading Divider (Left Aligned by Default) */
@@ -136,7 +156,7 @@
         .logo {
             font-family: var(--font-headings);
             font-weight: 900;
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             letter-spacing: 1px;
             line-height: 1.1;
         }
@@ -266,7 +286,7 @@
 
         .hero-title {
             font-family: var(--font-headings);
-            font-size: 2.5rem !important; /* Made compact and premium! */
+            font-size: 2.2rem !important; /* Made compact and premium! */
             font-weight: 900;
             letter-spacing: 2px;
             line-height: 1.1;
@@ -275,7 +295,7 @@
         }
 
         .hero-subtitle {
-            font-size: 1rem; /* Sleeker size */
+            font-size: 0.95rem; /* Sleeker size */
             color: var(--parrot-green);
             font-weight: 600;
             letter-spacing: 4px;
@@ -296,7 +316,7 @@
 
         .hero-text {
             color: var(--text-gray);
-            font-size: 0.95rem;
+            font-size: 0.8rem;
             margin-bottom: 30px;
             max-width: 580px;
             text-align: left; /* Left-aligned! */
@@ -342,21 +362,6 @@
             border-top: 1px solid var(--border-color);
             border-bottom: 1px solid var(--border-color);
             width: 100%;
-        }
-
-        .section-title {
-            font-family: var(--font-headings);
-            font-size: 1.55rem !important; /* Made compact and premium! */
-            letter-spacing: 2px;
-            text-align: left; /* Left-aligned! */
-        }
-
-        .section-desc {
-            color: var(--text-gray);
-            max-width: 750px;
-            margin: 0 0 50px 0; /* Left-aligned! */
-            font-size: 0.9rem;
-            text-align: left; /* Left-aligned! */
         }
 
         .highlights-grid {
@@ -417,18 +422,9 @@
             text-align: left; /* Left-aligned! */
         }
 
-        .history-content .label {
-            font-family: var(--font-headings);
-            font-size: 1.55rem !important; /* Made compact and premium! */
-            letter-spacing: 2px;
-            margin-bottom: 5px;
-            color: var(--white);
-            text-align: left;
-        }
-
         .history-content p {
             color: var(--text-gray);
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             margin-bottom: 20px;
             text-align: left; /* Left-aligned! */
         }
@@ -468,7 +464,7 @@
 
         .stats-card {
             background-color: rgba(255, 255, 255, 0.01) !important;
-            border: 1px solid rgba(229, 193, 88, 0.15) !important; /* Gold Border by default! */
+            border: 1px solid rgba(229, 193, 88, 0.15) !important; /* Gold border like the stats card! */
             border-radius: 20px !important; /* Premium curves like the screenshot */
             padding: 25px 20px;
             text-align: left; /* Left-aligned! */
@@ -504,8 +500,8 @@
         }
 
         .stats-card-icon {
-            color: var(--gold); /* Gold icon */
-            text-shadow: 0 0 8px rgba(229, 193, 88, 0.4);
+            color: var(--gold); /* Gold icons! */
+            text-shadow: 0 0 8px rgba(229, 193, 88, 0.4) !important;
             font-size: 1.2rem;
         }
 
@@ -705,24 +701,34 @@
             width: 100% !important;
             margin: 40px auto 0 auto !important;
             max-width: 950px !important;
+            overflow-x: auto !important; /* Netflix Horizontal Scroll */
+            white-space: nowrap !important;
+            padding: 15px 0 !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .categories-list::-webkit-scrollbar {
+            display: none !important; /* Hide scrollbar completely */
         }
 
         .category-row {
             display: inline-flex !important;
             align-items: center !important;
             gap: 12px !important;
+            height: 60px !important; /* Exact 58-65px height from mockup spec */
+            width: 180px !important; /* Exact 170-200px width from mockup spec */
+            flex-shrink: 0 !important; /* Prevent shrinking on scroll */
             border: 1px solid var(--gold) !important; /* Gold border by default! */
-            background-color: rgba(255, 255, 255, 0.01) !important;
-            padding: 8px 24px !important; /* Clean sleek pill padding */
+            background-color: rgba(0, 0, 0, 0.2) !important;
+            padding: 0 15px !important;
             border-radius: 30px !important; /* Fully rounded pill shape */
             cursor: pointer !important;
             transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
-            min-width: 160px !important; /* Made wider! */
-            justify-content: center !important;
+            position: relative;
         }
 
         .category-row:hover, .category-row.active {
-            border-color: var(--parrot-green) !important; /* Glows green! */
+            border-color: var(--parrot-green) !important; /* Glows green on select! */
             background-color: rgba(27, 242, 91, 0.05) !important;
             box-shadow: 0 0 15px rgba(27, 242, 91, 0.25) !important;
         }
@@ -730,12 +736,12 @@
         .category-left {
             display: flex !important;
             align-items: center !important;
-            gap: 15px !important;
+            gap: 12px !important;
         }
 
         .category-left img {
-            width: 40px !important; /* Sleek smaller circle avatar */
-            height: 40px !important;
+            width: 42px !important; /* Exact 40-45px circular image diameter */
+            height: 42px !important;
             border-radius: 50% !important;
             object-fit: cover !important;
             border: 1px solid var(--gold) !important; /* Gold circular border! */
@@ -748,17 +754,17 @@
 
         .category-name {
             font-family: var(--font-headings) !important;
-            font-size: 0.9rem !important; /* Sleek compact text */
-            font-weight: 600 !important;
-            letter-spacing: 1px !important;
+            font-size: 0.72rem !important; /* Small gold text mockup spec */
+            font-weight: bold !important;
             color: var(--gold) !important; /* Gold text by default */
+            letter-spacing: 0.5px !important;
             text-transform: uppercase !important;
             position: relative;
         }
 
         .category-row:hover .category-name,
         .category-row.active .category-name {
-            color: var(--white) !important;
+            color: var(--white) !important; /* Highlights white */
         }
 
         /* Gold Active category line accent below text */
@@ -766,9 +772,9 @@
         .category-row.active .category-name::after {
             content: '';
             display: block;
-            width: 25px;
+            width: 15px;
             height: 2px;
-            background-color: var(--gold);
+            background-color: var(--gold); /* Gold shine */
             position: absolute;
             bottom: -6px;
             left: 50%;
@@ -831,7 +837,7 @@
             gap: 20px !important;
             background-color: rgba(255, 255, 255, 0.01) !important;
             border: 1px solid var(--gold) !important; /* Gold border like the stats card! */
-            padding: 25px 20px !important;
+            padding: 25px 20px;
             border-radius: 20px !important; /* Premium rounded curves matching stats card */
             transition: all 0.3s ease !important;
             text-align: left !important;
@@ -1474,7 +1480,7 @@
                 <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=700" alt="Imran Khan Holding 1992 World Cup Trophy">
             </div>
 
-            <!-- New Explorer More/Career Stats Button (Upgraded Component) -->
+            <!-- Right-Aligned Explore More Button Component -->
             <div class="btn-right-container">
                 <button class="btn-primary" id="open-cricket-stats">Explore More <i class="fa-solid fa-arrow-right"></i></button>
             </div>
