@@ -85,17 +85,18 @@
             100% { transform: translate3d(-50%, 0, 0); } /* Rotates seamlessly at 50% duplication */
         }
 
-        /* Micro-Typography Global Header & Paragraph Overrides */
+        /* Micro-Typography Global Header & Paragraph Overrides (Single-Line Headings Fix) */
         h1, h2, h3, h4, h5, h6 {
             font-family: var(--font-headings);
             text-transform: uppercase;
             letter-spacing: 2.5px;
             color: var(--gold) !important; /* All headings Gold across website */
             text-shadow: 0 0 10px rgba(223, 183, 108, 0.35); /* Elegant gold glowing text-shadow */
+            white-space: nowrap !important; /* Strictly prevents headings wrapping into 2 lines! */
         }
 
         .section-title, .history-content .label, .logo {
-            font-size: 1.55rem !important; /* Compact premium heading size */
+            font-size: 1.25rem !important; /* Compact premium heading size for mobile */
         }
 
         p, .hero-text, .section-desc, .tribute-quote {
@@ -286,7 +287,7 @@
 
         .hero-title {
             font-family: var(--font-headings);
-            font-size: 2.5rem !important; /* Made compact and premium! */
+            font-size: 2.2rem !important; /* Made compact and premium! */
             font-weight: 900;
             letter-spacing: 2px;
             line-height: 1.1;
@@ -635,7 +636,7 @@
             z-index: 10000 !important; /* Above everything */
             overflow-y: auto !important;
             background-color: #060907 !important;
-            padding: 60px 8% !important;
+            padding: 40px 15px !important; /* Smaller side padding on mobile! */
             border-left: none !important; /* No green line on side walls */
             animation: fadeIn 0.3s ease;
         }
@@ -651,14 +652,15 @@
             text-align: left;
         }
 
-        /* Mockup Header & Back Arrow Styling (Overlap Fix) */
+        /* Mockup Header & Back Arrow Styling (Overlap & Over-right alignment Fix) */
         .gallery-header {
             position: relative;
             display: flex !important;
-            justify-content: flex-start !important; /* Left-aligned! */
             align-items: center !important;
             width: 100% !important;
-            margin-bottom: 25px !important;
+            min-height: 50px !important;
+            margin-bottom: 30px !important;
+            justify-content: flex-start !important; /* Left-aligned header content */
         }
 
         .gallery-header h2 {
@@ -667,16 +669,18 @@
             width: 100%;
         }
 
-        /* Styled Back Button (Aligined Left!) */
+        /* Styled Back Button (Aligned Left strictly matching Mockup!) */
         .gallery-back-btn {
             position: absolute !important;
             left: 0 !important; /* Back button placed on top-left strictly matching mockup */
+            top: 50% !important;
+            transform: translateY(-50%) !important;
             right: auto !important;
-            background: transparent !important;
-            border: 1px solid var(--gold) !important; /* Gold circular border */
+            background: rgba(0, 0, 0, 0.4) !important;
+            border: 1.5px solid var(--gold) !important; /* Gold circular border */
             color: var(--parrot-green) !important;
-            width: 45px !important;
-            height: 45px !important;
+            width: 42px !important;
+            height: 42px !important;
             border-radius: 50% !important;
             display: flex !important;
             justify-content: center !important;
@@ -685,6 +689,7 @@
             font-size: 1.1rem !important;
             transition: all 0.3s ease !important;
             z-index: 1001;
+            box-shadow: 0 0 10px rgba(229, 193, 88, 0.2);
         }
 
         .gallery-back-btn:hover {
@@ -709,7 +714,7 @@
             justify-content: flex-start !important;
         }
 
-        /* Responsive configuration for Screen 2 Pill items */
+        /* Responsive 2x2 Grid configuration for Screen 2 Pill items on Mobile to avoid clipping */
         @media (max-width: 768px) {
             .categories-list {
                 display: grid !important;
@@ -786,6 +791,7 @@
             letter-spacing: 0.5px !important;
             text-transform: uppercase !important;
             position: relative;
+            white-space: nowrap !important;
         }
 
         .category-row:hover .category-name,
@@ -1360,7 +1366,7 @@
     <div class="top-marquee-bar">
         <div class="marquee-track">
             <div class="marquee-text">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ</div>
-            <div class="marquee-text">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ</div>
+            <div class="marquee-text">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاWIN كَ نَسْتَعِينُ</div>
         </div>
     </div>
 
