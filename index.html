@@ -95,14 +95,14 @@
         }
 
         .section-title, .history-content .label, .logo {
-            font-size: 1.35rem !important; /* Compact premium heading size */
+            font-size: 1.55rem !important; /* Compact premium heading size */
         }
 
         p, .hero-text, .section-desc, .tribute-quote {
             font-family: var(--font-body);
-            font-size: 0.8rem !important; /* Micro body text size */
+            font-size: 0.88rem !important; /* Slightly larger readable body text size */
             color: var(--text-gray) !important;
-            line-height: 1.6;
+            line-height: 1.65;
         }
 
         /* Premium Heading Divider (Left Aligned by Default) */
@@ -334,9 +334,9 @@
             display: inline-block;
             background-color: var(--parrot-green);
             color: #060907;
-            padding: 10px 38px; /* Slightly wider width */
-            border-radius: 30px; /* Fully rounded pill/oval shape */
-            font-size: 0.78rem; /* Slightly smaller sleeker size */
+            padding: 10px 38px !important; /* Smaller sleek padding */
+            border-radius: 30px !important; /* Fully rounded pill/oval shape */
+            font-size: 0.78rem !important; /* Slightly smaller sleeker size */
             font-weight: 700;
             letter-spacing: 1.5px;
             text-transform: uppercase;
@@ -345,6 +345,8 @@
             box-shadow: 0 4px 15px rgba(27, 242, 91, 0.3);
             text-decoration: none;
             text-align: center;
+            width: auto !important; /* Overrides full width stretches */
+            max-width: 200px !important;
         }
 
         .btn-primary:hover {
@@ -695,16 +697,22 @@
         .categories-list {
             display: flex !important;
             flex-direction: row !important; /* Horizontal layout! */
-            flex-wrap: wrap !important;
-            justify-content: flex-start !important; /* Left-aligned! */
+            overflow-x: auto !important; /* Netflix Horizontal Scroll */
+            white-space: nowrap !important;
             gap: 15px !important;
             width: 100% !important;
             margin: 40px auto 0 auto !important;
             max-width: 950px !important;
-            overflow-x: auto !important; /* Netflix Horizontal Scroll */
-            white-space: nowrap !important;
-            padding: 15px 0 !important;
+            padding: 15px 5px !important;
             -webkit-overflow-scrolling: touch;
+            justify-content: flex-start !important;
+        }
+
+        /* On desktop, center the row nicely */
+        @media (min-width: 769px) {
+            .categories-list {
+                justify-content: center !important;
+            }
         }
 
         .categories-list::-webkit-scrollbar {
@@ -719,7 +727,7 @@
             width: 180px !important; /* Exact 170-200px width from mockup spec */
             flex-shrink: 0 !important; /* Prevent shrinking on scroll */
             border: 1px solid var(--gold) !important; /* Gold border by default! */
-            background-color: rgba(0, 0, 0, 0.2) !important;
+            background-color: rgba(0, 0, 0, 0.4) !important;
             padding: 0 15px !important;
             border-radius: 30px !important; /* Fully rounded pill shape */
             cursor: pointer !important;
@@ -837,7 +845,7 @@
             gap: 20px !important;
             background-color: rgba(255, 255, 255, 0.01) !important;
             border: 1px solid var(--gold) !important; /* Gold border like the stats card! */
-            padding: 25px 20px;
+            padding: 25px 20px !important;
             border-radius: 20px !important; /* Premium rounded curves matching stats card */
             transition: all 0.3s ease !important;
             text-align: left !important;
@@ -1713,7 +1721,7 @@
             </div>
         </div>
 
-        <!-- ================= SCREEN 5: ACHIEVEMENTS & INITIATIVES VIEW ================= -->
+        <!-- ================= SCREEN 5: ACHIEVEMENTS & INITIATIVES VIEW (Redesigned Mockup) ================= -->
         <div class="gallery-view" id="view-achievements" style="display: none;">
             <div class="gallery-header">
                 <button class="gallery-back-btn" id="back-achievements-to-home"><i class="fa-solid fa-arrow-left"></i></button>
