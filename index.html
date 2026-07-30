@@ -31,6 +31,7 @@
             --bg-dark: #060907;
             --bg-card: #0c110e;
             --parrot-green: #1bf25b; /* Parrot/Neon Green Glow */
+            --pti-red: #ff2a2a; /* PTI Red Glow */
             --gold: #dfb76c; /* Luxury Gold matching Mockup */
             --white: #ffffff;
             --text-gray: #a6b1a9; /* Soft silver-gray */
@@ -106,6 +107,8 @@
             white-space: nowrap !important; /* Strictly prevents headings wrapping into 2 lines! */
             overflow: hidden;
             text-overflow: ellipsis; /* Fallback protective clipping */
+            text-align: left;
+            width: 100%;
         }
 
         .section-title, .history-content .label, .logo {
@@ -120,9 +123,10 @@
 
         p, .hero-text, .section-desc, .tribute-quote {
             font-family: var(--font-body);
-            font-size: 0.88rem !important; /* Perfectly balanced readable body text size */
+            font-size: 0.88rem !important; /* Slightly larger readable body text size */
             color: var(--text-gray) !important;
             line-height: 1.65;
+            text-align: left;
         }
 
         /* Gold Star Divider for Sub-pages/Sub-views */
@@ -260,23 +264,23 @@
             z-index: 998;
         }
 
-        /* Hero Section (Left-Aligned Layout matching your mockup) */
+        /* Hero Section (Centering details perfectly matching mockup 1) */
         .hero {
             display: flex;
             flex-direction: column; 
-            align-items: flex-start; /* Left-aligned! */
+            align-items: center; /* Centered column layout matching mockup 1 */
             justify-content: center;
             min-height: 85vh;
             padding: 50px 8%;
             gap: 40px;
             width: 100%;
-            text-align: left; /* Left-aligned! */
+            text-align: center; /* Centered text! */
         }
 
         .hero-image {
             width: 100%;
             display: flex;
-            justify-content: flex-start; /* Left-aligned! */
+            justify-content: center; /* Centered! */
         }
 
         .hero-image img {
@@ -292,7 +296,19 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            align-items: flex-start; /* Left-aligned! */
+            align-items: center; /* Centered! */
+        }
+
+        .hero-title {
+            font-family: var(--font-headings);
+            font-size: 2.8rem !important; /* Made larger as requested! */
+            font-weight: 900;
+            letter-spacing: 2px;
+            line-height: 1.1;
+            color: var(--white);
+            text-align: center;
+            display: inline-block;
+            min-height: 100px; /* Reserves height for the typing effect loop */
         }
 
         .hero-subtitle {
@@ -302,9 +318,17 @@
             letter-spacing: 4px;
             text-transform: uppercase;
             text-shadow: 0 0 10px rgba(27, 242, 91, 0.3);
-            margin-bottom: 12px !important; 
-            text-align: left !important;
+            margin-bottom: 5px !important; 
+            text-align: center !important;
             width: 100%;
+        }
+
+        .hero-text {
+            color: var(--text-gray);
+            font-size: 0.8rem;
+            margin-bottom: 30px;
+            max-width: 580px;
+            text-align: center; /* Centered! */
         }
 
         /* Right-Aligned Pill Button Container */
@@ -319,15 +343,15 @@
             display: inline-block;
             background-color: var(--parrot-green);
             color: #060907;
-            padding: 8px 24px !important; /* Smaller sleek padding */
+            padding: 10px 38px !important; /* Smaller sleek padding */
             border-radius: 30px !important; /* Fully rounded pill/oval shape */
-            font-size: 0.72rem !important; /* Slightly smaller sleeker size */
+            font-size: 0.78rem !important; /* Slightly smaller sleeker size */
             font-weight: 700;
             letter-spacing: 1.5px;
             text-transform: uppercase;
             transition: all 0.3s ease;
             border: none;
-            box-shadow: 0 4px 15px rgba(27, 242, 91, 0.2);
+            box-shadow: 0 4px 15px rgba(27, 242, 91, 0.3);
             text-decoration: none;
             text-align: center;
             width: auto !important; /* Overrides full width stretches */
@@ -452,6 +476,7 @@
         .stats-card {
             background-color: rgba(255, 255, 255, 0.01) !important;
             border: 1px solid rgba(229, 193, 88, 0.15) !important; /* Gold border like the stats card! */
+            border-left: 2.5px solid var(--pti-red) !important; /* Dual Gold + Red border! */
             border-radius: 20px !important; /* Premium curves like the screenshot */
             padding: 25px 20px;
             text-align: left; /* Left-aligned! */
@@ -462,7 +487,7 @@
 
         .stats-card:hover {
             transform: translateY(-5px);
-            border-color: var(--parrot-green) !important; /* Glows green! */
+            border-color: var(--parrot-green) !important; /* Glows green on select! */
             box-shadow: 0 5px 25px rgba(27, 242, 91, 0.15) !important;
             background: rgba(27, 242, 91, 0.02) !important;
         }
@@ -576,14 +601,14 @@
         }
 
         .stat-grid-row-bottom {
-            background-color: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 12px 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
+            background-color: rgba(255, 255, 255, 0.02) !important;
+            border: 1px solid var(--border-color) !important;
+            border-radius: 10px !important;
+            padding: 12px 15px !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            width: 100% !important;
         }
 
         .bottom-label {
@@ -698,33 +723,46 @@
             justify-content: flex-start !important;
         }
 
-        /* Responsive 2x2 Grid configuration for Screen 2 Pill items on Mobile to avoid clipping */
+        /* Responsive 4in1 grid layout on Mobile to avoid clipping */
         @media (max-width: 768px) {
             .categories-list {
-                display: grid !important;
-                grid-template-columns: repeat(2, 1fr) !important; /* 4in1 clean visible layout grid on mobile view! */
-                gap: 12px !important;
-                max-width: 400px !important;
-                overflow-x: hidden !important; /* Prevent scroll on mobile grid */
+                display: flex !important;
+                flex-direction: row !important; /* Strictly horizontal 4x1 row on mobile! */
+                flex-wrap: nowrap !important;
+                justify-content: space-between !important;
+                gap: 5px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 5px 0 !important;
+                margin: 20px auto !important;
+                overflow: hidden !important; /* No scrolling, no clipping! */
             }
             .category-row {
-                width: 100% !important; /* Fits grid cells perfectly */
-                height: 52px !important; /* Compact premium mobile height */
-                border-radius: 30px !important;
-                justify-content: flex-start !important;
-                padding: 0 12px !important;
+                width: calc(25% - 4px) !important; /* Fits all 4 perfectly in one row! */
+                flex-shrink: 0 !important;
+                height: 42px !important; /* Compact premium mobile height */
+                border-radius: 20px !important;
+                padding: 0 4px !important;
+                gap: 4px !important;
+                justify-content: center !important;
             }
             .category-left {
-                gap: 8px !important;
+                gap: 4px !important;
                 width: 100% !important;
+                justify-content: center !important;
             }
             .category-left img {
-                width: 32px !important; /* Muted smaller avatar to prevent wraps */
-                height: 32px !important;
+                width: 22px !important; /* Muted smaller avatar to prevent wraps */
+                height: 22px !important;
             }
             .category-name {
-                font-size: 0.65rem !important; /* Compact small text mockup spec */
-                letter-spacing: 0.5px !important;
+                font-size: 0.48rem !important; /* Micro-text size so it NEVER wraps or overflows! */
+                letter-spacing: 0.3px !important;
+            }
+            /* Hide the underline Gold accent on hover on mobile to keep it ultra-clean */
+            .category-row:hover .category-name::after, 
+            .category-row.active .category-name::after {
+                display: none !important;
             }
         }
 
@@ -865,6 +903,7 @@
             gap: 20px !important;
             background-color: rgba(255, 255, 255, 0.01) !important;
             border: 1px solid var(--gold) !important; /* Gold border like the stats card! */
+            border-left: 2.5px solid var(--pti-red) !important; /* Dual Gold + Red border! */
             padding: 25px 20px;
             border-radius: 20px !important; /* Premium rounded curves matching stats card */
             transition: all 0.3s ease !important;
@@ -930,6 +969,7 @@
         .tribute-card {
             background: rgba(255, 255, 255, 0.01);
             border: 1px solid var(--border-color);
+            border-left: 2.5px solid var(--pti-red) !important; /* Dual Border! */
             border-radius: 8px;
             padding: 30px 20px;
             text-align: left; /* Left-aligned! */
@@ -1019,6 +1059,7 @@
             max-width: 550px;
             margin: 0 0 60px 0; /* Form now placed on top cleanly */
             border: 1px solid var(--border-color);
+            border-left: 2.5px solid var(--pti-red) !important; /* Dual Border! */
             border-radius: 8px;
             padding: 30px;
             background: rgba(255, 255, 255, 0.01);
@@ -1210,7 +1251,7 @@
                 padding: 100px 30px !important;
                 gap: 20px !important; /* Premium tighter spacing */
                 z-index: 9999 !important;
-                border-left: 2px solid var(--parrot-green) !important;
+                border-left: 2px solid var(--pti-red) !important; /* Red border on mobile menu drawer! */
                 box-shadow: -10px 0 35px rgba(0, 0, 0, 0.9) !important;
                 display: none !important; /* HIDE BY DEFAULT TO PREVENT SIDE GREEN LINE OVERFLOW! */
             }
@@ -1347,7 +1388,7 @@
         }
 
         .developer-signature .dev-name {
-            color: var(--white); /* Simple white as requested */
+            color: var(--white); /* Simple clean white color */
             font-family: var(--font-headings);
             font-weight: bold;
             padding-left: 5px;
@@ -1410,16 +1451,15 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (Upgraded Center Typewriter Loop) -->
     <section class="hero" id="home">
         <div class="hero-image">
             <img src="https://images.unsplash.com/photo-1610018556010-6a11691bc905?auto=format&fit=crop&q=80&w=600" alt="Imran Khan Portrait UNGA">
         </div>
         <div class="hero-content">
-            <h1 class="hero-title">IMRAN KHAN</h1>
+            <!-- Sleek Typwriter Text Container -->
+            <h1 class="hero-title" id="typing-hero-title">IMRAN KHAN</h1>
             <p class="hero-subtitle">The Journey of a Leader</p>
-            
-            <!-- Beautiful flower divider under main title (Hidden on Home, strictly empty or removed) -->
             
             <p class="hero-text">From a young cricket prodigy to an unbeatable world champion, a master philanthropist, and ultimately the Prime Minister of Pakistan. Experience a timeline built on absolute resilience, faith, and unmatched patriotism.</p>
             <div class="btn-right-container">
@@ -1539,7 +1579,7 @@
             <p class="section-desc">Select a category to explore photos from that era.</p>
 
             <div class="categories-list">
-                <!-- CHILDHOOD Card (Mockup 1 horizontal design) -->
+                <!-- CHILDHOOD Card (Mockup 1 horizontal design - 4in1 layout responsive grid on mobile) -->
                 <div class="category-row" data-category="bachpan">
                     <div class="category-left">
                         <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150" alt="Bachpan">
@@ -1547,7 +1587,7 @@
                     </div>
                 </div>
 
-                <!-- YOUTH Card (Mockup 1 horizontal design) -->
+                <!-- YOUTH Card (Mockup 1 horizontal design - 4in1 layout responsive grid on mobile) -->
                 <div class="category-row" data-category="jawani">
                     <div class="category-left">
                         <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150" alt="Jawani">
@@ -1555,7 +1595,7 @@
                     </div>
                 </div>
 
-                <!-- CRICKET ERA Card (Mockup 1 horizontal design) -->
+                <!-- CRICKET ERA Card (Mockup 1 horizontal design - 4in1 layout responsive grid on mobile) -->
                 <div class="category-row" data-category="cricket">
                     <div class="category-left">
                         <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=150" alt="Cricket">
@@ -1563,7 +1603,7 @@
                     </div>
                 </div>
 
-                <!-- POLITICAL ERA Card (Mockup 1 horizontal design) -->
+                <!-- POLITICAL ERA Card (Mockup 1 horizontal design - 4in1 layout responsive grid on mobile) -->
                 <div class="category-row" data-category="political">
                     <div class="category-left">
                         <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&q=80&w=150" alt="Political">
@@ -1773,7 +1813,6 @@
     <!-- Premium Reviews & Tributes Section (With Persistent User Submissions Only, Left Aligned) -->
     <section class="tributes-section" id="tributes">
         <h2 class="section-title">Reviews & Tributes</h2>
-        
         <p class="section-desc">Leave your own premium tribute to Imran Khan below. Your tribute will appear in real-time below.</p>
 
         <!-- Leave a Tribute Form on TOP cleanly -->
@@ -1813,9 +1852,9 @@
                 <h3>Quick Links</h3>
                 <ul class="footer-links">
                     <li><a href="#home"><i class="fa-solid fa-circle-chevron-right"></i> Home</a></li>
-                    <li><a href="#early-life"><i class="fa-solid fa-circle-chevron-right"></i> Early Life</a></li>
-                    <li><a href="#cricket-career"><i class="fa-solid fa-circle-chevron-right"></i> Cricket Journey</a></li>
-                    <li><a href="#political-journey"><i class="fa-solid fa-circle-chevron-right"></i> Political Struggle</a></li>
+                    <li><a href="#early-life"><i class="fa-solid fa-book-open-reader"></i> Early Life</a></li>
+                    <li><a href="#cricket-career"><i class="fa-solid fa-trophy"></i> Cricket Journey</a></li>
+                    <li><a href="#political-journey"><i class="fa-solid fa-landmark"></i> Political Struggle</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -1840,7 +1879,7 @@
 
     <!-- Upgraded Fullscreen Interactive Script with Touch Controls -->
     <script>
-        // --- 1. Variable Declarations ---
+        // --- 1. Variable Declarations with Safe Fallbacks ---
         const mobileMenu = document.getElementById('mobile-menu');
         const navMenu = document.getElementById('nav-menu');
         const overlayMask = document.getElementById('overlay-mask');
@@ -1896,7 +1935,40 @@
             ]
         };
 
-        // --- 3. View Switcher Animation Helper ---
+        // --- 3. Micro Typewriter Effect on Home Page (Infinitely Looping Typwriter) ---
+        const textToType = "IMRAN KHAN: THE JOURNEY OF A LEADER";
+        let index = 0;
+        let isDeleting = false;
+        const typingSpeed = 100; // Speed of typing
+        const erasingSpeed = 50;  // Speed of erasing
+        const delayBetween = 2500; // Delay before erasing
+
+        function typeEffect() {
+            const targetElement = document.getElementById('typing-hero-title');
+            if (!targetElement) return;
+
+            if (!isDeleting && index <= textToType.length) {
+                targetElement.textContent = textToType.substring(0, index);
+                index++;
+                setTimeout(typeEffect, typingSpeed);
+            } else if (isDeleting && index >= 0) {
+                targetElement.textContent = textToType.substring(0, index);
+                index--;
+                setTimeout(typeEffect, erasingSpeed);
+            } else if (index > textToType.length) {
+                isDeleting = true;
+                setTimeout(typeEffect, delayBetween);
+            } else if (index < 0) {
+                isDeleting = false;
+                index = 0;
+                setTimeout(typeEffect, 500);
+            }
+        }
+
+        // Initialize typewriter on DOM load safely
+        document.addEventListener('DOMContentLoaded', typeEffect);
+
+        // --- 4. View Switcher Animation Helper ---
         function switchView(fromView, toView, makeFullscreen) {
             if (!fromView || !toView) return; 
 
@@ -1926,7 +1998,7 @@
             }, 250);
         }
 
-        // --- 4. Interactive Navigation Controllers with Touch Fallback ---
+        // --- 5. Interactive Navigation Controllers with Touch Fallback ---
         const handleGalleryNavigation = () => {
             if (viewHome && viewCategories) {
                 switchView(viewHome, viewCategories, true);
@@ -1969,7 +2041,7 @@
             });
         }
 
-        // --- 5. New Cricket Stats Views Controller ---
+        // --- 6. New Cricket Stats Views Controller ---
         const handleOpenCricketStats = () => {
             if (viewHome && viewStats) {
                 const targetGallery = document.getElementById('gallery');
@@ -2002,7 +2074,7 @@
             });
         }
 
-        // --- 6. Achievements Sub-view Controllers ---
+        // --- 7. Achievements Sub-view Controllers ---
         const handleOpenAchievements = () => {
             if (viewHome && viewAchievements) {
                 const targetGallery = document.getElementById('gallery');
@@ -2035,7 +2107,7 @@
             });
         }
 
-        // --- 7. View Cricket Gallery Trigger Controller ---
+        // --- 8. View Cricket Gallery Trigger Controller ---
         const handleCricketGalleryNav = () => {
             if (viewHome && viewCategories) {
                 const targetGallery = document.getElementById('gallery');
@@ -2063,7 +2135,7 @@
             });
         }
 
-        // --- 8. Category Selection & Dynamic Grid Population ---
+        // --- 9. Category Selection & Dynamic Grid Population ---
         if (categoryRows.length > 0) {
             categoryRows.forEach(row => {
                 const handleCategoryClick = () => {
@@ -2110,7 +2182,7 @@
             });
         }
 
-        // --- 9. Mobile Menu & Navigation Logic (With touchstart fallback) ---
+        // --- 10. Mobile Menu & Navigation Logic (With touchstart fallback) ---
         if (mobileMenu && navMenu) {
             function toggleMenu(e) {
                 if (e) e.preventDefault();
@@ -2135,7 +2207,7 @@
             }
         }
 
-        // --- 10. Smooth Scrolling & Menu Auto-Closing Logic ---
+        // --- 11. Smooth Scrolling & Menu Auto-Closing Logic ---
         if (navLinks.length > 0) {
             navLinks.forEach(link => {
                 const handleLinkClick = (e) => {
@@ -2184,39 +2256,46 @@
             });
         }
 
-        // --- 11. Persistent Tribute Form Submission & Deletion Logic (With Premium Toast Notification & LocalStorage) ---
+        // --- 12. Persistent Tribute Form Submission & Deletion Logic (With Premium Toast Notification & LocalStorage/Live Database Sync) ---
         const tributeForm = document.getElementById('tribute-form');
         const tributesContainer = document.getElementById('tributes-container');
+        const kvdbUrl = 'https://kvdb.io/sa4102430_saad_ali_v2/tributes'; // Anonymous public cloud database!
 
-        // Dynamic Toast Notification Trigger (Instead of cheap browser popups)
-        function showPremiumToast(title, message) {
-            let toast = document.getElementById('success-toast');
-            if (!toast) {
-                toast = document.createElement('div');
-                toast.id = 'success-toast';
-                toast.className = 'toast-notification';
-                document.body.appendChild(toast);
+        // Load reviews from live database on load
+        let savedTributes = [];
+
+        async function loadLiveTributes() {
+            try {
+                const response = await fetch(kvdbUrl);
+                if (response.ok) {
+                    const data = await response.json();
+                    savedTributes = data || [];
+                } else if (response.status === 404) {
+                    // Initialize empty bucket on server
+                    await saveLiveTributes([]);
+                    savedTributes = [];
+                }
+            } catch (err) {
+                console.error("Live DB fetch failed, falling back to localStorage:", err);
+                savedTributes = JSON.parse(localStorage.getItem('user_tributes')) || [];
             }
-            
-            toast.innerHTML = `
-                <div class="toast-icon"><i class="fa-solid fa-circle-check"></i></div>
-                <div class="toast-body">
-                    <h5>${title}</h5>
-                    <p>${message}</p>
-                </div>
-            `;
-            
-            setTimeout(() => {
-                toast.classList.add('show');
-            }, 100);
-            
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 4200); // Auto-dismisses smoothly after 4 seconds
+            renderTributes();
         }
 
-        // Load reviews from localStorage on load
-        let savedTributes = JSON.parse(localStorage.getItem('user_tributes')) || [];
+        // Save reviews to live database
+        async function saveLiveTributes(dataArray) {
+            try {
+                await fetch(kvdbUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(dataArray)
+                });
+                localStorage.setItem('user_tributes', JSON.stringify(dataArray));
+            } catch (err) {
+                console.error("Live DB save failed, saving locally:", err);
+                localStorage.setItem('user_tributes', JSON.stringify(dataArray));
+            }
+        }
 
         function renderTributes() {
             if (!tributesContainer) return;
@@ -2261,10 +2340,12 @@
         const deleteModal = document.getElementById('delete-confirm-modal');
 
         if (confirmDeleteBtn && deleteModal) {
-            confirmDeleteBtn.addEventListener('click', () => {
+            confirmDeleteBtn.addEventListener('click', async () => {
                 if (tributeToDeleteIndex !== null) {
                     savedTributes.splice(tributeToDeleteIndex, 1);
-                    localStorage.setItem('user_tributes', JSON.stringify(savedTributes));
+                    
+                    // Save to server first
+                    await saveLiveTributes(savedTributes);
                     renderTributes();
                     
                     // Close modal smoothly
@@ -2293,7 +2374,7 @@
             // Render on page load
             renderTributes();
 
-            tributeForm.addEventListener('submit', (e) => {
+            tributeForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 
                 const name = document.getElementById('author-name').value;
@@ -2306,10 +2387,12 @@
                                    ' at ' + 
                                    now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
 
-                // Save to local database
+                // Save to local & live database
                 const newTribute = { name, role, message, date: dateTimeStr };
                 savedTributes.unshift(newTribute);
-                localStorage.setItem('user_tributes', JSON.stringify(savedTributes));
+                
+                // Save to server first
+                await saveLiveTributes(savedTributes);
                 
                 // Render UI
                 renderTributes();
