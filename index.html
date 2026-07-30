@@ -301,7 +301,7 @@
 
         .hero-title {
             font-family: var(--font-headings);
-            font-size: 2.8rem !important; /* Made larger as requested! */
+            font-size: 2.2rem !important; /* Made medium size as requested! */
             font-weight: 900;
             letter-spacing: 2px;
             line-height: 1.1;
@@ -343,15 +343,15 @@
             display: inline-block;
             background-color: var(--parrot-green);
             color: #060907;
-            padding: 10px 38px !important; /* Smaller sleek padding */
+            padding: 8px 24px !important; /* Smaller sleek padding */
             border-radius: 30px !important; /* Fully rounded pill/oval shape */
-            font-size: 0.78rem !important; /* Slightly smaller sleeker size */
+            font-size: 0.72rem !important; /* Slightly smaller sleeker size */
             font-weight: 700;
             letter-spacing: 1.5px;
             text-transform: uppercase;
             transition: all 0.3s ease;
             border: none;
-            box-shadow: 0 4px 15px rgba(27, 242, 91, 0.3);
+            box-shadow: 0 4px 15px rgba(27, 242, 91, 0.2);
             text-decoration: none;
             text-align: center;
             width: auto !important; /* Overrides full width stretches */
@@ -384,6 +384,7 @@
         .highlight-card {
             background-color: rgba(255, 255, 255, 0.01);
             border: 1px solid var(--border-color);
+            border-left: 2.5px solid var(--pti-red) !important; /* Dual Border! */
             padding: 40px 22px;
             border-radius: 8px;
             transition: all 0.3s ease;
@@ -1406,8 +1407,8 @@
     <!-- Sleek Running Arabic Marquee Ticker (Seamless Infinite Loop with slightly increased speed) -->
     <div class="top-marquee-bar">
         <div class="marquee-track">
-            <div class="marquee-text">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ</div>
-            <div class="marquee-text">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ</div>
+            <div class="marquee-text">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد چاہتے ہیں) &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد چاہتے ہیں)</div>
+            <div class="marquee-text">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد چاہتے ہیں) &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد چاہتے ہیں)</div>
         </div>
     </div>
 
@@ -1457,7 +1458,7 @@
             <img src="https://images.unsplash.com/photo-1610018556010-6a11691bc905?auto=format&fit=crop&q=80&w=600" alt="Imran Khan Portrait UNGA">
         </div>
         <div class="hero-content">
-            <!-- Sleek Typwriter Text Container -->
+            <!-- Sleek Typwriter Text Container (Center Aligned, Medium Size) -->
             <h1 class="hero-title" id="typing-hero-title">IMRAN KHAN</h1>
             <p class="hero-subtitle">The Journey of a Leader</p>
             
@@ -1852,8 +1853,8 @@
                 <h3>Quick Links</h3>
                 <ul class="footer-links">
                     <li><a href="#home"><i class="fa-solid fa-circle-chevron-right"></i> Home</a></li>
-                    <li><a href="#early-life"><i class="fa-solid fa-book-open-reader"></i> Early Life</a></li>
-                    <li><a href="#cricket-career"><i class="fa-solid fa-trophy"></i> Cricket Journey</a></li>
+                    <li><a href="#early-life"><i class="fa-solid fa-circle-chevron-right"></i> Early Life</a></li>
+                    <li><a href="#cricket-career"><i class="fa-solid fa-circle-chevron-right"></i> Cricket Journey</a></li>
                     <li><a href="#political-journey"><i class="fa-solid fa-landmark"></i> Political Struggle</a></li>
                 </ul>
             </div>
@@ -1935,40 +1936,7 @@
             ]
         };
 
-        // --- 3. Micro Typewriter Effect on Home Page (Infinitely Looping Typwriter) ---
-        const textToType = "IMRAN KHAN: THE JOURNEY OF A LEADER";
-        let index = 0;
-        let isDeleting = false;
-        const typingSpeed = 100; // Speed of typing
-        const erasingSpeed = 50;  // Speed of erasing
-        const delayBetween = 2500; // Delay before erasing
-
-        function typeEffect() {
-            const targetElement = document.getElementById('typing-hero-title');
-            if (!targetElement) return;
-
-            if (!isDeleting && index <= textToType.length) {
-                targetElement.textContent = textToType.substring(0, index);
-                index++;
-                setTimeout(typeEffect, typingSpeed);
-            } else if (isDeleting && index >= 0) {
-                targetElement.textContent = textToType.substring(0, index);
-                index--;
-                setTimeout(typeEffect, erasingSpeed);
-            } else if (index > textToType.length) {
-                isDeleting = true;
-                setTimeout(typeEffect, delayBetween);
-            } else if (index < 0) {
-                isDeleting = false;
-                index = 0;
-                setTimeout(typeEffect, 500);
-            }
-        }
-
-        // Initialize typewriter on DOM load safely
-        document.addEventListener('DOMContentLoaded', typeEffect);
-
-        // --- 4. View Switcher Animation Helper ---
+        // --- 3. View Switcher Animation Helper ---
         function switchView(fromView, toView, makeFullscreen) {
             if (!fromView || !toView) return; 
 
@@ -1998,7 +1966,7 @@
             }, 250);
         }
 
-        // --- 5. Interactive Navigation Controllers with Touch Fallback ---
+        // --- 4. Interactive Navigation Controllers with Touch Fallback ---
         const handleGalleryNavigation = () => {
             if (viewHome && viewCategories) {
                 switchView(viewHome, viewCategories, true);
@@ -2041,7 +2009,7 @@
             });
         }
 
-        // --- 6. New Cricket Stats Views Controller ---
+        // --- 5. New Cricket Stats Views Controller ---
         const handleOpenCricketStats = () => {
             if (viewHome && viewStats) {
                 const targetGallery = document.getElementById('gallery');
@@ -2074,7 +2042,7 @@
             });
         }
 
-        // --- 7. Achievements Sub-view Controllers ---
+        // --- 6. Achievements Sub-view Controllers ---
         const handleOpenAchievements = () => {
             if (viewHome && viewAchievements) {
                 const targetGallery = document.getElementById('gallery');
@@ -2107,7 +2075,7 @@
             });
         }
 
-        // --- 8. View Cricket Gallery Trigger Controller ---
+        // --- 7. View Cricket Gallery Trigger Controller ---
         const handleCricketGalleryNav = () => {
             if (viewHome && viewCategories) {
                 const targetGallery = document.getElementById('gallery');
@@ -2135,7 +2103,7 @@
             });
         }
 
-        // --- 9. Category Selection & Dynamic Grid Population ---
+        // --- 8. Category Selection & Dynamic Grid Population ---
         if (categoryRows.length > 0) {
             categoryRows.forEach(row => {
                 const handleCategoryClick = () => {
@@ -2182,7 +2150,7 @@
             });
         }
 
-        // --- 10. Mobile Menu & Navigation Logic (With touchstart fallback) ---
+        // --- 9. Mobile Menu & Navigation Logic (With touchstart fallback) ---
         if (mobileMenu && navMenu) {
             function toggleMenu(e) {
                 if (e) e.preventDefault();
@@ -2207,7 +2175,7 @@
             }
         }
 
-        // --- 11. Smooth Scrolling & Menu Auto-Closing Logic ---
+        // --- 10. Smooth Scrolling & Menu Auto-Closing Logic ---
         if (navLinks.length > 0) {
             navLinks.forEach(link => {
                 const handleLinkClick = (e) => {
@@ -2256,7 +2224,7 @@
             });
         }
 
-        // --- 12. Persistent Tribute Form Submission & Deletion Logic (With Premium Toast Notification & LocalStorage/Live Database Sync) ---
+        // --- 11. Persistent Tribute Form Submission & Deletion Logic (With Premium Toast Notification & LocalStorage/Live Database Sync) ---
         const tributeForm = document.getElementById('tribute-form');
         const tributesContainer = document.getElementById('tributes-container');
         const kvdbUrl = 'https://kvdb.io/sa4102430_saad_ali_v2/tributes'; // Anonymous public cloud database!
