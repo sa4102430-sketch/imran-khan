@@ -1,2399 +1,1340 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Imran Khan - The Journey of 804</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        /* General Reset & Variable Declarations */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        html, body {
-            width: 100%;
-            overflow-x: hidden; /* Anti-stretch protection */
-            background-color: #060907;
-            color: #ffffff;
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.7;
-        }
-
-        :root {
-            --bg-dark: #060907;
-            --bg-card: #0c110e;
-            --parrot-green: #1bf25b; /* PTI Green Glow */
-            --pti-red: #ff2a2a; /* PTI Red Glow */
-            --gold: #dfb76c; /* Luxury Gold matching Mockup */
-            --white: #ffffff;
-            --text-gray: #a6b1a9; /* Soft silver-gray */
-            --border-color: rgba(27, 242, 91, 0.15);
-            --font-headings: 'Cinzel', serif;
-            --font-body: 'Poppins', sans-serif;
-        }
-
-        /* Completely hide scrollbars on mobile to make the side walls 100% clean and dark */
-        @media (max-width: 768px) {
-            ::-webkit-scrollbar {
-                display: none !important;
-            }
-            body {
-                -ms-overflow-style: none;  /* IE and Edge */
-                scrollbar-width: none;  /* Firefox */
-            }
-        }
-
-        /* On desktop, keep a very subtle, dark scrollbar (no bright green!) */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #060907;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #222; /* Dark subtle gray */
-            border-radius: 4px;
-        }
-
-        /* Top Seamless Infinite Arabic Marquee Ticker with Urdu Translation */
-        .top-marquee-bar {
-            background-color: #030504;
-            border-bottom: 1px solid var(--border-color);
-            color: var(--parrot-green);
-            font-family: 'Cinzel', serif;
-            font-size: 0.8rem; /* Micro font size matching design */
-            font-weight: bold;
-            padding: 12px 0;
-            overflow: hidden;
-            white-space: nowrap;
-            position: relative;
-            z-index: 1001;
-            text-shadow: 0 0 8px rgba(27, 242, 91, 0.4);
-            display: flex;
-            direction: rtl;
-        }
-
-        .marquee-track {
-            display: flex;
-            width: max-content;
-            animation: marquee-seamless 32s linear infinite; /* Slightly Faster Premium Speed */
-        }
-
-        .marquee-text {
-            padding-right: 50px;
-            display: inline-block;
-        }
-
-        @keyframes marquee-seamless {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-50%, 0, 0); } /* Rotates seamlessly at 50% duplication */
-        }
-
-        /* Micro-Typography Global Header & Paragraph Overrides (Single-Line Headings) */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-headings);
-            text-transform: uppercase;
-            letter-spacing: 2.5px;
-            color: var(--gold) !important; /* All headings Gold across website */
-            text-shadow: 0 0 10px rgba(223, 183, 108, 0.35); /* Elegant gold glowing text-shadow */
-            white-space: nowrap !important; /* Strictly prevents headings wrapping into 2 lines! */
-            overflow: hidden;
-            text-overflow: ellipsis; /* Fallback protective clipping */
-            text-align: left;
-            width: 100%;
-        }
-
-        .section-title, .history-content .label, .logo {
-            font-size: 1.15rem !important; /* Compact premium heading size for mobile */
-        }
-
-        @media (min-width: 769px) {
-            .section-title, .history-content .label, .logo {
-                font-size: 1.55rem !important; /* Beautifully scaled for desktop */
-            }
-        }
-
-        p, .hero-text, .section-desc, .tribute-quote {
-            font-family: var(--font-body);
-            font-size: 0.88rem !important; /* Slightly larger readable body text size */
-            color: var(--text-gray) !important;
-            line-height: 1.65;
-            text-align: left;
-        }
-
-        /* Gold Star Divider for Sub-pages/Sub-views */
-        .star-divider {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            margin: 12px 0 25px 0;
-            width: 100%;
-            max-width: 220px;
-        }
-
-        .star-divider .line {
-            flex: 1;
-            height: 1px;
-            background: linear-gradient(to right, #9e8243, transparent); /* Fades out to right */
-        }
-
-        .star-divider .star {
-            color: #9e8243; /* Dark Gold Star */
-            font-size: 0.8rem;
-            margin-right: 10px;
-            text-shadow: 0 0 5px rgba(158, 130, 67, 0.4);
-        }
-
-        /* Navigation Header */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 18px 8%;
-            background-color: rgba(6, 9, 7, 0.98);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
-            width: 100%;
-        }
-
-        /* Brand Logo */
-        .logo {
-            font-family: var(--font-headings);
-            font-weight: 900;
-            font-size: 1.35rem;
-            letter-spacing: 1px;
-            line-height: 1.1;
-        }
-
-        .logo span.num-804 {
-            display: block;
-            font-size: 1.1rem;
-            color: var(--parrot-green);
-            font-family: sans-serif;
-            font-weight: 700;
-            letter-spacing: 3px;
-            margin-top: 2px;
-            text-shadow: 0 0 8px rgba(27, 242, 91, 0.4);
-        }
-
-        /* Desktop Nav Menu Links */
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
-
-        .nav-links a {
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--text-gray);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: color 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-decoration: none;
-            position: relative;
-            padding-bottom: 4px;
-        }
-
-        .nav-links a i {
-            font-size: 0.95rem;
-            color: var(--parrot-green);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--parrot-green);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--white);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* 3-Lines Mobile Menu Toggle */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            cursor: pointer;
-            z-index: 1002;
-            padding: 5px;
-        }
-
-        .menu-toggle span {
-            width: 26px;
-            height: 3px;
-            background-color: var(--white);
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-
-        /* Screen Dark Overlay Mask when menu active */
-        .menu-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.75);
-            backdrop-filter: blur(5px);
-            z-index: 998;
-        }
-
-        /* Hero Section (Centering details perfectly matching mockup 1) */
-        .hero {
-            display: flex;
-            flex-direction: column; 
-            align-items: center; /* Centered column layout matching mockup 1 */
-            justify-content: center;
-            min-height: 85vh;
-            padding: 50px 8%;
-            gap: 40px;
-            width: 100%;
-            text-align: center; /* Centered text! */
-        }
-
-        .hero-image {
-            width: 100%;
-            display: flex;
-            justify-content: center; /* Centered! */
-        }
-
-        .hero-image img {
-            width: 100%;
-            max-width: 440px;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 15px 35px rgba(27, 242, 91, 0.15); /* Curved green glow matching mockup */
-            border: 1px solid var(--border-color);
-        }
-
-        .hero-content {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Centered! */
-        }
-
-        .hero-title {
-            font-family: var(--font-headings);
-            font-size: 2.2rem !important; /* Made medium size as requested! */
-            font-weight: 900;
-            letter-spacing: 2px;
-            line-height: 1.1;
-            color: var(--white);
-            text-align: center;
-            display: inline-block;
-            min-height: 100px; /* Reserves height for the typing effect loop */
-        }
-
-        .hero-subtitle {
-            font-size: 0.95rem; /* Sleeker size */
-            color: var(--parrot-green);
-            font-weight: 600;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            text-shadow: 0 0 10px rgba(27, 242, 91, 0.3);
-            margin-bottom: 5px !important; 
-            text-align: center !important;
-            width: 100%;
-        }
-
-        .hero-text {
-            color: var(--text-gray);
-            font-size: 0.8rem;
-            margin-bottom: 30px;
-            max-width: 580px;
-            text-align: center; /* Centered! */
-        }
-
-        /* Right-Aligned Pill Button Container */
-        .btn-right-container {
-            display: flex;
-            justify-content: flex-end; /* Strictly Right-aligned action buttons! */
-            width: 100%;
-            margin-top: 35px;
-        }
-
-        .btn-primary {
-            display: inline-block;
-            background-color: var(--parrot-green);
-            color: #060907;
-            padding: 8px 24px !important; /* Smaller sleek padding */
-            border-radius: 30px !important; /* Fully rounded pill/oval shape */
-            font-size: 0.72rem !important; /* Slightly smaller sleeker size */
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            border: none;
-            box-shadow: 0 4px 15px rgba(27, 242, 91, 0.2);
-            text-decoration: none;
-            text-align: center;
-            width: auto !important; /* Overrides full width stretches */
-            max-width: 180px !important;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--white);
-            color: #060907;
-            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.4);
-            transform: translateY(-2px);
-        }
-
-        /* Overview Section (No Dividers on Home Page) */
-        .section-center {
-            padding: 80px 8%;
-            text-align: left; /* Left-aligned! */
-            background-color: var(--bg-card);
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            width: 100%;
-        }
-
-        .highlights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 30px;
-        }
-
-        .highlight-card {
-            background-color: rgba(255, 255, 255, 0.01);
-            border: 1px solid var(--border-color);
-            border-left: 2.5px solid var(--pti-red) !important; /* Dual Border! */
-            padding: 40px 22px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            text-align: left; /* Left-aligned! */
-        }
-
-        .highlight-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--parrot-green);
-            background-color: rgba(27, 242, 91, 0.02);
-            box-shadow: 0 10px 25px rgba(27, 242, 91, 0.1);
-        }
-
-        .highlight-card i {
-            font-size: 2.3rem;
-            color: var(--parrot-green);
-            margin-bottom: 20px;
-        }
-
-        .highlight-card h3 {
-            font-family: var(--font-headings);
-            font-size: 1.2rem;
-            margin-bottom: 12px;
-            letter-spacing: 1px;
-        }
-
-        .highlight-card p {
-            font-size: 0.85rem;
-            color: var(--text-gray);
-            line-height: 1.6;
-        }
-
-        /* Detailed History Sections */
-        .history-section {
-            padding: 90px 8%;
-            border-bottom: 1px solid var(--border-color);
-            width: 100%;
-        }
-
-        .history-section.bg-alternate {
-            background-color: var(--bg-card);
-        }
-
-        .history-content {
-            max-width: 900px;
-            margin: 0; /* Left-aligned! */
-            text-align: left; /* Left-aligned! */
-        }
-
-        .history-content p {
-            color: var(--text-gray);
-            font-size: 0.85rem;
-            margin-bottom: 20px;
-            text-align: left; /* Left-aligned! */
-        }
-
-        /* Dedicated Image Container with Borders */
-        .section-image-container {
-            width: 100%;
-            display: flex;
-            justify-content: flex-start; /* Left-aligned! */
-            margin-top: 35px;
-        }
-
-        .section-image-container img {
-            width: 100%;
-            max-width: 700px; /* Big Premium Size */
-            height: auto;
-            border-radius: 12px;
-            border: 2px solid var(--parrot-green);
-            box-shadow: 0 0 25px rgba(27, 242, 91, 0.25);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
-
-        .section-image-container img:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 35px rgba(27, 242, 91, 0.45);
-        }
-
-        /* Upgraded Gold-Green Stats Card Layout (Exact Mockup Layout Match) */
-        .stats-premium-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-            gap: 25px;
-            margin: 35px 0; /* Left-aligned! */
-            width: 100%;
-            max-width: 900px;
-        }
-
-        .stats-card {
-            background-color: rgba(255, 255, 255, 0.01) !important;
-            border: 1px solid rgba(229, 193, 88, 0.15) !important; /* Gold border like the stats card! */
-            border-left: 2.5px solid var(--pti-red) !important; /* Dual Gold + Red border! */
-            border-radius: 20px !important; /* Premium curves like the screenshot */
-            padding: 25px 20px;
-            text-align: left; /* Left-aligned! */
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stats-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--parrot-green) !important; /* Glows green on select! */
-            box-shadow: 0 5px 25px rgba(27, 242, 91, 0.15) !important;
-            background: rgba(27, 242, 91, 0.02) !important;
-        }
-
-        .stats-card-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            margin-bottom: 20px;
-        }
-
-        .stats-badge {
-            background-color: rgba(27, 242, 91, 0.08);
-            color: var(--parrot-green);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.72rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .stats-card-icon {
-            color: var(--gold); /* Gold icons! */
-            text-shadow: 0 0 8px rgba(229, 193, 88, 0.4) !important;
-            font-size: 1.2rem;
-        }
-
-        .stats-card.highlighted .stats-card-icon {
-            color: var(--parrot-green);
-            text-shadow: 0 0 8px rgba(27, 242, 91, 0.4);
-        }
-
-        .stats-main-number {
-            font-family: var(--font-body); /* Geometric and bold */
-            font-size: 4rem;
-            font-weight: 700;
-            color: var(--gold); /* Gold number */
-            text-shadow: 0 0 8px rgba(229, 193, 88, 0.3);
-            line-height: 1;
-            margin-bottom: 10px;
-            text-align: left;
-        }
-
-        .stats-card-subtitle {
-            font-size: 1.05rem;
-            color: var(--white);
-            font-weight: bold;
-            text-align: left;
-            margin-bottom: 10px;
-        }
-
-        .stats-card-desc {
-            font-size: 0.85rem;
-            color: var(--text-gray);
-            text-align: left;
-            margin-bottom: 25px;
-            line-height: 1.5;
-        }
-
-        .stats-grid {
-            display: grid !important;
-            grid-template-columns: repeat(2, 1fr) !important;
-            gap: 12px !important;
-            width: 100%;
-            margin-bottom: 12px;
-        }
-
-        .stat-grid-box {
-            background-color: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 12px 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            text-align: left;
-        }
-
-        .box-label {
-            font-size: 0.65rem;
-            color: var(--text-gray);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 4px;
-        }
-
-        .box-value {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: var(--white);
-            position: relative;
-            padding-bottom: 4px;
-        }
-
-        /* Value underline highlight matching mockup exactly */
-        .box-value::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 25px;
-            height: 2px;
-            background-color: var(--parrot-green);
-            box-shadow: 0 0 5px var(--parrot-green);
-        }
-
-        .stats-card.highlighted .box-value {
-            color: var(--parrot-green);
-        }
-
-        .stat-grid-row-bottom {
-            background-color: rgba(255, 255, 255, 0.02) !important;
-            border: 1px solid var(--border-color) !important;
-            border-radius: 10px !important;
-            padding: 12px 15px !important;
-            display: flex !important;
-            justify-content: space-between !important;
-            align-items: center !important;
-            width: 100% !important;
-        }
-
-        .bottom-label {
-            font-size: 0.65rem;
-            color: var(--text-gray);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .bottom-value {
-            font-size: 0.95rem;
-            font-weight: bold;
-            color: var(--parrot-green);
-        }
-
-        /* --- Premium Filterable Gallery Section --- */
-        .gallery-section {
-            padding: 95px 8%;
-            background-color: var(--bg-dark);
-            border-bottom: 1px solid var(--border-color);
-            width: 100%;
-            min-height: 550px;
-            position: relative;
-            text-align: left; /* Left-aligned! */
-        }
-
-        /* FULLSCREEN STATE - Covers Achievements, Footer & lock scroll (Anti-Green Line Overflow) */
-        .gallery-section.fullscreen {
-            position: fixed !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100vw !important;
-            height: 100vh !important;
-            z-index: 10000 !important; /* Above everything */
-            overflow-y: auto !important;
-            background-color: #060907 !important;
-            padding: 40px 15px !important; /* Smaller side padding on mobile! */
-            border-left: none !important; /* No green line on side walls */
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.98); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        .gallery-view {
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            width: 100%;
-            text-align: left;
-        }
-
-        /* Mockup Header & Back Arrow Styling (Overlap Fix) */
-        .gallery-header {
-            position: relative;
-            display: flex !important;
-            justify-content: flex-start !important; /* Left-aligned! */
-            align-items: center !important;
-            width: 100% !important;
-            min-height: 50px !important;
-            margin-bottom: 30px !important;
-        }
-
-        .gallery-header h2 {
-            padding-left: 60px !important; /* Prevents back button overlapping text! */
-            text-align: left !important; /* Left aligned! */
-            width: 100%;
-        }
-
-        /* Styled Back Button (Aligined Top-Left strictly matching Mockup!) */
-        .gallery-back-btn {
-            position: absolute !important;
-            left: 0 !important; /* Back button placed on top-left strictly matching mockup */
-            top: 50% !important;
-            transform: translateY(-50%) !important;
-            right: auto !important;
-            background: rgba(0, 0, 0, 0.4) !important;
-            border: 1.5px solid var(--gold) !important; /* Gold circular border */
-            color: var(--parrot-green) !important;
-            width: 42px !important;
-            height: 42px !important;
-            border-radius: 50% !important;
-            display: flex !important;
-            justify-content: center !important;
-            align-items: center !important;
-            cursor: pointer !important;
-            font-size: 1.1rem !important;
-            transition: all 0.3s ease !important;
-            z-index: 1001;
-            box-shadow: 0 0 10px rgba(229, 193, 88, 0.2);
-        }
-
-        .gallery-back-btn:hover {
-            background-color: var(--parrot-green) !important;
-            color: var(--bg-dark) !important;
-            box-shadow: 0 0 15px var(--parrot-green) !important;
-            border-color: var(--parrot-green) !important;
-        }
-
-        /* Mockup Category List (Screen 2 Horizontal Layout matching Mockup 1 - 4in1 layout on mobile) */
-        .categories-list {
-            display: flex !important;
-            flex-direction: row !important; /* Horizontal layout! */
-            overflow-x: auto !important; /* Horizontal scroll on mobile */
-            white-space: nowrap !important;
-            gap: 15px !important;
-            width: 100% !important;
-            margin: 40px auto 0 auto !important;
-            max-width: 950px !important;
-            padding: 15px 5px !important;
-            -webkit-overflow-scrolling: touch;
-            justify-content: flex-start !important;
-        }
-
-        /* Responsive 4in1 grid layout on Mobile to avoid clipping */
-        @media (max-width: 768px) {
-            .categories-list {
-                display: flex !important;
-                flex-direction: row !important; /* Strictly horizontal 4x1 row on mobile! */
-                flex-wrap: nowrap !important;
-                justify-content: space-between !important;
-                gap: 5px !important;
-                width: 100% !important;
-                max-width: 100% !important;
-                padding: 5px 0 !important;
-                margin: 20px auto !important;
-                overflow: hidden !important; /* No scrolling, no clipping! */
-            }
-            .category-row {
-                width: calc(25% - 4px) !important; /* Fits all 4 perfectly in one row! */
-                flex-shrink: 0 !important;
-                height: 42px !important; /* Compact premium mobile height */
-                border-radius: 20px !important;
-                padding: 0 4px !important;
-                gap: 4px !important;
-                justify-content: center !important;
-            }
-            .category-left {
-                gap: 4px !important;
-                width: 100% !important;
-                justify-content: center !important;
-            }
-            .category-left img {
-                width: 22px !important; /* Muted smaller avatar to prevent wraps */
-                height: 22px !important;
-            }
-            .category-name {
-                font-size: 0.48rem !important; /* Micro-text size so it NEVER wraps or overflows! */
-                letter-spacing: 0.3px !important;
-            }
-            /* Hide the underline Gold accent on hover on mobile to keep it ultra-clean */
-            .category-row:hover .category-name::after, 
-            .category-row.active .category-name::after {
-                display: none !important;
-            }
-        }
-
-        @media (min-width: 769px) {
-            .categories-list {
-                justify-content: center !important;
-            }
-        }
-
-        .categories-list::-webkit-scrollbar {
-            display: none !important; /* Hide scrollbar completely */
-        }
-
-        .category-row {
-            display: inline-flex !important;
-            align-items: center !important;
-            gap: 12px !important;
-            height: 60px !important; /* Exact 58-65px height from mockup spec */
-            width: 180px !important; /* Exact 170-200px width from mockup spec */
-            flex-shrink: 0 !important; /* Prevent shrinking on scroll */
-            border: 1px solid var(--gold) !important; /* Gold border by default! */
-            background-color: rgba(0, 0, 0, 0.4) !important;
-            padding: 0 15px !important;
-            border-radius: 30px !important; /* Fully rounded pill shape */
-            cursor: pointer !important;
-            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
-            position: relative;
-        }
-
-        .category-row:hover, .category-row.active {
-            border-color: var(--parrot-green) !important; /* Glows green on select! */
-            background-color: rgba(27, 242, 91, 0.05) !important;
-            box-shadow: 0 0 15px rgba(27, 242, 91, 0.25) !important;
-        }
-
-        .category-left {
-            display: flex !important;
-            align-items: center !important;
-            gap: 12px !important;
-        }
-
-        .category-left img {
-            width: 40px !important; /* Exact 40-45px circular image diameter */
-            height: 40px !important;
-            border-radius: 50% !important;
-            object-fit: cover !important;
-            border: 1px solid var(--gold) !important; /* Gold circular border! */
-            transition: border-color 0.3s !important;
-        }
-
-        .category-row:hover .category-left img {
-            border-color: var(--parrot-green) !important;
-        }
-
-        .category-name {
-            font-family: var(--font-headings) !important;
-            font-size: 0.72rem !important; /* Small gold text mockup spec */
-            font-weight: bold !important;
-            color: var(--gold) !important; /* Gold text by default */
-            letter-spacing: 0.5px !important;
-            text-transform: uppercase !important;
-            position: relative;
-            white-space: nowrap !important;
-        }
-
-        .category-row:hover .category-name,
-        .category-row.active .category-name {
-            color: var(--white) !important; /* Highlights white */
-        }
-
-        /* Gold Active category line accent below text */
-        .category-row:hover .category-name::after, 
-        .category-row.active .category-name::after {
-            content: '';
-            display: block;
-            width: 15px;
-            height: 2px;
-            background-color: var(--gold); /* Gold shine */
-            position: absolute;
-            bottom: -6px;
-            left: 50%;
-            transform: translateX(-50%);
-            box-shadow: 0 0 5px var(--gold);
-        }
-
-        .category-arrow {
-            display: none !important; /* Remove individual row arrows to match horizontal mockup */
-        }
-
-        /* Mockup Screen 3 Grid */
-        .dynamic-photo-grid {
-            display: grid !important;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)) !important;
-            gap: 20px !important;
-            margin-top: 40px !important;
-            width: 100% !important;
-        }
-
-        .grid-photo-item {
-            position: relative !important;
-            border-radius: 10px !important;
-            overflow: hidden !important;
-            height: 250px !important;
-            border: 1.5px solid var(--border-color) !important;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.4) !important;
-            transition: all 0.4s ease !important;
-        }
-
-        .grid-photo-item img {
-            width: 100% !important;
-            height: 100% !important;
-            object-fit: cover !important;
-            transition: transform 0.5s ease !important;
-        }
-
-        .grid-photo-item:hover img {
-            transform: scale(1.08) !important;
-        }
-
-        .grid-photo-item:hover {
-            border-color: var(--parrot-green) !important;
-            box-shadow: 0 0 20px rgba(27, 242, 91, 0.3) !important;
-        }
-
-        /* Upgraded Achievements Cards (Matching Gold-Green Stats Card Mockup) */
-        .achievements-grid {
-            display: grid !important;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-            gap: 20px !important;
-            margin-top: 40px !important;
-            text-align: left !important;
-            width: 100%;
-        }
-
-        .achievement-item {
-            display: flex !important;
-            align-items: flex-start !important;
-            gap: 20px !important;
-            background-color: rgba(255, 255, 255, 0.01) !important;
-            border: 1px solid var(--gold) !important; /* Gold border like the stats card! */
-            border-left: 2.5px solid var(--pti-red) !important; /* Dual Gold + Red border! */
-            padding: 25px 20px;
-            border-radius: 20px !important; /* Premium rounded curves matching stats card */
-            transition: all 0.3s ease !important;
-            text-align: left !important;
-        }
-
-        .achievement-item:hover {
-            border-color: var(--parrot-green) !important;
-            background-color: rgba(27, 242, 91, 0.02) !important;
-            box-shadow: 0 0 15px rgba(27, 242, 91, 0.15) !important;
-            transform: translateY(-3px);
-        }
-
-        .achievement-item i {
-            font-size: 2.2rem !important;
-            color: var(--gold) !important; /* Gold icons! */
-            text-shadow: 0 0 8px rgba(229, 193, 88, 0.4) !important;
-            margin-bottom: 0 !important; 
-        }
-
-        .achievement-item:hover i {
-            color: var(--parrot-green) !important;
-            text-shadow: 0 0 8px rgba(27, 242, 91, 0.4) !important;
-        }
-
-        .achievement-info {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .achievement-info h4 {
-            font-family: var(--font-headings);
-            font-size: 1.1rem !important;
-            font-weight: bold;
-            color: var(--white);
-            letter-spacing: 0.5px;
-        }
-
-        .achievement-info p {
-            font-size: 0.82rem !important;
-            color: var(--text-gray);
-            line-height: 1.5;
-        }
-
-        /* Interactive Tributes Section */
-        .tributes-section {
-            padding: 90px 8%;
-            background-color: var(--bg-card);
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            width: 100%;
-            text-align: left; /* Left-aligned! */
-        }
-
-        .tributes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .tribute-card {
-            background: rgba(255, 255, 255, 0.01);
-            border: 1px solid var(--border-color);
-            border-left: 2.5px solid var(--pti-red) !important; /* Dual Border! */
-            border-radius: 8px;
-            padding: 30px 20px;
-            text-align: left; /* Left-aligned! */
-            transition: all 0.3s;
-            animation: cardFadeIn 0.5s ease;
-        }
-
-        @keyframes cardFadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .tribute-card:hover {
-            border-color: var(--parrot-green);
-            background: rgba(27, 242, 91, 0.02);
-            transform: translateY(-5px);
-        }
-
-        .tribute-quote {
-            font-size: 0.95rem !important;
-            color: var(--white) !important; /* Brighter highlighted quote text! */
-            font-style: italic;
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
-
-        .tribute-author {
-            font-family: var(--font-headings);
-            font-size: 1rem;
-            font-weight: bold;
-            color: var(--parrot-green);
-        }
-
-        .tribute-role {
-            font-size: 0.75rem;
-            color: var(--text-gray);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 2px;
-        }
-
-        .tribute-date {
-            font-size: 0.72rem;
-            color: var(--text-gray);
-            margin-top: 10px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .tribute-reply {
-            margin-top: 15px;
-            padding: 10px 15px;
-            background-color: rgba(27, 242, 91, 0.03);
-            border-left: 2px solid var(--parrot-green);
-            border-radius: 4px;
-            font-size: 0.8rem;
-            color: #d1ded5;
-        }
-
-        .tribute-reply i {
-            color: var(--parrot-green);
-            margin-right: 5px;
-        }
-
-        .tribute-delete-btn {
-            background: transparent;
-            border: 1px solid rgba(255, 0, 0, 0.3);
-            color: #ef4444; /* Premium red */
-            padding: 5px 12px;
-            font-size: 0.75rem;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 15px;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .tribute-delete-btn:hover {
-            background-color: rgba(239, 68, 68, 0.1);
-            border-color: #ef4444;
-            box-shadow: 0 0 10px rgba(239, 68, 68, 0.2);
-        }
-
-        .tribute-form-container {
-            max-width: 550px;
-            margin: 0 0 60px 0; /* Form now placed on top cleanly */
-            border: 1px solid var(--border-color);
-            border-left: 2.5px solid var(--pti-red) !important; /* Dual Border! */
-            border-radius: 8px;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.01);
-            text-align: left; /* Left-aligned! */
-        }
-
-        .tribute-form-container h3 {
-            font-family: var(--font-headings);
-            font-size: 1.2rem; /* Made smaller! */
-            margin-bottom: 20px;
-            text-align: left; /* Left-aligned! */
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 0.85rem;
-            color: var(--text-gray);
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid var(--border-color);
-            background-color: rgba(0,0,0,0.3);
-            color: var(--white);
-            border-radius: 4px;
-            outline: none;
-            font-size: 0.9rem;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus, .form-group textarea:focus {
-            border-color: var(--parrot-green);
-            box-shadow: 0 0 10px rgba(27, 242, 91, 0.2);
-        }
-
-        .form-group button {
-            background-color: var(--parrot-green);
-            color: var(--bg-dark);
-            border: none;
-            padding: 12px 30px;
-            border-radius: 4px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .form-group button:hover {
-            background-color: var(--white);
-            color: var(--bg-dark);
-        }
-
-        /* Toast Success Notification (Instead of Cheap Popups) */
-        .toast-notification {
-            position: fixed;
-            bottom: 30px;
-            right: -450px; /* Initially offscreen */
-            background-color: #0c110e;
-            border: 1px solid var(--border-color);
-            border-left: 5px solid var(--parrot-green);
-            padding: 15px 25px;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(27, 242, 91, 0.25);
-            z-index: 10005;
-            transition: right 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .toast-notification.show {
-            right: 30px;
-        }
-
-        .toast-icon {
-            color: var(--parrot-green);
-            font-size: 1.5rem;
-            text-shadow: 0 0 8px rgba(27, 242, 91, 0.4);
-        }
-
-        .toast-body h5 {
-            font-family: var(--font-headings);
-            font-size: 1rem;
-            color: var(--white);
-            margin-bottom: 2px;
-        }
-
-        .toast-body p {
-            font-size: 0.8rem;
-            color: var(--text-gray);
-        }
-
-        /* Premium Custom Modal for Deletion Confirmation */
-        .custom-modal {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.9);
-            background-color: #0c110e;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 25px;
-            z-index: 10006;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.8);
-            max-width: 320px;
-            width: 90%;
-            text-align: center;
-            opacity: 0;
-            display: none;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .custom-modal.show {
-            transform: translate(-50%, -50%) scale(1);
-            opacity: 1;
-        }
-        .modal-content h5 {
-            font-family: var(--font-headings);
-            font-size: 1.1rem;
-            color: var(--white);
-            margin-bottom: 10px;
-            text-align: center !important;
-        }
-        .modal-content p {
-            font-size: 0.85rem;
-            color: var(--text-gray);
-            margin-bottom: 20px;
-            text-align: center !important;
-        }
-        .modal-actions {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-        }
-        .modal-btn {
-            padding: 8px 18px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            cursor: pointer;
-            border: none;
-            transition: all 0.2s;
-        }
-        .modal-btn.confirm {
-            background-color: #ef4444;
-            color: var(--white);
-        }
-        .modal-btn.confirm:hover {
-            background-color: #dc2626;
-        }
-        .modal-btn.cancel {
-            background-color: rgba(255,255,255,0.05);
-            color: var(--text-gray);
-            border: 1px solid var(--border-color);
-        }
-        .modal-btn.cancel:hover {
-            background-color: rgba(255,255,255,0.1);
-            color: var(--white);
-        }
-
-        /* ================= MOBILE RESPONSIVE STYLES ================= */
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 15px 5% !important;
-            }
-
-            .menu-toggle {
-                display: flex !important;
-            }
-
-            .nav-links {
-                position: fixed !important;
-                top: 0 !important;
-                right: 0 !important;
-                width: 260px !important; /* Premium smaller width drawer */
-                height: 100vh !important;
-                background-color: rgba(6, 9, 7, 0.98) !important; /* Pure glassmorphism with blur */
-                backdrop-filter: blur(20px) !important;
-                flex-direction: column !important;
-                align-items: flex-start !important;
-                padding: 100px 30px !important;
-                gap: 20px !important; /* Premium tighter spacing */
-                z-index: 9999 !important;
-                border-left: 2px solid var(--pti-red) !important; /* Red border on mobile menu drawer! */
-                box-shadow: -10px 0 35px rgba(0, 0, 0, 0.9) !important;
-                display: none !important; /* HIDE BY DEFAULT TO PREVENT SIDE GREEN LINE OVERFLOW! */
-            }
-
-            .nav-links.active {
-                display: flex !important; /* SHOW ONLY WHEN ACTIVE! */
-                animation: slideIn 0.3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-                visibility: visible !important;
-            }
-
-            .nav-links a {
-                font-size: 0.82rem !important; /* Premium even smaller menu drawer font size */
-                width: 100% !important;
-                border-bottom: 1px solid rgba(27, 242, 91, 0.05) !important;
-                padding-bottom: 12px !important;
-                letter-spacing: 1.5px !important;
-                color: var(--text-gray) !important;
-            }
-
-            .nav-links a:hover {
-                color: var(--white) !important;
-                border-bottom-color: var(--parrot-green) !important;
-                padding-left: 5px; /* Subtle elegant hover slide-in */
-            }
-
-            .nav-links a::after { display: none !important; }
-        }
-
-        @keyframes slideIn {
-            from { transform: translateX(100%); }
-            to { transform: translateX(0); }
-        }
-
-        /* Premium Compact Footer Redesign */
-        footer {
-            padding: 60px 8% 20px 8% !important; /* Tightened padding */
-            background-color: #030504 !important;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
-            gap: 30px !important; /* Better compact spacing */
-            margin-bottom: 30px !important;
-        }
-
-        .footer-col h3 {
-            font-family: var(--font-headings) !important;
-            font-size: 1rem !important; /* Extremely sleek small size */
-            margin-bottom: 15px !important;
-            letter-spacing: 1px !important;
-            text-transform: uppercase !important;
-            text-align: left;
-        }
-
-        .footer-col p {
-            color: var(--text-gray) !important;
-            font-size: 0.82rem !important; /* Muted smaller description */
-            line-height: 1.6 !important;
-            text-align: left;
-        }
-
-        .footer-links {
-            list-style: none !important;
-            text-align: left;
-        }
-
-        .footer-links li {
-            margin-bottom: 8px !important;
-        }
-
-        .footer-links a {
-            color: var(--text-gray) !important;
-            font-size: 0.82rem !important; /* Remove purple/underlines completely */
-            text-decoration: none !important;
-            transition: color 0.3s !important;
-            display: flex !important;
-            align-items: center !important;
-            gap: 8px !important;
-            justify-content: flex-start;
-        }
-
-        .footer-links a:hover {
-            color: var(--parrot-green) !important;
-        }
-
-        .social-icons {
-            display: flex !important;
-            gap: 12px !important;
-            margin-top: 15px !important;
-            justify-content: flex-start;
-        }
-
-        .social-icons a {
-            display: inline-flex !important;
-            justify-content: center !important;
-            align-items: center !important;
-            width: 35px !important; /* Compact clean circles */
-            height: 35px !important;
-            border-radius: 50% !important;
-            background-color: rgba(255, 255, 255, 0.02) !important;
-            border: 1px solid var(--border-color) !important;
-            transition: all 0.3s !important;
-            color: var(--white) !important;
-            text-decoration: none !important;
-        }
-
-        .social-icons a:hover {
-            background-color: var(--parrot-green) !important;
-            color: var(--bg-dark) !important;
-            transform: translateY(-3px) !important;
-            box-shadow: 0 0 10px rgba(27, 242, 91, 0.4) !important;
-        }
-
-        .copyright {
-            text-align: center !important;
-            color: rgba(255, 255, 255, 0.2) !important;
-            font-size: 0.8rem !important;
-            padding-top: 25px !important;
-            border-top: 1px solid var(--border-color) !important;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-
-        /* High-End Saad Ali Developer Signature Styling (Slightly Highlighted) */
-        .developer-signature {
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.4); /* Slightly muted, elegant */
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-top: 6px;
-        }
-
-        .developer-signature .dev-name {
-            color: var(--white); /* Simple clean white color */
-            font-family: var(--font-headings);
-            font-weight: bold;
-            padding-left: 5px;
-            text-shadow: none !important; /* Muted simple white look! */
-            transition: color 0.3s ease;
-        }
-
-        .developer-signature .dev-name:hover {
-            color: var(--parrot-green) !important;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imran Khan — The Journey of a Leader</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600;9..144,900&family=Inter:wght@400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #050705;
+    --panel: #0a0d0a;
+    --green: #35ff8a;
+    --green-dim: #1c8a4d;
+    --green-glow: rgba(53,255,138,0.55);
+    --white: #f5f4ef;
+    --muted: rgba(245,244,239,0.62);
+    --line: rgba(53,255,138,0.22);
+  }
+
+  * { box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 12% 8%, rgba(53,255,138,0.05), transparent 30%),
+      radial-gradient(circle at 88% 42%, rgba(53,255,138,0.04), transparent 32%),
+      radial-gradient(circle at 20% 85%, rgba(53,255,138,0.04), transparent 30%),
+      var(--bg);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  h1,h2,h3,.display{
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    color: var(--white);
+  }
+
+  .mono{
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--green);
+  }
+
+  a{ color: inherit; }
+
+  /* ---------- MARQUEE ---------- */
+  .marquee{
+    background: var(--panel);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 0.55rem 0;
+  }
+  .marquee span{
+    display: inline-block;
+    color: var(--green);
+    font-size: 0.85rem;
+    padding-right: 3rem;
+    animation: scroll 28s linear infinite;
+  }
+  @keyframes scroll{
+    from{ transform: translateX(0); }
+    to{ transform: translateX(-50%); }
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem clamp(1.2rem, 5vw, 3rem);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 150;
+    background: rgba(5,7,5,0.82);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .brand{ line-height: 1.1; }
+  .brand .name{
+    font-size: 1.3rem;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+  }
+  .brand .num{
+    font-family: 'Space Mono', monospace;
+    color: var(--green);
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+  }
+
+  .nav-links{
+    display:flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0; padding: 0;
+    font-size: 0.85rem;
+  }
+  .nav-links a{
+    position: relative;
+    text-decoration:none;
+    color: var(--muted);
+    transition: color 0.2s ease;
+    padding-bottom: 4px;
+  }
+  .nav-links a::after{
+    content:'';
+    position:absolute;
+    left:0; bottom:0;
+    width:0; height:1px;
+    background: var(--green);
+    box-shadow: 0 0 8px 1px var(--green-glow);
+    transition: width 0.3s ease;
+  }
+  .nav-links a:hover{ color: var(--white); }
+  .nav-links a:hover::after{ width:100%; }
+
+  .burger{
+    display:none;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    gap: 5px;
+    width: 40px; height: 40px;
+    background: none;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 0.4rem;
+    position: relative;
+    z-index: 260;
+    transition: border-color 0.25s ease;
+  }
+  .burger:hover{ border-color: var(--green); }
+  .burger span{
+    width: 18px; height: 2px;
+    background: var(--white);
+    display:block;
+    transition: transform 0.3s ease, opacity 0.25s ease, background 0.25s ease;
+  }
+  .burger.is-active{ border-color: var(--green); }
+  .burger.is-active span{ background: var(--green); }
+  .burger.is-active span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+  .burger.is-active span:nth-child(2){ opacity: 0; }
+  .burger.is-active span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+
+  @media (max-width: 780px){
+    .nav-links{ display:none; }
+    .burger{ display:flex; }
+  }
+
+  /* ---------- MOBILE MENU ---------- */
+  .mobile-menu{
+    position: fixed;
+    inset: 0;
+    z-index: 250;
+    background: var(--bg);
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem clamp(1.4rem,7vw,3rem);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.35s ease, transform 0.35s ease, visibility 0s linear 0.35s;
+  }
+  .mobile-menu.is-open{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+  .mobile-menu::before{
+    content:'';
+    position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(53,255,138,0.08), transparent 45%),
+      radial-gradient(circle at 85% 80%, rgba(53,255,138,0.06), transparent 50%);
+    pointer-events:none;
+  }
+  .mobile-menu-list{
+    list-style:none;
+    margin:0; padding:0;
+    position:relative;
+    z-index:2;
+  }
+  .mobile-menu-list li{
+    border-bottom: 1px solid var(--line);
+  }
+  .mobile-menu-list a{
+    display:flex;
+    align-items:baseline;
+    gap: 1rem;
+    padding: 1.15rem 0.2rem;
+    text-decoration:none;
+    color: var(--white);
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: clamp(1.5rem, 7vw, 2.1rem);
+    opacity: 0;
+    transform: translateX(-14px);
+    transition: color 0.25s ease, opacity 0.4s ease, transform 0.4s ease;
+  }
+  .mobile-menu.is-open .mobile-menu-list a{
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .mobile-menu-list li:nth-child(1) a{ transition-delay: 0.06s; }
+  .mobile-menu-list li:nth-child(2) a{ transition-delay: 0.11s; }
+  .mobile-menu-list li:nth-child(3) a{ transition-delay: 0.16s; }
+  .mobile-menu-list li:nth-child(4) a{ transition-delay: 0.21s; }
+  .mobile-menu-list li:nth-child(5) a{ transition-delay: 0.26s; }
+  .mobile-menu-list li:nth-child(6) a{ transition-delay: 0.31s; }
+  .mobile-menu-list a:active,
+  .mobile-menu-list a:hover{ color: var(--green); }
+  .mobile-menu-list .idx{
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--green);
+    letter-spacing: 0.1em;
+  }
+  .mobile-menu-foot{
+    position:relative; z-index:2;
+    margin-top: 2.2rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    max-width: 900px;
+    margin: 0 auto;
+    padding: clamp(2.4rem,6vw,4.5rem) 1.4rem 5rem;
+    text-align: center;
+  }
+
+  .hero-frame{
+    position: relative;
+    max-width: 640px;
+    margin: 0 auto 3rem;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--green-dim);
+    box-shadow: 0 0 0 1px rgba(53,255,138,0.08), 0 0 60px -10px var(--green-glow);
+    aspect-ratio: 16/10;
+  }
+
+  .hero-frame .art{
+    position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 25% 20%, rgba(53,255,138,0.16), transparent 50%),
+      radial-gradient(circle at 80% 75%, rgba(53,255,138,0.10), transparent 55%),
+      linear-gradient(155deg, #0c120e 0%, #030403 100%);
+  }
+
+  .hero-frame .art::before{
+    content:'';
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(53,255,138,0.05) 0 1px, transparent 1px 34px),
+      repeating-linear-gradient(90deg, rgba(53,255,138,0.05) 0 1px, transparent 1px 34px);
+  }
+
+  .hero-frame .cap{
+    position:absolute; left:0; right:0; bottom:0;
+    padding: 0.9rem 1.1rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--green);
+    background: linear-gradient(0deg, rgba(0,0,0,0.75), transparent);
+    text-transform: uppercase;
+  }
+
+  .hero h1{
+    font-size: clamp(2.6rem, 9vw, 4.6rem);
+    line-height: 0.98;
+    margin: 0 0 1rem;
+  }
+
+  .hero-tag{
+    font-size: 0.85rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .divider{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap: 1rem;
+    margin: 0 auto 1.8rem;
+    max-width: 420px;
+  }
+  .divider .rule{
+    height:1px;
+    flex:1;
+    background: linear-gradient(90deg, transparent, var(--green-dim), transparent);
+  }
+  .divider .dot{
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 12px 2px var(--green-glow);
+    animation: pulseDot 2.6s ease-in-out infinite;
+  }
+  @keyframes pulseDot{
+    0%, 100%{ box-shadow: 0 0 10px 2px var(--green-glow); }
+    50%{ box-shadow: 0 0 20px 5px var(--green-glow); }
+  }
+
+  .hero p.lede{
+    color: var(--muted);
+    max-width: 560px;
+    margin: 0 auto;
+    font-size: 1.02rem;
+  }
+
+  .hero-cta{
+    display:inline-block;
+    margin-top: 2.2rem;
+    padding: 0.85rem 1.8rem;
+    border: 1px solid var(--green);
+    border-radius: 999px;
+    color: var(--green);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: 'Space Mono', monospace;
+    transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .hero-cta:hover{
+    background: var(--green);
+    color: #041108;
+    box-shadow: 0 0 30px -4px var(--green-glow);
+  }
+
+  /* ---------- STRIP ---------- */
+  .strip{
+    text-align:center;
+    padding: 0.6rem 1rem;
+    font-size: 0.68rem;
+    background: var(--panel);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    color: var(--green);
+  }
+
+  /* ---------- SECTION ---------- */
+  section.chapter{
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 5rem 1.4rem 1rem;
+  }
+
+  .chapter-head{
+    margin-bottom: 1.8rem;
+  }
+  .chapter-head .mono{ font-size: 0.68rem; display:block; margin-bottom: 0.6rem; }
+  .chapter-head h2{
+    font-size: clamp(1.7rem, 4vw, 2.4rem);
+    margin: 0;
+    position: relative;
+    padding-bottom: 1rem;
+  }
+  .chapter-head h2::after{
+    content:'';
+    position:absolute;
+    left:0; bottom:0;
+    width: 56px; height: 2px;
+    background: var(--green);
+    box-shadow: 0 0 10px 1px var(--green-glow);
+  }
+
+  .chapter p{ color: var(--muted); margin: 0 0 1.15rem; }
+  .chapter p.lede{
+    color: var(--white);
+    font-size: 1.1rem;
+  }
+
+  .pull{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 1.35rem;
+    color: var(--white);
+    border-left: 2px solid var(--green);
+    padding-left: 1.2rem;
+    margin: 2rem 0;
+  }
+
+  /* ---------- STAT ROW ---------- */
+  .stat-row{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2.5rem 0;
+  }
+  .stat{
+    flex: 1 1 130px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+    background: var(--panel);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .stat:hover{
+    transform: translateY(-4px);
+    border-color: var(--green);
+    box-shadow: 0 14px 30px -16px rgba(0,0,0,0.7), 0 0 24px -8px var(--green-glow);
+  }
+  .stat .n{
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 1.7rem;
+    color: var(--green);
+    display:block;
+  }
+  .stat .l{
+    font-size: 0.72rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{
+    max-width: 780px;
+    margin: 5rem auto 0;
+    padding: 0 1.4rem 5rem;
+  }
+  .timeline .chapter-head{ max-width:none; }
+
+  .tl-item{
+    display:grid;
+    grid-template-columns: 100px 1fr;
+    gap: 1.3rem;
+    padding: 1.6rem 0;
+    border-top: 1px solid var(--line);
+    position: relative;
+  }
+  .tl-item:last-child{ border-bottom: 1px solid var(--line); }
+  .tl-item::before{
+    content:'';
+    position:absolute;
+    left: 92px;
+    top: 2rem;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 10px 2px var(--green-glow);
+  }
+
+  .tl-year{
+    font-family: 'Space Mono', monospace;
+    font-size: 0.9rem;
+    color: var(--green);
+    padding-top: 0.15rem;
+  }
+
+  .tl-body h3{
+    font-size: 1.12rem;
+    font-weight: 700;
+    margin: 0 0 0.4rem;
+    color: var(--white);
+  }
+  .tl-body p{
+    margin:0;
+    font-size: 0.96rem;
+    color: var(--muted);
+  }
+
+  .tag{
+    display:inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.18rem 0.55rem;
+    border: 1px solid var(--green-dim);
+    border-radius: 999px;
+    margin-bottom: 0.55rem;
+    color: var(--green);
+  }
+
+  /* ---------- GALLERY ---------- */
+  .gallery{
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 5rem 1.4rem 1rem;
+  }
+  .gallery .chapter-head{ max-width:none; }
+  .gallery-intro{
+    max-width: 620px;
+    color: var(--muted);
+    margin-bottom: 2.2rem;
+  }
+
+  .gallery-tabs{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 2.4rem;
+  }
+  .gtab{
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    padding: 0.55rem 1.05rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  .gtab:hover{ border-color: var(--green); color: var(--white); }
+  .gtab.active{
+    background: var(--green);
+    border-color: var(--green);
+    color: #041108;
+    box-shadow: 0 0 22px -4px var(--green-glow);
+  }
+  .gtab .count{ margin-left: 0.3rem; opacity: 0.75; }
+
+  .gallery-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.4rem;
+  }
+
+  .gcard{
+    position:relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    transition: transform 0.35s cubic-bezier(.2,.7,.2,1), box-shadow 0.35s ease, border-color 0.3s ease;
+  }
+  .gcard:hover{
+    transform: translateY(-6px);
+    border-color: var(--green);
+    box-shadow: 0 20px 40px -18px rgba(0,0,0,0.7), 0 0 30px -8px var(--green-glow);
+  }
+
+  .gcard-art{ position:absolute; inset:0; transition: transform 0.6s ease; }
+  .gcard:hover .gcard-art{ transform: scale(1.06); }
+
+  .gcard[data-cat="early-life"] .gcard-art{
+    background: radial-gradient(circle at 30% 20%, rgba(53,255,138,0.18), transparent 55%), linear-gradient(155deg, #0c130f 0%, #030403 100%);
+  }
+  .gcard[data-cat="cricket"] .gcard-art{
+    background: repeating-linear-gradient(115deg, rgba(53,255,138,0.05) 0 2px, transparent 2px 32px), linear-gradient(155deg, #0a110c 0%, #020302 100%);
+  }
+  .gcard[data-cat="philanthropy"] .gcard-art{
+    background: radial-gradient(circle at 70% 75%, rgba(53,255,138,0.2), transparent 50%), linear-gradient(155deg, #0d140f 0%, #030403 100%);
+  }
+  .gcard[data-cat="political"] .gcard-art{
+    background: linear-gradient(200deg, rgba(53,255,138,0.14), transparent 60%), linear-gradient(155deg, #0b110d 0%, #020302 100%);
+  }
+
+  .gcard-veil{
+    position:absolute; inset:0;
+    background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.1) 55%, transparent 75%);
+  }
+
+  .gcard-content{
+    position:absolute; left:0; right:0; bottom:0;
+    padding: 1.1rem;
+  }
+  .gcard-num{
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--green);
+    letter-spacing: 0.08em;
+    display:block;
+    margin-bottom: 0.4rem;
+  }
+  .gcard-title{
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.14rem;
+    margin: 0 0 0.3rem;
+    color: var(--white);
+  }
+  .gcard-desc{
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .gcard.is-hidden{ display:none; }
+
+  /* ---------- STATUS ---------- */
+  .status{
+    background: var(--panel);
+    border-top: 1px solid var(--line);
+    padding: 4rem 1.4rem;
+  }
+  .status-inner{ max-width: 720px; margin: 0 auto; }
+  .status p{ color: var(--muted); }
+  .as-of{
+    font-family: 'Space Mono', monospace;
+    font-size: 0.66rem;
+    color: var(--green);
+    margin-top: 2rem;
+    display:block;
+  }
+
+  /* ---------- NEXT PAGE CTA ---------- */
+  .gallery-next{
+    margin-top: 2.8rem;
+  }
+
+  .next-btn{
+    width: 100%;
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.3rem 1.5rem;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.3s ease, background 0.3s ease;
+  }
+  .next-btn:hover{
+    border-color: var(--green-dim);
+    background: #0c110d;
+  }
+  .next-btn-text{ display:flex; flex-direction: column; gap: 0.3rem; }
+  .next-btn-label{
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.02rem;
+    color: var(--white);
+  }
+  .next-btn-sub{
+    font-family: 'Space Mono', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .next-btn .circle{
+    flex-shrink: 0;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--green-dim);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color: var(--green);
+    transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease, color 0.3s ease;
+  }
+  .next-btn:hover .circle{
+    transform: translateX(4px);
+    border-color: var(--green);
+    background: var(--green);
+    color: #041108;
+  }
+  .next-btn svg{ width: 15px; height: 15px; }
+
+  /* ---------- CATEGORY PAGE (full screen) ---------- */
+  .cat-page{
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    z-index: 200;
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(3%);
+    transition: opacity 0.45s ease, transform 0.45s ease, visibility 0s linear 0.45s;
+  }
+  .cat-page.is-open{
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+  }
+
+  .cat-page-inner{
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: clamp(1.4rem,4vw,3rem) clamp(1.2rem,5vw,3rem) 5rem;
+  }
+
+  .cat-page-top{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    margin-bottom: 3rem;
+  }
+
+  .back-btn{
+    display:flex;
+    align-items:center;
+    gap: 0.6rem;
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    border-radius: 999px;
+    padding: 0.5rem 1.1rem 0.5rem 0.55rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 0.25s ease, color 0.25s ease;
+  }
+  .back-btn:hover{ border-color: var(--green); color: var(--green); }
+  .back-btn .circle{
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: 1px solid currentColor;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .back-btn svg{ width: 14px; height: 14px; transform: scaleX(-1); }
+
+  .cat-page-head{ text-align:center; margin-bottom: 3.2rem; }
+  .cat-page-head .mono{ font-size: 0.68rem; display:block; margin-bottom: 0.7rem; }
+  .cat-page-head h2{
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    margin: 0 0 0.8rem;
+  }
+  .cat-page-head p{
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto;
+    font-size: 0.98rem;
+  }
+
+  .cat-grid{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.8rem;
+  }
+
+  .cat-tile{
+    position:relative;
+    border-radius: 18px;
+    overflow:hidden;
+    border: 1px solid var(--green-dim);
+    background: var(--panel);
+    display:flex;
+    flex-direction:column;
+    cursor:pointer;
+    opacity: 0;
+    transform: translateY(18px);
+    transition: transform 0.4s cubic-bezier(.2,.7,.2,1), box-shadow 0.4s ease, border-color 0.3s ease;
+  }
+  .cat-page.is-open .cat-tile{
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 0.5s cubic-bezier(.2,.7,.2,1), box-shadow 0.4s ease, border-color 0.3s ease, opacity 0.5s ease;
+  }
+  .cat-page.is-open .cat-tile:nth-child(1){ transition-delay: 0.05s; }
+  .cat-page.is-open .cat-tile:nth-child(2){ transition-delay: 0.12s; }
+  .cat-page.is-open .cat-tile:nth-child(3){ transition-delay: 0.19s; }
+  .cat-page.is-open .cat-tile:nth-child(4){ transition-delay: 0.26s; }
+
+  .cat-tile:hover{
+    border-color: var(--green);
+    box-shadow: 0 24px 50px -20px rgba(0,0,0,0.85), 0 0 44px -8px var(--green-glow);
+  }
+
+  /* image block */
+  .cat-tile-media{
+    position:relative;
+    aspect-ratio: 16/11;
+    overflow:hidden;
+  }
+
+  .cat-tile-art{
+    position:absolute; inset:0;
+    transition: transform 0.6s ease;
+  }
+  .cat-tile:hover .cat-tile-art{ transform: scale(1.05); }
+
+  .cat-tile[data-cat="early-life"] .cat-tile-art{
+    background: radial-gradient(circle at 25% 15%, rgba(53,255,138,0.24), transparent 55%), linear-gradient(155deg, #0e1712 0%, #030403 100%);
+  }
+  .cat-tile[data-cat="cricket"] .cat-tile-art{
+    background: repeating-linear-gradient(115deg, rgba(53,255,138,0.07) 0 2px, transparent 2px 34px), linear-gradient(155deg, #0c130e 0%, #020302 100%);
+  }
+  .cat-tile[data-cat="philanthropy"] .cat-tile-art{
+    background: radial-gradient(circle at 75% 80%, rgba(53,255,138,0.26), transparent 50%), linear-gradient(155deg, #0f1712 0%, #030403 100%);
+  }
+  .cat-tile[data-cat="political"] .cat-tile-art{
+    background: linear-gradient(200deg, rgba(53,255,138,0.2), transparent 60%), linear-gradient(155deg, #0d130f 0%, #020302 100%);
+  }
+
+  .cat-tile-veil{
+    position:absolute; inset:0;
+    background: linear-gradient(0deg, rgba(0,0,0,0.55) 0%, transparent 45%);
+  }
+
+  .cat-tile-badge{
+    position:absolute;
+    top: 0.9rem; right: 0.9rem;
+    background: var(--green);
+    color: #041108;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.7rem;
+    border-radius: 999px;
+    z-index: 2;
+  }
+
+  /* info panel below image */
+  .cat-tile-panel{
+    padding: 1.4rem 1.5rem 1.3rem;
+    display:flex;
+    flex-direction:column;
+    flex: 1;
+  }
+
+  .cat-tile-title{
+    font-family: 'Fraunces', serif;
+    font-weight: 800;
+    font-size: 1.4rem;
+    margin: 0 0 0.55rem;
+    color: var(--green);
+  }
+
+  .cat-tile-desc{
+    font-size: 0.86rem;
+    color: var(--muted);
+    margin: 0 0 1.2rem;
+    line-height: 1.55;
+    flex: 1;
+  }
+
+  .cat-tile-foot{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    border-top: 1px solid var(--line);
+    padding-top: 0.95rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+  }
+
+  .cat-tile-count{
+    display:flex;
+    align-items:center;
+    gap: 0.45rem;
+    color: var(--muted);
+  }
+  .cat-tile-count svg{ width: 15px; height: 15px; color: var(--muted); }
+
+  .cat-tile-cta{
+    display:inline-flex;
+    align-items:center;
+    gap: 0.4rem;
+    color: var(--green);
+    letter-spacing: 0.04em;
+  }
+  .cat-tile-cta svg{ width: 14px; height: 14px; transition: transform 0.3s ease; }
+  .cat-tile:hover .cat-tile-cta svg{ transform: translateX(4px); }
+
+  @media (max-width: 720px){
+    .cat-grid{ grid-template-columns: 1fr; }
+    .cat-tile-title{ font-size: 1.25rem; }
+    .cat-tile-panel{ padding: 1.2rem 1.2rem 1.1rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .cat-page, .cat-tile{ transition: none !important; }
+  }
+
+  footer{
+    padding: 2.2rem 1.4rem 3rem;
+    text-align: center;
+    font-size: 0.7rem;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+  }
+
+  .credit{
+    padding: 1.1rem 1.4rem;
+    text-align: center;
+    background: var(--panel);
+    border-top: 1px solid var(--line);
+  }
+  .credit p{
+    margin: 0;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+  .credit span{
+    color: var(--green);
+  }
+
+  @media (max-width: 640px){
+    .tl-item{ grid-template-columns: 68px 1fr; gap: 0.8rem; }
+    .tl-item::before{ left: 60px; }
+    .gallery-grid{ grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.9rem; }
+    .gcard-title{ font-size: 1rem; }
+    body{ font-size: 16px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .marquee span{ animation:none; }
+  }
+</style>
 </head>
 <body>
 
-    <!-- Sleek Running Arabic Marquee Ticker (Seamless Infinite Loop with slightly increased speed) -->
-    <div class="top-marquee-bar">
-        <div class="marquee-track">
-            <div class="marquee-text">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد چاہتے ہیں) &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد چاہتے ہیں)</div>
-            <div class="marquee-text">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد چاہتے ہیں) &nbsp;&bull;&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (اے اللہ! ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد چاہتے ہیں)</div>
-        </div>
+<div class="marquee"><span>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;•&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;•&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ &nbsp;•&nbsp; إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ</span></div>
+
+<nav>
+  <div class="brand">
+    <div class="name">IMRAN KHAN</div>
+    <div class="num">804</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#early-life">Early Life</a></li>
+    <li><a href="#cricket">Cricket Journey</a></li>
+    <li><a href="#politics">Politics</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+  </ul>
+  <button class="burger" id="burgerBtn" aria-label="Menu" aria-controls="mobileMenu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <ul class="mobile-menu-list">
+    <li><a href="#home" data-close-menu><span class="idx">01</span> Home</a></li>
+    <li><a href="#early-life" data-close-menu><span class="idx">02</span> Early Life</a></li>
+    <li><a href="#cricket" data-close-menu><span class="idx">03</span> Cricket Journey</a></li>
+    <li><a href="#politics" data-close-menu><span class="idx">04</span> Politics</a></li>
+    <li><a href="#achievements" data-close-menu><span class="idx">05</span> Achievements</a></li>
+    <li><a href="#gallery" data-close-menu><span class="idx">06</span> Gallery</a></li>
+  </ul>
+  <div class="mobile-menu-foot">Imran Khan — 804 · A Life in Three Innings</div>
+</div>
+
+<header class="hero" id="home">
+  <div class="hero-frame">
+    <div class="art"></div>
+    <div class="cap">Field notes — est. 1952, Lahore</div>
+  </div>
+
+  <h1>IMRAN<br>KHAN</h1>
+  <div class="mono hero-tag">The Journey of a Leader</div>
+
+  <div class="divider"><span class="rule"></span><span class="dot"></span><span class="rule"></span></div>
+
+  <p class="lede">Captain of a World Cup–winning side, founder of a cancer hospital, and the fourteenth Prime Minister of Pakistan — now the central figure in one of South Asia's most closely watched political stories.</p>
+
+  <a href="#early-life" class="hero-cta">Explore Biography</a>
+</header>
+
+<div class="strip mono">Neutral, factual overview — last checked August 2026</div>
+
+<section class="chapter" id="early-life">
+  <div class="chapter-head">
+    <span class="mono">01 — The Field</span>
+    <h2>Early Life</h2>
+  </div>
+  <p class="lede">Imran Khan Niazi was born on 5 October 1952 in Lahore, into a Pashtun family of the Niazi clan. His father, Ikramullah Khan Niazi, was a civil engineer; his mother, Shaukat Khanum, came from a Sufi family in Mianwali. He grew up as the only brother among four sisters.</p>
+  <p>He was enrolled at Lahore's Cathedral School and later Aitchison College, before moving to the United Kingdom to attend the Royal Grammar School Worcester. In 1972 he joined Keble College, Oxford, to read Philosophy, Politics and Economics, graduating in 1975. His years at Oxford shaped his outlook on governance and global affairs, laying the groundwork for the two very different careers that followed — first on the cricket field, then in national politics.</p>
+</section>
+
+<section class="chapter" id="cricket">
+  <div class="chapter-head">
+    <span class="mono">02 — The Field</span>
+    <h2>Cricket Journey</h2>
+  </div>
+  <p>Khan made his international debut for Pakistan in 1971 against England, aged 18, initially as a medium-fast bowler. Over the following years he developed into one of the sport's most lethal fast bowlers, becoming known for pioneering reverse swing alongside a fierce bouncer. He was appointed national captain in 1982, restructured team selection around merit, and led Pakistan through its first-ever Test series wins in India and England.</p>
+  <p class="pull">On 25 March 1992, at age 39, he led Pakistan to victory over England in the Cricket World Cup final at the Melbourne Cricket Ground — famously rallying his side as the "Cornered Tigers" — the country's only World Cup title to date.</p>
+
+  <div class="stat-row">
+    <div class="stat"><span class="n">88</span><span class="l">Test Matches · 362 Wickets</span></div>
+    <div class="stat"><span class="n">3,807</span><span class="l">Test Runs · Avg 22.81</span></div>
+    <div class="stat"><span class="n">175</span><span class="l">ODI Matches · 182 Wickets</span></div>
+    <div class="stat"><span class="n">3,709</span><span class="l">ODI Runs · HS 102*</span></div>
+    <div class="stat"><span class="n">8</span><span class="l">World Cup Matches · 7 Wkts</span></div>
+    <div class="stat"><span class="n">72</span><span class="l">Runs in the 1992 Final</span></div>
+  </div>
+
+  <p>He retired from international cricket later that year, closing a career that had already made him one of the most recognised sportsmen of his generation.</p>
+</section>
+
+<section class="chapter" id="hospital">
+  <div class="chapter-head">
+    <span class="mono">03 — Beyond the Boundary</span>
+    <h2>Philanthropy</h2>
+  </div>
+  <p>In 1994, Khan founded the Shaukat Khanum Memorial Cancer Hospital & Research Centre in Lahore, named after his mother, who died of cancer. Built substantially through public donations, it became Pakistan's first dedicated cancer treatment and research facility, offering free treatment to a majority of patients unable to pay. A second campus was later opened in Peshawar, followed by further expansion. He also established Namal College in Mianwali, a university built in partnership with the University of Bradford.</p>
+</section>
+
+<section class="chapter" id="politics">
+  <div class="chapter-head">
+    <span class="mono">04 — The Second Innings</span>
+    <h2>Entering Politics</h2>
+  </div>
+  <p>Khan founded the Pakistan Tehreek-e-Insaf (PTI) on 25 April 1996. For its first fifteen years the party struggled electorally. A large rally at Minar-e-Pakistan, Lahore, on 30 October 2011 marked a turning point in PTI's public support, and in the 2013 general election the party formed a provincial government in Khyber Pakhtunkhwa. By the 2018 general election, PTI had become the largest party in the National Assembly, and Khan was sworn in as Prime Minister on 18 August 2018.</p>
+  <p>His premiership coincided with significant economic strain, including rising inflation, and was marked by an evolving relationship with Pakistan's powerful military establishment — historically a decisive factor in the country's civilian governments.</p>
+</section>
+
+<section class="chapter" id="achievements">
+  <div class="chapter-head">
+    <span class="mono">04b — In Office</span>
+    <h2>Welfare Programmes</h2>
+  </div>
+  <p>Khan's government launched several social-sector initiatives during his premiership, including:</p>
+  <div class="stat-row">
+    <div class="stat"><span class="n">Sehat Card</span><span class="l">Universal health-insurance scheme, coverage up to Rs. 1 million/year</span></div>
+    <div class="stat"><span class="n">Ehsaas</span><span class="l">National poverty-alleviation and social-safety-net programme</span></div>
+    <div class="stat"><span class="n">10 Billion Tree Tsunami</span><span class="l">National reforestation initiative</span></div>
+  </div>
+  <p>Independent assessments of these programmes' scale and impact have varied; PTI cites them as major achievements, while critics have questioned aspects of their implementation and cost.</p>
+</section>
+
+<section class="timeline" id="timeline">
+  <div class="chapter-head">
+    <span class="mono">05 — Innings Break</span>
+    <h2>Removal and Aftermath</h2>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-year">Apr 2022</div>
+    <div class="tl-body">
+      <span class="tag">Political</span>
+      <h3>Removed as Prime Minister</h3>
+      <p>Khan was ousted via a no-confidence vote in the National Assembly, becoming the first Pakistani prime minister removed this way. He alleged the vote was the result of foreign interference, a claim the United States denied.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-year">Nov 2022</div>
+    <div class="tl-body">
+      <span class="tag">Incident</span>
+      <h3>Assassination attempt</h3>
+      <p>Khan was shot and wounded in the leg during a party rally in Wazirabad while leading a protest march toward Islamabad demanding early elections.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-year">May 2023</div>
+    <div class="tl-body">
+      <span class="tag">Legal</span>
+      <h3>First arrest and unrest</h3>
+      <p>Khan's arrest on 9 May 2023 on corruption charges triggered nationwide protests and clashes; he was released two days later after the Supreme Court ruled the arrest unlawful.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-year">Aug 2023</div>
+    <div class="tl-body">
+      <span class="tag">Legal</span>
+      <h3>Convicted and jailed</h3>
+      <p>Khan was arrested again in August 2023, this time in connection with the Toshakhana case involving undeclared state gifts. He has remained in custody since, held at Adiala Jail in Rawalpindi.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-year">2024</div>
+    <div class="tl-body">
+      <span class="tag">Legal</span>
+      <h3>Further convictions</h3>
+      <p>Additional convictions followed, including in the Cipher case concerning leaked state secrets, and in cases connected to the May 2023 riots. Some sentences have since been suspended or overturned on appeal, while others remain in effect. PTI disputed the outcome of the February 2024 general election, alleging rigging; the party's candidates, running as independents after being barred from using the PTI symbol, still won the largest single bloc of seats.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-year">2025–26</div>
+    <div class="tl-body">
+      <span class="tag">Ongoing</span>
+      <h3>Continued detention and health concerns</h3>
+      <p>Khan's legal team and PTI officials have reported he is held largely in solitary confinement with restricted family access — characterisations the government disputes. In early 2026, his lawyers told Pakistan's Supreme Court he had lost significant vision in one eye due to a retinal condition his team attributes to delayed medical care. A UN special rapporteur raised concerns about his detention conditions in December 2025.</p>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="chapter-head">
+    <span class="mono">06 — The Archive</span>
+    <h2>Photo Gallery</h2>
+  </div>
+  <p class="gallery-intro">Four eras, filtered by category — from early life in Lahore to the political present.</p>
+
+  <div class="gallery-tabs" role="tablist" aria-label="Gallery categories">
+    <button class="gtab active" data-filter="all">All<span class="count">12</span></button>
+    <button class="gtab" data-filter="early-life">Early Life<span class="count">3</span></button>
+    <button class="gtab" data-filter="cricket">Cricket Era<span class="count">3</span></button>
+    <button class="gtab" data-filter="philanthropy">Philanthropy<span class="count">3</span></button>
+    <button class="gtab" data-filter="political">Political Era<span class="count">3</span></button>
+  </div>
+
+  <div class="gallery-grid" id="galleryGrid">
+    <div class="gcard" data-cat="early-life"><div class="gcard-art"></div><div class="gcard-veil"></div><div class="gcard-content"><span class="gcard-num">01</span><h3 class="gcard-title">Lahore, 1952</h3><p class="gcard-desc">Family & upbringing</p></div></div>
+    <div class="gcard" data-cat="early-life"><div class="gcard-art"></div><div class="gcard-veil"></div><div class="gcard-content"><span class="gcard-num">02</span><h3 class="gcard-title">Aitchison College</h3><p class="gcard-desc">School years</p></div></div>
+    <div class="gcard" data-cat="early-life"><div class="gcard-art"></div><div class="gcard-veil"></div><div class="gcard-content"><span class="gcard-num">03</span><h3 class="gcard-title">Keble College, Oxford</h3><p class="gcard-desc">1972 – 1975, PPE</p></div></div>
+
+    <div class="gcard" data-cat="cricket"><div class="gcard-art"></div><div class="gcard-veil"></div><div class="gcard-content"><span class="gcard-num">04</span><h3 class="gcard-title">International Debut</h3><p class="gcard-desc">v. England, 1971</p></div></div>
+    <div class="gcard" data-cat="cricket"><div class="gcard-art"></div><div class="gcard-veil"></div><div class="gcard-content"><span class="gcard-num">05</span><h3 class="gcard-title">Captaincy Years</h3><p class="gcard-desc">From 1982</p></div></div>
+    <div class="gcard" data-cat="cricket"><div class="gcard-art"></div><div class="gcard-veil"></div><div class="gcard-content"><span class="gcard-num">06</span><h3 class="gcard-title">World Cup, 1992</h3><p class="gcard-desc">Melbourne, 25 March</p></div></div>
+
+    <div class="gcard" data-cat="philanthropy"><div class="gcard-art"></div><div class="gcard-veil"></div><div class="gcard-content"><span class="gcard-num">07</span><h3 class="gcard-title">Shaukat Khanum Hospital</h3><p class="gcard-desc">Founded 1994, Lahore</p></div></div>
+    <div class="gcard" data-cat="philanthropy"><div class="gcard-art"></div><div class="gcard-veil"></div><div class="gcard-content"><span class="gcard-num">08</span><h3 class="gcard-title">Second Campus</h3><p class="gcard-desc">Peshawar expansion</p></div></div>
+    <div class="gcard" data-cat="philanthropy"><div class="gcard-art"></div><div class="gcard-veil"></div><div class="gcard-content"><span class="gcard-num">09</span><h3 class="gcard-title">Namal College</h3><p class="gcard-desc">Mianwali</p></div></div>
+
+    <div class="gcard" data-cat="political"><div class="gcard-art"></div><div class="gcard-veil"></div><div class="gcard-content"><span class="gcard-num">10</span><h3 class="gcard-title">Founding PTI</h3><p class="gcard-desc">25 April 1996</p></div></div>
+    <div class="gcard" data-cat="political"><div class="gcard-art"></div><div class="gcard-veil"></div><div class="gcard-content"><span class="gcard-num">11</span><h3 class="gcard-title">Sworn in as PM</h3><p class="gcard-desc">18 August 2018</p></div></div>
+    <div class="gcard" data-cat="political"><div class="gcard-art"></div><div class="gcard-veil"></div><div class="gcard-content"><span class="gcard-num">12</span><h3 class="gcard-title">Post-2022 Era</h3><p class="gcard-desc">Opposition & courts</p></div></div>
+  </div>
+
+  <div class="gallery-next">
+    <button class="next-btn" id="openCatPage" aria-haspopup="true" aria-controls="catPage">
+      <span class="next-btn-text">
+        <span class="next-btn-label">Browse the Full Archive by Category</span>
+        <span class="next-btn-sub">Early Life · Cricket · Philanthropy · Politics</span>
+      </span>
+      <span class="circle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </span>
+    </button>
+  </div>
+</section>
+
+<div class="cat-page" id="catPage" role="dialog" aria-modal="true" aria-label="Gallery categories">
+  <div class="cat-page-inner">
+    <div class="cat-page-top">
+      <div class="brand">
+        <div class="name" style="font-size:1.1rem;">IMRAN KHAN</div>
+        <div class="num">804</div>
+      </div>
+      <button class="back-btn" id="closeCatPage">
+        <span class="circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </span>
+        Back to gallery
+      </button>
     </div>
 
-    <!-- Overlay Mask for Menu Drawer -->
-    <div class="menu-overlay" id="overlay-mask"></div>
-
-    <!-- Premium Custom Modal for Deletion Confirmation -->
-    <div id="delete-confirm-modal" class="custom-modal" style="display: none;">
-        <div class="modal-content">
-            <h5>Remove Tribute?</h5>
-            <p>Are you sure you want to permanently delete this tribute from the server?</p>
-            <div class="modal-actions">
-                <button id="confirm-delete-btn" class="modal-btn confirm">Delete</button>
-                <button id="cancel-delete-btn" class="modal-btn cancel">Cancel</button>
-            </div>
-        </div>
+    <div class="cat-page-head">
+      <span class="mono">The Archive — Full Index</span>
+      <h2>Browse By Category</h2>
+      <p>Every entry in the archive, grouped by era. Select a category to jump straight to it.</p>
     </div>
 
-    <!-- Navigation Header -->
-    <header class="navbar">
-        <div class="logo">
-            IMRAN KHAN
-            <span class="num-804">804</span>
+    <div class="cat-grid">
+      <div class="cat-tile" data-cat="early-life" data-jump="early-life">
+        <div class="cat-tile-media">
+          <div class="cat-tile-art"></div>
+          <div class="cat-tile-veil"></div>
+          <span class="cat-tile-badge">Media Album</span>
         </div>
-        
-        <!-- Toggle Menu Icon -->
-        <div class="menu-toggle" id="mobile-menu">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="cat-tile-panel">
+          <h3 class="cat-tile-title">Early Life</h3>
+          <p class="cat-tile-desc">Family, schooling, and the Oxford years that shaped his outlook.</p>
+          <div class="cat-tile-foot">
+            <span class="cat-tile-count"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg> 3 Entries</span>
+            <span class="cat-tile-cta">Open Category <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+          </div>
         </div>
+      </div>
 
-        <!-- Links with beautiful Font Awesome Icons -->
-        <nav class="nav-links" id="nav-menu">
-            <a href="#home"><i class="fa-solid fa-house"></i> Home</a>
-            <a href="#early-life"><i class="fa-solid fa-book-open-reader"></i> Early Life</a>
-            <a href="#cricket-career"><i class="fa-solid fa-trophy"></i> Cricket Journey</a>
-            <a href="#political-journey"><i class="fa-solid fa-landmark"></i> Politics</a>
-            <a href="#gallery"><i class="fa-solid fa-images"></i> Gallery</a>
-            <a href="#achievements"><i class="fa-solid fa-award"></i> Achievements</a>
-        </nav>
-    </header>
-
-    <!-- Hero Section (Upgraded Center Typewriter Loop) -->
-    <section class="hero" id="home">
-        <div class="hero-image">
-            <img src="https://images.unsplash.com/photo-1610018556010-6a11691bc905?auto=format&fit=crop&q=80&w=600" alt="Imran Khan Portrait UNGA">
+      <div class="cat-tile" data-cat="cricket" data-jump="cricket">
+        <div class="cat-tile-media">
+          <div class="cat-tile-art"></div>
+          <div class="cat-tile-veil"></div>
+          <span class="cat-tile-badge">Media Album</span>
         </div>
-        <div class="hero-content">
-            <!-- Sleek Typwriter Text Container -->
-            <h1 class="hero-title" id="typing-hero-title">IMRAN KHAN</h1>
-            <p class="hero-subtitle">The Journey of a Leader</p>
-            
-            <p class="hero-text">From a young cricket prodigy to an unbeatable world champion, a master philanthropist, and ultimately the Prime Minister of Pakistan. Experience a timeline built on absolute resilience, faith, and unmatched patriotism.</p>
-            <div class="btn-right-container">
-                <a href="#early-life" class="btn-primary">Explore Biography</a>
-            </div>
+        <div class="cat-tile-panel">
+          <h3 class="cat-tile-title">Cricket Era</h3>
+          <p class="cat-tile-desc">From international debut to captaining the 1992 World Cup win.</p>
+          <div class="cat-tile-foot">
+            <span class="cat-tile-count"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg> 3 Entries</span>
+            <span class="cat-tile-cta">Open Category <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- Overview Section -->
-    <section class="section-center">
-        <h2 class="section-title">A Journey Like No Other</h2>
-        
-        <p class="section-desc">Witness the life phases of a leader who redefined standard boundaries, built world-class free cancer hospitals, and motivated a whole nation for real independence and justice.</p>
-        
-        <div class="highlights-grid">
-            <div class="highlight-card">
-                <i class="fa-solid fa-star"></i>
-                <h3>Early Life</h3>
-                <p>Nurtured with solid values, educated at Aitchison College and Oxford University, shaping his global outlook.</p>
-            </div>
-            <div class="highlight-card">
-                <i class="fa-solid fa-baseball-bat-ball"></i>
-                <h3>Cricket Era</h3>
-                <p>A premier fast-bowling all-rounder, leading Pakistan to its iconic 1992 Cricket World Cup triumph.</p>
-            </div>
-            <div class="highlight-card">
-                <i class="fa-solid fa-hospital"></i>
-                <h3>Philanthropy</h3>
-                <p>Founder of the Shaukat Khanum Cancer Hospitals, providing state-of-the-art free medical care to millions.</p>
-            </div>
-            <div class="highlight-card">
-                <i class="fa-solid fa-scale-balanced"></i>
-                <h3>Political Rise</h3>
-                <p>Determined 22-year struggle against corruption, leading to his Prime Ministership of Pakistan in 2018.</p>
-            </div>
+      <div class="cat-tile" data-cat="philanthropy" data-jump="hospital">
+        <div class="cat-tile-media">
+          <div class="cat-tile-art"></div>
+          <div class="cat-tile-veil"></div>
+          <span class="cat-tile-badge">Media Album</span>
         </div>
-    </section>
-
-    <!-- Early Life Section (Highly Detailed) -->
-    <section class="history-section" id="early-life">
-        <div class="history-content">
-            <h2 class="label">EARLY LIFE</h2>
-            
-            <p>Imran Khan Niazi was born on October 5, 1952, in Lahore into an affluent and highly educated Pashtun family of the Niazi clan. His father, Ikramullah Khan Niazi, was a prominent civil engineer, and his mother, Shaukat Khanum, descended from a noble Sufi family. Growing up as the only brother among four highly educated sisters in an upper-middle-class Lahore household, his early life was shaped by strong familial bonds and moral values.</p>
-            <p>He was enrolled at Lahore’s elite Cathedral School and subsequently the prestigious Aitchison College, where his raw athletic capabilities made him a natural superstar in sports. At a very young age, his dedication to perfection was evident to his peers and coaches alike.</p>
-            <p>To further his academic pursuits, Imran moved to the United Kingdom, attending the Royal Grammar School Worcester. In 1972, he joined Keble College, Oxford, to read Philosophy, Politics, and Economics (PPE). Graduating in 1975, his years at Oxford played a monumental role in shaping his international worldview and refined his understanding of governance and socio-political systems, preparing him for the legendary struggles ahead.</p>
-            
-            <!-- Dedicated Early Life Image Placeholder -->
-            <div class="section-image-container">
-                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=700" alt="Young Imran Khan at Oxford">
-            </div>
+        <div class="cat-tile-panel">
+          <h3 class="cat-tile-title">Philanthropy</h3>
+          <p class="cat-tile-desc">Shaukat Khanum Hospital, its expansion, and Namal College.</p>
+          <div class="cat-tile-foot">
+            <span class="cat-tile-count"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg> 3 Entries</span>
+            <span class="cat-tile-cta">Open Category <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- Cricket Career Section (Highly Detailed) -->
-    <section class="history-section bg-alternate" id="cricket-career">
-        <div class="history-content">
-            <h2 class="label">CRICKET JOURNEY</h2>
-            
-            <p>Imran Khan made his international debut for Pakistan in 1971 against England at the age of 18. Initially classified as a medium-fast bowler with an unstable action, he spent years in absolute self-discipline, mastering his run-up, physical endurance, and delivery stride. By the late 1970s, he emerged as one of the fastest and most lethal bowlers in international cricket history, pioneering the art of reverse swing alongside devastating bouncers.</p>
-            <p>In 1982, Imran was appointed the Captain of the national cricket team. He immediately revolutionized the selection process, basing it purely on merit and introducing fearless, aggressive tactics. He unified a fractured locker room, turning them into a cohesive fighting unit. Under his captaincy, Pakistan achieved its first-ever Test series victories in India and England, instilling massive national pride.</p>
-            <p>The pinnacle of his sporting career was the 1992 Cricket World Cup in Australia. At age 39, coming out of retirement on public demand, he led a struggling Pakistan team through a historic comeback. Famously calling his team "Cornered Tigers," Imran rallied his players to lift the crystal trophy at the Melbourne Cricket Ground on March 25, 1992, forever cementing his legacy as one of cricket's greatest all-rounders and leaders.</p>
-
-            <!-- Dedicated Cricket Image Placeholder -->
-            <div class="section-image-container">
-                <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=700" alt="Imran Khan Holding 1992 World Cup Trophy">
-            </div>
-
-            <!-- Right-Aligned Explore More Button Component -->
-            <div class="btn-right-container">
-                <button class="btn-primary" id="open-cricket-stats">Explore More <i class="fa-solid fa-arrow-right"></i></button>
-            </div>
+      <div class="cat-tile" data-cat="political" data-jump="politics">
+        <div class="cat-tile-media">
+          <div class="cat-tile-art"></div>
+          <div class="cat-tile-veil"></div>
+          <span class="cat-tile-badge">Media Album</span>
         </div>
-    </section>
-
-    <!-- Political Journey Section (Highly Detailed) -->
-    <section class="history-section" id="political-journey">
-        <div class="history-content">
-            <h2 class="label">POLITICAL STRUGGLE</h2>
-            
-            <p>Deeply disturbed by the rising corruption and institutional decline in Pakistan, Imran Khan officially founded the Pakistan Tehreek-e-Insaf (PTI) on April 25, 1996. For the first fifteen years, his party struggled to gain traction, and Imran faced constant mockery from established political dynasties. Undeterred, he spent decades travelling across the country, connecting with the youth and advocating for accountability, rule of law, and a sovereign foreign policy.</p>
-            <p>His tireless mobilization of the public culminated on October 30, 2011, when PTI held a historic rally at Minar-e-Pakistan, Lahore, drawing hundreds of thousands of passionate supporters. This massive political wave transformed the electoral landscape of Pakistan. In the 2013 elections, PTI became a dominant political player, forming a reform-centric provincial government in Khyber Pakhtunkhwa (KP).</p>
-            <p>On August 18, 2018, Imran Khan  was sworn in as the 22nd Prime Minister of Pakistan. His administration launched revolutionary welfare programs, including the "Sehat Card" (providing universal health insurance to millions), the "Ehsaas Program" (the largest poverty-alleviation network in the country's history), and the "Ten Billion Tree Tsunami" for climate action. His uncompromising stance on corruption, social justice, and national sovereignty continues to define his historical political journey.</p>
-            
-            <!-- Dedicated Politics Image Placeholder -->
-            <div class="section-image-container">
-                <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&q=80&w=700" alt="Imran Khan Addressing a Massive Political Jalsa">
-            </div>
+        <div class="cat-tile-panel">
+          <h3 class="cat-tile-title">Political Era</h3>
+          <p class="cat-tile-desc">PTI's founding, the premiership, and the years since 2022.</p>
+          <div class="cat-tile-foot">
+            <span class="cat-tile-count"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg> 3 Entries</span>
+            <span class="cat-tile-cta">Open Category <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+          </div>
         </div>
-    </section>
-
-    <!-- New Upgraded Premium Photo Gallery Section (With Sub-categories Complete) -->
-    <section class="gallery-section" id="gallery">
-        
-        <!-- ================= SCREEN 1: HOME PREVIEW ================= -->
-        <div class="gallery-view" id="view-home">
-            <h2 class="section-title">PHOTO GALLERY</h2>
-            <p class="section-desc">Explore the memorable life phases of Imran Khan through our beautifully curated collection of historical photographs.</p>
-            <div class="btn-right-container">
-                <button class="btn-primary" id="go-to-categories">
-                    View Gallery <i class="fa-solid fa-arrow-right"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- ================= SCREEN 2: SUB-CATEGORIES MENU ================= -->
-        <div class="gallery-view" id="view-categories" style="display: none;">
-            <div class="gallery-header">
-                <button class="gallery-back-btn" id="back-to-home"><i class="fa-solid fa-arrow-left"></i></button>
-                <h2 class="section-title">PHOTO GALLERY</h2>
-            </div>
-            <!-- Star Divider for Sub-page -->
-            <div class="star-divider">
-                <span class="star">★</span>
-                <span class="line"></span>
-            </div>
-            <p class="section-desc">Select a category to explore photos from that era.</p>
-
-            <div class="categories-list">
-                <!-- CHILDHOOD Card (Mockup 1 horizontal design - 4in1 layout responsive grid on mobile) -->
-                <div class="category-row" data-category="bachpan">
-                    <div class="category-left">
-                        <div class="category-icon-box">
-                            <i class="fa-solid fa-seedling"></i>
-                        </div>
-                        <div class="category-info-text">
-                            <span class="category-name">BACHPAN</span>
-                            <span class="category-desc-text">Early life and childhood moments</span>
-                        </div>
-                    </div>
-                    <i class="fa-solid fa-chevron-right category-arrow"></i>
-                </div>
-
-                <!-- JAWANI Card (Mockup 1 horizontal design - 4in1 layout responsive grid on mobile) -->
-                <div class="category-row" data-category="jawani">
-                    <div class="category-left">
-                        <div class="category-icon-box">
-                            <i class="fa-solid fa-shield-halved"></i>
-                        </div>
-                        <div class="category-info-text">
-                            <span class="category-name">JAWANI</span>
-                            <span class="category-desc-text">Young and courageous years</span>
-                        </div>
-                    </div>
-                    <i class="fa-solid fa-chevron-right category-arrow"></i>
-                </div>
-
-                <!-- CRICKET ERA Card (Mockup 1 horizontal design - 4in1 layout responsive grid on mobile) -->
-                <div class="category-row" data-category="cricket">
-                    <div class="category-left">
-                        <div class="category-icon-box">
-                            <i class="fa-solid fa-helmet-safety"></i>
-                        </div>
-                        <div class="category-info-text">
-                            <span class="category-name">CRICKET ERA</span>
-                            <span class="category-desc-text">Glorious moments on the field</span>
-                        </div>
-                    </div>
-                    <i class="fa-solid fa-chevron-right category-arrow"></i>
-                </div>
-
-                <!-- POLITICAL ERA Card (Mockup 1 horizontal design - 4in1 layout responsive grid on mobile) -->
-                <div class="category-row" data-category="political">
-                    <div class="category-left">
-                        <div class="category-icon-box">
-                            <i class="fa-solid fa-building-columns"></i>
-                        </div>
-                        <div class="category-info-text">
-                            <span class="category-name">POLITICAL ERA</span>
-                            <span class="category-desc-text">Leadership and public service</span>
-                        </div>
-                    </div>
-                    <i class="fa-solid fa-chevron-right category-arrow"></i>
-                </div>
-            </div>
-        </div>
-
-        <!-- ================= SCREEN 3: SPECIFIC ERA PHOTOS GRID ================= -->
-        <div class="gallery-view" id="view-grid" style="display: none;">
-            <div class="gallery-header">
-                <button class="gallery-back-btn" id="back-to-categories"><i class="fa-solid fa-arrow-left"></i></button>
-                <h2 class="section-title" id="dynamic-grid-title" style="text-transform: uppercase;">CRICKET ERA</h2>
-            </div>
-            <!-- Star Divider for Sub-page -->
-            <div class="star-divider">
-                <span class="star">★</span>
-                <span class="line"></span>
-            </div>
-            <p class="section-desc" id="dynamic-grid-desc">Historic moments from Imran Khan's iconic cricket journey.</p>
-
-            <!-- Dynamic grid populated via JavaScript -->
-            <div class="dynamic-photo-grid" id="photo-grid-container"></div>
-        </div>
-
-        <!-- ================= SCREEN 4: CRICKET CAREER STATISTICS VIEW (Redesigned Mockup) ================= -->
-        <div class="gallery-view" id="view-stats" style="display: none;">
-            <div class="gallery-header">
-                <button class="gallery-back-btn" id="back-stats-to-home"><i class="fa-solid fa-arrow-left"></i></button>
-                <h2 class="section-title">CAREER STATISTICS</h2>
-            </div>
-            <!-- Star Divider for Sub-page -->
-            <div class="star-divider">
-                <span class="star">★</span>
-                <span class="line"></span>
-            </div>
-            <p class="section-desc">The official verified cricketing records of Imran Khan's international career.</p>
-
-            <!-- Premium Stats Cards (Mockup Layout Match) -->
-            <div class="stats-premium-container">
-                <!-- Test Career Card -->
-                <div class="stats-card">
-                    <div class="stats-card-top">
-                        <span class="stats-badge">Test</span>
-                        <i class="fa-solid fa-medal stats-card-icon"></i>
-                    </div>
-                    <div class="stats-main-number">362</div>
-                    <div class="stats-card-subtitle">One of the Finest All-Rounders</div>
-                    <p class="stats-card-desc">Imran Khan remains one of the most prolific and fast bowlers in Test cricket history.</p>
-                    
-                    <div class="stats-grid">
-                        <div class="stat-grid-box">
-                            <span class="box-label">Matches</span>
-                            <span class="box-value">88</span>
-                        </div>
-                        <div class="stat-grid-box">
-                            <span class="box-label">Total Runs</span>
-                            <span class="box-value">3,807</span>
-                        </div>
-                        <div class="stat-grid-box">
-                            <span class="box-label">Wickets</span>
-                            <span class="box-value">362</span>
-                        </div>
-                        <div class="stat-grid-box">
-                            <span class="box-label">Bowl Avg</span>
-                            <span class="box-value">22.81</span>
-                        </div>
-                    </div>
-                    <div class="stat-grid-row-bottom">
-                        <span class="bottom-label">100s / 50s</span>
-                        <span class="bottom-value">6 / 18</span>
-                    </div>
-                </div>
-
-                <!-- ODI Career Card -->
-                <div class="stats-card">
-                    <div class="stats-card-top">
-                        <span class="stats-badge">ODI</span>
-                        <i class="fa-solid fa-baseball-bat-ball stats-card-icon"></i>
-                    </div>
-                    <div class="stats-main-number">3,709</div>
-                    <div class="stats-card-subtitle">Devastating All-Round Performance</div>
-                    <p class="stats-card-desc">A dominant force in white-ball cricket, performing exceptionally under extreme pressure.</p>
-                    
-                    <div class="stats-grid">
-                        <div class="stat-grid-box">
-                            <span class="box-label">Matches</span>
-                            <span class="box-value">175</span>
-                        </div>
-                        <div class="stat-grid-box">
-                            <span class="box-label">Total Runs</span>
-                            <span class="box-value">3,709</span>
-                        </div>
-                        <div class="stat-grid-box">
-                            <span class="box-label">Wickets</span>
-                            <span class="box-value">182</span>
-                        </div>
-                        <div class="stat-grid-box">
-                            <span class="box-label">High Score</span>
-                            <span class="box-value">102*</span>
-                        </div>
-                    </div>
-                    <div class="stat-grid-row-bottom">
-                        <span class="bottom-label">100s / 50s</span>
-                        <span class="bottom-value">1 / 19</span>
-                    </div>
-                </div>
-
-                <!-- World Cup '92 Card -->
-                <div class="stats-card highlighted">
-                    <div class="stats-card-top">
-                        <span class="stats-badge">World Cup</span>
-                        <i class="fa-solid fa-trophy stats-card-icon"></i>
-                    </div>
-                    <div class="stats-main-number">1992</div>
-                    <div class="stats-card-subtitle">The Cornered Tigers Victory</div>
-                    <p class="stats-card-desc">Led from the front, scoring 72 runs in the final to lift Pakistan's first-ever Cricket World Cup.</p>
-                    
-                    <div class="stats-grid">
-                        <div class="stat-grid-box">
-                            <span class="box-label">Matches</span>
-                            <span class="box-value">8</span>
-                        </div>
-                        <div class="stat-grid-box">
-                            <span class="box-label">Runs</span>
-                            <span class="box-value">185</span>
-                        </div>
-                        <div class="stat-grid-box">
-                            <span class="box-label">Wickets</span>
-                            <span class="box-value">7</span>
-                        </div>
-                        <div class="stat-grid-box">
-                            <span class="box-label">Final Score</span>
-                            <span class="box-value">72</span>
-                        </div>
-                    </div>
-                    <div class="stat-grid-row-bottom">
-                        <span class="bottom-label">Leadership</span>
-                        <span class="bottom-value">Champion Captain</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- ================= SCREEN 5: ACHIEVEMENTS & INITIATIVES VIEW ================= -->
-        <div class="gallery-view" id="view-achievements" style="display: none;">
-            <div class="gallery-header">
-                <button class="gallery-back-btn" id="back-achievements-to-home"><i class="fa-solid fa-arrow-left"></i></button>
-                <h2 class="section-title">ACHIEVEMENTS</h2>
-            </div>
-            <!-- Star Divider for Sub-page -->
-            <div class="star-divider">
-                <span class="star">★</span>
-                <span class="line"></span>
-            </div>
-            <p class="section-desc">Key social, environmental, and welfare reforms initiated to support the common people of Pakistan.</p>
-
-            <div class="achievements-grid">
-                <!-- Premium Redesigned Wide Cards (Gold-Green stats card theme) -->
-                <div class="achievement-item">
-                    <i class="fa-solid fa-leaf"></i>
-                    <div class="achievement-info">
-                        <h4>Ten Billion Tree Tsunami</h4>
-                        <p>Globally acclaimed reforestation initiative aiming to plant 10 billion trees across Pakistan to combat climate change.</p>
-                    </div>
-                </div>
-                <div class="achievement-item">
-                    <i class="fa-solid fa-file-medical"></i>
-                    <div class="achievement-info">
-                        <h4>Universal Sehat Card</h4>
-                        <p>A landmark universal health insurance program providing free premium healthcare coverage of up to Rs. 1 million per year.</p>
-                    </div>
-                </div>
-                <div class="achievement-item">
-                    <i class="fa-solid fa-hand-holding-hand"></i>
-                    <div class="achievement-info">
-                        <h4>Ehsaas Welfare Project</h4>
-                        <p>Pakistan's largest social safety net program designed to uplift marginalized communities through financial empowerment.</p>
-                    </div>
-                </div>
-                <div class="achievement-item">
-                    <i class="fa-solid fa-hospital-user"></i>
-                    <div class="achievement-info">
-                        <h4>Cancer Hospital Networks</h4>
-                        <p>State-of-the-art hospitals offering free, world-class cancer treatment to over 75% of deserving patients.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-    <!-- Achievements Section on Home (Cleaned Up & Left Aligned) -->
-    <section class="achievements-section" id="achievements">
-        <h2 class="section-title">Achievements</h2>
-        
-        <p class="section-desc">Key social, environmental, and welfare reforms initiated to support the common people of Pakistan.</p>
-        
-        <!-- Right-Aligned Explore Achievements Button Component -->
-        <div class="btn-right-container">
-            <button class="btn-primary" id="open-achievements-sub">Explore More <i class="fa-solid fa-arrow-right"></i></button>
-        </div>
-    </section>
-
-    <!-- Premium Reviews & Tributes Section (With Persistent User Submissions Only, Left Aligned) -->
-    <section class="tributes-section" id="tributes">
-        <h2 class="section-title">Reviews & Tributes</h2>
-        <p class="section-desc">Leave your own premium tribute to Imran Khan below. Your tribute will appear in real-time below.</p>
-
-        <!-- Leave a Tribute Form on TOP cleanly -->
-        <div class="tribute-form-container">
-            <h3>Leave a Tribute</h3>
-            <form id="tribute-form">
-                <div class="form-group">
-                    <label for="author-name">Your Name</label>
-                    <input type="text" id="author-name" placeholder="Enter your full name" required>
-                </div>
-                <div class="form-group">
-                    <label for="author-role">Designation / Location</label>
-                    <input type="text" id="author-role" placeholder="e.g. Supporter from Lahore" required>
-                </div>
-                <div class="form-group">
-                    <label for="tribute-message">Your Tribute / Review</label>
-                    <textarea id="tribute-message" rows="4" placeholder="Write your premium tribute here..." required></textarea>
-                </div>
-                <div style="text-align: left;">
-                    <button type="submit" class="btn-primary" style="cursor: pointer; width: 100%;">Submit Tribute</button>
-                </div>
-            </form>
-        </div>
-
-        <!-- Clean empty grid ready for dynamic & persistent tributes below -->
-        <div class="tributes-grid" id="tributes-container"></div>
-    </section>
-
-    <!-- Footer (Premium & Compact) -->
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h3>IMRAN KHAN <br><span style="color:var(--parrot-green); font-size:1.15rem; font-weight:bold; text-shadow:0 0 10px rgba(27, 242, 91, 0.4);">804</span></h3>
-                <p style="margin-top: 15px;">An authentic digital archive dedicated to presenting the life legacy, humanitarian projects, and vision of Imran Khan.</p>
-            </div>
-            <div class="footer-col">
-                <h3>Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="#home"><i class="fa-solid fa-circle-chevron-right"></i> Home</a></li>
-                    <li><a href="#early-life"><i class="fa-solid fa-circle-chevron-right"></i> Early Life</a></li>
-                    <li><a href="#cricket-career"><i class="fa-solid fa-circle-chevron-right"></i> Cricket Journey</a></li>
-                    <li><a href="#political-journey"><i class="fa-solid fa-landmark"></i> Political Struggle</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h3>Connect</h3>
-                <p>Follow our verified media outlets to stay updated:</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2026 Imran Khan - All rights reserved.</p>
-            <!-- Premium Saad Ali Signature (Slightly highlighted) -->
-            <div class="developer-signature">
-                Developed by <span class="dev-name">Saad Ali</span>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Upgraded Fullscreen Interactive Script with Touch Controls -->
-    <script>
-        // --- 1. Variable Declarations with Safe Fallbacks ---
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navMenu = document.getElementById('nav-menu');
-        const overlayMask = document.getElementById('overlay-mask');
-        const navLinks = document.querySelectorAll('.nav-links a');
-
-        // Gallery Elements
-        const gallerySection = document.querySelector('.gallery-section');
-        const viewHome = document.getElementById('view-home');
-        const viewCategories = document.getElementById('view-categories');
-        const viewGrid = document.getElementById('view-grid');
-        const viewStats = document.getElementById('view-stats');
-        const viewAchievements = document.getElementById('view-achievements');
-
-        const btnGoToCategories = document.getElementById('go-to-categories');
-        const btnBackToHome = document.getElementById('back-to-home');
-        const btnBackToCategories = document.getElementById('back-to-categories');
-        
-        // Navigation Buttons
-        const btnOpenCricketStats = document.getElementById('open-cricket-stats');
-        const btnBackStatsToHome = document.getElementById('back-stats-to-home');
-        const btnGoToCricketGallery = document.getElementById('go-to-cricket-gallery');
-
-        // Achievements Navigation Buttons
-        const btnOpenAchievementsSub = document.getElementById('open-achievements-sub');
-        const btnBackAchievementsToHome = document.getElementById('back-achievements-to-home');
-
-        const categoryRows = document.querySelectorAll('.category-row');
-        const dynamicTitle = document.getElementById('dynamic-grid-title');
-        const dynamicDesc = document.getElementById('dynamic-grid-desc');
-        const photoGridContainer = document.getElementById('photo-grid-container');
-
-        // --- 2. Dynamic Photos Database ---
-        const photosDatabase = {
-            bachpan: [
-                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "Early childhood years" },
-                { src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400", title: "With family in Lahore" },
-                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "At Cathedral School" }
-            ],
-            jawani: [
-                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "Oxford Student Days" },
-                { src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400", title: "College Sports Star" },
-                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "Early Cricket Days" }
-            ],
-            cricket: [
-                { src: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=400", title: "Lifting 1992 World Cup" },
-                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "Fierce Bowling Spell" },
-                { src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400", title: "With Cornered Tigers" }
-            ],
-            political: [
-                { src: "https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&q=80&w=400", title: "UN General Assembly speech" },
-                { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", title: "Historic Jalsa at Minar-e-Pakistan" },
-                { src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400", title: "Welfare Ehsaas Launch" }
-            ]
-        };
-
-        // --- 3. View Switcher Animation Helper ---
-        function switchView(fromView, toView, makeFullscreen) {
-            if (!fromView || !toView) return; 
-
-            fromView.style.opacity = '0';
-            fromView.style.transform = 'translateY(12px)';
-            setTimeout(() => {
-                fromView.style.display = 'none';
-                toView.style.display = 'block';
-                toView.style.opacity = '0';
-                toView.style.transform = 'translateY(12px)';
-                
-                // Toggle Fullscreen state safely
-                if (gallerySection) {
-                    if (makeFullscreen) {
-                        gallerySection.classList.add('fullscreen');
-                        document.body.style.overflow = 'hidden'; 
-                    } else {
-                        gallerySection.classList.remove('fullscreen');
-                        document.body.style.overflow = ''; 
-                    }
-                }
-
-                setTimeout(() => {
-                    toView.style.opacity = '1';
-                    toView.style.transform = 'translateY(0)';
-                }, 50);
-            }, 250);
-        }
-
-        // --- 4. Interactive Navigation Controllers with Touch Fallback ---
-        const handleGalleryNavigation = () => {
-            if (viewHome && viewCategories) {
-                switchView(viewHome, viewCategories, true);
-            }
-        };
-
-        if (btnGoToCategories) {
-            btnGoToCategories.addEventListener('click', handleGalleryNavigation);
-            btnGoToCategories.addEventListener('touchstart', (e) => {
-                e.preventDefault();
-                handleGalleryNavigation();
-            });
-        }
-
-        const handleBackToHome = () => {
-            if (viewCategories && viewHome) {
-                switchView(viewCategories, viewHome, false);
-            }
-        };
-
-        if (btnBackToHome) {
-            btnBackToHome.addEventListener('click', handleBackToHome);
-            btnBackToHome.addEventListener('touchstart', (e) => {
-                e.preventDefault();
-                handleBackToHome();
-            });
-        }
-
-        const handleBackToCategories = () => {
-            if (viewGrid && viewCategories) {
-                switchView(viewGrid, viewCategories, true);
-            }
-        };
-
-        if (btnBackToCategories) {
-            btnBackToCategories.addEventListener('click', handleBackToCategories);
-            btnBackToCategories.addEventListener('touchstart', (e) => {
-                e.preventDefault();
-                handleBackToCategories();
-            });
-        }
-
-        // --- 5. New Cricket Stats Views Controller ---
-        const handleOpenCricketStats = () => {
-            if (viewHome && viewStats) {
-                const targetGallery = document.getElementById('gallery');
-                if (targetGallery) {
-                    targetGallery.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-                switchView(viewHome, viewStats, true);
-            }
-        };
-
-        if (btnOpenCricketStats) {
-            btnOpenCricketStats.addEventListener('click', handleOpenCricketStats);
-            btnOpenCricketStats.addEventListener('touchstart', (e) => {
-                e.preventDefault();
-                handleOpenCricketStats();
-            });
-        }
-
-        const handleBackStatsToHome = () => {
-            if (viewStats && viewHome) {
-                switchView(viewStats, viewHome, false);
-            }
-        };
-
-        if (btnBackStatsToHome) {
-            btnBackStatsToHome.addEventListener('click', handleBackStatsToHome);
-            btnBackStatsToHome.addEventListener('touchstart', (e) => {
-                e.preventDefault();
-                handleBackStatsToHome();
-            });
-        }
-
-        // --- 6. Achievements Sub-view Controllers ---
-        const handleOpenAchievements = () => {
-            if (viewHome && viewAchievements) {
-                const targetGallery = document.getElementById('gallery');
-                if (targetGallery) {
-                    targetGallery.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-                switchView(viewHome, viewAchievements, true);
-            }
-        };
-
-        if (btnOpenAchievementsSub) {
-            btnOpenAchievementsSub.addEventListener('click', handleOpenAchievements);
-            btnOpenAchievementsSub.addEventListener('touchstart', (e) => {
-                e.preventDefault();
-                handleOpenAchievements();
-            });
-        }
-
-        const handleBackAchievementsToHome = () => {
-            if (viewAchievements && viewHome) {
-                switchView(viewAchievements, viewHome, false);
-            }
-        };
-
-        if (btnBackAchievementsToHome) {
-            btnBackAchievementsToHome.addEventListener('click', handleBackAchievementsToHome);
-            btnBackAchievementsToHome.addEventListener('touchstart', (e) => {
-                e.preventDefault();
-                handleBackAchievementsToHome();
-            });
-        }
-
-        // --- 7. View Cricket Gallery Trigger Controller ---
-        const handleCricketGalleryNav = () => {
-            if (viewHome && viewCategories) {
-                const targetGallery = document.getElementById('gallery');
-                if (targetGallery) {
-                    targetGallery.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-                
-                switchView(viewHome, viewCategories, true);
-                
-                setTimeout(() => {
-                    const cricketRow = document.querySelector('.category-row[data-category="cricket"]');
-                    if (cricketRow) {
-                        cricketRow.classList.add('active'); // Add active pill visual style
-                        cricketRow.click();
-                    }
-                }, 300);
-            }
-        };
-
-        if (btnGoToCricketGallery) {
-            btnGoToCricketGallery.addEventListener('click', handleCricketGalleryNav);
-            btnGoToCricketGallery.addEventListener('touchstart', (e) => {
-                e.preventDefault();
-                handleCricketGalleryNav();
-            });
-        }
-
-        // --- 8. Category Selection & Dynamic Grid Population ---
-        if (categoryRows.length > 0) {
-            categoryRows.forEach(row => {
-                const handleCategoryClick = () => {
-                    const category = row.getAttribute('data-category');
-                    const catNameElement = row.querySelector('.category-name');
-                    if (!catNameElement) return;
-
-                    const catName = catNameElement.textContent;
-                    
-                    if (dynamicTitle) dynamicTitle.textContent = catName;
-                    if (dynamicDesc) dynamicDesc.textContent = `Historic moments from Imran Khan's iconic ${catName.toLowerCase()} journey.`;
-
-                    // Handle active class visually for horizontal pill rows
-                    categoryRows.forEach(r => r.classList.remove('active'));
-                    row.classList.add('active');
-
-                    if (photoGridContainer) {
-                        photoGridContainer.innerHTML = '';
-                        const photos = photosDatabase[category] || [];
-                        
-                        photos.forEach(photo => {
-                            const photoItem = document.createElement('div');
-                            photoItem.className = 'grid-photo-item';
-                            photoItem.innerHTML = `
-                                <img src="${photo.src}" alt="${photo.title}">
-                                <div class="gallery-overlay">
-                                    <span>${photo.title}</span>
-                                </div>
-                            `;
-                            photoGridContainer.appendChild(photoItem);
-                        });
-                    }
-
-                    if (viewCategories && viewGrid) {
-                        switchView(viewCategories, viewGrid, true);
-                    }
-                };
-
-                row.addEventListener('click', handleCategoryClick);
-                row.addEventListener('touchstart', (e) => {
-                    e.preventDefault();
-                    handleCategoryClick();
-                });
-            });
-        }
-
-        // --- 9. Mobile Menu & Navigation Logic (With touchstart fallback) ---
-        if (mobileMenu && navMenu) {
-            function toggleMenu(e) {
-                if (e) e.preventDefault();
-                mobileMenu.classList.toggle('open');
-                navMenu.classList.toggle('active');
-                
-                if (overlayMask) {
-                    if (navMenu.classList.contains('active')) {
-                        overlayMask.style.display = 'block';
-                    } else {
-                        overlayMask.style.display = 'none';
-                    }
-                }
-            }
-
-            mobileMenu.addEventListener('click', toggleMenu);
-            mobileMenu.addEventListener('touchstart', toggleMenu); // Mobile touch fallback
-            
-            if (overlayMask) {
-                overlayMask.addEventListener('click', toggleMenu);
-                overlayMask.addEventListener('touchstart', toggleMenu);
-            }
-        }
-
-        // --- 10. Smooth Scrolling & Menu Auto-Closing Logic ---
-        if (navLinks.length > 0) {
-            navLinks.forEach(link => {
-                const handleLinkClick = (e) => {
-                    const targetId = link.getAttribute('href');
-
-                    if (targetId && targetId.startsWith('#') && targetId !== '#') {
-                        e.preventDefault();
-
-                        if (viewHome) {
-                            viewHome.style.display = 'block';
-                            viewHome.style.opacity = '1';
-                            viewHome.style.transform = 'translateY(0)';
-                        }
-                        if (viewCategories) viewCategories.style.display = 'none';
-                        if (viewGrid) viewGrid.style.display = 'none';
-                        if (viewStats) viewStats.style.display = 'none';
-                        if (viewAchievements) viewAchievements.style.display = 'none';
-
-                        if (mobileMenu) mobileMenu.classList.remove('open');
-                        if (navMenu) navMenu.classList.remove('active');
-                        if (overlayMask) overlayMask.style.display = 'none';
-
-                        navLinks.forEach(item => item.style.color = 'var(--text-gray)');
-                        link.style.color = 'var(--white)';
-
-                        try {
-                            const targetSection = document.querySelector(targetId);
-                            if (targetSection) {
-                                setTimeout(() => {
-                                    targetSection.scrollIntoView({
-                                        behavior: 'smooth',
-                                        block: 'start'
-                                    });
-                                }, 150);
-                            }
-                        } catch (err) {
-                            console.log("Selector error caught safely:", err);
-                        }
-                    }
-                };
-
-                link.addEventListener('click', handleLinkClick);
-                link.addEventListener('touchstart', (e) => {
-                    handleLinkClick(e);
-                });
-            });
-        }
-
-        // --- 11. Persistent Tribute Form Submission & Deletion Logic (With Premium Toast Notification & LocalStorage/Live Database Sync) ---
-        const tributeForm = document.getElementById('tribute-form');
-        const tributesContainer = document.getElementById('tributes-container');
-        const kvdbUrl = 'https://kvdb.io/sa4102430_saad_ali_v2/tributes'; // Anonymous public cloud database!
-
-        // Load reviews from live database on load
-        let savedTributes = [];
-
-        async function loadLiveTributes() {
-            try {
-                const response = await fetch(kvdbUrl);
-                if (response.ok) {
-                    const data = await response.json();
-                    savedTributes = data || [];
-                } else if (response.status === 404) {
-                    // Initialize empty bucket on server
-                    await saveLiveTributes([]);
-                    savedTributes = [];
-                }
-            } catch (err) {
-                console.error("Live DB fetch failed, falling back to localStorage:", err);
-                savedTributes = JSON.parse(localStorage.getItem('user_tributes')) || [];
-            }
-            renderTributes();
-        }
-
-        // Save reviews to live database
-        async function saveLiveTributes(dataArray) {
-            try {
-                await fetch(kvdbUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(dataArray)
-                });
-                localStorage.setItem('user_tributes', JSON.stringify(dataArray));
-            } catch (err) {
-                console.error("Live DB save failed, saving locally:", err);
-                localStorage.setItem('user_tributes', JSON.stringify(dataArray));
-            }
-        }
-
-        function renderTributes() {
-            if (!tributesContainer) return;
-            tributesContainer.innerHTML = '';
-            
-            savedTributes.forEach((tribute, index) => {
-                const card = document.createElement('div');
-                card.className = 'tribute-card';
-                card.innerHTML = `
-                    <p class="tribute-quote">"${tribute.message}"</p>
-                    <h4 class="tribute-author">${tribute.name}</h4>
-                    <p class="tribute-role">${tribute.role}</p>
-                    <p class="tribute-date"><i class="fa-regular fa-clock"></i> ${tribute.date}</p>
-                    <div class="tribute-reply">
-                        <p><i class="fa-solid fa-reply"></i> <strong>Official Reply:</strong> Thank you for your beautiful tribute! Your support keeps the movement strong. 🙏💚</p>
-                    </div>
-                    <!-- Delete Button for user to delete their review -->
-                    <button class="tribute-delete-btn" onclick="deleteTribute(${index})">
-                        <i class="fa-solid fa-trash"></i> Delete
-                    </button>
-                `;
-                tributesContainer.appendChild(card);
-            });
-        }
-
-        // Global Custom Delete modal setup instead of cheap popups
-        let tributeToDeleteIndex = null;
-
-        window.deleteTribute = function(index) {
-            tributeToDeleteIndex = index;
-            const modal = document.getElementById('delete-confirm-modal');
-            if (modal) {
-                modal.style.display = 'block';
-                setTimeout(() => {
-                    modal.classList.add('show');
-                }, 50);
-            }
-        };
-
-        const confirmDeleteBtn = document.getElementById('confirm-delete-btn');
-        const cancelDeleteBtn = document.getElementById('cancel-delete-btn');
-        const deleteModal = document.getElementById('delete-confirm-modal');
-
-        if (confirmDeleteBtn && deleteModal) {
-            confirmDeleteBtn.addEventListener('click', async () => {
-                if (tributeToDeleteIndex !== null) {
-                    savedTributes.splice(tributeToDeleteIndex, 1);
-                    
-                    // Save to server first
-                    await saveLiveTributes(savedTributes);
-                    renderTributes();
-                    
-                    // Close modal smoothly
-                    deleteModal.classList.remove('show');
-                    setTimeout(() => {
-                        deleteModal.style.display = 'none';
-                    }, 300);
-                    
-                    showPremiumToast("Tribute Deleted", "Your tribute was removed successfully. 👋");
-                    tributeToDeleteIndex = null;
-                }
-            });
-        }
-
-        if (cancelDeleteBtn && deleteModal) {
-            cancelDeleteBtn.addEventListener('click', () => {
-                deleteModal.classList.remove('show');
-                setTimeout(() => {
-                    deleteModal.style.display = 'none';
-                }, 300);
-                tributeToDeleteIndex = null;
-            });
-        }
-
-        if (tributeForm && tributesContainer) {
-            // Load and Render live database on page load
-            loadLiveTributes();
-
-            tributeForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                
-                const name = document.getElementById('author-name').value;
-                const role = document.getElementById('author-role').value;
-                const message = document.getElementById('tribute-message').value;
-
-                // Calculate current Date & Time dynamically
-                const now = new Date();
-                const dateTimeStr = now.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' }) + 
-                                   ' at ' + 
-                                   now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
-
-                // Save to local & live database
-                const newTribute = { name, role, message, date: dateTimeStr };
-                savedTributes.unshift(newTribute);
-                
-                // Save to server first
-                await saveLiveTributes(savedTributes);
-                
-                // Render UI
-                renderTributes();
-                tributeForm.reset();
-                
-                // Trigger the beautiful slide-in toast notification instead of browser alert
-                showPremiumToast("JazakAllah, " + name + "!", "Thank you for your beautiful tribute. 🙏💚");
-            });
-        }
-    </script>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="status" id="status">
+  <div class="status-inner">
+    <div class="chapter-head">
+      <span class="mono">07 — Current Over</span>
+      <h2>Where Things Stand</h2>
+    </div>
+    <p>As of mid-2026, Khan remains imprisoned at Adiala Jail, facing well over a hundred cases across Pakistan, while continuing to lead PTI in opposition. His legal team is pursuing court appeals, including in the Al-Qadir Trust case, alongside medical-grounds petitions related to his eye condition.</p>
+    <p class="pull">To supporters, a wrongfully persecuted leader; to critics, a politician facing legitimate legal accountability — few figures in the region draw a more polarised response.</p>
+    <p>Analysts have suggested that any resolution may ultimately depend less on individual court rulings than on a broader political settlement between PTI and Pakistan's military establishment.</p>
+    <span class="as-of mono">Status current as of August 2026</span>
+  </div>
+</section>
+
+<footer>
+  A neutral, factual overview compiled from public reporting. Dates and case details are subject to revision as events develop.
+</footer>
+
+<div class="credit">
+  <p>Developed by <span>Saad Ali</span></p>
+</div>
+
+<script>
+  (function(){
+    var burger = document.getElementById('burgerBtn');
+    var menu = document.getElementById('mobileMenu');
+
+    function openMenu(){
+      burger.classList.add('is-active');
+      menu.classList.add('is-open');
+      burger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu(){
+      burger.classList.remove('is-active');
+      menu.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    burger.addEventListener('click', function(){
+      if(menu.classList.contains('is-open')) closeMenu(); else openMenu();
+    });
+
+    menu.querySelectorAll('[data-close-menu]').forEach(function(link){
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeMenu();
+    });
+  })();
+
+  (function(){
+    var tabs = document.querySelectorAll('.gtab');
+    var cards = document.querySelectorAll('.gcard');
+    tabs.forEach(function(tab){
+      tab.addEventListener('click', function(){
+        tabs.forEach(function(t){ t.classList.remove('active'); });
+        tab.classList.add('active');
+        var filter = tab.getAttribute('data-filter');
+        cards.forEach(function(card){
+          var show = (filter === 'all' || card.getAttribute('data-cat') === filter);
+          card.classList.toggle('is-hidden', !show);
+        });
+      });
+    });
+
+    var catPage = document.getElementById('catPage');
+    var openBtn = document.getElementById('openCatPage');
+    var closeBtn = document.getElementById('closeCatPage');
+
+    function openCatPage(){
+      catPage.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeCatPage(){
+      catPage.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    openBtn.addEventListener('click', openCatPage);
+    closeBtn.addEventListener('click', closeCatPage);
+    catPage.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeCatPage();
+    });
+
+    document.querySelectorAll('.cat-tile').forEach(function(tile){
+      tile.addEventListener('click', function(){
+        var cat = tile.getAttribute('data-cat');
+        var jumpId = tile.getAttribute('data-jump');
+        closeCatPage();
+        var matchingTab = document.querySelector('.gtab[data-filter="' + cat + '"]');
+        if(matchingTab) matchingTab.click();
+        setTimeout(function(){
+          var target = document.getElementById(jumpId) || document.getElementById('gallery');
+          if(target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 60);
+      });
+    });
+  })();
+</script>
 </body>
 </html>
